@@ -1,0 +1,8 @@
+{
+    "DB": {
+        "DATABASE": "intalliance",
+        "USERNAME": "root",
+        "PASSWORD": "asdf;lkj"
+    },
+    "SECRET_KEY": "6c0d1733ee8a06a2bdba07906429d126"
+}
