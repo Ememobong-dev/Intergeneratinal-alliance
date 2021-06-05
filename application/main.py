@@ -61,3 +61,18 @@ def join():
 @main.route("/mission", methods=["GET"])
 def mission():
     return render_template("mission.html")
+
+
+@main.route("/partner-beauty", methods=["GET"])
+def partner_beauty():
+    return render_template("partnerBeauty.html")
+
+
+@main.route("/partners", methods=["GET"])
+def partners():
+    return render_template("partners.html")
+
+
+@main.route("/portfolio", methods=["GET"])
+def portfolio():
+    return render_template("portfolio.html")
