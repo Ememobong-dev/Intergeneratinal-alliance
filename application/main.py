@@ -45,7 +45,7 @@ def financial():
 
 @main.route("/forum", methods=["GET"])
 def forum():
-    return render_template("forum.html")
+    return render_template("forums.html")
 
 
 @main.route("/gallery", methods=["GET"])
