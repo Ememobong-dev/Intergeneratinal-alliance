@@ -79,19 +79,19 @@
 	</nav>
   <!-- END nav -->
 
-    <section class="financial_report py-5 pt-80 pb-100">
+    <section class="partner_beauty py-5 pt-80 pb-100">
         <div class="container">
             <div class="row py-5">
                 <div class="col-md-4 d-md-flex">
                     <div class="forum_img">
-                      <a href="videos/1 Min Snippet final.mp4" class=" popup-video  justify-content-center align-items-center"><img src="images/img-2.png" alt="snippet img" class="img-fluid" width="350px"></a> 
+                      <a href=" {{ url_for('static' , filename='videos/1 Min Snippet final.mp4' ) }}" class=" popup-video  justify-content-center align-items-center"><img src="{{ url_for('static' , filename='images/img-2.png' ) }}" alt="snippet img" class="img-fluid" width="350px"></a> 
                       <div class="forum_header mt-3">
                         <h6>Snippet</h6>
                       </div>
                     </div>
                   <!--  -->
                   <div class="forum_img ml-md-5">
-                    <a href="videos/Intergenerational Alliance (20 mins Version).mp4" class=" popup-video  justify-content-center align-items-center"><img src="images/img-3.png" alt="img" class="img-fluid" width="350px"></a> 
+                    <a href=" {{ url_for('static' , filename=' videos/Intergenerational Alliance (20 mins Version).mp4' ) }}" class=" popup-video  justify-content-center align-items-center"><img src="{{ url_for('static' , filename='images/img-3.png' ) }}" alt="img" class="img-fluid" width="350px"></a> 
                     <div class="forum_header mt-3">
                       <h6>Full Video</h6>
                     </div>
@@ -99,65 +99,30 @@
                 </div>
                 <div class="col-md-4 d-md-flex offset-md-4">
                   <div class="forum_img ">
-                    <a href="meetingReport.pdf" download="meeting report"><img src="images/img-4.png" alt="" class="img-fluid" width="350px"></a> 
+                    <a href="" download="meeting report"><img src="{{ url_for('static' , filename='images/img-4.png' ) }}" alt="" class="img-fluid" width="350px"></a> 
                     <div class="forum_header mt-3">
                       <h6>Meeting Report</h6>
                     </div>
                   </div>
                  <!--  -->
                  <div class="forum_img ml-md-5">
-                    <a href=""><img src="images/img-5.png" alt="" class="img-fluid" width="350px"></a> 
+                    <a href=""><img src="{{ url_for('static' , filename='images/img-5.png' ) }}" alt="" class="img-fluid" width="350px"></a> 
                     <div class="forum_header mt-3">
                       <h6>Gallery</h6>
                     </div>
                   </div>
                </div>
-                <!-- <div class="col-md-3">
-                    <div class="forum_img">
-                        <a href="videos/1 Min Snippet final.mp4" class=" popup-video  justify-content-center align-items-center"><img src="images/img-2.png" alt="snippet img" class="img-fluid" width="250px"></a> 
-                    </div>
-                    <div class="forum_header mt-5">
-                        <h6>Snippet</h6>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="forum_img">
-                      <a href="videos/Intergenerational Alliance (20 mins Version).mp4" class=" popup-video  justify-content-center align-items-center"><img src="images/img-3.png" alt="img" class="img-fluid" width="250px"></a> 
-                    </div>
-                    <div class="forum_header mt-5">
-                        <h6>Full Video</h6>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="forum_img">
-                       <a href="meetingReport.pdf" download="meeting report"><img src="images/img-4.png" alt="" class="img-fluid" width="250px"></a> 
-                    </div>
-                    <div class="forum_header mt-5">
-                        <h6>Meeting Report</h6>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                  <div class="forum_img">
-                     <a href=""><img src="images/img-5.png" alt="" class="img-fluid" width="250px"></a> 
-                  </div>
-                  <div class="forum_header mt-5">
-                      <h6>Gallery</h6>
-                  </div>
-              </div> -->
-                
             </div>
         </div>
     </section>
 
-
- 
 
   <footer class="site-footer footer">
     <div class="container">
       <div class=" line-top"></div>
       <div class="row">
         <div class="col-md-4">
-          <a class="mr-4" href="{{ url_for('main.index') }}"> <img src="{{ url_for('static', filename='images/logo/smallLogo.png' ) }}" class="img-fluid " alt="logo"></a>
+          <a class="mr-4" href=""> <img src="{{ url_for('static', filename='images/logo/smallLogo.png' ) }}" class="img-fluid " alt="logo"></a>
         </div>
         <div class="col-md-4">
           <div class="social-navs">
@@ -186,6 +151,7 @@
   <script src="{{ url_for('static' , filename='./node_modules/popper.js/dist/popper.min.js' ) }}"></script>
   <script src="{{ url_for('static' , filename='./node_modules/bootstrap/dist/js/bootstrap.min.js' ) }}"></script>
   <script src="{{ url_for('static' , filename='js/owl.carousel.min.js' ) }}"></script>
+  <script src="{{ url_for('static' , filename='js/jquery.magnific-popup.min.js' ) }}"></script>
   <script src="{{ url_for('static' , filename='./node_modules/stellar/index.js' ) }}"></script>
   <script src="{{ url_for('static' , filename='./node_modules/scrollax/scrollax.min.js' ) }}"></script>
   <script src="{{ url_for('static' , filename='js/jquery.fancybox.min.js' ) }}"></script>

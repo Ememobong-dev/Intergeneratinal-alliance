@@ -119,7 +119,7 @@
 	</nav>
   <!-- END nav -->
 
-    <section class="artists_profile pt-80">
+    <section class="artists_profile py-5">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 my-auto" >
@@ -133,11 +133,11 @@
                      <!-- Swiper -->
                     <div class="swiper-container">
                         <div class="swiper-wrapper mt-3 ">
-                            <div class="swiper-slide"><img src="images/post-s-4.jpg" />
+                            <div class="swiper-slide"><img src="{{ url_for('static' , filename='images/post-s-4.jpg' ) }}" />
                             </div>
-                            <div class="swiper-slide"><img src="images/gallery2.png" />
+                            <div class="swiper-slide"><img src="{{ url_for('static' , filename='images/gallery2.png' ) }}" />
                             </div>
-                            <div class="swiper-slide"><img src="images/gallery3.png" />
+                            <div class="swiper-slide"><img src="{{ url_for('static' , filename='images/gallery3.png' ) }}" />
                             </div>
                        
                         </div>
@@ -202,6 +202,7 @@
   <script src="{{ url_for('static' , filename='./node_modules/popper.js/dist/popper.min.js' ) }}"></script>
   <script src="{{ url_for('static' , filename='./node_modules/bootstrap/dist/js/bootstrap.min.js' ) }}"></script>
   <script src="{{ url_for('static' , filename='js/owl.carousel.min.js' ) }}"></script>
+  <script src="{{ url_for('static' , filename='js/jquery.magnific-popup.min.js' ) }}"></script>
   <script src="{{ url_for('static' , filename='./node_modules/stellar/index.js' ) }}"></script>
   <script src="{{ url_for('static' , filename='./node_modules/scrollax/scrollax.min.js' ) }}"></script>
   <script src="{{ url_for('static' , filename='js/jquery.fancybox.min.js' ) }}"></script>
