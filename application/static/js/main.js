@@ -20,6 +20,8 @@
   //   });
   // };
 
+
+
   	// navigation
     var OnePageNavigation = function() {
       var navToggler = $('.site-menu-toggle');
@@ -37,6 +39,14 @@
       });
     };
     OnePageNavigation();
+
+    $(window).scroll(function() {
+      if ($(".navbar").offset().top > 50) {
+          $(".fixed-top").addClass("top-nav-collapse");
+      } else {
+          $(".fixed-top").removeClass("top-nav-collapse");
+      }
+    });
 
 
   		setTimeout(function() {
@@ -103,6 +113,33 @@
 
    // Scrollax
   $.Scrollax();
+
+  $("a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 600, 'easeInOutExpo', function(){
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+
+
+  $('.popup-video').magnificPopup({
+    disableOn: 200,
+    type: 'iframe',
+    mainClass: 'mfp-fade',
+    removalDelay: 160,
+    preloader: false,
+
+    fixedContentPos: false
+  });
+
+
+
 
    var carousel = function() {
        $('.wwd-slider').owlCarousel({
