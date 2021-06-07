@@ -975,6 +975,10 @@ border-radius: 50px;
 
 }
 
+
+/* artists$partner */
+
+
 /* Forum */
 .financial_report .forum_img img {
     cursor: pointer;
@@ -1558,7 +1562,7 @@ border-radius: 50px;
         background: 0 0; 
     }
     .custom-navbar.top-nav-collapse {
-        background: #ffffff;
+        background: #D7D1CA;
         box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.08);
         padding: 0;
     }
@@ -1640,6 +1644,17 @@ border-radius: 50px;
     }
   }
 
+
+  .CS-2 {
+      margin-top: -25%;
+  }
+
+  @media (min-width: 991px) {
+    .CS-2 {
+        margin-top: -15%;
+    }
+  }
+
 /* Footer */
 
 /* footer */
@@ -1658,6 +1673,8 @@ border-radius: 50px;
 @media (min-width: 768px) {
     .site-footer {
         padding: 0; 
+    min-height: 50px;
+
     } 
 }
 
@@ -1668,7 +1685,7 @@ border-radius: 50px;
 }
 
 .site-footer .line-top {
-    margin-top: 0.6rem;
+    margin-top: 2rem;
     margin-bottom: 1.5rem;
     border:0;
     border-top:1px solid rgba(0,0,0,.1);
@@ -1688,13 +1705,20 @@ border-radius: 50px;
 }
 
 .fa-font {
-    font-size: 24px;
+    font-size: 14px;
     margin-right: 10px;
 }
   .copyright {
-    margin-top: 12px;
+    margin-top: 5px;
     margin-bottom: 0 !important;
   }
+
+  /* @media (min-height: 1400px) {
+    .copyright {
+        margin-top: 20%;
+        margin-bottom: 0 !important;
+      }
+  } */
 
 
   .mouseTeam {
