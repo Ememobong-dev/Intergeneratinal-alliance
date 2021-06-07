@@ -1,7 +1,9 @@
 import json
+from re import U
 from flask import Flask, session, redirect, request, url_for, Response, Blueprint
 from functools import wraps
 from . import mysql
+from .utils import *
 from werkzeug.wrappers import response
 
 api = Blueprint("api", __name__, url_prefix="/api")
@@ -40,6 +42,20 @@ def admin_required(f):
         return f(*args, **kwargs)
 
     return decorated
+
+
+@api.route("/upload", methods=["POST"])
+def upload():
+    print(request.files)
+    # folder = request.json["folder"]
+    file = request.files["file"]
+    if request.content_length <= 50000000:
+        upload = upload_file_to_s3(request.files["file"], "test/")
+        res = {"file_url": upload}
+        return Response(json.dumps(res), status=200, mimetype="application/json")
+    else:
+        res = {"error": "File Size is greater than 50MB"}
+        return Response(json.dumps(res), status=400, mimetype="application/json")
 
 
 @api.route("/artists", methods=["GET", "POST"])
@@ -699,3 +715,4 @@ def edit_info(id):
     "profile": "Temi Davids is a woman intrested in empowering africa",
     "image_url": "https://fabwoman.ng/wp-content/uploads/2019/05/Temi-Otedola-net-worth.jpg",
 }
+{"folder": "hello"}
