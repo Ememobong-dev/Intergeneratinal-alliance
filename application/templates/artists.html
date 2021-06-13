@@ -27,12 +27,13 @@
             /* overflow: visible; */
             width: 100%;
             height: 100%;
+            /* margin-top: -50px; */
         }
 
       .swiper-slide {
             cursor: pointer;
             text-align: center;
-            font-size: 18px;
+            font-size: 14px;
             background: transparent;
             /* Center slide text vertically */
             display: -webkit-box;
@@ -130,65 +131,70 @@
         </div>
     </div>
 
-  <nav class="navbar navbar-expand-lg  navbar-two custom-navbar  bg-nabvarColor fixed-top" id="ftco-navbar">
-    <div class="container-fluid px-md-5">
-      <a class="navbar-brand" href="{{ url_for('main.index') }}" > <img src="{{ url_for('static', filename='images/logo/Logo-02.png')}}" class="img-fluid logo" alt=""></a>
-      <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav ml-auto">
-          <li class="has-children  active">
-            <a href="{{ url_for('main.index') }}" class="nav-link">About <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-            <ul class="dropdown">
-              <li class="nav-item"><a href="{{ url_for('main.mission') }}" class="nav-link">Mission</a></li>
-              <li class="nav-item"><a href="{{ url_for('main.financial') }}" class="nav-link">Financial Reports</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a href="{{ url_for('main.forum') }}" class="nav-link">Forums</a></li>
-          <li class="has-children">
-            <a href="{{ url_for('main.partners') }}" class="nav-link">Partners <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-            <ul class="dropdown">
-            <li class="nav-item"><a hrefs="{{ url_for('main.artists') }}" class="nav-link">ARTISTS</a></li>
-           <li class="nav-item"><a href="{{ url_for('main.aidrtwo') }}" class="nav-link">ARTIST IN DIGITAL RESIDENCE</a></li>
-            <li class="nav-item"><a href="{{ url_for('main.donors') }}" class="nav-link">DONORS</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a href="{{ url_for('main.join') }}" class="nav-link">Join Us</a></li>
-          <li class="nav-item"><a href="#" id="search-btn" class="nav-link"><i class="fa fa-search    "></i></a></li>
-        </ul>
-        
-      </div>
-    </div>
-	</nav>
-  <!-- END nav -->
-
-    <!-- Swiper -->
-    <div class="swiper-container">
-        <div class="swiper-wrapper mt-3 ">
-            <div class="swiper-slide"><img src="http://www.beyconsulting.it/Factanza/wp-content/uploads/2021/02/3.png" />
-            </div>
-            <div class="swiper-slide"><img src="http://www.beyconsulting.it/Factanza/wp-content/uploads/2021/02/2.png" />
-            </div>
-            <div class="swiper-slide"><img src="http://www.beyconsulting.it/Factanza/wp-content/uploads/2021/02/1.png" />
-            </div>
-            <div class="swiper-slide"><img src="http://www.beyconsulting.it/Factanza/wp-content/uploads/2021/02/3.png" />
-            </div>
-            <div class="swiper-slide"><img src="http://www.beyconsulting.it/Factanza/wp-content/uploads/2021/02/2.png" />
-            </div>
-            <div class="swiper-slide"><img src="http://www.beyconsulting.it/Factanza/wp-content/uploads/2021/02/1.png" />
-            </div>
+    <nav class="navbar navbar-expand-lg  navbar-two custom-navbar  bg-nabvarColor fixed-top" id="ftco-navbar">
+      <div class="container-fluid px-md-5">
+        <a class="navbar-brand" href="{{ url_for('main.index') }}" > <img src="{{ url_for('static', filename='images/logo/Logo-02.png')}}" class="img-fluid logo" alt=""></a>
+        <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav ml-auto">
+            <li class="has-children">
+              <a href="{{ url_for('main.index') }}" class="nav-link">About <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+              <ul class="dropdown">
+                <li class="nav-item"><a href="{{ url_for('main.mission') }}" class="nav-link">Mission</a></li>
+                <li class="nav-item"><a href="{{ url_for('main.financial') }}" class="nav-link">Financial Reports</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a href="{{ url_for('main.forum') }}" class="nav-link">Forums</a></li>
+            <li class="has-children active">
+              <a href="{{ url_for('main.partners') }}" class="nav-link">Partners <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+              <ul class="dropdown">
+              <li class="nav-item"><a href="{{ url_for('main.artists') }}" class="nav-link">ARTISTS</a></li>
+             <li class="nav-item"><a href="{{ url_for('main.aidrtwo') }}" class="nav-link">ARTIST IN DIGITAL RESIDENCE</a></li>
+              <li class="nav-item"><a href="{{ url_for('main.donors') }}" class="nav-link">DONORS</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a href="{{ url_for('main.join') }}" class="nav-link">Join Us</a></li>
+            <li class="nav-item"><a href="#" id="search-btn" class="nav-link"><i class="fa fa-search    "></i></a></li>
+          </ul>
+          
         </div>
-        <!-- Add Arrows -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
-      <div class="container CS-2">
-         <div class=" text-3d-light">COMING SOON</div>
       </div>
+    </nav>
+    <!-- END nav -->
+
+
+  <div class="containerss">
+        <!-- Swiper -->
+        <div class="swiper-container">
+          <div class="swiper-wrapper mt-3 ">
+              <div class="swiper-slide"><img src="http://www.beyconsulting.it/Factanza/wp-content/uploads/2021/02/3.png" />
+              </div>
+              <div class="swiper-slide"><img src="http://www.beyconsulting.it/Factanza/wp-content/uploads/2021/02/2.png" />
+              </div>
+              <div class="swiper-slide"><img src="http://www.beyconsulting.it/Factanza/wp-content/uploads/2021/02/1.png" />
+              </div>
+              <div class="swiper-slide"><img src="http://www.beyconsulting.it/Factanza/wp-content/uploads/2021/02/3.png" />
+              </div>
+              <div class="swiper-slide"><img src="http://www.beyconsulting.it/Factanza/wp-content/uploads/2021/02/2.png" />
+              </div>
+              <div class="swiper-slide"><img src="http://www.beyconsulting.it/Factanza/wp-content/uploads/2021/02/1.png" />
+              </div>
+          </div>
+          <!-- Add Arrows -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+      </div>
+        <div class="container CS-2">
+           <div class=" text-3d-light">COMING SOON</div>
+        </div>
+  
+
+  </div>
 
     
   <footer class="site-footer footer">
@@ -251,6 +257,7 @@
   <script src="{{ url_for('static' , filename='./node_modules/stellar/index.js' ) }}"></script>
   <script src="{{ url_for('static' , filename='./node_modules/scrollax/scrollax.min.js' ) }}"></script>
   <script src="{{ url_for('static' , filename='js/jquery.fancybox.min.js' ) }}"></script>
+  <script src="{{ url_for('static' , filename='js/easing.min' ) }}"></script>
   <script src="{{ url_for('static' , filename='js/main.js' ) }}"></script>
 </body>
 

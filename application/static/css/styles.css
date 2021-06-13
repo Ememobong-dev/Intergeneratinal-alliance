@@ -12,36 +12,12 @@
 
 body {
 	font-family: 'Poppins', sans-serif;
-	font-size: 15px;
+	font-size: 14px;
 	font-weight: 400;
 	color: #000000;
     background: #5B8BBC;
  }
 
- .partnerBeauty {
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background: url(../images/img-1.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    position: relative; 
-    color: #FFFFFF;
-    /* text-align: center; */
- }
-
- .partnerBeauty .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    content: '';
-    opacity: .8;
-    width: 100%;
-    height: 100vh;
-    background: #292828; 
-}
 
  a:hover {
     color: initial;
@@ -157,7 +133,7 @@ ul
 
 .navbar-nav li{
     padding: 0 20px;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .navbar-nav li a{
@@ -690,7 +666,7 @@ ul
 
 .navbar-nav li{
     padding: 0 20px;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .navbar-nav li a{
@@ -804,7 +780,7 @@ border-radius: 50px;
 
 .search-close-btn {
     color: #5B8BBC;
-    font-size: 30px;
+    font-size: 24px;
     top: 8px;
     position: absolute;
     right: 0;
@@ -823,7 +799,7 @@ border-radius: 50px;
 
 .sub-about .container p{
     font-weight: 500px;
-    font-size: 15px;
+    font-size: 14px;
 }
 @media(min-width: 991px) {
     .sub-about .col-12{
@@ -927,7 +903,7 @@ border-radius: 50px;
 
 .missionStatement h4{
     text-transform: capitalize;
-    font-weight: bolder;
+    font-weight: bold;
 }
 @media(min-width: 768px) {
     .missionStatement {
@@ -974,10 +950,6 @@ border-radius: 50px;
     background: whitesmoke;
 
 }
-
-
-/* artists$partner */
-
 
 /* Forum */
 .financial_report .forum_img img {
@@ -1264,17 +1236,21 @@ border-radius: 50px;
 
 /* airtists profile */
 .artists_profile {
-    padding-top: 150px;
+    padding-top: 20px;
     text-align: left;
 }
 
 @media(max-width:760px) {
     .artists_profile {
-        padding-top: 40px;
+        padding-top: 10%;
         text-align: center;
     }
 }
 
+.swiper-slide .img{
+    width: 100%;
+    height: 60%;
+}
 
 /*  */
 /* Navbar */
@@ -1724,4 +1700,49 @@ border-radius: 50px;
   .mouseTeam {
       margin-top: 9%;
   }
+  .containerss,
+  .partnerBeauty{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* padding: 20px 100px; */
+  }
+
+  .containerss:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: url("../images/artistic-bg.png") no-repeat center;
+    background-size: cover;
+    filter: blur(20px);
+    z-index: -1;
+  }
+
   
+    .partnerBeauty:after {
+    content: '';
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    margin: 0;
+	background: url("../images/img-1.png") no-repeat center;
+    /* background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../images/img-1.png"); */
+    background-size: cover;
+    filter: blur(20px);
+    z-index: -1;
+    }
+
+    /* .hero {
+        height: 100vh;
+        background-image: linear-gradient(rgba(0, 105, 233, 0.8),rgba(0, 105, 233, 0.8)),url(../images/img-1.png);
+        background-position: center;
+        background-size: cover;
+    } */

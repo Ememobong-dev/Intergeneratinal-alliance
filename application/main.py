@@ -71,8 +71,3 @@ def partner_beauty():
 @main.route("/partners", methods=["GET"])
 def partners():
     return render_template("partners.html")
-
-
-@main.route("/portfolio", methods=["GET"])
-def portfolio():
-    return render_template("portfolio.html")
