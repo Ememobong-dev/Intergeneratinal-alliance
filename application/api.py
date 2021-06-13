@@ -1,7 +1,9 @@
 import json
+from re import U
 from flask import Flask, session, redirect, request, url_for, Response, Blueprint
 from functools import wraps
 from . import mysql
+from .utils import *
 from werkzeug.wrappers import response
 
 api = Blueprint("api", __name__, url_prefix="/api")
@@ -40,6 +42,19 @@ def admin_required(f):
         return f(*args, **kwargs)
 
     return decorated
+
+
+@api.route("/upload", methods=["POST"])
+def upload():
+    print(request.json)
+    file = request.files["file"]
+    if request.content_length <= 50000000:
+        upload = upload_file_to_s3(request.files["file"], "test/")
+        res = {"file_url": upload}
+        return Response(json.dumps(res), status=200, mimetype="application/json")
+    else:
+        res = {"error": "File Size is greater than 50MB"}
+        return Response(json.dumps(res), status=400, mimetype="application/json")
 
 
 @api.route("/artists", methods=["GET", "POST"])
@@ -361,6 +376,88 @@ def edit_donors(id):
 
     if request.method == "DELETE":
         cursor.execute("DELETE FROM donors WHERE id=%s", (id))
+        db_connection.commit()
+        return Response(status=200)
+
+
+@api.route("/aidr", methods=["GET", "POST"])
+def aidr():
+    db_connection = mysql.connect()
+    cursor = db_connection.cursor()
+
+    if request.method == "GET":
+        cursor.execute("SELECT * FROM artist_in_residence")
+        query_result = cursor.fetchall()
+        return Response(
+            json.dumps(query_result), status=200, mimetype="application/json"
+        )
+
+    if request.method == "POST":
+        try:
+            cursor.execute(
+                "SELECT * FROM artist_in_residence WHERE artist_name=%s ",
+                (request.json["artist_name"]),
+            )
+            if cursor.fetchone() == None:
+                cursor.execute(
+                    "INSERT INTO artist_in_residence (artist_name ,artist_image, artist_title, artist_profile, artist_works_url ) VALUES (%s , %s , %s, %s, %s) ",
+                    (
+                        request.json["artist_name"],
+                        request.json["artist_image"],
+                        request.json["artist_title"],
+                        request.json["artist_profile"],
+                        request.json["artist_works_url"],
+                    ),
+                )
+                db_connection.commit()
+                return Response(status=200)
+
+            msg = {"error": [f"field {request.json['artist_name']}  already exists"]}
+            return Response(json.dumps(msg), status=400, mimetype="application/json")
+
+        except KeyError as err:
+            res = {"error": [f"This field {str(err)} is required"]}
+            return Response(json.dumps(res), status=400, mimetype="application/json")
+        except Exception as e:
+            print(e)
+            return Response(status=400)
+
+
+@api.route("/aidr/<int:id>", methods=["GET", "PUT", "DELETE"])
+def edit_aidr(id):
+    db_connection = mysql.connect()
+    cursor = db_connection.cursor()
+    cursor.execute("SELECT * FROM artist_in_residence WHERE id=%s", (id))
+    query_result = cursor.fetchone()
+    if query_result == None:
+        return Response(status=404)
+
+    if request.method == "GET":
+        return query_result
+
+    if request.method == "PUT":
+        try:
+            cursor.execute(
+                "UPDATE artist_in_residence SET artist_name = %s,artist_image= %s , artist_title= %s , artist_profile= %s, artist_works_url= %s  WHERE (id = %s)",
+                (
+                    request.json["artist_name"],
+                    request.json["artist_image"],
+                    request.json["artist_title"],
+                    request.json["artist_profile"],
+                    request.json["artist_works_url"],
+                    id,
+                ),
+            )
+            db_connection.commit()
+            return Response(status=200)
+        except KeyError as err:
+            res = {"error": [f"This field {str(err)}is required"]}
+            return Response(json.dumps(res), status=400, mimetype="application/json")
+        except:
+            return Response(status=400)
+
+    if request.method == "DELETE":
+        cursor.execute("DELETE FROM artist_in_residence WHERE id=%s", (id))
         db_connection.commit()
         return Response(status=200)
 
@@ -694,8 +791,3 @@ def edit_info(id):
 # 'dict_type', 'execute', 'executemany', 'fetchall', 'fetchmany', 'fetchone', 'lastrowid', 'max_stmt_length', 'mogrify', 'nextset', 'rowcount', 'rownumber',
 # 'scroll', 'setinputsizes', 'setoutputsizes']
 
-{
-    "name": "Temi Davids",
-    "profile": "Temi Davids is a woman intrested in empowering africa",
-    "image_url": "https://fabwoman.ng/wp-content/uploads/2019/05/Temi-Otedola-net-worth.jpg",
-}
