@@ -1,4 +1,4 @@
-import json
+import json, hashlib
 from re import U
 from flask import Flask, session, redirect, request, url_for, Response, Blueprint
 from functools import wraps
@@ -42,6 +42,38 @@ def admin_required(f):
         return f(*args, **kwargs)
 
     return decorated
+
+
+@api.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        email = request.form["email"].strip().lower()
+        password = request.form["password"]
+
+        try:
+            db_connection = mysql.connect()
+            cursor = db_connection.cursor()
+            cursor.execute("SELECT * FROM artists WHERE email=%s", (email))
+
+            user = cursor.fetchone()
+            if (
+                hashlib.sha512(password.encode()).hexdigest()
+                == user["data"]["password"]
+            ):
+                session["user"] = {
+                    "id": user["id"],
+                    "username": user["username"],
+                    "email": user["email"],
+                    "is_admin": user["is_admin"],
+                }
+                return redirect(url_for("chat"))
+            else:
+                raise Exception()
+        except:
+            res = {"error": [f"You have supplied an incorrect login credential"]}
+            return Response(json.dumps(res), status=400, mimetype="application/json")
+    res = {"success": [f"Login successful"]}
+    return Response(json.dumps(res), status=200, mimetype="application/json")
 
 
 @api.route("/upload", methods=["POST"])
