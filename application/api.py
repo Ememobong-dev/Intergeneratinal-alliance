@@ -782,6 +782,249 @@ def edit_info(id):
         return Response(status=200)
 
 
+###################### Endpoints where anonymous users have post permission ##################
+
+
+@api.route("/get-in-touch", methods=["GET", "POST"])
+def get_in_touch():
+    db_connection = mysql.connect()
+    cursor = db_connection.cursor()
+
+    if request.method == "GET":
+        cursor.execute("SELECT * FROM get_in_touch")
+        query_result = cursor.fetchall()
+        return Response(
+            json.dumps(query_result), status=200, mimetype="application/json"
+        )
+
+    if request.method == "POST":
+        try:
+            cursor.execute(
+                "SELECT * FROM get_in_touch WHERE message=%s ",
+                (request.json["message"]),
+            )
+            if cursor.fetchone() == None:
+                cursor.execute(
+                    "INSERT INTO info (full_name, email, message ) VALUES (%s , %s, %s) ",
+                    (
+                        request.json["full_name"],
+                        request.json["email"],
+                        request.json["message"],
+                    ),
+                )
+                db_connection.commit()
+                return Response(status=200)
+
+            msg = {"error": [f"field {request.json['message']}  already exists"]}
+            return Response(json.dumps(msg), status=400, mimetype="application/json")
+
+        except KeyError as err:
+            res = {"error": [f"This field {str(err)} is required"]}
+            return Response(json.dumps(res), status=400, mimetype="application/json")
+        except Exception as e:
+            print(e)
+            return Response(status=400)
+
+
+@api.route("/get-in-touch/<int:id>", methods=["GET", "PUT", "DELETE"])
+def edit_get_in_touch():
+    db_connection = mysql.connect()
+    cursor = db_connection.cursor()
+    cursor.execute("SELECT * FROM get_in_touch WHERE id=%s", (id))
+    query_result = cursor.fetchone()
+    if query_result == None:
+        return Response(status=404)
+
+    if request.method == "GET":
+        return query_result
+
+    if request.method == "PUT":
+        try:
+            cursor.execute(
+                "UPDATE get_in_touch SET full_name = %s ,email = %s , message = %s WHERE (id = %s)",
+                (
+                    request.json["full_name"],
+                    request.json["email"],
+                    request.json["message"],
+                    id,
+                ),
+            )
+            db_connection.commit()
+            return Response(status=200)
+        except KeyError as err:
+            res = {"error": [f"This field {str(err)}is required"]}
+            return Response(json.dumps(res), status=400, mimetype="application/json")
+        except:
+            return Response(status=400)
+
+    if request.method == "DELETE":
+        cursor.execute("DELETE FROM get_in_touch WHERE id=%s", (id))
+        db_connection.commit()
+        return Response(status=200)
+
+
+@api.route("/participation_request", methods=["GET", "POST"])
+def participation_request():
+    db_connection = mysql.connect()
+    cursor = db_connection.cursor()
+
+    if request.method == "GET":
+        cursor.execute("SELECT * FROM participation_request")
+        query_result = cursor.fetchall()
+        return Response(
+            json.dumps(query_result), status=200, mimetype="application/json"
+        )
+
+    if request.method == "POST":
+        try:
+            cursor.execute(
+                "SELECT * FROM participation_request WHERE id=%s ",
+                (1000000),
+            )
+            if cursor.fetchone() == None:
+                cursor.execute(
+                    "INSERT INTO participation_request (full_name ,email , phone_number , age_range, job, lga) VALUES (%s , %s , %s, %s, %s , %s) ",
+                    (
+                        request.json["full_name"],
+                        request.json["email"],
+                        request.json["phone_number"],
+                        request.json["age_range"],
+                        request.json["job"],
+                        request.json["lga"],
+                    ),
+                )
+                db_connection.commit()
+                return Response(status=200)
+
+            msg = {"error": [f"field 10000000 already exists"]}
+            return Response(json.dumps(msg), status=400, mimetype="application/json")
+
+        except KeyError as err:
+            res = {"error": [f"This field {str(err)} is required"]}
+            return Response(json.dumps(res), status=400, mimetype="application/json")
+        except Exception as e:
+            print(e)
+            return Response(status=400)
+
+
+@api.route("/participation_request/<int:id>", methods=["GET", "PUT", "DELETE"])
+def edit_participation_request():
+    db_connection = mysql.connect()
+    cursor = db_connection.cursor()
+    cursor.execute("SELECT * FROM participation_request WHERE id=%s", (id))
+    query_result = cursor.fetchone()
+    if query_result == None:
+        return Response(status=404)
+
+    if request.method == "GET":
+        return query_result
+
+    if request.method == "PUT":
+        try:
+            cursor.execute(
+                "UPDATE participation_request SET full_name = %s,email = %s, phone_number = %s, age_range = %s, job = %s, lga= %s WHERE (id = %s)",
+                (
+                    request.json["full_name"],
+                    request.json["email"],
+                    request.json["phone_number"],
+                    request.json["age_range"],
+                    request.json["job"],
+                    request.json["lga"],
+                    id,
+                ),
+            )
+            db_connection.commit()
+            return Response(status=200)
+        except KeyError as err:
+            res = {"error": [f"This field {str(err)}is required"]}
+            return Response(json.dumps(res), status=400, mimetype="application/json")
+        except:
+            return Response(status=400)
+
+    if request.method == "DELETE":
+        cursor.execute("DELETE FROM participation_request WHERE id=%s", (id))
+        db_connection.commit()
+        return Response(status=200)
+
+
+@api.route("/forum-suggestion", methods=["GET", "POST"])
+def forum_suggestion():
+    db_connection = mysql.connect()
+    cursor = db_connection.cursor()
+
+    if request.method == "GET":
+        cursor.execute("SELECT * FROM forum_suggestion")
+        query_result = cursor.fetchall()
+        return Response(
+            json.dumps(query_result), status=200, mimetype="application/json"
+        )
+
+    if request.method == "POST":
+        try:
+            cursor.execute(
+                "SELECT * FROM  forum_suggestion WHERE message=%s ",
+                (request.json["message"]),
+            )
+            if cursor.fetchone() == None:
+                cursor.execute(
+                    "INSERT INTO info (full_name, email, message ) VALUES (%s , %s, %s) ",
+                    (
+                        request.json["full_name"],
+                        request.json["email"],
+                        request.json["message"],
+                    ),
+                )
+                db_connection.commit()
+                return Response(status=200)
+
+            msg = {"error": [f"field {request.json['message']}  already exists"]}
+            return Response(json.dumps(msg), status=400, mimetype="application/json")
+
+        except KeyError as err:
+            res = {"error": [f"This field {str(err)} is required"]}
+            return Response(json.dumps(res), status=400, mimetype="application/json")
+        except Exception as e:
+            print(e)
+            return Response(status=400)
+
+
+@api.route("/forum-suggestion/<int:id>", methods=["GET", "PUT", "DELETE"])
+def edit_forum_suggestion():
+    db_connection = mysql.connect()
+    cursor = db_connection.cursor()
+    cursor.execute("SELECT * FROM forum_suggestion WHERE id=%s", (id))
+    query_result = cursor.fetchone()
+    if query_result == None:
+        return Response(status=404)
+
+    if request.method == "GET":
+        return query_result
+
+    if request.method == "PUT":
+        try:
+            cursor.execute(
+                "UPDATE forum_suggestion SET full_name = %s ,email = %s , message = %s WHERE (id = %s)",
+                (
+                    request.json["full_name"],
+                    request.json["email"],
+                    request.json["message"],
+                    id,
+                ),
+            )
+            db_connection.commit()
+            return Response(status=200)
+        except KeyError as err:
+            res = {"error": [f"This field {str(err)}is required"]}
+            return Response(json.dumps(res), status=400, mimetype="application/json")
+        except:
+            return Response(status=400)
+
+    if request.method == "DELETE":
+        cursor.execute("DELETE FROM forum_suggestion WHERE id=%s", (id))
+        db_connection.commit()
+        return Response(status=200)
+
+
 # ['DataError', 'DatabaseError', 'Error', 'IntegrityError', 'InterfaceError', 'InternalError', 'NotSupportedError',
 # 'OperationalError', 'ProgrammingError', 'Warning', '__class__',
 # '__delattr__', '__dict__', '__dir__', '__doc__', '__enter__', '__eq__', '__exit__', '__format__', '__ge__', '__getattribute__', '__gt__',
@@ -790,4 +1033,3 @@ def edit_info(id):
 # '_escape_args', '_executed', '_fields', '_get_db', '_last_executed', '_nextset', '_query', '_result', '_rows', 'arraysize', 'callproc', 'close', 'connection', 'description',
 # 'dict_type', 'execute', 'executemany', 'fetchall', 'fetchmany', 'fetchone', 'lastrowid', 'max_stmt_length', 'mogrify', 'nextset', 'rowcount', 'rownumber',
 # 'scroll', 'setinputsizes', 'setoutputsizes']
-
