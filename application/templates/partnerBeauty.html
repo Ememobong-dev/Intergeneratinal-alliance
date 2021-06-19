@@ -116,35 +116,38 @@
     </section>
 
 
-  <footer class="site-footer footer">
-    <div class="container">
-      <div class=" line-top"></div>
-      <div class="row">
-        <div class="col-md-4">
-          <a class="mr-4" href=""> <img src="{{ url_for('static', filename='images/logo/smallLogo.png' ) }}" class="img-fluid " alt="logo"></a>
-        </div>
-        <div class="col-md-4">
-          <div class="social-navs">
-            <a href="{{ url_for('main.index') }}">About</a>
-            <a href="{{ url_for('main.forum') }}">Forums</a>
-            <a href="{{ url_for('main.partners') }}">Partners</a>
-            <a href="{{ url_for('main.join') }}">Join Us</a>
+    <div class="site-footer pt-5 ">
+      <div class="container">
+          <div class="line-top"></div>
+          <div class="row text-center">
+              <div class="col-md-4"> <a href="" class="m-0 site-logo"><img src="{{ url_for('static' , filename='images/logo/smallLogo.png' ) }}" width="80px"  alt=""></a> </div>
+              <div class="col-md-4">
+                  <ul class="footer-link">
+                      <li><a href="{{ url_for('main.index') }}">About</a></li>
+                      <li><a href="{{ url_for('main.forum') }}">Forums</a></li>
+                      <li><a href="{{ url_for('main.partners') }}">Partners</a></li>
+                      <li><a href="{{ url_for('main.join') }}">Join Us</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-4">
+                  <ul class="footer-link">
+                      <li><a href="#"> <i class="fa fa-facebook" aria-hidden="true"></i> </a></li>
+                      <li><a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i> </a></li>
+                      <li><a href="#"> <i class="fa fa-twitter" aria-hidden="true"></i> </a></li>
+                      <li><a href="#"> <i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                     
+                  </ul>
+              </div>
+              
           </div>
-        </div>
-        <div class="col-md-4 social-navs">
-            <a href=""> <span class="fa fa-facebook fa-font" aria-hidden="true"></span></a>
-            <a href=""> <span class="fa fa-instagram fa-font" aria-hidden="true"></span></a>
-            <a href=""> <span class="fa fa-twitter fa-font" aria-hidden="true"></span></a>
-            <a href=""><span  class="fa fa-youtube-play fa-font" aria-hidden="true"></span></a>
-        </div>
+          <div class="row copyright">
+              <div class="col-md-12 text-center">
+              <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> Intergenerational Alliance. All Rights Reserved</p>
+              </div>
+          </div>
       </div>
-      <div class="row copyright">
-				<div class="col-md-12 text-center">
-				<p> <strong> Copyright &copy; <script>document.write(new Date().getFullYear());</script> Intergenerational Alliance. All Rights Reserved.</strong></p>
-				</div>
-			</div>
-    </div>
-  </footer>
+      <!-- footer ends  -->
+  </div>
 
   <script src="{{ url_for('static' , filename='./node_modules/jquery/dist/jquery.min.js' ) }}"></script>
   <script src="{{ url_for('static' , filename='./node_modules/popper.js/dist/popper.min.js' ) }}"></script>
