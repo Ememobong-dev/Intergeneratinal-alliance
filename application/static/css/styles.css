@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900');
+/* @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900'); */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=EB+Garamond:300,400&display=swap');
 
 *
 {
@@ -11,11 +12,17 @@
 }
 
 body {
-	font-family: 'Poppins', sans-serif;
-	font-size: 14px;
+    /* font-family: 'Cormorant Garamond', serif; */
+    font-family: 'EB Garamond', serif;
+    font-size: 15px;
 	font-weight: 400;
-	color: #000000;
+	color: #fff !important;
     background: #5B8BBC;
+ }
+
+ p {
+    font-size: larger;
+
  }
 
 
@@ -133,12 +140,12 @@ ul
 
 .navbar-nav li{
     padding: 0 20px;
-    font-size: 14px;
+    
 }
 
 .navbar-nav li a{
     color: black;
-    font-size: 14px;
+    
 
 }
 
@@ -199,23 +206,14 @@ ul
 }
 
 .slider-text h1 {
-    font-size: 48px;
     color: #fff;
     line-height: 1.2;
     font-weight: 700;
-    font-family: "Poppins", Arial, sans-serif; 
     text-align: center;
 }
-@media (max-width: 991.98px) {
-    .slider-text h1 {
-    font-size: 40px; 
 
-} 
-}
   
 .slider-text .subheading {
-    font-size: 15px;
-    font-family: "Poppins", Arial, sans-serif;
     font-weight: 600; 
 }
 
@@ -225,7 +223,6 @@ ul
 
 .sub-about .container p{
     font-weight: 500px;
-    font-size: 15px;
 }
 
 .about-section.text,
@@ -245,7 +242,6 @@ ul
 }
 
 .section-title h3 {
-    font-size: 27px;
     font-weight: bold;
     margin-bottom: 40px;
 }
@@ -371,7 +367,6 @@ ul
 }
 
 .wwd-slider_inner h5 {
-    font-size: 18px;
     font-weight: bold;
 
 }
@@ -518,12 +513,11 @@ ul
 
 /* navbar */
 .bg-nabvarColor{
-    background-color: #D7D1CA;
+    background-color: #191919;
 }
 
 .navbar-nav li{
     padding: 0 20px;
-    font-size: 15px;
 }
 
 .navbar-nav li a{
@@ -549,7 +543,7 @@ ul
 }
 
 .navbar-nav li.drop_active {
-    background: #D7D1CA;
+    background: #191919;
 }
 
 
@@ -610,7 +604,7 @@ border-radius: 50px;
 /* Search form */
 .fancy-search-form {
     width: 100%;
-    background-color: #D7D1CA;
+    background-color: #191919;
     height: 100px;
     position: fixed;
     top: -130px;
@@ -628,7 +622,6 @@ border-radius: 50px;
 
 .fancy-search-form form input {
     width: 100%;
-    font-size: 26px;
     color: #000000;
     background-color: transparent;
     border: none;
@@ -637,7 +630,6 @@ border-radius: 50px;
 
 .search-close-btn {
     color: #5B8BBC;
-    font-size: 30px;
     top: 8px;
     position: absolute;
     right: 0;
@@ -656,7 +648,6 @@ border-radius: 50px;
 
 .sub-about .container p{
     font-weight: 500px;
-    font-size: 15px;
 }
 @media(min-width: 991px) {
     .sub-about .col-12,
@@ -666,7 +657,7 @@ border-radius: 50px;
 }
 
 .report-stand a{
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #fff;
 }
 /* responsive media queries */
 /* Mouse scroll effect */
@@ -770,7 +761,8 @@ border-radius: 50px;
 
 /* Misision */
 
-.missionStatement h4{
+.missionStatement h4,
+.team-name h4{
     text-transform: capitalize;
     font-weight: bolder;
 }
@@ -781,15 +773,14 @@ border-radius: 50px;
         text-align: left;
     }
 }
-.Our_mission .container .row .order-md-2{
-    text-align: right;
+.missionStatement.order-md-2 p{
+    color: #973842;
 }
 
-@media(max-width: 767px ){
-    .Our_mission .container .row .order-md-2{
-        text-align: center;
-    }
+.text-pitch {
+    color: #973842;
 }
+
 .order-md-1 {
     -webkit-box-ordinal-group: 2;
     -ms-flex-order: 1;
@@ -930,7 +921,6 @@ border-radius: 50px;
 
 .AIDR .text-3d,
 .text-3d  {
-    font-size: 5rem;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -967,17 +957,10 @@ border-radius: 50px;
 }
 
 .text-3d {
-    font-size: 3rem;
     color: black;
-    font-family: 'poppins';
 }
 
-@media(max-width: 990px) {
-    .AIDR .text-3d,
-    .text-3d   {
-        font-size: 2rem;
-    }
-}
+
 @media(max-width: 767px) {
     .AIDR .text-3d,
     .text-3d   {
@@ -1007,7 +990,6 @@ border-radius: 50px;
     top: 0;
     left: 0;
     transform: none;
-    font-size: 3rem;
     color: #fff;
     text-shadow: 
 
@@ -1139,7 +1121,6 @@ border-radius: 50px;
   
   .navbar-brand {
     color: white;
-    font-size: 1.4rem;
     font-weight: bold;
   }
   
@@ -1245,7 +1226,6 @@ border-radius: 50px;
   }
   
   .tm-hero-title {
-    font-size: 3.5rem;
     text-shadow: 2px 2px 2px #333;
   }
   
@@ -1356,14 +1336,13 @@ border-radius: 50px;
     color: #333;
 	text-shadow: 1px 1px #fff;
     font-weight: bold;
-    font-size: 24px;
     line-height: 35px;
     letter-spacing: 1px;
 }
 
 .custom-navbar .nav li a {
     color: #666;
-    font-size: 14px;
+    
     font-weight: 400;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -1407,7 +1386,7 @@ border-radius: 50px;
         background: 0 0; 
     }
     .custom-navbar.top-nav-collapse {
-        background: #D7D1CA;
+        background: #191919;
         box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.08);
         padding: 0;
     }
@@ -1423,9 +1402,9 @@ border-radius: 50px;
     background-repeat: no-repeat;
     background-position: center center;
     position: relative; 
-    color: #000000;
+    color: #fff;
     text-align: center;
-    font-size: 14px;
+    
     margin-bottom: 0 !important;
 
 }
@@ -1448,7 +1427,7 @@ border-radius: 50px;
     margin-top: 2rem;
     margin-bottom: 1.5rem;
     border:0;
-    border-top:1px solid rgba(0,0,0,.1);
+    border-top:1px solid #fff;
 }
 
 .site-footer .social-navs> a {
@@ -1461,11 +1440,11 @@ border-radius: 50px;
 }
 
 .site-footer a:hover {
-    color: #000; 
+    color: #fff; 
 }
 
 .fa-font {
-    font-size: 14px;
+    
     margin-right: 10px;
 }
   .copyright {
@@ -1571,7 +1550,7 @@ border-radius: 50px;
 
 		.nav-pills .nav-link,
 		.nav-pills .nav-link:hover {
-			font-size: 14px;
+			
 			width: 100%;
 			color: #fff;
 			/* margin-right: 20px; */
@@ -1606,46 +1585,41 @@ border-radius: 50px;
   outline: none;
   -webkit-box-shadow: none;
   box-shadow: none;
-  font-size: 14px;
-  font-family: "Open Sans", sans-serif;
+  
   font-style: italic;
   color: #000;
   background: #5B8BBC;
 }
 
 .contact_us_form .form-group input.placeholder {
-  font-size: 14px;
+  
   text-align: center;
   margin-top: 10px;
-  font-family: "Open Sans", sans-serif;
   font-style: italic;
   color: #ccc;
 
 }
 
 		.contact_us_form .form-group input:-moz-placeholder {
-		font-size: 14px;
+		
         text-align: center;
         margin-top: 10px;
-		font-family: "Open Sans", sans-serif;
 		font-style: italic;
 		color: #ccc;
 		}
 
 		.contact_us_form .form-group input::-moz-placeholder {
-		font-size: 14px;
+		
         text-align: center;
         margin-top: 10px;
-		font-family: "Open Sans", sans-serif;
 		font-style: italic;
 		color: #ccc;
 		}
 
 		.contact_us_form .form-group input::-webkit-input-placeholder {
-		font-size: 14px;
+		
         text-align: center;
         margin-top: 10px;
-		font-family: "Open Sans", sans-serif;
 		font-style: italic;
 		color: #ccc;
 		}
@@ -1666,17 +1640,15 @@ border-radius: 50px;
 		outline: none;
 		-webkit-box-shadow: none;
 		box-shadow: none;
-		font-size: 14px;
-		font-family: "Open Sans", sans-serif;
+		
 		font-style: italic;
 		color: #ccc;
 		background: #5B8BBC;
 		}
 		.contact_us_form .form-group .placeholder {
-		font-size: 14px;
+		
         text-align: center;
         margin-top: 10px;
-		font-family: "Open Sans", sans-serif;
 		font-style: italic;
 		color: #ccc;
 
@@ -1699,8 +1671,7 @@ border-radius: 50px;
 		outline: none;
 		-webkit-box-shadow: none;
 		box-shadow: none;
-		font-size: 14px;
-		font-family: "Open Sans", sans-serif;
+		
 		font-style: italic;
 		color: #ccc;
 		resize: none;
@@ -1708,37 +1679,33 @@ border-radius: 50px;
 		}
 
 		.contact_us_form .form-group textarea.placeholder {
-		font-size: 14px;
+		
         text-align: center;
         margin-top: 10px;
-		font-family: "Open Sans", sans-serif;
 		font-style: italic;
 		color: #ccc;
 		}
 
 		.contact_us_form .form-group textarea:-moz-placeholder {
-		font-size: 14px;
+		
         text-align: center;
         margin-top: 10px;
-		font-family: "Open Sans", sans-serif;
 		font-style: italic;
 		color: #ccc;
 		}
 
 		.contact_us_form .form-group textarea::-moz-placeholder {
-		font-size: 14px;
+		
         text-align: center;
         margin-top: 10px;
-		font-family: "Open Sans", sans-serif;
 		font-style: italic;
 		color: #ccc;
 		}
 
 		.contact_us_form .form-group textarea::-webkit-input-placeholder {
-		font-size: 14px;
+		
         text-align: center;
         margin-top: 10px;
-		font-family: "Open Sans", sans-serif;
 		font-style: italic;
 		color: #ccc;
 		}
@@ -1757,7 +1724,7 @@ border-radius: 50px;
 			border-right: none;
 			border-bottom: 2px solid #000;
 			height: 50px;
-            color: #D7D1CA;
+            color: #191919;
             text-align: center;
 			/* outline: transparent; */
 		}
@@ -1787,7 +1754,7 @@ border-radius: 50px;
 
 .site-footer {
     /* border-top: 1px solid #E53170; */
-    color: #000;
+    color: #fff;
   }
   
   .sub-btn {
