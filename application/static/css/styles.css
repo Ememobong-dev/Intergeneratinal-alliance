@@ -696,8 +696,12 @@ border-radius: 50px;
 }
 
 /* AIDR */
-.pt-100 {
+.pb-100 {
     padding-bottom: 20%;
+}
+
+.pt-top {
+    padding-top: 15%;
 }
 
 .AIDR .text-3d,
@@ -1544,3 +1548,6 @@ border-radius: 50px;
     color: #fff;
   }
 
+.aidr_profile img {
+    margin-bottom: 20px;
+}

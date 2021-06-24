@@ -108,16 +108,12 @@
      </div>
  </section>
 
-
-
- 
-
  <div class="site-footer pt-5 ">
     <div class="container">
         <div class="line-top"></div>
-        <div class="row text-center">
-            <div class="col-md-4"> <a href="" class="m-0 site-logo"><img src="{{ url_for('static' , filename='images/logo/smallLogo.png' ) }}" width="80px"  alt=""></a> </div>
-            <div class="col-md-4">
+        <div class="row align-items-center">
+            <div class="col-md-4"> <a href="" class="m-0 site-logo"><img src="{{ url_for('static' , filename='images/logo/Logo-05.png' ) }}" width="80px"  alt=""></a> </div>
+            <div class="col-md-4 mx-auto">
                 <ul class="footer-link">
                     <li><a href="{{ url_for('main.index') }}">About</a></li>
                     <li><a href="{{ url_for('main.forum') }}">Forums</a></li>
@@ -125,7 +121,7 @@
                     <li><a href="{{ url_for('main.join') }}">Join Us</a></li>
                 </ul>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 mx-auto">
                 <ul class="footer-link">
                     <li><a href="#"> <i class="fa fa-facebook" aria-hidden="true"></i> </a></li>
                     <li><a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i> </a></li>
@@ -144,6 +140,7 @@
     </div>
     <!-- footer ends  -->
 </div>
+
 
 <script src="{{ url_for('static' , filename='./node_modules/jquery/dist/jquery.min.js' ) }}"></script>
 <script src="{{ url_for('static' , filename='./node_modules/popper.js/dist/popper.min.js' ) }}"></script>
