@@ -13,6 +13,25 @@
 </head>
 <body>
 
+        <!-- Search Form Area -->
+        <div class="fancy-search-form d-flex align-items-center">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-12">
+                      <!-- Close Btn -->
+                      <div class="search-close-btn" id="closeBtn">
+                        <i class="fa fa-window-close" aria-hidden="true"></i>
+                      </div>
+                      <!-- Form -->
+                      <form action="#" method="get">
+                          <input type="" name="fancySearch" id="search" placeholder="Enter Search">
+                          <input type="submit" class="d-none" value="submit">
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+
   <!-- Preloader Start -->
   <div id="preloader">
     <div class="loader">
@@ -79,7 +98,7 @@
         <div class="col-12">
           <div class="d-block d-md-flex" data-aos="fade-right">
             <div class="missionStatement mt-5 order-md-1">
-              <p>The Intergenerational Alliance was formed to foster bottom-up dialogue between young and old, rich and poor, and across genders on various matters affecting Nigerian society 
+              <p>The Intergenerational Alliance was formed to foster bottom-up dialogue between young and old, rich and poor, and across genders on various matters affecting Nigerian society.
             </div>
             <div class="wwdSpacer order-md-2"></div>
           </div>
@@ -174,7 +193,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12" data-aos="fade-left">
-          <p class="report-stand text-right"><a href="">FINANCIAL REPORTS</a></p>
+          <p class="report-stand text-right"><a href="{{ url_for('main.financial') }}">FINANCIAL REPORTS</a></p>
         </div>
       </div>
     </div>
@@ -229,10 +248,5 @@
   <script src="{{ url_for('static' , filename='js/aos.js' ) }}"></script>
   <script src="{{ url_for('static' , filename='js/jquery.sticky.js' ) }}"></script>
   <script src="{{ url_for('static' , filename='js/main.js' ) }}"></script>
-  <!-- <script>
-    $('.mouse-team').scrollspy({
-      target: '#navId'
-    });
-  </script> -->
 </body>
 </html>

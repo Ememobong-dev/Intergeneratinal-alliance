@@ -4,14 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intergenerational alliance</title>
-    <link rel="stylesheet" href="{{ url_for( 'static' , filename= 'node_modules/bootstrap/dist/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static' , filename= 'node_modules/font-awesome/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static' , filename='css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for( 'static' , filename='css/owl.theme.default.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/jquery.fancybox.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/magnific-popup.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for( 'static' , filename= 'node_modules/bootstrap/dist/css/bootstrap.min.css') }}"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ url_for ( 'static', filename='css/styles.css') }}">
-    
 </head>
 <body>
 
@@ -43,160 +39,75 @@
         </div>
     </div>
 
-  <nav class="navbar navbar-expand-lg bg-nabvarColor fixed-top" id="ftco-navbar">
-    <div class="container-fluid px-md-5">
-      <a class="navbar-brand" href="{{ url_for('main.index') }}" > <img src="{{ url_for('static', filename='images/logo/Logo-02.png')}}" class="img-fluid logo" alt=""></a>
-      <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav ml-auto">
-          <li class="has-children  active">
-            <a href="{{ url_for('main.index') }}" class="nav-link">About <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-            <ul class="dropdown">
-              <li class="nav-item"><a href="{{ url_for('main.mission') }}" class="nav-link">Mission</a></li>
-              <li class="nav-item"><a href="{{ url_for('main.financial') }}" class="nav-link">Financial Reports</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a href="{{ url_for('main.forum') }}" class="nav-link">Forums</a></li>
-          <li class="has-children">
-            <a href="{{ url_for('main.partners') }}" class="nav-link">Partners <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
-            <ul class="dropdown">
-            <li class="nav-item"><a href="{{ url_for('main.artists') }}" class="nav-link">ARTISTS</a></li>
-           <li class="nav-item"><a href="{{ url_for('main.aidrtwo') }}" class="nav-link">ARTIST IN DIGITAL RESIDENCE</a></li>
-            <li class="nav-item"><a href="{{ url_for('main.donors') }}" class="nav-link">DONORS</a></li>
-            </ul>
-          </li>
-          <li class="nav-item"><a href="{{ url_for('main.join') }}" class="nav-link">Join Us</a></li>
-          <li class="nav-item"><a href="#" id="search-btn" class="nav-link"><i class="fa fa-search    "></i></a></li>
-        </ul>
-        
+    <div class="site-mobile-menu site-navbar-target">
+        <div class="site-mobile-menu-header">
+          <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+          </div>
+        </div>
+        <div class="site-mobile-menu-body"></div>
       </div>
-    </div>
-	</nav>
-  <!-- END nav -->
+    
+    
+    
+      <header class="site-navbar js-sticky-header site-navbar-target bg-nabvarColor" role="banner">
+    
+        <div class="container">
+          <div class="row align-items-center position-relative">
+    
+            <div class="col-lg-4 align-items-center">
+              <nav class="site-navigation text-right ml-auto " role="navigation">
+                <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+                  <li><a href="{{ url_for('main.index') }}" class="nav-link">About</a></li>
+                  <li><a href="{{ url_for('main.partners') }}" class="nav-link">Partners</a></li>
+                  <li><a href="{{ url_for('main.forum') }}" class="nav-link">Forums</a></li>
+                  <li><a href="#" id="search-btn" class="nav-link"><i class="fa fa-search    "></i></a></li> 
+    
+                </ul>
+              </nav>
+            </div>
+            <div class="col-lg-4  align-items-center text-center">
+              <div class="site-logo">
+                <a href="{{ url_for('main.index') }}"><img src="{{ url_for('static', filename='images/logo/Logo-02.png')}}" class="img-fluid logo" alt=""></a>
+              </div>
+    
+    
+              <div class="ml-auto toggle-button d-inline-block d-lg-none"><a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black"><span class="icon-menu h3 text-black"></span></a></div>
+            </div>
+            <div class="col-lg-4 align-items-center">
+              <nav class="site-navigation text-left mr-auto " role="navigation">
+                <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+                  <li><a href="{{ url_for('main.aidrtwo') }}" class="nav-link">Artist In Digital Residence</a></li>
+                  <li><a href="{{ url_for('main.join') }}" class="nav-link">Join</a></li>
+                  <li><a href="{{ url_for('main.donors') }}" class="nav-link">Donors</a></li> 
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+    
+      </header>
 
  <section class="financial_report  pt-80">
-     <div class="container">
-         <div class="row py-5">
-             <div class="col-6">
-                <div id="accordianId" role="tablist" aria-multiselectable="true">
-                    <div class="card">
-                        <div class="card-header" role="tab" id="section1HeaderId">
-                            <div class="d-flex justify-content-between">
-                                <h5 class="mb-0"> 2021</h5>
-                                <a data-toggle="collapse" data-parent="#accordianId" href="#section1ContentId" aria-expanded="true" aria-controls="section1ContentId">
-                                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                </a>
-                            </div>
-
-                        </div>
-                        <div id="section1ContentId" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId">
-                            <div class="card-body">
-                                2021 report
-                                <i class="fa fa-download" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- second -->
-                    <div class="card">
-                        <div class="card-header" role="tab" id="section1HeaderId2">
-                            <div class="d-flex justify-content-between">
-                                <h5 class="mb-0"> 2020</h5>
-                                <a data-toggle="collapse" data-parent="#accordianId" href="#section1ContentId2" aria-expanded="true" aria-controls="section1ContentId2">
-                                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                </a>
-                            </div>
-
-                        </div>
-                        <div id="section1ContentId2" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId2">
-                            <div class="card-body">
-                                2020 report
-                                <i class="fa fa-download" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Third -->
-                    <div class="card">
-                        <div class="card-header" role="tab" id="section1HeaderId3">
-                            <div class="d-flex justify-content-between">
-                                <h5 class="mb-0"> 2019</h5>
-                                <a data-toggle="collapse" data-parent="#accordianId" href="#section1ContentId3" aria-expanded="true" aria-controls="section1ContentId3">
-                                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                </a>
-                            </div>
-
-                        </div>
-                        <div id="section1ContentId3" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId3">
-                            <div class="card-body">
-                                2019 report
-                                <i class="fa fa-download" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Fourth -->
-                    <div class="card">
-                        <div class="card-header" role="tab" id="section1HeaderId4">
-                            <div class="d-flex justify-content-between">
-                                <h5 class="mb-0"> 2018</h5>
-                                <a data-toggle="collapse" data-parent="#accordianId" href="#section1ContentId4" aria-expanded="true" aria-controls="section1ContentId4">
-                                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                </a>
-                            </div>
-
-                        </div>
-                        <div id="section1ContentId4" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId4">
-                            <div class="card-body">
-                                2018 report
-                                <i class="fa fa-download" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- fifth -->
-                    <div class="card">
-                        <div class="card-header" role="tab" id="section1HeaderId5">
-                            <div class="d-flex justify-content-between">
-                                <h5 class="mb-0"> 2017</h5>
-                                <a data-toggle="collapse" data-parent="#accordianId" href="#section1ContentId5" aria-expanded="true" aria-controls="section1ContentId5">
-                                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                </a>
-                            </div>
-
-                        </div>
-                        <div id="section1ContentId5" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId5">
-                            <div class="card-body">
-                                2017 report
-                                <i class="fa fa-download" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- sixth -->
-                    <div class="card">
-                        <div class="card-header" role="tab" id="section1HeaderId6">
-                            <div class="d-flex justify-content-between">
-                                <h5 class="mb-0"> 2016</h5>
-                                <a data-toggle="collapse" data-parent="#accordianId" href="#section1ContentId6" aria-expanded="true" aria-controls="section1ContentId6">
-                                 <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                                </a>
-                            </div>
-
-                        </div>
-                        <div id="section1ContentId6" class="collapse in" role="tabpanel" aria-labelledby="section1HeaderId6">
-                            <div class="card-body">
-                                2016 report
-                                <i class="fa fa-download" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                    </div>
-                <!-- End of -->
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-6">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-lg btn-pitch dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    2020
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" download="" href="#">November Forum <i class="fa fa-download" aria-hidden="true"></i></a></li>
+                    <li><a class="dropdown-item" download="" href="#">December Forum <i class="fa fa-download" aria-hidden="true"></i></a></li>
+                    </ul>
                 </div>
-             </div>
-         </div>
+
+            </div>
+            
+        </div>
      </div>
  </section>
+
 
 
  
@@ -234,15 +145,21 @@
     <!-- footer ends  -->
 </div>
 
-  <script src="{{ url_for('static' , filename='./node_modules/jquery/dist/jquery.min.js' ) }}"></script>
-  <script src="{{ url_for('static' , filename='./node_modules/popper.js/dist/popper.min.js' ) }}"></script>
-  <script src="{{ url_for('static' , filename='./node_modules/bootstrap/dist/js/bootstrap.min.js' ) }}"></script>
-  <script src="{{ url_for('static' , filename='js/owl.carousel.min.js' ) }}"></script>
-  <script src="{{ url_for('static' , filename='js/jquery.magnific-popup.min.js' ) }}"></script>
-  <script src="{{ url_for('static' , filename='./node_modules/stellar/index.js' ) }}"></script>
-  <script src="{{ url_for('static' , filename='./node_modules/scrollax/scrollax.min.js' ) }}"></script>
-  <script src="{{ url_for('static' , filename='js/jquery.fancybox.min.js' ) }}"></script>
-  <script src="{{ url_for('static' , filename='js/main.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='./node_modules/jquery/dist/jquery.min.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='./node_modules/popper.js/dist/popper.min.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='./node_modules/bootstrap/dist/js/bootstrap.min.js' ) }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
+</script>
+<script src="{{ url_for('static' , filename='js/owl.carousel.min.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='js/jquery.magnific-popup.min.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='./node_modules/stellar/index.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='./node_modules/scrollax/scrollax.min.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='js/jquery.fancybox.min.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='js/easing.min.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='js/aos.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='js/jquery.sticky.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='js/main.js' ) }}"></script>
   
 </body>
 </html>

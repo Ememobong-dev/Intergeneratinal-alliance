@@ -25,7 +25,8 @@
       margin-bottom: 0; }
       .site-navbar .site-navigation .site-menu .active {
         color: #fff !important;
-        font-weight: bolder; }
+        font-weight: bolder;
+        font-size: 18px; }
       .site-navbar .site-navigation .site-menu a {
         text-decoration: none !important;
         display: inline-block; }
@@ -37,7 +38,9 @@
           padding: 20px 0px;
           color: #fff !important;
           display: inline-block;
-          text-decoration: none !important; }
+          text-decoration: none !important; 
+          text-transform: uppercase;
+          font-size: 12px;}
           .site-navbar .site-navigation .site-menu > li > a:hover {
             color: #fff; }
         .site-navbar .site-navigation .site-menu > li.active > a {
