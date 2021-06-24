@@ -1,8 +1,3 @@
-.icon-close2:before {
-    content: "\e5cd";
-  }
-
-
 .site-navbar {
     margin-bottom: 0px;
     z-index: 1999;
@@ -176,7 +171,7 @@
           -o-transition: .3s all ease;
           transition: .3s all ease; }
           .site-mobile-menu .site-mobile-menu-header .site-mobile-menu-close span:hover {
-            color: #ced4da; }
+            color: red; }
       .site-mobile-menu .site-mobile-menu-header .site-mobile-menu-logo {
         float: left;
         margin-top: 10px;
@@ -185,7 +180,7 @@
           display: inline-block;
           text-transform: uppercase; }
           .site-mobile-menu .site-mobile-menu-header .site-mobile-menu-logo a img {
-            max-width: 70px; }
+            max-width: 50px; }
           .site-mobile-menu .site-mobile-menu-header .site-mobile-menu-logo a:hover {
             text-decoration: none; }
     .site-mobile-menu .site-mobile-menu-body {

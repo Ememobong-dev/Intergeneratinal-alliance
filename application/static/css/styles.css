@@ -1,5 +1,15 @@
 /* @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900'); */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=EB+Garamond:300,400&display=swap');
+@import url('../node_modules/bootstrap/dist/css/bootstrap.min.css');
+@import url('../node_modules/font-awesome/css/font-awesome.css');
+@import url('../css/owl.carousel.min.css');
+@import url('../css/owl.theme.default.min.css');
+@import url('../css/jquery.fancybox.min.css');
+@import url('../css/magnific-popup.css');
+@import url('../css/stylesTwo.css');
+@import url('../css/aos.css');
+@import url('../node_modules/icomoon/style.css');
+
 
 *
 {
@@ -427,10 +437,10 @@ ul
 
 #preloader {
     overflow: hidden;
-    background: #5B8BBC;
-    /* background: -webkit-linear-gradient(to right, #b5bcc4, #5B8BBC);
-    background: -webkit-linear-gradient(left, #b5bcc4, #5B8BBC);
-    background: linear-gradient(to right, #b5bcc4, #5B8BBC ); */
+    background: #74BBE8;
+    /* background: -webkit-linear-gradient(to right, #b5bcc4, #74BBE8);
+    background: -webkit-linear-gradient(left, #b5bcc4, #74BBE8);
+    background: linear-gradient(to right, #b5bcc4, #74BBE8 ); */
     height: 100%;
     left: 0;
     position: fixed;
@@ -568,7 +578,7 @@ ul
     display: block;
     width: 25px;
     height: 3px;
-    background: #5B8BBC;
+    background: #74BBE8;
     margin: auto;
     margin-bottom: 4px;
     transition: all 400ms linear;
@@ -604,7 +614,7 @@ border-radius: 50px;
 /* Search form */
 .fancy-search-form {
     width: 100%;
-    background-color: #191919;
+    background-color: #74BBE8;
     height: 100px;
     position: fixed;
     top: -130px;
@@ -622,14 +632,14 @@ border-radius: 50px;
 
 .fancy-search-form form input {
     width: 100%;
-    color: #000000;
+    color: #fff;
     background-color: transparent;
     border: none;
     outline: none;
 }
 
 .search-close-btn {
-    color: #5B8BBC;
+    color: #fff;
     top: 8px;
     position: absolute;
     right: 0;
@@ -1588,7 +1598,7 @@ border-radius: 50px;
   
   font-style: italic;
   color: #000;
-  background: #5B8BBC;
+  background: #74BBE8;
 }
 
 .contact_us_form .form-group input.placeholder {
@@ -1643,7 +1653,7 @@ border-radius: 50px;
 		
 		font-style: italic;
 		color: #ccc;
-		background: #5B8BBC;
+		background: #74BBE8;
 		}
 		.contact_us_form .form-group .placeholder {
 		
@@ -1675,7 +1685,7 @@ border-radius: 50px;
 		font-style: italic;
 		color: #ccc;
 		resize: none;
-		background: #5B8BBC;
+		background: #74BBE8;
 		}
 
 		.contact_us_form .form-group textarea.placeholder {
