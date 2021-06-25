@@ -15,7 +15,7 @@ def aidr():
 
 @main.route("/aidrtwo", methods=["GET"])
 def aidrtwo():
-    return render_template("aidrtwo.html")
+    return render_template("AIDRtwo.html")
 
 
 @main.route("/artists_profile", methods=["GET"])
