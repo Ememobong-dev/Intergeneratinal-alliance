@@ -593,12 +593,17 @@ border-radius: 50px;
 }
 
 /* Forum */
-.financial_report .forum_img img {
+.forum_img img {
     cursor: pointer;
 }
-.financial_report .forum_header h4{
+.forum_header h5{
         font-weight: bold;
         cursor: pointer;
+        text-transform: capitalize;
+}
+.forum_header p {
+    text-transform: capitalize;
+
 }
 
 /* Partner */
