@@ -1246,8 +1246,9 @@ border-radius: 50px;
         .nav-pills {
             text-align: center;
             display: flex;
-            /* justify-content: space-between; */
-            justify-content: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            /* justify-content: center; */
         }
 
         @media(max-width: 767px){
@@ -1260,8 +1261,8 @@ border-radius: 50px;
         }
 
 		.nav-pills .nav-link.active{
-			background-color: #000;
-			border: solid #000;
+			background-color: #973842;
+			border: solid #973842;
 			border-radius: 30px;
 			opacity: 1;
 			font-weight: bold;
@@ -1269,8 +1270,8 @@ border-radius: 50px;
 
 		.nav-pills .nav-link {
 			border-radius: 30px;
-			border: 2px solid #000;
-			background-color: #48637ea2;
+			border: 2px solid #973842;
+			background-color: #973842;
 			opacity: 0.6;
 			margin-right: 10px;
 			margin-bottom: 10px;
@@ -1287,7 +1288,7 @@ border-radius: 50px;
 			transition: all ease 0.5s;
 		}
 		.nav-pills .nav-link:hover {
-			background-color: #000;
+			background-color: #973842;
 			color: #fff;
 		}
 
@@ -1308,13 +1309,12 @@ border-radius: 50px;
 .contact_us_form .form-group input {
   height: 50px;
   border: none;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #973842;
   border-radius: 0px;
   padding: 0px;
   outline: none;
   -webkit-box-shadow: none;
   box-shadow: none;
-  
   font-style: italic;
   color: #000;
   background: #74BBE8;
@@ -1325,7 +1325,9 @@ border-radius: 50px;
   text-align: center;
   margin-top: 10px;
   font-style: italic;
-  color: #ccc;
+  color: #fff;
+  opacity: 0.8;
+  text-transform: capitalize;
 
 }
 
@@ -1334,7 +1336,9 @@ border-radius: 50px;
         text-align: center;
         margin-top: 10px;
 		font-style: italic;
-		color: #ccc;
+		color: #fff;
+        opacity: 0.8;
+        text-transform: capitalize;
 		}
 
 		.contact_us_form .form-group input::-moz-placeholder {
@@ -1342,7 +1346,9 @@ border-radius: 50px;
         text-align: center;
         margin-top: 10px;
 		font-style: italic;
-		color: #ccc;
+		color: #fff;
+        opacity: 0.8;
+        text-transform: capitalize;
 		}
 
 		.contact_us_form .form-group input::-webkit-input-placeholder {
@@ -1350,7 +1356,9 @@ border-radius: 50px;
         text-align: center;
         margin-top: 10px;
 		font-style: italic;
-		color: #ccc;
+		color: #fff;
+        opacity: 0.8;
+        text-transform: capitalize;
 		}
 
 		.contact_us_form .form-group input:focus {
@@ -1363,7 +1371,7 @@ border-radius: 50px;
 		.contact_us_form .form-group select {
 		height: 30px;
 		border: none;
-		border-bottom: 2px solid #000;
+		border-bottom: 2px solid #973842;
 		border-radius: 0px;
 		padding: 5px 0px;
 		outline: none;
@@ -1371,7 +1379,9 @@ border-radius: 50px;
 		box-shadow: none;
 		
 		font-style: italic;
-		color: #ccc;
+		color: #fff;
+        opacity: 0.8;
+        text-transform: capitalize;
 		background: #74BBE8;
 		}
 		.contact_us_form .form-group .placeholder {
@@ -1379,7 +1389,9 @@ border-radius: 50px;
         text-align: center;
         margin-top: 10px;
 		font-style: italic;
-		color: #ccc;
+		color: #fff;
+        opacity: 0.8;
+        text-transform: capitalize;
 
 		}
 
@@ -1394,7 +1406,7 @@ border-radius: 50px;
 		.contact_us_form .form-group textarea {
 		height: 70px;
 		border: none;
-		border-bottom: 2px solid #000;
+		border-bottom: 2px solid #973842;
 		border-radius: 0px;
 		padding: 15px 0px;
 		outline: none;
@@ -1402,7 +1414,9 @@ border-radius: 50px;
 		box-shadow: none;
 		
 		font-style: italic;
-		color: #ccc;
+		color: #fff;
+        opacity: 0.8;
+        text-transform: capitalize;
 		resize: none;
 		background: #74BBE8;
 		}
@@ -1412,7 +1426,9 @@ border-radius: 50px;
         text-align: center;
         margin-top: 10px;
 		font-style: italic;
-		color: #ccc;
+		color: #fff;
+        opacity: 0.8;
+        text-transform: capitalize;
 		}
 
 		.contact_us_form .form-group textarea:-moz-placeholder {
@@ -1420,7 +1436,9 @@ border-radius: 50px;
         text-align: center;
         margin-top: 10px;
 		font-style: italic;
-		color: #ccc;
+		color: #fff;
+        opacity: 0.8;
+        text-transform: capitalize;
 		}
 
 		.contact_us_form .form-group textarea::-moz-placeholder {
@@ -1428,7 +1446,9 @@ border-radius: 50px;
         text-align: center;
         margin-top: 10px;
 		font-style: italic;
-		color: #ccc;
+		color: #fff;
+        opacity: 0.8;
+        text-transform: capitalize;
 		}
 
 		.contact_us_form .form-group textarea::-webkit-input-placeholder {
@@ -1436,7 +1456,9 @@ border-radius: 50px;
         text-align: center;
         margin-top: 10px;
 		font-style: italic;
-		color: #ccc;
+		color: #fff;
+        opacity: 0.8;
+        text-transform: capitalize;
 		}
 
 		.contact_us_form .form-group textarea:focus {
@@ -1451,7 +1473,7 @@ border-radius: 50px;
 			border-top: none;
 			border-left: none;
 			border-right: none;
-			border-bottom: 2px solid #000;
+			border-bottom: 2px solid #973842;
 			height: 50px;
             color: #191919;
             text-align: center;
