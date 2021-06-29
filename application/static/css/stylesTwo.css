@@ -348,8 +348,8 @@
             .banner-areaforumInner,
             .banner-partners,
             .banner-areajoin {
-              max-height: 500px;
-              height: 900px;
+              min-height: 1000px;
+              height: 1000px;
             }
           }
 
