@@ -98,7 +98,7 @@
 
 
 
-  <section class="content-area3 pt-80 py-5 pb-100">
+  <section class="content-area3 pt-80 py-lg-5 pb-100">
       <!-- <div class="containerss"> -->
         
         <!-- Swiper -->
@@ -189,6 +189,21 @@
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 40,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 220,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+      
+      }
     });
     </script>
 

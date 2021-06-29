@@ -373,7 +373,7 @@
           .content-area {
             width: 100%;
             position: relative;
-            top: 450px;
+            /* top: 450px; */
             background: #74BBE8;
             height: 100%;
             text-align: center;
@@ -397,7 +397,7 @@
           .content-area2 {
             width: 100%;
             position: relative;
-            top: 450px;
+            /* top: 450px; */
             background: #74BBE8;
             /* height: 35%; */
             /* min-height: 900px; */
@@ -410,7 +410,7 @@
           .content-area3 {
             width: 100%;
             position: relative;
-            top: 450px;
+            /* top: 450px; */
             background: #74BBE8;
             height: 100%;
             text-align: center;
@@ -422,7 +422,7 @@
             .content-area {
               width: 100%;
               position: relative;
-              top: 450px;
+              /* top: 450px; */
               background: #74BBE8;
               height: 100vh;
               max-height: 100%;
@@ -433,7 +433,7 @@
             .content-area2 {
               width: 100%;
               position: relative;
-              top: 450px;
+              /* top: 450px; */
               background: #74BBE8;
               height: 100vh;
               max-height: 100%;
@@ -446,7 +446,7 @@
             .content-area3 {
               width: 100%;
               position: relative;
-              top: 450px;
+              /* top: 450px; */
               background: #6f7274;
               height: 100vh;
               max-height: 100%;
@@ -461,6 +461,7 @@
             /* overflow: visible; */
             width: 100%;
             height: 100%;
+            background-color: #74BBE8;
         }
 
       .swiper-slide {
@@ -502,7 +503,7 @@
 
     @media(max-width: 767px) {
         .swiper-slide {
-             filter: blur(0px);
+          filter: blur(0px);
         }
         .swiper-slide-active{
             opacity: 2000;
