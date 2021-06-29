@@ -40,7 +40,7 @@
           display: inline-block;
           text-decoration: none !important; 
           text-transform: uppercase;
-          font-size: 12px;}
+          font-size: 15px;}
           .site-navbar .site-navigation .site-menu > li > a:hover {
             color: #fff; }
         .site-navbar .site-navigation .site-menu > li.active > a {
@@ -545,5 +545,12 @@
     color: #fff;
   }
   .btn-white:hover {
+    color: #fff;
+  }
+
+  .scroll-chevron {
+    color: #fff;
+  }
+  .scroll-chevron:hover{
     color: #fff;
   }

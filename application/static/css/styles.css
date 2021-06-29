@@ -515,7 +515,7 @@ border-radius: 50px;
       }
 
 .p-team {
-    padding-top: 30px;
+    padding-top: 100px;
 }
 
 @media (max-width: 900px) {
@@ -559,8 +559,16 @@ border-radius: 50px;
     color: #973842;
 }
 
-.text-pitch {
+.missionStatement  p{
+    line-height: 1.0rem;
+}
+
+.text-pitch{
     color: #973842;
+}
+.text-pitch:hover {
+    color: #973842;
+
 }
 
 .order-md-1 {
@@ -594,12 +602,19 @@ border-radius: 50px;
 }
 
 /* Forum */
-.forum_img img {
+.forum_img img,
+.partners_img img {
     cursor: pointer;
     -webkit-filter: drop-shadow(5px 5px 5px #222);
     filter: drop-shadow(5px 5px 5px #222);
-  
 }
+
+.partners_img img{
+    width: 100%;
+    min-width: 200px;
+
+}
+
 .forum_header h5{
         font-weight: bold;
         cursor: pointer;
