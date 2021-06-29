@@ -902,7 +902,8 @@ border-radius: 50px;
 
 .swiper-slide .img{
     width: 100%;
-    height: 60%;
+    /* height: 60%; */
+    border-radius: 30px;
 }
 
 /*  */
