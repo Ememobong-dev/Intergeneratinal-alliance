@@ -321,9 +321,10 @@
           .banner-partners,
           .banner-areajoin {
             width: 100%;
-            height: 700px;
-            max-height: 500px;
-            position: fixed;
+            height: 900px;
+            /* max-height: 500px; */
+            /* min-height: 700px; */
+            /* position: fixed; */
             /* top: 100px; */
             /* bottom: 0; */
             /* background-image: url('../images/forum-bg.png'); */
@@ -343,15 +344,15 @@
             }
           }
 
-          @media(min-height: 600px) {
+          /* @media(min-height: 600px) {
             .banner-area,
             .banner-areaforumInner,
             .banner-partners,
             .banner-areajoin {
-              min-height: 1000px;
-              height: 1000px;
+              max-height: 500px;
+              height: 900px;
             }
-          }
+          } */
 
           .banner-area h2,
           .banner-areaforumInner h2,
@@ -394,8 +395,6 @@
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../images/IMG_3144.png");
           }
           .banner-partners {
-            background-position: top center;
-
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../images/img-3145.png");
           }
           .banner-areajoin {
