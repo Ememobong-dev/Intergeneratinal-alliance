@@ -6,9 +6,10 @@
 @import url('../css/owl.theme.default.min.css');
 @import url('../css/jquery.fancybox.min.css');
 @import url('../css/magnific-popup.css');
-@import url('../css/stylesTwo.css');
 @import url('../css/aos.css');
 @import url('../node_modules/icomoon/style.css');
+@import url('../css/stylesTwo.css');
+
 
 
 *
@@ -1199,13 +1200,9 @@ border-radius: 50px;
     position: relative;
     width: 100%;
     height: 100%;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    /* padding: 20px 100px; */
   }
 
-  .containerss:after{
+  /* .containerss:after{
     content: '';
     position: absolute;
     width: 100%;
@@ -1216,7 +1213,7 @@ border-radius: 50px;
     background-size: cover;
     filter: blur(20px);
     z-index: -1;
-  }
+  } */
 
   
     .partnerBeauty:after {
