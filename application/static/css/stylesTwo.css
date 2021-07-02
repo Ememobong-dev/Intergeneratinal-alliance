@@ -360,7 +360,8 @@
           .banner-areaforumInner h2,
           .banner-partners h2,
           .banner-areajoin h2,
-          .banner-areaArtists h2 {
+          .banner-areaArtists h2,
+          .aidr-header h2 {
             padding-top: 35%;
             font-size: 70px;
             font-family: poppins;
@@ -369,12 +370,17 @@
             text-align: center;
           }
 
+          .aidr-header h2 {
+            padding-top: 5%;
+          }
+
           @media(max-width: 767px) {
             .banner-area h2,
             .banner-areaforumInner h2,
             .banner-partners h2,
             .banner-areajoin h2,
-            .banner-areaArtists h2 {
+            .banner-areaArtists h2,
+            .aidr-header h2 {
               padding-top: 28%;
               font-size: 40px;
               font-family: poppins;
