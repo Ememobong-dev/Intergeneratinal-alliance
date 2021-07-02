@@ -7,7 +7,7 @@
 @import url('../css/jquery.fancybox.min.css');
 @import url('../css/magnific-popup.css');
 @import url('../css/aos.css');
-@import url('../node_modules/icomoon/style.css');
+@import url('../css/icomoon/style.css');
 @import url('../css/stylesTwo.css');
 
 
@@ -52,9 +52,9 @@ ul
 	margin-bottom: 0px;
 }
 
-.logo {
+/* .logo {
     width: 85%;
-}
+} */
 
 .navbar-brand {
     display: none;
@@ -557,10 +557,6 @@ border-radius: 50px;
 }
 .missionStatement.order-md-2 p{
     color: #973842;
-}
-
-.missionStatement  p{
-    line-height: 1.0rem;
 }
 
 .text-pitch{
