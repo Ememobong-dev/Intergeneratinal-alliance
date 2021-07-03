@@ -13,9 +13,7 @@ def create_app():
     config = load_config()
     app.config["SECRET_KEY"] = config["SECRET_KEY"]
     app.config["MYSQL_DATABASE_HOST"] = config["DB"]["HOST"]
-    app.config[
-        "MYSQL_DATABASE_DB"
-    ] = config["DB"]["DATABASE"]
+    app.config["MYSQL_DATABASE_DB"] = config["DB"]["DATABASE"]
     app.config["MYSQL_DATABASE_USER"] = config["DB"]["USERNAME"]
     app.config["MYSQL_DATABASE_PASSWORD"] = config["DB"]["PASSWORD"]
     app.config["BUCKET_NAME"] = config["AWS"]["BUCKET_NAME"]
@@ -26,8 +24,10 @@ def create_app():
     # blueprint for auth routes in our app
     from .api import api
     from .main import main
+    from .admin import admin
 
     app.register_blueprint(api)
     app.register_blueprint(main)
+    app.register_blueprint(admin)
 
     return app
