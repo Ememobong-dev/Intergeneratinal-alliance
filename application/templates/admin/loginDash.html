@@ -22,7 +22,7 @@
                     <img src="{{ url_for('static', filename='images/logo/admin-logo.png')}}" alt="Nahedris Logo" class="img-fluid">
                 </div>
                 <div class="signIn-inputs">
-                    <form action="" method="post">
+                    <form action="{{ url_for('api.login')}}" id="admin_forms" method="POST">
                          <div class="form-group mb-3">
                              <input type="text" name="authName" id="authName" class="input--control" placeholder="Username">
                          </div>
@@ -50,6 +50,7 @@
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
     </script>
     <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
+    <script src="{{ url_for('static' , filename='admin/js/requestApi.js' ) }}"></script>
 </body>
 
 </html>
