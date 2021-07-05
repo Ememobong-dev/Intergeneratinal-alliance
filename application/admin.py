@@ -2,6 +2,10 @@ from flask import Flask, session, redirect, request, url_for, render_template, B
 
 admin = Blueprint("admin", __name__, url_prefix="/admin")
 
+@admin.route("/login", methods=["GET"])
+def admin_login():
+    return render("admin/loginDash.html")
+    
 @admin.route("/", methods=["GET"])
 def index_dashboard():
     return render_template("admin/index.html")

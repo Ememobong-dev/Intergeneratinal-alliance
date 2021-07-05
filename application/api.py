@@ -37,7 +37,7 @@ def admin_required(f):
             if user["is_admin"] == 1:
                 return f(*args, **kwargs)
             # If user is not admin, redirect to home
-            return redirect(url_for("home"))
+            return redirect(url_for("admin:index"))
         # If the http verb is safe, return response
         return f(*args, **kwargs)
 
