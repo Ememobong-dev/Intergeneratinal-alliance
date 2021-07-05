@@ -44,7 +44,7 @@ def admin_required(f):
     return decorated
 
 
-@api.route("/login", methods=["GET", "POST"])
+@api.route("/login", methods=["POST"])
 def login():
     if request.method == "POST":
         email = request.form["email"].strip().lower()
