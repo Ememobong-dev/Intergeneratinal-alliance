@@ -44,11 +44,15 @@ def admin_required(f):
     return decorated
 
 
-@api.route("/login", methods=["POST"])
+@api.route("/login", methods=["GET","POST"])
 def login():
     if request.method == "POST":
-        email = request.form["email"].strip().lower()
-        password = request.form["password"]
+        try:
+            email = request.form["email"].strip().lower()
+            password = request.form["password"]
+        except:
+            email = request.json["email"].strip().lower()
+            password = request.json["password"]            
 
         try:
             db_connection = mysql.connect()
@@ -66,12 +70,12 @@ def login():
                     "email": user["email"],
                     "is_admin": user["is_admin"],
                 }
-                return redirect(url_for("chat"))
+                return redirect(url_for("admin.index_dashboard"))
             else:
                 raise Exception()
         except:
             res = {"error": [f"You have supplied an incorrect login credential"]}
-            return Response(json.dumps(res), status=400, mimetype="application/json")
+            return Response(json.dumps(res), status=403, mimetype="application/json")
     res = {"success": [f"Login successful"]}
     return Response(json.dumps(res), status=200, mimetype="application/json")
 
