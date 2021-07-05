@@ -8,7 +8,7 @@ body {
     font-family: 'Times New Roman', Times, serif;
 	font-size: 15px;
 	color: #000000;
-    background: #5B8BBC;
+    background: #74BBE8;
 }
 
 .navbar-nav li{
@@ -143,5 +143,89 @@ main>.container {
 	width: 35px;
 	height: 35px;
 }
+
+
+  /* login  */
+  
+  .signIn {
+	padding-top: 100px;
+  }
+  
+  .signIn .logo img {
+	width: 20%;
+  }
+  
+  @media (max-width: 767px) {
+	.signIn .logo img {
+	  width: 100%;
+	}
+  }
+  
+  .input--control {
+	margin: auto;
+	display: block;
+	width: 100%;
+	padding: .7rem 3rem;
+	font-size: 1rem;
+	line-height: 1.8;
+	color: #fff;
+	background-color: #D7D1CA;
+	background-image: none;
+	background-clip: padding-box;
+	border: 1px solid transparent;
+	border-radius: 0;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  }
+  
+  @media (min-width: 800px) {
+	.input--control {
+	  width: 30%;
+	}
+  }
+  
+  .input--control:focus {
+	box-shadow: none;
+	outline: #D7D1CA;
+  }
+  
+  .input--control::placeholder {
+	color: #fff;
+  }
+  
+  .input--control:-moz-placeholder {
+	color: #fff;
+  }
+  
+  .btn-sign {
+	background: #000;
+	font-size: 16px;
+	font-weight: bold;
+	border: 1px solid transparent;
+	color: #fff;
+	border-radius: 0;
+	margin-top: 30px;
+  }
+  
+  .btn-sign:hover {
+	color: #fff;
+	cursor: pointer;
+  }
+  
+  .btn-sign:focus {
+	box-shadow: none;
+  }
+  
+  .notified.seen {
+	  display: none;
+  }
+  
+  .notified.notSeen {
+	display: block;
+  }
+  
+  .notified {
+	display: block;
+  }
+  /*# sourceMappingURL=styles.css.map */
 
 

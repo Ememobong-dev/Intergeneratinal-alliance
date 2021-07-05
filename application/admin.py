@@ -20,7 +20,7 @@ def donors_dashboard():
 
 @admin.route("/financial", methods=["GET"])
 def financial_dashboard():
-    return render_template("admin/financialDash.html.html")
+    return render_template("admin/financialDash.html")
 
 @admin.route("/forums", methods=["GET"])
 def forums_dashboard():
@@ -34,3 +34,7 @@ def mission_dashboard():
 @admin.route("/partners", methods=["GET"])
 def partners_dashboard():
     return render_template("admin/partnersDash.html")
+
+@admin.route("/signIn", methods=["GET"])
+def login_Dashboard():
+    return render_template("admin/loginDash.html")
