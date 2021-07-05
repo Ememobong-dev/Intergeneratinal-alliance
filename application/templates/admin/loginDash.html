@@ -9,8 +9,9 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <link rel="stylesheet" href=" {{ url_for ( 'static', filename='admin/css/fontawesome-free-5.0.1/css/fontawesome-all.css') }}   ">
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href=" {{ url_for ( 'static', filename='admin/css/fontawesome-free-5.0.1/css/fontawesome-all.css') }}   ">
     <link rel="stylesheet" href="{{ url_for ( 'static', filename='admin/css/styles.css') }}">
 </head>
 
@@ -19,21 +20,23 @@
         <div class="container">
             <div class="text-center">
                 <div class="logo py-5">
-                    <img src="{{ url_for('static', filename='images/logo/admin-logo.png')}}" alt="Nahedris Logo" class="img-fluid">
+                    <img src="{{ url_for('static', filename='images/logo/admin-logo.png')}}" alt="Nahedris Logo"
+                        class="img-fluid">
                 </div>
                 <div class="signIn-inputs">
-                    <form action="" method="post">
-                         <div class="form-group mb-3">
-                             <input type="text" name="authName" id="authName" class="input--control" placeholder="Username">
-                         </div>
-                         <div class="form-group mb-3">
-                             <input type="password" class="input--control" name="authPass" id="authPass" placeholder="Password">
-                         </div>
-                         <div class="signIn-btn">
-                             <a name="" type="submit"  id="" class="btn btn-lg btn-sign" href="" role="button">LOGIN</a>
-                         </div>
+                    <form action="{{ url_for('api.login') }}" method="post">
+                        <div class="form-group mb-3">
+                            <input type="text" name="email" id="authName" class="input--control" placeholder="Username">
+                        </div>
+                        <div class="form-group mb-3">
+                            <input type="password" class="input--control" name="password" id="authPass"
+                                placeholder="Password">
+                        </div>
+                        <div class="signIn-btn">
+                            <button name="" type="submit" id="" class="btn btn-lg btn-sign" role="button">LOGIN</button>
+                        </div>
                     </form>
-                    
+
                 </div>
             </div>
         </div>
@@ -48,7 +51,7 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
 </body>
 
