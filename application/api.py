@@ -1,8 +1,8 @@
+from . import mysql
 import json, hashlib
 from re import U
 from flask import Flask, session, redirect, request, url_for, Response, Blueprint
 from functools import wraps
-from . import mysql
 from .utils import *
 from werkzeug.wrappers import response
 
@@ -53,7 +53,6 @@ def login():
         except:
             email = request.json["email"].strip().lower()
             password = request.json["password"]
-        print(email, password)
         try:
             db_connection = mysql.connect()
             cursor = db_connection.cursor()
@@ -78,6 +77,13 @@ def login():
             res = {"error": [f"You have supplied an incorrect login credential"]}
             return Response(json.dumps(res), status=403, mimetype="application/json")
 
+@api.route("/logout", methods=["GET","POST"])
+def logout():
+    try:
+        session.pop("user")
+    except:
+        pass
+    return Response(status=200)        
 
 @api.route("/upload", methods=["POST"])
 def upload():
