@@ -52,32 +52,29 @@ def login():
             password = request.form["password"]
         except:
             email = request.json["email"].strip().lower()
-            password = request.json["password"]            
-
+            password = request.json["password"]
         try:
             db_connection = mysql.connect()
             cursor = db_connection.cursor()
-            cursor.execute("SELECT * FROM artists WHERE email=%s", (email))
+            cursor.execute("SELECT * FROM users WHERE email=%s", (email))
 
             user = cursor.fetchone()
             if (
                 hashlib.sha512(password.encode()).hexdigest()
-                == user["data"]["password"]
+                == user["password"]
             ):
                 session["user"] = {
                     "id": user["id"],
-                    "username": user["username"],
                     "email": user["email"],
                     "is_admin": user["is_admin"],
                 }
                 return redirect(url_for("admin.index_dashboard"))
             else:
                 raise Exception()
-        except:
+        except Exception as e:
+            print(e)
             res = {"error": [f"You have supplied an incorrect login credential"]}
             return Response(json.dumps(res), status=403, mimetype="application/json")
-    res = {"success": [f"Login successful"]}
-    return Response(json.dumps(res), status=200, mimetype="application/json")
 
 
 @api.route("/upload", methods=["POST"])
