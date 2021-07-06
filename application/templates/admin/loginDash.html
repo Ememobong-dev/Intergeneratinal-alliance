@@ -20,13 +20,13 @@
         <div class="container">
             <div class="text-center">
                 <div class="logo py-5">
-                    <img src="{{ url_for('static', filename='images/logo/admin-logo.png')}}" alt=""
-                        class="img-fluid">
+                    <img src="{{ url_for('static', filename='images/logo/admin-logo.png')}}" alt="" class="img-fluid">
                 </div>
                 <div class="signIn-inputs">
                     <form action="{{ url_for('api.login')}}" id="admin_forms" method="post">
                         <div class="form-group mb-3">
-                            <input type="email" class="input--control" name="email" id="authEmail" aria-describedby="emailHelpId" placeholder="Email">
+                            <input type="email" class="input--control" name="email" id="authEmail"
+                                aria-describedby="emailHelpId" placeholder="Email">
                         </div>
                         <div class="form-group mb-3">
                             <input type="password" class="input--control" name="password" id="authPass"
@@ -56,29 +56,30 @@
     <!-- <script src="{{ url_for('static' , filename='admin/js/requestApi.js' ) }}"></script> -->
     <script>
         $(document).ready(function () {
-        $("form").submit(function (event) {
-            var formData = {
-            email: $("#authEmail").val(),
-            password: $("#authPass").val(),
-            };
+            $("form").submit(function (event) {
+                var formData = {
+                    email: $("#authEmail").val(),
+                    password: $("#authPass").val(),
+                };
+                console.log(formData)
 
-            $.ajax({
-            type: "POST",
-            url: "http://127.0.0.1:5000/api/login",
-            crossDomain: true,
-            data: formData,
-            dataType: "json",
-            contentType: ' application/json',
-            encode: true,
-            success: function (data) {
-                console.log(data);
-            }
-            })
+                $.ajax({
+                    type: "POST",
+                    url: "{{ url_for('api.login') }}",
+                    crossDomain: true,
+                    data: JSON.stringify(formData),
+                    dataType: "json",
+                    contentType: ' application/json',
+                    encode: true,
+                    success: function (data) {
+                        console.log(data);
+                    }
+                })
 
-            event.preventDefault();
+                event.preventDefault();
+            });
         });
-        });
-        </script>
+    </script>
 </body>
 
 </html>

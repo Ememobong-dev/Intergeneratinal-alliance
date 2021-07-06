@@ -53,6 +53,7 @@ def login():
         except:
             email = request.json["email"].strip().lower()
             password = request.json["password"]
+        print(email, password)
         try:
             db_connection = mysql.connect()
             cursor = db_connection.cursor()
