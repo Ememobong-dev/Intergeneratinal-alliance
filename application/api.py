@@ -69,7 +69,8 @@ def login():
                     "email": user["email"],
                     "is_admin": user["is_admin"],
                 }
-                return redirect(url_for("admin.index_dashboard"))
+                res = {"success": [f"Login Successful"]}
+                return Response(json.dumps(res), status=200, mimetype="application/json")
             else:
                 raise Exception()
         except Exception as e:

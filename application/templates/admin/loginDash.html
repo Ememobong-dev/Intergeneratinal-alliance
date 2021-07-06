@@ -73,6 +73,7 @@
                     encode: true,
                     success: function (data) {
                         console.log(data);
+                        window.location.href = "{{ url_for('admin.index_dashboard') }}"
                     }
                 })
 
