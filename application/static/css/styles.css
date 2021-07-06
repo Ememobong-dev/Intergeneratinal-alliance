@@ -20,7 +20,9 @@
 	-webkit-font-smoothing: antialiased;
 	-webkit-text-shadow: rgba(0,0,0,.01) 0 0 1px;
 	text-shadow: rgba(0,0,0,.01) 0 0 1px;
+
 }
+
 
 body {
     /* font-family: 'Cormorant Garamond', serif; */
@@ -31,10 +33,6 @@ body {
     background: #74BBE8;
  }
 
- p {
-    font-size: larger;
-
- }
 
 a {
     color: inherit;
@@ -163,13 +161,13 @@ ul
     font-weight: 600; 
 }
 
-.sub-about .container .row{
+/* .sub-about .container .row{
     text-align: center;
-}
+} */
 
-.sub-about .container p{
+/* .sub-about .container p{
     font-weight: 500px;
-}
+} */
 
 .about-section.text,
 .pt-80 {
@@ -399,7 +397,7 @@ border-radius: 50px;
 
 .search-form-on .fancy-search-form {
     top: 0;
-    z-index: 2000;
+    z-index: 200000000;
 }
 
 .fancy-search-form form input {
@@ -720,10 +718,15 @@ border-radius: 50px;
     padding-bottom: 20%;
 }
 
+
 .pt-top {
     padding-top: 15%;
 }
 
+/* AIDR */
+.pt-100 {
+    padding-bottom: 20%;
+}
 
 .AIDR .text-3d,
 .text-3d  {
@@ -763,23 +766,26 @@ border-radius: 50px;
     ;
 }
 
-.text-3d {
-    font-size: 3rem;
-    color: black;
-    font-family: 'poppins';
-}
-
-@media(max-width: 990px) {
+@media(max-width: 1099px) {
     .AIDR .text-3d,
     .text-3d   {
         font-size: 2rem;
+        padding-bottom: 20%;
     }
 }
 @media(max-width: 767px) {
     .AIDR .text-3d,
     .text-3d   {
-        top: 20%;
+        top: 45%;
     }
+}
+
+@media (min-width: 1400px) {
+    .AIDR .text-3d,
+    .text-3d   {
+        padding-bottom: 50%;
+    }
+    
 }
 
 .AIDR .text-3d::before,
@@ -800,39 +806,8 @@ border-radius: 50px;
     ;
 }
 
-.text-3d-light {
-    top: 0;
-    left: 0;
-    transform: none;
-    font-size: 3rem;
-    color: #fff;
-    text-shadow: 
 
-    /* glow */
 
-    1px -1px 10px rgba(255, 255, 255, 0.4),
-    0px -1px 10px rgba(255, 255, 255, 0.4),
-    -1px -1px 10px rgba(255, 255, 255, 0.4),
-
-    /*  */
-    
-    0px -2px 3px #fff,
-    -1px -2px 3px #fff,
-    -2px -2px 3px #fff,
-
-    -1px -3px 3px #fff,
-    -2px -3px 3px #fff,
-    -3px -3px 3px #fff,
-
-    -2px -4px 2px #fff,
-    -3px -4px 2px #fff,
-    -4px -4px 2px #fff,
-
-    -3px -5px 1px #fff,
-    -4px -5px 1px #fff,
-    -5px -5px 1px #fff,
-    ;
-}
 
 
 /* gallery */
