@@ -20,25 +20,13 @@
         <div class="container">
             <div class="text-center">
                 <div class="logo py-5">
-                    <img src="{{ url_for('static', filename='images/logo/admin-logo.png')}}" alt="Nahedris Logo"
+                    <img src="{{ url_for('static', filename='images/logo/admin-logo.png')}}" alt=""
                         class="img-fluid">
                 </div>
                 <div class="signIn-inputs">
-<<<<<<< HEAD
-                    <form action="{{ url_for('api.login')}}" id="admin_forms" method="POST">
-                         <div class="form-group mb-3">
-                             <input type="text" name="authName" id="authName" class="input--control" placeholder="Username">
-                         </div>
-                         <div class="form-group mb-3">
-                             <input type="password" class="input--control" name="authPass" id="authPass" placeholder="Password">
-                         </div>
-                         <div class="signIn-btn">
-                             <a name="" type="submit"  id="" class="btn btn-lg btn-sign" href="" role="button">LOGIN</a>
-                         </div>
-=======
-                    <form action="{{ url_for('api.login') }}" method="post">
+                    <form action="{{ url_for('api.login')}}" id="admin_forms" method="post">
                         <div class="form-group mb-3">
-                            <input type="text" name="email" id="authName" class="input--control" placeholder="Username">
+                            <input type="email" class="input--control" name="email" id="authEmail" aria-describedby="emailHelpId" placeholder="Email">
                         </div>
                         <div class="form-group mb-3">
                             <input type="password" class="input--control" name="password" id="authPass"
@@ -47,7 +35,6 @@
                         <div class="signIn-btn">
                             <button name="" type="submit" id="" class="btn btn-lg btn-sign" role="button">LOGIN</button>
                         </div>
->>>>>>> a953bdf9849de8f34c075ce489e02dffb8d253fc
                     </form>
 
                 </div>
@@ -66,7 +53,32 @@
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
         </script>
     <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
-    <script src="{{ url_for('static' , filename='admin/js/requestApi.js' ) }}"></script>
+    <!-- <script src="{{ url_for('static' , filename='admin/js/requestApi.js' ) }}"></script> -->
+    <script>
+        $(document).ready(function () {
+        $("form").submit(function (event) {
+            var formData = {
+            email: $("#authEmail").val(),
+            password: $("#authPass").val(),
+            };
+
+            $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1:5000/api/login",
+            crossDomain: true,
+            data: formData,
+            dataType: "json",
+            contentType: ' application/json',
+            encode: true,
+            success: function (data) {
+                console.log(data);
+            }
+            })
+
+            event.preventDefault();
+        });
+        });
+        </script>
 </body>
 
 </html>

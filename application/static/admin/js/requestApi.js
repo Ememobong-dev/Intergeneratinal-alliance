@@ -6,7 +6,7 @@ loginForm.addEventListener('submit', function (e) {
     const formData = new formData(this)
 
     fetch('http://127.0.0.1:5000/api/login', {
-        method: 'POST',
+        method: 'post',
         body: FormData
     }).then(function (response) {
         return response.text();
