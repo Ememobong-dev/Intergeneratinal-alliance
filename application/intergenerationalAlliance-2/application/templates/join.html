@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intergenerational alliance</title>
+    <!-- <link rel="stylesheet" href="{{ url_for( 'static' , filename= 'node_modules/bootstrap/dist/css/bootstrap.min.css') }}"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for ( 'static', filename='css/styles.css') }}">
+    <style>
+        main>.container {
+            padding: 60px 15px 0;
+        }
+    </style>
+</head>
+<body>
+
+        <!-- Search Form Area -->
+        <div class="fancy-search-form d-flex align-items-center">
+          <div class="container-fluid">
+              <div class="row">
+                  <div class="col-12">
+                      <!-- Close Btn -->
+                      <div class="search-close-btn" id="closeBtn">
+                        <i class="fa fa-window-close" aria-hidden="true"></i>
+                      </div>
+                      <!-- Form -->
+                      <form action="#" method="get">
+                          <input type="" name="fancySearch" id="search" placeholder="Enter Search">
+                          <input type="submit" class="d-none" value="submit">
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+  <!-- Preloader Start -->
+  <div id="preloader">
+    <div class="loader">
+        <span class="inner1"></span>
+        <span class="inner2"></span>
+        <span class="inner3"></span>
+    </div>
+  </div>
+
+
+
+  <div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close mt-3">
+        <span class="icon-close2 js-menu-toggle"></span>
+      </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+
+
+
+  <header class="site-navbar js-sticky-header site-navbar-target bg-nabvarColor" role="banner">
+
+    <div class="container">
+      <div class="row align-items-center position-relative">
+
+        <div class="col-lg-4 align-items-center">
+          <nav class="site-navigation text-right ml-auto " role="navigation">
+            <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+              <li class="active"><a href="{{ url_for('main.index') }}" class="nav-link">About</a></li>
+              <li><a href="{{ url_for('main.partners') }}" class="nav-link">Partners</a></li>
+              <li><a href="{{ url_for('main.forum') }}" class="nav-link">Forums</a></li>
+              <li><a href="#" id="search-btn" class="nav-link"><i class="fa fa-search    "></i></a></li> 
+
+            </ul>
+          </nav>
+        </div>
+        <div class="col-lg-4  align-items-center text-center">
+          <div class="site-logo">
+            <a href="{{ url_for('main.index') }}"><img src="{{ url_for('static', filename='images/logo/Logo-02.png')}}" class="img-fluid logo" alt=""></a>
+          </div>
+
+
+          <div class="ml-auto toggle-button d-inline-block d-lg-none"><a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black"><span class="icon-menu h3 text-black"></span></a></div>
+        </div>
+        <div class="col-lg-4 align-items-center">
+          <nav class="site-navigation text-left mr-auto " role="navigation">
+            <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+              <li><a href="{{ url_for('main.aidrtwo') }}" class="nav-link">Artists</a></li>
+              <li><a href="{{ url_for('main.join') }}" class="nav-link">Join</a></li>
+              <li><a href="{{ url_for('main.donors') }}" class="nav-link">Donors</a></li> 
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+
+  <div class="banner-areajoin">
+    <h2>JOIN US</h2>
+  </div>
+
+<section class="sub-about content-area3 pt-80 py-5 pb-100" >
+  <div class="container">
+    <div class="row mx-auto">
+      <div class="col-12">
+        <div class="main">
+          <ul class="nav nav-pills py-3" id="pills-tab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Get In Touch</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Forums Suggestion</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Participate</button>
+              </li>
+          </ul>
+            <div class="tab-content" id="pills-tabContent">
+              <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                  <!--  -->
+                  <form class="contact_us_form row" action="" method="POST">
+                      <div class="form-group col-lg-6">
+                          <label for="name">Full Name</label>
+                          <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required>
+                      </div>
+                      <div class="form-group col-lg-6">
+                          <label for="email">Email Address</label>
+                          <input type="email" class="form-control" id="email" name="email" placeholder="Email Address"  required>
+                      </div>
+                      <div class="form-group col-lg-12 message-form">
+                          <label for="message">Message</label>
+                          <textarea class="form-control" name="message" id="message" col= "3" rows="1" placeholder="Enter your message"  required></textarea>
+                      </div>
+                      <div class="form-group col-md-12 mt-3">
+                          <button type="submit" value="submit" class="btn btn-white">Submit <i class="fa fa-arrow-right"></i></button>
+                      </div>
+                  </form>
+                  <div>
+                      <p><strong>Email Us <br></strong><i>emailadress@gmail.com</i></p>
+                  </div>
+              </div>
+              <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"> 
+                  <form class="contact_us_form row" action="" method="POST">
+                      <div class="form-group col-lg-6">
+                          <label for="name">Full Name</label>
+                          <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required>
+                      </div>
+                      <div class="form-group col-lg-6">
+                          <label for="email">Email Address</label>
+                          <input type="email" class="form-control" id="email" name="email" placeholder="Email Address"  required>
+                      </div>
+                      <div class="form-group  message-form col-lg-12">
+                          <label for="forumTopic">Suggest a Forum Topic</label>
+                          <textarea class="form-control" name="forumTopic" id="forumTopic" rows="1" placeholder="Enter Topic Suggestion"  required></textarea>
+                      </div>
+                      <div class="form-group col-12 mt-3">
+                          <button type="submit" value="submit" class="btn btn-white">Submit <i class="fa fa-arrow-right"></i></button>
+                      </div>
+                  </form>
+                  <div>
+                      <p><strong>Email Us <br></strong><i>emailadress@gmail.com</i></p>
+                  </div>
+              </div>
+              <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                  <form class="contact_us_form row" action="" method="POST">
+                      <div class="form-group col-lg-6">
+                          <label for="name">Full Name</label>
+                          <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+                      </div>
+                      <div class="form-group col-lg-6">
+                          <label for="email" >Email Address</label>
+                          <input type="email" class="form-control" id="email" name="email" placeholder="Enter your full email"  required>
+                      </div>
+                      <div class="form-group col-lg-6">
+                          <label for="phone">Phone Number</label>
+                          <input type="tel" class="form-control" name="phone" id="phone"  placeholder="Enter your Phone Number" required>
+                      </div>
+                      <div class="col-lg-6">
+                          <label for="age-range">Age Range</label>
+                          <select class="form-select trans-select" aria-label="Default select example">
+                              <option selected>Select your age range</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                            </select>
+                      </div>
+                      <div class="form-group col-lg-6">
+                          <label for="job">Your Job</label>
+                          <input type="text" class="form-control" id="name" name="name" placeholder="Job Description" required>
+                      </div>
+                      <div class="col-lg-6">
+                          <label for="age-range">LGA</label>
+                          <select class="form-select trans-select" aria-label="Default select example">
+                              <option class="firstOption" selected>Select your LGA</option>
+                              <option value="1">One</option>
+                              <option value="2">Two</option>
+                              <option value="3">Three</option>
+                            </select>
+                      </div>
+                      <div class=" mt-3">
+                          <button type="submit" value="submit" class="btn btn-white">Submit <i class="fa fa-arrow-right"></i></button>
+                      </div>
+                     
+                  </form>
+                  <div class="mt-3">
+                      <p><strong>Email Us <br></strong><i>emailadress@gmail.com</i></p>
+                  </div>
+              <!--  -->
+              </div>
+            </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="site-footer pt-5 ">
+    <div class="container">
+        <div class="line-top"></div>
+        <div class="row align-items-center">
+            <div class="col-md-4"> <a href="" class="m-0 site-logo"><img src="{{ url_for('static' , filename='images/logo/Logo-05.png' ) }}" width="80px"  alt=""></a> </div>
+            <div class="col-md-4 mx-auto">
+                <ul class="footer-link">
+                    <li><a href="{{ url_for('main.index') }}">About</a></li>
+                    <li><a href="{{ url_for('main.forum') }}">Forums</a></li>
+                    <li><a href="{{ url_for('main.partners') }}">Partners</a></li>
+                    <li><a href="{{ url_for('main.join') }}">Join Us</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4 mx-auto">
+                <ul class="footer-link">
+                    <li><a href="#"> <i class="fa fa-facebook" aria-hidden="true"></i> </a></li>
+                    <li><a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i> </a></li>
+                    <li><a href="#"> <i class="fa fa-twitter" aria-hidden="true"></i> </a></li>
+                    <li><a href="#"> <i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                   
+                </ul>
+            </div>
+            
+        </div>
+        <div class="row copyright">
+            <div class="col-md-12 text-center">
+            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> Intergenerational Alliance. All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+    <!-- footer ends  -->
+  </div>
+
+</section>
+
+
+ 
+<script src="{{ url_for('static' , filename='./node_modules/jquery/dist/jquery.min.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='./node_modules/popper.js/dist/popper.min.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='./node_modules/bootstrap/dist/js/bootstrap.min.js' ) }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
+</script>
+<script src="{{ url_for('static' , filename='js/owl.carousel.min.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='js/jquery.magnific-popup.min.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='./node_modules/stellar/index.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='./node_modules/scrollax/scrollax.min.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='js/jquery.fancybox.min.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='js/easing.min.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='js/aos.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='js/jquery.sticky.js' ) }}"></script>
+<script src="{{ url_for('static' , filename='js/main.js' ) }}"></script>
+</body>
+</html>

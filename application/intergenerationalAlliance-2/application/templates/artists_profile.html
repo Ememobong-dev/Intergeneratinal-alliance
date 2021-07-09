@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Intergenerational alliance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{{ url_for( 'static' , filename= 'node_modules/bootstrap/dist/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static' , filename= 'node_modules/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static' , filename='css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for( 'static' , filename='css/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/jquery.fancybox.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ url_for ( 'static', filename='css/styles.css') }}">
+
+    <!-- Demo styles -->
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+        .swiper-container {
+            /* overflow: visible; */
+            width: 100%;
+            height: 100%;
+        }
+
+      .swiper-slide {
+            cursor: pointer;
+            text-align: center;
+            background: transparent;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    
+  <!-- Preloader Start -->
+  <div id="preloader">
+    <div class="loader">
+        <span class="inner1"></span>
+        <span class="inner2"></span>
+        <span class="inner3"></span>
+    </div>
+  </div>
+
+      <!-- Search Form Area -->
+      <div class="fancy-search-form d-flex align-items-center">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Close Btn -->
+                    <div class="search-close-btn" id="closeBtn">
+                      <i class="fa fa-window-close" aria-hidden="true"></i>
+                    </div>
+                    <!-- Form -->
+                    <form action="#" method="get">
+                        <input type="" name="fancySearch" id="search" placeholder="Enter Search">
+                        <input type="submit" class="d-none" value="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg  navbar-two custom-navbar  bg-nabvarColor fixed-top" id="ftco-navbar">
+      <div class="container-fluid px-md-5">
+        <a class="navbar-brand" href="{{ url_for('main.index') }}" > <img src="{{ url_for('static', filename='images/logo/Logo-02.png')}}" class="img-fluid logo" alt=""></a>
+        <button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav ml-auto">
+            <li class="has-children">
+              <a href="{{ url_for('main.index') }}" class="nav-link">About <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+              <ul class="dropdown">
+                <li class="nav-item"><a href="{{ url_for('main.mission') }}" class="nav-link">Mission</a></li>
+                <li class="nav-item"><a href="{{ url_for('main.financial') }}" class="nav-link">Financial Reports</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a href="{{ url_for('main.forum') }}" class="nav-link">Forums</a></li>
+            <li class="has-children">
+              <a href="{{ url_for('main.partners') }}" class="nav-link">Partners <i class="fa fa-chevron-down" aria-hidden="true"></i></a>
+              <ul class="dropdown">
+              <li class="nav-item"><a href="{{ url_for('main.artists') }}" class="nav-link">ARTISTS</a></li>
+             <li class="nav-item active"><a href="{{ url_for('main.aidrtwo') }}" class="nav-link">ARTIST IN DIGITAL RESIDENCE</a></li>
+              <li class="nav-item"><a href="{{ url_for('main.donors') }}" class="nav-link">DONORS</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a href="{{ url_for('main.join') }}" class="nav-link">Join Us</a></li>
+            <li class="nav-item"><a href="#" id="search-btn" class="nav-link"><i class="fa fa-search    "></i></a></li>
+          </ul>
+          
+        </div>
+      </div>
+    </nav>
+    <!-- END nav -->
+
+  <div class="containerss">
+    <section class="artists_profile">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6 my-auto" >
+                  <div class="profile-text">
+                    <p>Julius Agbaje is a Nigerian conceptual artist who works primarily as a painter. The popular phrase “Art as a tool for change” is the creed that fuels his entire artistic practice, as is reflected in his paintings, writings, and volunteer work. He is an alumnus of Arts in Medicine Fellowship, where he also served as the Director of Art Projects in Lagos for a short period.
+                      Julius has exhibited his artworks in Europe and the USA, and his paintings are in private and public collections locally and internationally. He currently works and lives in Lagos, Nigeria as a full-time studio artist.
+                      </p>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                   <!-- Swiper -->
+                  <div class="swiper-container">
+                      <div class="swiper-wrapper ">
+                          <div class="swiper-slide"><img class="img-fluid img" src=" {{ url_for('static' , filename='images/post-s-4.jpg' ) }}" />
+                          </div>
+                          <div class="swiper-slide"><img class="img-fluid img"  src=" {{ url_for('static' , filename='images/img-1.png' ) }} " />
+                          </div>
+                          <div class="swiper-slide"><img class="img-fluid img"  src="{{ url_for('static' , filename='images/gallery3.png' ) }}" />
+                          </div>
+                     
+                      </div>
+                      <!-- Add Arrows -->
+                      <div class="swiper-button-next"></div>
+                      <div class="swiper-button-prev"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+    
+  </div>
+
+  <div class="site-footer pt-5 ">
+    <div class="container">
+        <div class="line-top"></div>
+        <div class="row text-center">
+            <div class="col-md-4"> <a href="" class="m-0 site-logo"><img src="{{ url_for('static' , filename='images/logo/smallLogo.png' ) }}" width="80px"  alt=""></a> </div>
+            <div class="col-md-4">
+                <ul class="footer-link">
+                    <li><a href="{{ url_for('main.index') }}">About</a></li>
+                    <li><a href="{{ url_for('main.forum') }}">Forums</a></li>
+                    <li><a href="{{ url_for('main.partners') }}">Partners</a></li>
+                    <li><a href="{{ url_for('main.join') }}">Join Us</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <ul class="footer-link">
+                    <li><a href="#"> <i class="fa fa-facebook" aria-hidden="true"></i> </a></li>
+                    <li><a href="#"> <i class="fa fa-instagram" aria-hidden="true"></i> </a></li>
+                    <li><a href="#"> <i class="fa fa-twitter" aria-hidden="true"></i> </a></li>
+                    <li><a href="#"> <i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                   
+                </ul>
+            </div>
+            
+        </div>
+        <div class="row copyright">
+            <div class="col-md-12 text-center">
+            <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> Intergenerational Alliance. All Rights Reserved</p>
+            </div>
+        </div>
+    </div>
+    <!-- footer ends  -->
+</div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      loop: true,
+      centeredSlides: true,
+    //   spaceBetween: 220,
+      slidesPerGroup: 1,
+      loopFillGroupWithBlank: false,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+    </script>
+  <script src="{{ url_for('static' , filename='./node_modules/jquery/dist/jquery.min.js' ) }}"></script>
+  <script src="{{ url_for('static' , filename='./node_modules/popper.js/dist/popper.min.js' ) }}"></script>
+  <script src="{{ url_for('static' , filename='./node_modules/bootstrap/dist/js/bootstrap.min.js' ) }}"></script>
+  <script src="{{ url_for('static' , filename='js/owl.carousel.min.js' ) }}"></script>
+  <script src="{{ url_for('static' , filename='js/jquery.magnific-popup.min.js' ) }}"></script>
+  <script src="{{ url_for('static' , filename='./node_modules/stellar/index.js' ) }}"></script>
+  <script src="{{ url_for('static' , filename='./node_modules/scrollax/scrollax.min.js' ) }}"></script>
+  <script src="{{ url_for('static' , filename='js/jquery.fancybox.min.js' ) }}"></script>
+  <script src="{{ url_for('static' , filename='js/easing.min' ) }}"></script>
+  <script src="{{ url_for('static' , filename='js/main.js' ) }}"></script>
+</body>
+
+</html>

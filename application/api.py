@@ -15,8 +15,9 @@ def login_required(f):
         is_safe = ["GET"]
         if request.method not in is_safe:
             if "user" not in session:
-                return redirect(url_for("home"))
+                return redirect(url_for("main.index"))
             return f(*args, **kwargs)
+        return f(*args,**kwargs)
 
     return decorated
 
@@ -43,6 +44,25 @@ def admin_required(f):
 
     return decorated
 
+def anon_can_post(f):
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        # safe http verbs
+        is_safe = ["POST"]
+        # if the http request verbs is not save
+        if request.method not in is_safe:
+            db_connection = mysql.connect()
+            cursor = db_connection.cursor()
+            # fetch user from database
+            cursor.execute("SELECT * FROM users WHERE id=%s", (session["user"]["id"]))
+            user = cursor.fetchone()
+            # If user is admin , return response
+            if user["is_admin"] == 1:
+                return f(*args, **kwargs)
+            # If user is not admin, redirect to home
+            return redirect(url_for("admin:index"))
+        # If the http verb is safe, return response
+        return f(*args, **kwargs)
 
 @api.route("/login", methods=["GET","POST"])
 def login():
@@ -53,6 +73,7 @@ def login():
         except:
             email = request.json["email"].strip().lower()
             password = request.json["password"]
+        print(email, password)
         try:
             db_connection = mysql.connect()
             cursor = db_connection.cursor()
@@ -77,13 +98,6 @@ def login():
             res = {"error": [f"You have supplied an incorrect login credential"]}
             return Response(json.dumps(res), status=403, mimetype="application/json")
 
-@api.route("/logout", methods=["GET","POST"])
-def logout():
-    try:
-        session.pop("user")
-    except:
-        pass
-    return Response(status=200)        
 
 @api.route("/upload", methods=["POST"])
 def upload():

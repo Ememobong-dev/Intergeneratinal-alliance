@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>NGO ADMIN</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/fontawesome-free-5.0.1/css/fontawesome-all.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+.slider {
+  width: 100%;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.slides {
+  display: flex;
+  
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  
+  /*
+  scroll-snap-points-x: repeat(300px);
+  scroll-snap-type: mandatory;
+  */
+}
+.slides::-webkit-scrollbar {
+  width: 10px;
+  display: none;
+  /* height: 10px; */
+}
+.slides::-webkit-scrollbar-thumb {
+  background: transparent;
+  display: none;
+  /* border-radius: 10px; */
+}
+.slides::-webkit-scrollbar-track {
+  background: transparent;
+  display: none;
+}
+.slides > div {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 100%;
+  height:300px;
+  margin-right: 50px;
+  border-radius: 10px;
+  background: #eee;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+  
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* font-size: 100px; */
+}
+/* .slides > div:target {
+  transform: scale(0.8);
+} */
+
+
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.slider > ul > li {
+  display: inline-block;
+  position: relative;
+}
+
+
+
+.slider > ul > li:active {
+  top: 1px;
+}
+.slider > ul > li:focus {
+  background: #000;
+}
+
+.slider > ul > li a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem 0 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 40px;
+
+}
+
+.icon-uploads {
+    align-items: flex-end;
+}
+
+.nxt-slide {
+    top: 0;
+    font-size: 28px;
+    margin-top: 18%;
+    cursor: pointer;
+}
+
+img {
+    width: 150px !important;
+    position: relative;
+}
+
+
+
+/* Don't need button navigation */
+/* @supports (scroll-snap-type) {
+  .slider > ul > li {
+    display: none;
+  }
+} */
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md fixed-top bg-nav">
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="#">App Name</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mx-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ url_for('admin.index_dashboard') }}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.mission_dashboard') }}">Mission</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.financial_dashboard') }}">Financial Report</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.partners_dashboard') }}">Partners</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.forums_dashboard') }}">Forums</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.aidr_dashboard')}}">Artists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.donors_dashboard') }}">Donors</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="flex-shrink-0 py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="slider">
+                        <ul class="slider-navlinks">
+                            <li><h3 class="mt-5 dash-title"><a href="">Forums Page</a></h3></li> 
+                            <li><a href="#slide-1">Forum info</a></li>
+                            <li><a href="#slide-2">Snippet</a></li>
+                            <li><a href="#slide-3">Full Video</a></li>
+                            <li><a href="#slide-4">Meeting Report</a></li>
+                            <li><a href="#slide-5">Gallery</a></li>
+                        </ul>
+                        <div class="slides">
+                          <div id="slide-1">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>Upload Forum Cover</h5>
+                                        <div class="container">
+                                            <form action="">
+                                                <div class="form-group mb-3">
+                                                    <input type="text" name="" id="" class="form-control" placeholder="Enter Full Name" aria-describedby="helpId">
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                    <input type="text" name="" id="" class="form-control" placeholder="Enter Location" aria-describedby="helpId">
+                                                </div>
+                                                <div class="form-group mb-3">
+                                                 <input name="" id="" class="btn-primary form-control" type="button" value="Upload Forum Cover">
+                                               </div>
+                                               <input type="file" name="" id="" class="form-control" hidden>
+                                            
+                                            </form>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 mx-auto">
+                                        <div class="icon-uploads"><i class="fas fa-cloud-upload-alt"></i></div>
+                                         <p class="text-right nxt-slide">Next</p>
+                                    </div>
+                                </div>
+                          </div>
+                          <div id="slide-2">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5>Upload Forum Cover</h5>
+                                    <div class="container">
+                                        <form action="">
+                                            <div class="form-group mb-3">
+                                                <input type="text" name="" id="" class="form-control" placeholder="Enter Full Name" aria-describedby="helpId">
+                                            </div>
+                                            <div class="form-group mb-3">
+                                                <input type="text" name="" id="" class="form-control" placeholder="Enter Location" aria-describedby="helpId">
+                                            </div>
+                                            <div class="form-group mb-3">
+                                             <input name="" id="" class="btn-primary form-control" type="button" value="Upload Forum Cover">
+                                           </div>
+                                           <input type="file" name="" id="" class="form-control" hidden>
+                                        
+                                        </form>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4 mx-auto">
+                                    <div class="icon-uploads"><i class="fas fa-cloud-upload-alt"></i></div>
+                                </div>
+                                <div class="col-md-4 mx-auto">
+                                    <div class="icon-uploads"><i class="fas fa-cloud-upload-alt"></i></div>
+                                     <p class="text-right nxt-slide">Next</p>
+                                </div>
+                            </div>
+                          </div>
+                          <div id="slide-3">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5>Upload Forum Cover</h5>
+                                    <div class="container">
+                                        <form action="">
+                                            <div class="form-group mb-3">
+                                                <input type="text" name="" id="" class="form-control" placeholder="Enter Full Name" aria-describedby="helpId">
+                                            </div>
+                                            <div class="form-group mb-3">
+                                                <input type="text" name="" id="" class="form-control" placeholder="Enter Location" aria-describedby="helpId">
+                                            </div>
+                                            <div class="form-group mb-3">
+                                             <input name="" id="" class="btn-primary form-control" type="button" value="Upload Forum Cover">
+                                           </div>
+                                           <input type="file" name="" id="" class="form-control" hidden>
+                                        
+                                        </form>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4 mx-auto">
+                                    <div class="icon-uploads"><i class="fas fa-cloud-upload-alt"></i></div>
+                                </div>
+                                <div class="col-md-4 mx-auto">
+                                    <div class="icon-uploads"><i class="fas fa-cloud-upload-alt"></i></div>
+                                     <p class="text-right nxt-slide">Next</p>
+                                </div>
+                            </div>
+                          </div>
+                          <div id="slide-4">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5>Upload Forum Cover</h5>
+                                    <div class="container">
+                                        <form action="">
+                                            <div class="form-group mb-3">
+                                                <input type="text" name="" id="" class="form-control" placeholder="Enter Full Name" aria-describedby="helpId">
+                                            </div>
+                                            <div class="form-group mb-3">
+                                                <input type="text" name="" id="" class="form-control" placeholder="Enter Location" aria-describedby="helpId">
+                                            </div>
+                                            <div class="form-group mb-3">
+                                             <input name="" id="" class="btn-primary form-control" type="button" value="Upload Forum Cover">
+                                           </div>
+                                           <input type="file" name="" id="" class="form-control" hidden>
+                                        
+                                        </form>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4 mx-auto">
+                                    <div class="icon-uploads"><i class="fas fa-cloud-upload-alt"></i></div>
+                                </div>
+                                <div class="col-md-4 mx-auto">
+                                    <div class="icon-uploads"><i class="fas fa-cloud-upload-alt"></i></div>
+                                     <p class="text-right nxt-slide">Next</p>
+                                </div>
+                            </div>
+                          </div>
+                          <div id="slide-5">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5>Upload Forum Cover</h5>
+                                    <div class="container">
+                                        <form action="">
+                                            <div class="form-group mb-3">
+                                                <input type="text" name="" id="" class="form-control" placeholder="Enter Full Name" aria-describedby="helpId">
+                                            </div>
+                                            <div class="form-group mb-3">
+                                                <input type="text" name="" id="" class="form-control" placeholder="Enter Location" aria-describedby="helpId">
+                                            </div>
+                                            <div class="form-group mb-3">
+                                             <input name="" id="" class="btn-primary form-control" type="button" value="Upload Forum Cover">
+                                           </div>
+                                           <input type="file" name="" id="" class="form-control" hidden>
+                                        
+                                        </form>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4 mx-auto">
+                                    <div class="icon-uploads"><i class="fas fa-cloud-upload-alt"></i></div>
+                                </div>
+                                <div class="col-md-4 mx-auto">
+                                    <div class="icon-uploads"><i class="fas fa-cloud-upload-alt"></i></div>
+                                     <p class="text-right nxt-slide">Next</p>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="container py-5">
+        <div class="text-flex px-4">
+            <div class="d-block d-md-flex justify-content-between">
+                <h3 class="mb-2">ARCHIVE</h3>
+                <button type="button" class="btn btn-dark btn-sm mb-2"> <i class="fas fa-trash"></i> Delete </button>
+            </div>
+            <div class="row py-5">
+                <div class="col-md-6 mb-5">
+                    <div class="d-flex justify-content-around">
+                        <input id="img1" type="radio" name="r">
+                        <img src="img/forum1a.png" width="350" height="150" alt="Image 1">
+                        <h5 class="my-auto">Older Generation</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-5">
+                    <div class="d-flex justify-content-around">
+                        <input id="img1" type="radio" name="r">
+                        <img src="img/forum1a.png" width="350" height="150" alt="Image 1">
+                        <h5 class="my-auto">Older Generation</h5>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-5">
+                    <div class="d-flex justify-content-around">
+                        <input id="img1" type="radio" name="r">
+                        <img src="img/forum1a.png" width="350" height="150" alt="Image 1">
+                        <h5 class="my-auto">Older Generation</h5>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
+    <script src="{{ url_for('static' , filename='admin/js/popper.js' ) }}     "></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
+    </script>
+    <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>NGO ADMIN</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href=" {{ url_for ( 'static', filename='admin/css/fontawesome-free-5.0.1/css/fontawesome-all.css') }}   ">
+    <link rel="stylesheet" href="{{ url_for ( 'static', filename='admin/css/styles.css') }}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md fixed-top bg-nav">
+        <div class="container-fluid">
+            <!-- <a class="navbar-brand" href="#">App Name</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mx-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{ url_for('admin.index_dashboard') }}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.mission_dashboard') }}">Mission</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.financial_dashboard') }}">Financial Report</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.partners_dashboard') }}">Partners</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.forums_dashboard') }}">Forums</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.aidr_dashboard')}}">Artists</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('admin.donors_dashboard') }}">Donors</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="flex-shrink-0">
+        <div class="container">
+            <h2 class="mt-5 dash-title">Partners Page</h2>
+        </div>
+    </main>
+     
+    <div class="container mt-5">
+        <div class="row">
+           <div class="col-md-12">
+               <!-- image slider -->
+               <div class="column">
+                    <div id="slide-wrapper" >
+                        <img id="slideLeft" class="arrow" src="img/arrow-left.png">
+
+                        <div id="slider">
+                            <img class="thumbnail img-fluid active" src="img/Logo-02.png">
+                            <img class="thumbnail img-fluid" src="img/person_8.jpg">
+                            <img class="thumbnail img-fluid" src="img/soyemi_pics.png">
+                            <img class="thumbnail img-fluid" src="img/person_8.jpg">
+                            <img class="thumbnail img-fluid" src="img/oyinkan_pics.png">
+                            <img class="thumbnail img-fluid" src="img/person_8.jpg">
+                            <img class="thumbnail img-fluid" src="img/soyemi_pics.png">
+                            <img class="thumbnail img-fluid" src="img/person_8.jpg">
+                            <img class="thumbnail img-fluid" src="img/person_8.jpg">
+                            <img class="thumbnail img-fluid" src="img/soyemi_pics.png">
+                            <img class="thumbnail img-fluid" src="img/person_8.jpg">
+                            <img class="thumbnail img-fluid" src="img/oyinkan_pics.png">
+                            <img class="thumbnail img-fluid" src="img/person_8.jpg">
+                            <img class="thumbnail img-fluid" src="img/soyemi_pics.png">
+                            <img class="thumbnail img-fluid" src="img/person_8.jpg">
+                        </div>
+
+                        <img id="slideRight" class="arrow" src="img/arrow-right.png">
+                    </div>
+		        </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="d-md-flex d-block mb-5">
+                <div class="image-flex">
+		        	<img id=featured src="img/Logo-02.png" class="img-fluid" width="1000px">
+                </div>
+                <div class="text-flex px-4">
+                    <div class="d-block d-md-flex justify-content-between">
+                        <h5 class="mb-2">Summayah</h5>
+                        <button type="button" class="btn btn-dark btn-sm mb-2"> <i class="fas fa-edit"></i> Edit Profile </button>
+                    </div>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione, assumenda voluptatem. Delectus aut eos quaerat corrupti animi dolore enim doloremque, in dolores, tempore, esse molestiae eum quod reprehenderit? Quam obcaecati culpa ab adipisci quia soluta omnis dolore numquam voluptatum, quo perferendis harum possimus, porro delectus deserunt cumque saepe explicabo hic. Ab nesciunt adipisci harum. Repudiandae sunt fugit vitae similique labore maiores veritatis. Beatae ea non neque quibusdam eligendi iure, magni ut molestias perferendis qui, repellendus rerum cumque ab tenetur dolor maiores repudiandae exercitationem iusto labore dolores culpa delectus itaque officiis voluptatum. Animi iste quo itaque dignissimos sequi voluptates, natus doloribus.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
+    <script src="{{ url_for('static' , filename='admin/js/popper.js' ) }}     "></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
+    </script>
+    <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
+</body>
+
+</html>
