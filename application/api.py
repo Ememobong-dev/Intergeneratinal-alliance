@@ -339,7 +339,7 @@ def edit_forum(id):
                     request.json["forum_cover_url"],
                     request.json["forum_report_cover_url"],
                     request.json["forum_report_file_url"],
-                    request.json["forum_cover_shape"]
+                    request.json["forum_cover_shape"],
                     id,
                 ),
             )
