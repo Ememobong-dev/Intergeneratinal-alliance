@@ -605,7 +605,7 @@ border-radius: 50px;
 
 .partners_img img{
     width: 100%;
-    /* min-width: 200px; */
+    min-width: 200px;
 }
 
 @media (max-width: 767px) {

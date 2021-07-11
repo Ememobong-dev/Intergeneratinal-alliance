@@ -5,5 +5,5 @@ Temporary  repo for intergenerationalAlliance. The app is currently running @ ht
 
 ## How to run the app
 * Clone the the repo `git clone https://github.com/Bamimore-Tomi/intergenerationalAlliance.git`
-* Install the requirements `pip install requirements.txt`
+* Install the requirements `pip install -r requirements.txt`
 * To run the app `python wsgi-test.py`
