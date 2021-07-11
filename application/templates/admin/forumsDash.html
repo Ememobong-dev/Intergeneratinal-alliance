@@ -10,130 +10,10 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/fontawesome-free-5.0.1/css/fontawesome-all.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <style>
-.slider {
-  width: 100%;
-  text-align: center;
-  overflow-x: hidden;
-}
-
-.slides {
-  display: flex;
-  
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  
-  /*
-  scroll-snap-points-x: repeat(300px);
-  scroll-snap-type: mandatory;
-  */
-}
-.slides::-webkit-scrollbar {
-  width: 10px;
-  display: none;
-  /* height: 10px; */
-}
-.slides::-webkit-scrollbar-thumb {
-  background: transparent;
-  display: none;
-  /* border-radius: 10px; */
-}
-.slides::-webkit-scrollbar-track {
-  background: transparent;
-  display: none;
-}
-.slides > div {
-  scroll-snap-align: start;
-  flex-shrink: 0;
-  width: 100%;
-  height:300px;
-  margin-right: 50px;
-  border-radius: 10px;
-  background: #eee;
-  transform-origin: center center;
-  transform: scale(1);
-  transition: transform 0.5s;
-  position: relative;
-  
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* font-size: 100px; */
-}
-/* .slides > div:target {
-  transform: scale(0.8);
-} */
-
-
-
-img {
-  width: 100%;
-  height: 100%;
-}
-
-.slider > ul > li {
-  display: inline-block;
-  position: relative;
-}
-
-
-
-.slider > ul > li:active {
-  top: 1px;
-}
-.slider > ul > li:focus {
-  background: #000;
-}
-
-.slider > ul > li a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 1rem 0 0;
-    margin-top: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    margin-right: 40px;
-
-}
-
-.icon-uploads {
-    align-items: flex-end;
-}
-
-.nxt-slide {
-    top: 0;
-    font-size: 28px;
-    margin-top: 18%;
-    cursor: pointer;
-}
-
-img {
-    width: 150px !important;
-    position: relative;
-}
-
-
-
-/* Don't need button navigation */
-/* @supports (scroll-snap-type) {
-  .slider > ul > li {
-    display: none;
-  }
-} */
-
-html, body {
-  height: 100%;
-  overflow-x: hidden;
-}
-
-
-
-
-    </style>
+    <link rel="stylesheet"
+        href=" {{ url_for ( 'static', filename='admin/css/fontawesome-free-5.0.1/css/fontawesome-all.css') }}   ">
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{{ url_for ( 'static', filename='admin/css/styles.css') }}">
 </head>
 
 <body>
@@ -175,175 +55,205 @@ html, body {
         </div>
     </nav>
 
-
-    <main class="flex-shrink-0 py-5">
+    <section class="forum-top">
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="slider">
-                        <ul class="slider-navlinks">
-                            <li><h3 class="mt-5 dash-title"><a href="">Forums Page</a></h3></li> 
-                            <li><a href="#slide-1">Forum info</a></li>
-                            <li><a href="#slide-2">Snippet</a></li>
-                            <li><a href="#slide-3">Full Video</a></li>
-                            <li><a href="#slide-4">Meeting Report</a></li>
-                            <li><a href="#slide-5">Gallery</a></li>
-                        </ul>
-                        <div class="slides">
-                          <div id="slide-1">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h5>Upload Forum Cover</h5>
-                                        <div class="container">
-                                            <form action="">
-                                                <div class="form-group mb-3">
-                                                    <input type="text" name="" id="" class="form-control" placeholder="Enter Full Name" aria-describedby="helpId">
-                                                </div>
-                                                <div class="form-group mb-3">
-                                                    <input type="text" name="" id="" class="form-control" placeholder="Enter Location" aria-describedby="helpId">
-                                                </div>
-                                                <div class="form-group mb-3">
-                                                 <input name="" id="" class="btn-primary form-control" type="button" value="Upload Forum Cover">
-                                               </div>
-                                               <input type="file" name="" id="" class="form-control" hidden>
-                                            
-                                            </form>
-                                        </div>
+            <h3 class="">FORUMS PAGE</h3>
+            <div class="swiper-pagination"></div>
+        </div>
+       
+        
+        <div class="container py-5">
+            <!-- Swiper -->
+            <div class="swiper-container mySwiper">
+                <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="row">
+                        <div class="col-md-5 text-center">
+                            <div class="py-5">
+                                <h3>UPLOAD FORUM</h3>
 
+                                <div class="">
+                                    <div class="form-group">
+                                        <input type="text" name="" id="" class="form-control forumDash-side" placeholder="ENTER FORUM NAME" aria-describedby="helpId">
                                     </div>
-                                    <div class="col-md-6 mx-auto">
-                                        <div class="icon-uploads"><i class="fas fa-cloud-upload-alt"></i></div>
-                                         <p class="text-right nxt-slide">Next</p>
+                                    <div class="form-group">
+                                        <input type="text" name="" id="" class="form-control forumDash-side" placeholder="ENTER FORUM LOCATION" aria-describedby="helpId">
                                     </div>
-                                </div>
-                          </div>
-                          <div id="slide-2">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <h5>Upload Forum Cover</h5>
-                                    <div class="container">
-                                        <form action="">
-                                            <div class="form-group mb-3">
-                                                <input type="text" name="" id="" class="form-control" placeholder="Enter Full Name" aria-describedby="helpId">
-                                            </div>
-                                            <div class="form-group mb-3">
-                                                <input type="text" name="" id="" class="form-control" placeholder="Enter Location" aria-describedby="helpId">
-                                            </div>
-                                            <div class="form-group mb-3">
-                                             <input name="" id="" class="btn-primary form-control" type="button" value="Upload Forum Cover">
-                                           </div>
-                                           <input type="file" name="" id="" class="form-control" hidden>
-                                        
-                                        </form>
+                                    <div class="browse-btn">
+                                        <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                        <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Forum Cover"/>
                                     </div>
-
-                                </div>
-                                <div class="col-md-4 mx-auto">
-                                    <div class="icon-uploads"><i class="fas fa-cloud-upload-alt"></i></div>
-                                </div>
-                                <div class="col-md-4 mx-auto">
-                                    <div class="icon-uploads"><i class="fas fa-cloud-upload-alt"></i></div>
-                                     <p class="text-right nxt-slide">Next</p>
                                 </div>
                             </div>
-                          </div>
-                          <div id="slide-3">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <h5>Upload Forum Cover</h5>
-                                    <div class="container">
-                                        <form action="">
-                                            <div class="form-group mb-3">
-                                                <input type="text" name="" id="" class="form-control" placeholder="Enter Full Name" aria-describedby="helpId">
-                                            </div>
-                                            <div class="form-group mb-3">
-                                                <input type="text" name="" id="" class="form-control" placeholder="Enter Location" aria-describedby="helpId">
-                                            </div>
-                                            <div class="form-group mb-3">
-                                             <input name="" id="" class="btn-primary form-control" type="button" value="Upload Forum Cover">
-                                           </div>
-                                           <input type="file" name="" id="" class="form-control" hidden>
-                                        
-                                        </form>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-4 mx-auto">
-                                    <div class="icon-uploads"><i class="fas fa-cloud-upload-alt"></i></div>
-                                </div>
-                                <div class="col-md-4 mx-auto">
-                                    <div class="icon-uploads"><i class="fas fa-cloud-upload-alt"></i></div>
-                                     <p class="text-right nxt-slide">Next</p>
-                                </div>
+                        </div>
+                        <div class="col-md-7 text-center">
+                            <h3>FORUM</h3>
+                            <div class="selected-image-area">
+                                <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                                <!--  -->
                             </div>
-                          </div>
-                          <div id="slide-4">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <h5>Upload Forum Cover</h5>
-                                    <div class="container">
-                                        <form action="">
-                                            <div class="form-group mb-3">
-                                                <input type="text" name="" id="" class="form-control" placeholder="Enter Full Name" aria-describedby="helpId">
-                                            </div>
-                                            <div class="form-group mb-3">
-                                                <input type="text" name="" id="" class="form-control" placeholder="Enter Location" aria-describedby="helpId">
-                                            </div>
-                                            <div class="form-group mb-3">
-                                             <input name="" id="" class="btn-primary form-control" type="button" value="Upload Forum Cover">
-                                           </div>
-                                           <input type="file" name="" id="" class="form-control" hidden>
-                                        
-                                        </form>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-4 mx-auto">
-                                    <div class="icon-uploads"><i class="fas fa-cloud-upload-alt"></i></div>
-                                </div>
-                                <div class="col-md-4 mx-auto">
-                                    <div class="icon-uploads"><i class="fas fa-cloud-upload-alt"></i></div>
-                                     <p class="text-right nxt-slide">Next</p>
-                                </div>
+                            <div class="text-center">
+                                <p>Drop your files here</p>
+                                <label for="files" class="btn browse-files">Browse file</label>
+                                <input id="files" style="visibility:hidden;" type="file">
                             </div>
-                          </div>
-                          <div id="slide-5">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <h5>Upload Forum Cover</h5>
-                                    <div class="container">
-                                        <form action="">
-                                            <div class="form-group mb-3">
-                                                <input type="text" name="" id="" class="form-control" placeholder="Enter Full Name" aria-describedby="helpId">
-                                            </div>
-                                            <div class="form-group mb-3">
-                                                <input type="text" name="" id="" class="form-control" placeholder="Enter Location" aria-describedby="helpId">
-                                            </div>
-                                            <div class="form-group mb-3">
-                                             <input name="" id="" class="btn-primary form-control" type="button" value="Upload Forum Cover">
-                                           </div>
-                                           <input type="file" name="" id="" class="form-control" hidden>
-                                        
-                                        </form>
-                                    </div>
-
-                                </div>
-                                <div class="col-md-4 mx-auto">
-                                    <div class="icon-uploads"><i class="fas fa-cloud-upload-alt"></i></div>
-                                </div>
-                                <div class="col-md-4 mx-auto">
-                                    <div class="icon-uploads"><i class="fas fa-cloud-upload-alt"></i></div>
-                                     <p class="text-right nxt-slide">Next</p>
-                                </div>
-                            </div>
-                          </div>
                         </div>
                     </div>
-    
+                    <div class="slider-footer">
+                        <div class="container">
+                            <div class="d-flex justify-content-between">
+                                <p>PREV</p>
+                                <p>NEXT</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <div class="py-5">
+                                <h3>UPLOAD SNIPPET</h3>
+                                <div class="">
+                                    <div class="browse-btn">
+                                        <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                        <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Snippet Cover"/>
+                                    </div>
+                                    <div class="browse-btn">
+                                        <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                        <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Snippet"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <h3>SNIPPET COVER</h3>
+                            <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <h3>SNIPPET</h3>
+                            <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                        </div>
+                    </div>
+                    <div class="slider-footer">
+                        <div class="container">
+                            <div class="d-flex justify-content-between">
+                                <p>PREV</p>
+                                <p>NEXT</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <div class="py-5">
+                                <h3>UPLOAD VIDEO</h3>
+                                <div class="">
+                                    <div class="browse-btn">
+                                        <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                        <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Video Cover"/>
+                                    </div>
+                                    <div class="browse-btn">
+                                        <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                        <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Video"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <h3>VIDEO COVER</h3>
+                            <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <h3>VIDEO</h3>
+                            <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                        </div>
+                    </div>
+                    <div class="slider-footer">
+                        <div class="container">
+                            <div class="d-flex justify-content-between">
+                                <p>PREV</p>
+                                <p>NEXT</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <div class="py-5">
+                                <h3>UPLOAD MEETING REPORT</h3>
+                                <div class="">
+                                    <div class="browse-btn">
+                                        <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                        <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Meeting Report Cover"/>
+                                    </div>
+                                    <div class="browse-btn">
+                                        <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                        <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Meeting Report"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <h3>MEETING REPORT COVER</h3>
+                            <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <h3>MEETING REPORT</h3>
+                            <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                        </div>
+                    </div>
+                    <div class="slider-footer">
+                        <div class="container">
+                            <div class="d-flex justify-content-between">
+                                <p>PREV</p>
+                                <p>NEXT</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            <div class="py-5">
+                                <h3>UPLOAD GALLERY</h3>
+                                <div class="">
+                                    <div class="browse-btn">
+                                        <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                        <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Gallery Cover"/>
+                                    </div>
+                                    <div class="browse-btn">
+                                        <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                        <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Gallery"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <h3>GALLERY COVER</h3>
+                            <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                        </div>
+                        <div class="col-md-4 text-center">
+                            <h3>GALLERY</h3>
+                            <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                        </div>
+                    </div>
+                    <div class="slider-footer">
+                        <div class="container">
+                            <div class="d-flex justify-content-between">
+                                <p>PREV</p>
+                                <p>NEXT</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
                 </div>
             </div>
         </div>
-    </main>
+    </section>
+
 
     <div class="container py-5">
         <div class="text-flex px-4">
@@ -355,21 +265,21 @@ html, body {
                 <div class="col-md-6 mb-5">
                     <div class="d-flex justify-content-around">
                         <input id="img1" type="radio" name="r">
-                        <img src="img/forum1a.png" width="350" height="150" alt="Image 1">
+                        <img src="{{ url_for('static', filename='admin/img/forum1a.png')}}" class="img-fora" width="350" height="150" alt="Image 1">
                         <h5 class="my-auto">Older Generation</h5>
                     </div>
                 </div>
                 <div class="col-md-6 mb-5">
                     <div class="d-flex justify-content-around">
                         <input id="img1" type="radio" name="r">
-                        <img src="img/forum1a.png" width="350" height="150" alt="Image 1">
+                        <img src="{{ url_for('static', filename='admin/img/forum1a.png')}}"  class="img-fora" width="350" height="150" alt="Image 1">
                         <h5 class="my-auto">Older Generation</h5>
                     </div>
                 </div>
                 <div class="col-md-6 mb-5">
                     <div class="d-flex justify-content-around">
                         <input id="img1" type="radio" name="r">
-                        <img src="img/forum1a.png" width="350" height="150" alt="Image 1">
+                        <img src="{{ url_for('static', filename='admin/img/forum1a.png')}}"  class="img-fora" width="350" height="150" alt="Image 1">
                         <h5 class="my-auto">Older Generation</h5>
                     </div>
                 </div>
@@ -386,7 +296,26 @@ html, body {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
     </script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
+        <!-- Initialize Swiper -->
+    <script>
+        let labels = ['Forum info', 'Snippet', 'Full Video', 'Meeting Report', 'Gallery'];
+        var swiper = new Swiper(".mySwiper", {
+            autoHeight: true, //enable auto height
+            pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            renderBullet: function (index, className) {
+                    return '<div class="' + className + '">' + (labels[index]) + '<i class="fas fa-angle-right"></i>' + '</div>';
+                    },
+            },
+            // renderBullet: function (index, className) {
+            //     return '<span class="' + className + '">' + (index + 1) + "</span>";
+            // },
+            // },
+        });
+    </script>
 </body>
 
 </html>

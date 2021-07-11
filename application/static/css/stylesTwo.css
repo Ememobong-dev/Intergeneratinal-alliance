@@ -21,7 +21,7 @@
           /* float: left; */
           position: relative; }
           .site-navbar .site-logo img {
-            width: 130px;
+            width: 100%;
           } }
     .site-navbar .site-navigation.border-bottom {
       border-bottom: 1px solid #191919 !important; }

@@ -66,27 +66,27 @@
                <!-- image slider -->
                <div class="column">
                     <div id="slide-wrapper" >
-                        <img id="slideLeft" class="arrow" src="img/arrow-left.png">
+                        <img id="slideLeft" class="arrow" src="{{ url_for('static', filename='admin/img/arrow-left.png')}}">
 
                         <div id="slider">
-                            <img class="thumbnail img-fluid active" src="img/Logo-02.png">
-                            <img class="thumbnail img-fluid" src="img/person_8.jpg">
-                            <img class="thumbnail img-fluid" src="img/soyemi_pics.png">
-                            <img class="thumbnail img-fluid" src="img/person_8.jpg">
-                            <img class="thumbnail img-fluid" src="img/oyinkan_pics.png">
-                            <img class="thumbnail img-fluid" src="img/person_8.jpg">
-                            <img class="thumbnail img-fluid" src="img/soyemi_pics.png">
-                            <img class="thumbnail img-fluid" src="img/person_8.jpg">
-                            <img class="thumbnail img-fluid" src="img/person_8.jpg">
-                            <img class="thumbnail img-fluid" src="img/soyemi_pics.png">
-                            <img class="thumbnail img-fluid" src="img/person_8.jpg">
-                            <img class="thumbnail img-fluid" src="img/oyinkan_pics.png">
-                            <img class="thumbnail img-fluid" src="img/person_8.jpg">
-                            <img class="thumbnail img-fluid" src="img/soyemi_pics.png">
-                            <img class="thumbnail img-fluid" src="img/person_8.jpg">
+                            <img class="thumbnail active" src="{{ url_for('static', filename='admin/img/oyinkan_pics.png')}}">
+                            <img class="thumbnail" src="{{ url_for('static', filename='admin/img/person_8.jpg')}}">
+                            <img class="thumbnail" src="{{ url_for('static', filename='admin/img/soyemi_pics.png')}}">
+                            <img class="thumbnail" src="{{ url_for('static', filename='admin/img/person_8.jpg')}}">
+                            <img class="thumbnail" src="{{ url_for('static', filename='admin/img/oyinkan_pics.png')}}">
+                            <img class="thumbnail" src="{{ url_for('static', filename='admin/img/person_8.jpg')}}">
+                            <img class="thumbnail" src="{{ url_for('static', filename='admin/img/soyemi_pics.png')}}">
+                            <img class="thumbnail" src="{{ url_for('static', filename='admin/img/person_8.jpg')}}">
+                            <img class="thumbnail" src="{{ url_for('static', filename='admin/img/person_8.jpg')}}">
+                            <img class="thumbnail" src="{{ url_for('static', filename='admin/img/soyemi_pics.png')}}">
+                            <img class="thumbnail" src="{{ url_for('static', filename='admin/img/person_8.jpg')}}">
+                            <img class="thumbnail" src="{{ url_for('static', filename='admin/img/oyinkan_pics.png')}}">
+                            <img class="thumbnail" src="{{ url_for('static', filename='admin/img/person_8.jpg')}}">
+                            <img class="thumbnail" src="{{ url_for('static', filename='admin/img/soyemi_pics.png')}}">
+                            <img class="thumbnail" src="{{ url_for('static', filename='admin/img/person_8.jpg')}}">
                         </div>
 
-                        <img id="slideRight" class="arrow" src="img/arrow-right.png">
+                        <img id="slideRight" class="arrow" src="{{ url_for('static', filename='admin/img/arrow-right.png')}}">
                     </div>
 		        </div>
             </div>
@@ -97,7 +97,7 @@
         <div class="row">
             <div class="d-md-flex d-block mb-5">
                 <div class="image-flex">
-		        	<img id=featured src="img/Logo-02.png" class="img-fluid" width="1000px">
+		        	<img id=featured src="{{ url_for('static', filename='admin/img/oyinkan_pics.png')}}" class="img-fluid" width="1000px">
                 </div>
                 <div class="text-flex px-4">
                     <div class="d-block d-md-flex justify-content-between">
