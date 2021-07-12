@@ -262,8 +262,9 @@
 
         $.ajax({
             type: "PUT",
-            url: "{{ url_for('api.info') }}" + "1",
-            data: "header=About&body=this"
+            contentType: ' application/json',
+            url: "{{ url_for('api.info') }}" + "/1",
+            data: JSON.stringify({ header: "About", body: "This is the new about of the site." })
         })
 
     </script>
