@@ -69,6 +69,11 @@
         </div>
     </main>
 
+
+    <!-- Demo Code -->
+    <div class="container load-teams"></div>
+    
+
     <div class="container">
         <h2 class="mt-5  dash-title">THE TEAM</h2>
         <div class="row">
@@ -236,6 +241,13 @@
             encode: true,
             success: function (data) {
                 console.log(data);
+                $('.load-teams').html('<h1> I AM WORKING </h1>')
+                //$('.load-teams') is using jquery to get the class attribute load-teams
+                //$('.load-teams').html('') is to directly code into that *tags* as in the (class attr) html
+                // You can decide to use javascript functions instead of jquery
+                // using javascript you'd use the innerHTML function, you can also go as far as using the append child function blah blah, you are kuku boss oga me.
+                //So technically on the admin page, you're to dynamically render the api into the broswer
+                //having gotten the data, you then make a loop through objects  to get the value of each key
             }
         })
     </script>
