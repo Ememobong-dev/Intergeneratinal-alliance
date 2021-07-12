@@ -259,6 +259,13 @@
                 //having gotten the data, you then make a loop through objects  to get the value of each key
             }
         })
+
+        $.ajax({
+            type: "PUT",
+            url: "{{ url_for('api.info') }}" + "1",
+            data: "header=About&body=this"
+        })
+
     </script>
 </body>
 
