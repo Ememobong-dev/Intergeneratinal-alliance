@@ -247,6 +247,7 @@
             success: function (data) {
                 data.forEach(function (item) {
                     console.log(item.profile)
+                    $('.load-teams').html('<p class="text-danger"> ' + item.profile + '</p>')
                 })
                 // console.log(data);
                 // $('.load-teams').html('<h1> I AM WORKING </h1>')
