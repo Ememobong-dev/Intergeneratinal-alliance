@@ -283,7 +283,9 @@
           })
         }
 
+        // ARTIST ROUTE
         // GET ALL ARTISTS
+        // TAKENOTE: all get without id are for user pages
         const getArtists = () => {
           axios.get('/artists')
           .then(function(response) {
@@ -311,8 +313,8 @@
         // ARTIST FUNCTIONS BY ID
         // GET ARTIST BY ID
         //const artistId = '';
-        const getArtistById = (artistId) => {
-          axios.get(`/artists/${artistId}`)
+        const getArtistById = (id) => {
+          axios.get(`/artists/${id}`)
           .then(function(response) {
             console.log(response);
           })
@@ -321,8 +323,8 @@
           })
         }
         // UPDATE ARTIST BY ID
-        const updateArtistById = (artistId) => {
-          axios.put(`/artists/${artistId}`, artistData)
+        const updateArtistById = (id) => {
+          axios.put(`/artists/${id}`, artistData)
           .then(function(response) {
             console.log(response);
           })
@@ -331,8 +333,8 @@
           })
         }
         // DELETE ARTIST BY ID
-        const deleteArtistById = (artistId) => {
-          axios.delete(`/artists/${artistId}`)
+        const deleteArtistById = (id) => {
+          axios.delete(`/artists/${id}`)
           .then(function(response) {
             console.log(response);
           })
@@ -340,6 +342,7 @@
             console.log(error);
           })
         }
+
 
         // FINANCIAL REPORTS ROUTE
         // GET FINANCIAL REPORTS
@@ -363,7 +366,6 @@
             console.log(error);
           })
         }
-
 
         // FINANCIAL REPORT WITH ID
         //const finReportId = '';
@@ -397,10 +399,11 @@
           })
         }
 
+
         // FORUM ROUTE
         // GET FORUM
         const getForum = () => {
-          axios.get('/financial_report')
+          axios.get('/forum')
           .then(function(response) {
             console.log(response);
           })
@@ -410,8 +413,8 @@
         }
         // ADD FORUM
         // forumData = { forumName: '' ,forumCoverUrl: '' , forumReportCoverUrl: '' , forum_reportFileUrl: '', forumCoverShape: '' }
-        const addFinancialReport = () => {
-          axios.post('/financial_report', forumData)
+        const addForum = () => {
+          axios.post('/forum', forumData)
           .then(function(response) {
             console.log(response);
           })
@@ -420,6 +423,541 @@
           })
         }
 
+        // FORUM WITH ID
+        //const forumId = '';
+        const getForumById = (id) => {
+          axios.get(`/forum/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // UPDATE FORUM BY ID
+        const updateForumById = (id) => {
+          axios.put(`/forum/${id}`, forumData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // DELETE FORUM BY ID
+        const deleteForumById = (id) => {
+          axios.delete(`/forum/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+
+        // DONORS ROUTE
+        // GET DONORS
+        const getDonors = () => {
+          axios.get('/donors')
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // ADD DONORS
+        // donorData = { name: '' , profile: '' , logoUrl: '' , websiteUrl: '' }
+        const addDonor = () => {
+          axios.post('/donors', donorData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+        // DONORS WITH ID
+        //const donorId = '';
+        const getDonorById = (id) => {
+          axios.get(`/donors/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // UPDATE DONORS BY ID
+        const updateDonorById = (id) => {
+          axios.put(`/donors/${id}`, donorData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // DELETE DONORS BY ID
+        const deleteDonorById = (id) => {
+          axios.delete(`/donors/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+
+        // AIDR ROUTE
+        // GET AIDR
+        const getAidr = () => {
+          axios.get('/aidr')
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // ADD AIDR
+        // aidrData = { artistName: '' ,artistImage: '', artistTitle: '', artistProfile: '', artistWorksUrl: '' }
+        const addAidr = () => {
+          axios.post('/aidr', aidrData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+        // AIDR WITH ID
+        //const aidrId = '';
+        const getAidrById = (id) => {
+          axios.get(`/aidr/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // UPDATE AIDR BY ID
+        const updateAidrById = (id) => {
+          axios.put(`/aidr/${id}`, aidrData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // DELETE AIDR BY ID
+        const deleteAidrById = (id) => {
+          axios.delete(`/aidr/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+
+        // TEAM ROUTE
+        // GET TEAM
+        const getTeam = () => {
+          axios.get('/team')
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // ADD TEAM
+        // teamData = { name: '' , profile: '' , imageUrl: '' }
+        const addTeam = () => {
+          axios.post('/team', teamData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+        // TEAM WITH ID
+        //const teamId = '';
+        const getTeamById = (id) => {
+          axios.get(`/team/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // UPDATE TEAM BY ID
+        const updateteamById = (id) => {
+          axios.put(`/team/${id}`, teamData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // DELETE TEAM BY ID
+        const deleteteamById = (id) => {
+          axios.delete(`/team/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+
+        // PARTNERS ROUTE
+        // GET PARTNER
+        const getPartners = () => {
+          axios.get('/partners')
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // ADD PARTNER
+        // partnerData = { name: '' , profile: '' , logoUrl: '' , websiteUrl: '' }
+        const addPartner = () => {
+          axios.post('/partners', partnerData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+        // PARTNER WITH ID
+        //const partnerId = '';
+        const getPartnerById = (id) => {
+          axios.get(`/partners/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // UPDATE PARTNER BY ID
+        const updatePartnerById = (id) => {
+          axios.put(`/partners/${id}`, partnerData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // DELETE PARTNER BY ID
+        const deletePartnerById = (id) => {
+          axios.delete(`/partners/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+
+        // FORUM GALLERY ROUTE
+        // GET FORUM GALLERY
+        const getForumGallery = () => {
+          axios.get('/forum-gallery')
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // ADD FORUM GALLERY
+        // forumGalleryData = { forum: '' ,forumGalleryCover: '' , forumGallery: '' , fullVideoCoverUrl: '', fullVideoUrl: '', snippetCoverUrl: '', snippetUrl: '' }
+        const addForumGallery = () => {
+          axios.post('/forum-gallery', forumGalleryData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+        // FORUM GALLERY WITH ID
+        //const forumGalleryId = '';
+        const getForumGalleryById = (id) => {
+          axios.get(`/forum-gallery/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // UPDATE FORUM GALLERY BY ID
+        const updateForumGalleryById = (id) => {
+          axios.put(`/forum-gallery/${id}`, forumGalleryData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // DELETE FORUM GALLERY BY ID
+        const deleteForumGalleryById = (id) => {
+          axios.delete(`/forum-gallery/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+
+        // INFO GALLERY ROUTE
+        // GET INFO GALLERY
+        const getInfo = () => {
+          axios.get('/info')
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // ADD INFO GALLERY
+        // infoData = { header: '', body: '' }
+        const addInfo = () => {
+          axios.post('/info', infoData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+        // INFO WITH ID
+        //const infoId = '';
+        const getInfoById = (id) => {
+          axios.get(`/info/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // UPDATE INFO BY ID
+        const updateInfoById = (id) => {
+          axios.put(`/info/${id}`, infoData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // DELETE INFO BY ID
+        const deleteInfoById = (id) => {
+          axios.delete(`/info/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+
+        // 'GET IN TOUCH' ROUTE
+        // GET 'GET IN TOUCH'
+        const getGetInTouch = () => {
+          axios.get('/get-in-touch')
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // ADD 'GET IN TOUCH'
+        // getInTouchData = { fullName: '', email: '', message: '' }
+        const addGetInTouch = () => {
+          axios.post('/get-in-touch', getInTouchData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+        // 'GET IN TOUCH' WITH ID
+        //const getInTouchId = '';
+        const getGetInTouchById = (id) => {
+          axios.get(`/get-in-touch/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // UPDATE 'GET IN TOUCH' BY ID
+        const updateGetInTouchById = (id) => {
+          axios.put(`/get-in-touch/${id}`, getInTouchData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // DELETE 'GET IN TOUCH' BY ID
+        const deleteGetInTouchById = (id) => {
+          axios.delete(`/get-in-touch/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+
+        // 'PARTICIPATION REQUEST' ROUTE
+        // GET 'PARTICIPATION REQUEST'
+        const getParticipationRequest = () => {
+          axios.get('/participation_request')
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // ADD 'PARTICIPATION REQUEST'
+        //const participationRequestData = { fullName: '' ,email: '' , phoneNumber: '' , ageRange: '', job: '', lga: '' }
+        const addParticipationRequest = () => {
+          axios.post('/participation_request', participationRequestData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+        // 'PARTICIPATION REQUEST' WITH ID
+        //const participationRequestId = '';
+        const getParticipationRequestById = (id) => {
+          axios.get(`/participation_request/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // UPDATE 'PARTICIPATION REQUEST' BY ID
+        const updateParticipationRequestById = (id) => {
+          axios.put(`/participation_request/${id}`, participationRequestData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // DELETE 'PARTICIPATION REQUEST' BY ID
+        const deleteParticipationRequestById = (id) => {
+          axios.delete(`/participation_request/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+
+        // 'FORUM SUGGESTION' ROUTE
+        // GET 'FORUM SUGGESTION'
+        const getForumSuggestion = () => {
+          axios.get('/forum-suggestion')
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // ADD 'FORUM SUGGESTION'
+        //const forumSuggestionData = { fullName: '', email: '', message: '' }
+        const addForumSuggestion = () => {
+          axios.post('/forum-suggestion', forumSuggestionData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+        // 'FORUM SUGGESTION' WITH ID
+        //const forumSuggestionId = '';
+        const getForumSuggestionById = (id) => {
+          axios.get(`/forum-suggestion/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // UPDATE 'FORUM SUGGESTION' BY ID
+        const updateForumSuggestionById = (id) => {
+          axios.put(`/forum-suggestion/${id}`, forumSuggestionData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // DELETE 'FORUM SUGGESTION' BY ID
+        const deleteForumSuggestionById = (id) => {
+          axios.delete(`/forum-suggestion/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
     </script>
 </body>
 
