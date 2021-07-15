@@ -226,8 +226,10 @@
         </div>
     </div>
 
+    <div id="resp"></div>
 
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
     <script src="{{ url_for('static' , filename='admin/js/popper.js' ) }}     "></script>
     <!-- Bootstrap JS -->
@@ -266,6 +268,157 @@
             url: "{{ url_for('api.info') }}" + "/1",
             data: JSON.stringify({ header: "About", body: "This is the new about of the site." })
         })
+
+
+        const temp = document.querySelector('#resp');
+        // FILE UPLOAD UTILITY
+        // store the file in a variable called file
+        const upload = (file) => {
+          axios.post('/upload', file)
+          .then(function(response) {
+            console.log('tried uploaded file', response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+        }
+
+        // GET ALL ARTISTS
+        const getArtists = () => {
+          axios.get('/artists')
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+        // ADD NEW ARTISTS
+        // data: artistName, artistImage, artistProfile, artist_works_url
+        // it can accept artist name alone or accept their data alongside
+        // const artistData = { artistName: '' , artistImage: '', artistProfile: '', artist_works_url: '' }
+        const addArtist = () => {
+          axios.post('/artists', artistData )
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+        // ARTIST FUNCTIONS BY ID
+        // GET ARTIST BY ID
+        //const artistId = '';
+        const getArtistById = (artistId) => {
+          axios.get(`/artists/${artistId}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // UPDATE ARTIST BY ID
+        const updateArtistById = (artistId) => {
+          axios.put(`/artists/${artistId}`, artistData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // DELETE ARTIST BY ID
+        const deleteArtistById = (artistId) => {
+          axios.delete(`/artists/${artistId}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+        // FINANCIAL REPORTS ROUTE
+        // GET FINANCIAL REPORTS
+        const getFinancialReport = () => {
+          axios.get('/financial_report')
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // ADD FINANCIAL REPORT
+        // finData = { year: '', month: '', file: '' }
+        const addFinancialReport = () => {
+          axios.post('/financial_report', finData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+
+        // FINANCIAL REPORT WITH ID
+        //const finReportId = '';
+        const getFinancialReportById = (id) => {
+          axios.get(`/financial_report/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // UPDATE FINANCIAL REPORT BY ID
+        const updateFinancialReportById = (id) => {
+          axios.put(`/financial_report/${id}`, artistData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // DELETE FINANCIAL REPORT BY ID
+        const deleteFinancialReportById = (id) => {
+          axios.delete(`/financial_report/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+        // FORUM ROUTE
+        // GET FORUM
+        const getForum = () => {
+          axios.get('/financial_report')
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // ADD FORUM
+        // forumData = { forumName: '' ,forumCoverUrl: '' , forumReportCoverUrl: '' , forum_reportFileUrl: '', forumCoverShape: '' }
+        const addFinancialReport = () => {
+          axios.post('/financial_report', forumData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
 
     </script>
 </body>
