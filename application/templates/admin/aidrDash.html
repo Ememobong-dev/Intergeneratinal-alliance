@@ -77,9 +77,9 @@
             </div>
         </div>
     </div>
-  
 
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
     <script src="{{ url_for('static' , filename='admin/js/popper.js' ) }}     "></script>
     <!-- Bootstrap JS -->
@@ -87,6 +87,62 @@
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
     </script>
     <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
+    <script>
+    // AIDR ROUTE
+    // GET AIDR
+    const getAidr = () => {
+      axios.get('/aidr')
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    // ADD AIDR
+    // aidrData = { artistName: '' ,artistImage: '', artistTitle: '', artistProfile: '', artistWorksUrl: '' }
+    const addAidr = () => {
+      axios.post('/aidr', aidrData)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+
+    // AIDR WITH ID
+    //const aidrId = '';
+    const getAidrById = (id) => {
+      axios.get(`/aidr/${id}`)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    // UPDATE AIDR BY ID
+    const updateAidrById = (id) => {
+      axios.put(`/aidr/${id}`, aidrData)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    // DELETE AIDR BY ID
+    const deleteAidrById = (id) => {
+      axios.delete(`/aidr/${id}`)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    </script>
 </body>
 
 </html>

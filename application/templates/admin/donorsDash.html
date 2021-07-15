@@ -59,7 +59,7 @@
             <h2 class="mt-5 dash-title">Donors Page</h2>
         </div>
     </main>
-     
+
     <div class="container mt-5">
         <div class="row">
            <div class="col-md-12">
@@ -110,6 +110,7 @@
         </div>
     </div>
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
     <script src="{{ url_for('static' , filename='admin/js/popper.js' ) }}     "></script>
     <!-- Bootstrap JS -->
@@ -117,6 +118,62 @@
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
     </script>
     <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
+    <script>
+    // DONORS ROUTE
+    // GET DONORS
+    const getDonors = () => {
+      axios.get('/donors')
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    // ADD DONORS
+    // donorData = { name: '' , profile: '' , logoUrl: '' , websiteUrl: '' }
+    const addDonor = () => {
+      axios.post('/donors', donorData)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+
+    // DONORS WITH ID
+    //const donorId = '';
+    const getDonorById = (id) => {
+      axios.get(`/donors/${id}`)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    // UPDATE DONORS BY ID
+    const updateDonorById = (id) => {
+      axios.put(`/donors/${id}`, donorData)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    // DELETE DONORS BY ID
+    const deleteDonorById = (id) => {
+      axios.delete(`/donors/${id}`)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    </script>
 </body>
 
 </html>

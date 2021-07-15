@@ -59,7 +59,7 @@
             <h2 class="mt-5 dash-title">Financial Report Page</h2>
         </div>
     </main>
-     
+
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-6">
@@ -87,11 +87,11 @@
                             <input id="files" style="visibility:hidden;" type="file">
                         </div>
                 </div>
-             
+
 
             </div>
             <div class="col-md-6">
-                
+
                 <div class="accordion" id="accordionExample">
                     <div class="row">
                         <div class="col-md-4">
@@ -143,10 +143,11 @@
 
                 </div>
             </div>
-            
+
         </div>
     </div>
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
     <script src="{{ url_for('static' , filename='admin/js/popper.js' ) }}     "></script>
     <!-- Bootstrap JS -->
@@ -154,6 +155,62 @@
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
     </script>
     <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
+    <script>
+    // FINANCIAL REPORTS ROUTE
+    // GET FINANCIAL REPORTS
+    const getFinancialReport = () => {
+      axios.get('/financial_report')
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    // ADD FINANCIAL REPORT
+    // finData = { year: '', month: '', file: '' }
+    const addFinancialReport = () => {
+      axios.post('/financial_report', finData)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+
+    // FINANCIAL REPORT WITH ID
+    //const finReportId = '';
+    const getFinancialReportById = (id) => {
+      axios.get(`/financial_report/${id}`)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    // UPDATE FINANCIAL REPORT BY ID
+    const updateFinancialReportById = (id) => {
+      axios.put(`/financial_report/${id}`, artistData)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    // DELETE FINANCIAL REPORT BY ID
+    const deleteFinancialReportById = (id) => {
+      axios.delete(`/financial_report/${id}`)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    </script>
 </body>
 
 </html>
