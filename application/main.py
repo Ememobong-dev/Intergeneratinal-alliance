@@ -64,8 +64,8 @@ def mission():
 
 
 @main.route("/forum-detail/", methods=["GET"])
-def forum_detial():
-    return render_template("forum_detial.html")
+def forum_detail():
+    return render_template("forum_detail.html")
 
 
 @main.route("/partners/", methods=["GET"])
