@@ -160,9 +160,10 @@
     // GET FINANCIAL REPORTS
     let res = document.querySelector('#resp');
     //console.log('ran');
+    const route = {{ url_for('api.financial_report'}};
     const header = { 'X-Custom-Header': 'value' };
     const getFinancialReport = () => {
-      axios.get('/financial_report', header)
+      axios.get(route, header)
       .then(function(response) {
         console.log(response);
       })
@@ -172,7 +173,7 @@
       })
       //console.log('running :)');
     }
-    //getFinancialReport();
+    getFinancialReport();
     // ADD FINANCIAL REPORT
     let Year = 1000, Month = "JULY", imgFile = "file.jpg";
     const addFinancialReport = () => {
