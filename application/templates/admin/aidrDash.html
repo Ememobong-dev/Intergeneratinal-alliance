@@ -96,9 +96,10 @@
         console.log(response);
       })
       .catch(function(error) {
-        console.log(error);
+        console.log(error.response);
       })
     }
+  //  getAidr();
     // ADD AIDR
     // aidrData = { artistName: '' ,artistImage: '', artistTitle: '', artistProfile: '', artistWorksUrl: '' }
     const addAidr = () => {

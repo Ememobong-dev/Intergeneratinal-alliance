@@ -139,7 +139,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <div id="resp"></div>
 
                 </div>
             </div>
@@ -155,30 +155,37 @@
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
     </script>
     <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
-    <script>
+    <script type="text/javascript">
     // FINANCIAL REPORTS ROUTE
     // GET FINANCIAL REPORTS
+    let res = document.querySelector('#resp');
+    //console.log('ran');
+    const header = { 'X-Custom-Header': 'value' };
     const getFinancialReport = () => {
-      axios.get('/financial_report')
+      axios.get('/financial_report', header)
       .then(function(response) {
         console.log(response);
       })
       .catch(function(error) {
-        console.log(error);
+        console.log(error.response);
+        res.innerHTML = JSON.stringify(error.response);
       })
+      //console.log('running :)');
     }
+    //getFinancialReport();
     // ADD FINANCIAL REPORT
-    // finData = { year: '', month: '', file: '' }
+    let Year = 1000, Month = "JULY", imgFile = "file.jpg";
     const addFinancialReport = () => {
-      axios.post('/financial_report', finData)
+      axios.post('/financial_report/', { year: Year, month: Month, file: imgFile }, {header})
       .then(function(response) {
         console.log(response);
       })
       .catch(function(error) {
-        console.log(error);
+        console.log(error.response);
       })
     }
-
+    console.log('secter');
+    addFinancialReport();
     // FINANCIAL REPORT WITH ID
     //const finReportId = '';
     const getFinancialReportById = (id) => {
