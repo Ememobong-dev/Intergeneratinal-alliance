@@ -205,7 +205,7 @@
                                         <div class="text"> No file chosen, yet!</div>
                                     </div>
 
-                                    <!-- <div id="${cancelBtnId}"><i class="fas fa-times"></i></div> -->
+                                    <div id="${cancelBtnId}"><i class="fas fa-times"></i></div>
                                     <div class="file-name" id="${fileNameId}">File name here</div>
                                 </div>
                                 <button id="${'custom-btn'+item.id}" 
@@ -238,11 +238,11 @@
                     }   
                     callId();              
                     defaultBtn.onchange = () => {
-                      const imgFile = defaultBtn.files[0];
-                      console.log('file');
-                      if(imgFile){
+                      const tImgFile = defaultBtn.files[0];
+                      console.log(tImgFile);
+                      if(tImgFile){
                         tFile = new FormData;
-                        tFile.append('file', imgFile);
+                        tFile.append('file', tImgFile);
                         consloe.log(FormData);
                         const reader = new FileReader();
                         reader.onload = function(){
@@ -254,7 +254,7 @@
                           img.src = "";
                           wrapper.classList.remove("active");
                         });
-                        reader.readAsDataURL(imgFile)
+                        reader.readAsDataURL(tImgFile)
                       };
                       upload(tFile);
                       if(this.value){
