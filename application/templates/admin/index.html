@@ -77,62 +77,8 @@
 
     <div class="container">
         <h2 class="mt-5  dash-title">THE TEAM</h2>
-        <div class="row">
-            <div class="d-md-flex d-block mb-5">
-
-                <div class="editProduct__image">
-                    <!-- images -->
-                    <div class="wrapper">
-                        <div class="image">
-                            <img src="{{ url_for('static', filename='admin/img/oyinkan_pics.png')}}" alt=""
-                                id="wrapperImg">
-                        </div>
-                        <div class="content">
-                            <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                            <div class="text"> No file chosen, yet!</div>
-                        </div>
-
-                        <div id="cancel-btn"><i class="fas fa-times"></i></div>
-                        <div class="file-name">File name here</div>
-                    </div>
-                    <button id="custom-btn">Edit Image</button>
-                    <input id="default-btn" type="file" hidden>
-                </div>
-
-                <div class="text-flex px-4">
-                    <div class="d-block d-md-flex justify-content-between">
-                        <h5 class="mb-2">ENIOLA</h5>
-                        <button type="button" class="btn btn-dark btn-sm mb-2" data-bs-toggle="modal"
-                            data-bs-target="#profileModal1"> <i class="fas fa-edit"></i> Edit Profile
-                        </button>
-                    </div>
-
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati minima omnis est culpa fugit
-                        autem dolore totam laudantium iure, tempore illum voluptates? Nihil impedit commodi illum est
-                        vitae nam labore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, beatae? Molestias
-                        ab debitis tempore similique harum aut illo. Magni dolor inventore, sint mollitia illo velit
-                        autem magnam at possimus doloremque, dolore molestiae consectetur?</p>
-                </div>
-            </div>
-            <div class="d-md-flex d-block mb-5">
-                <div class="image-flex">
-                    <img src=" {{ url_for('static', filename='admin/img/oyinkan_pics.png')}}" alt="" class="img-fluid"
-                        width="450px">
-                </div>
-                <div class="text-flex px-4">
-                    <div class="d-block d-md-flex justify-content-between">
-                        <h5 class="mb-2">OYINKAN</h5>
-                        <button type="button" class="btn btn-dark btn-sm mb-2" data-bs-toggle="modal"
-                            data-bs-target="#profileModal2"> <i class="fas fa-edit"></i> Edit Profile
-                        </button>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur . Obcaecati minima omnis est culpa fugit autem dolore
-                        totam laudantium iure, tempore illum voluptates? Nihil impedit commodi illum est vitae nam
-                        labore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, beatae? Molestias ab
-                        debitis tempore similique harum aut illo. Magni dolor inventore, sint mollitia illo velit autem
-                        magnam at possimus doloremque, dolore molestiae consectetur?</p>
-                </div>
-            </div>
+        <div class="row" id="tcont">
+            
         </div>
     </div>
 
@@ -154,33 +100,8 @@
                         <div class="signIn-inputs">
                             <form action="" id="" method="post">
                                 <div class="form-group mb-3">
-                                    <textarea name="" class="form-control" id="" cols="30" rows="10"></textarea>
+                                    <input type="text" class="form-control" placeholder="enter header text">
                                 </div>
-
-                                <div class="signIn-btn text-center">
-                                    <button name="" type="submit" id="" class="btn btn-lg btn-modal"
-                                        role="button">PUBLISH</button>
-                                </div>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal1 -->
-    <div class="modal fade" id="profileModal1" tabindex="-1" aria-labelledby="profileModal1Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="signIn-inputs">
-                            <form action="" id="" method="post">
                                 <div class="form-group mb-3">
                                     <textarea name="" class="form-control" id="" cols="30" rows="10"></textarea>
                                 </div>
@@ -197,8 +118,9 @@
             </div>
         </div>
     </div>
-
-    <!-- Modal2 -->
+<div id = "profileModals">
+    
+    <!-- Modal2 
     <div class="modal fade" id="profileModal2" tabindex="-1" aria-labelledby="profileModal2Labe2" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -224,11 +146,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
-    <div id="resp"></div>
-
-
+</div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
     <script src="{{ url_for('static' , filename='admin/js/popper.js' ) }}     "></script>
@@ -240,18 +160,90 @@
     <script src=" {{ url_for('static' , filename='admin/js/selectImage.js' ) }}"></script>
     <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
     <script>
+        let profile, amnt, profileModalNo, tId;
+        const tRoute = "{{ url_for('api.team') }}";
+        function init() {
         $.ajax({
             type: "GET",
-            url: "{{ url_for('api.team') }}",
+            url: tRoute,
             // crossDomain: true,
             contentType: ' application/json',
             encode: true,
             success: function (data) {
+                amnt = data.length;
+                console.log(amnt);
                 data.forEach(function (item) {
+                    //tId = item.id;
                     console.log(item.profile)
-                    $('.load-teams').html('<p class="text-danger"> ' + item.profile + '</p>')
+                    $('#tcont').append(
+                        `<div class="d-md-flex d-block mb-5">
+                            <div class="editProduct__image">
+                                <!-- images -->
+                                <div class="wrapper" id="${'wrapper'+item.id}">
+                                    <div class="image">
+                                        <img src=${item.image_url} alt="" id="${'wrapperImg'+item.id}">
+                                    </div>
+                                    <div class="content">
+                                        <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                                        <div class="text"> No file chosen, yet!</div>
+                                    </div>
+
+                                    <div id="${'cancel-btn'+item.id}"><i class="fas fa-times"></i></div>
+                                    <div class="file-name" id="${'file-name'+item.id}">File name here</div>
+                                </div>
+                                <button id="${'custom-btn'+item.id}" onclick="${"default-btn"+item.id}.click()">Edit Image</button>
+                                <input id="${"default-btn"+item.id}" type="file" hidden>
+                            </div>
+
+                            <div class="text-flex px-4">
+                                <div class="d-block d-md-flex justify-content-between">
+                                    <h5 class="mb-2" style="text-transform: uppercase">${item.name}</h5>
+                                    <button type="button" class="btn btn-dark btn-sm mb-2" data-bs-toggle="modal"
+                                    data-bs-target="${'#profileModal'+item.id}"> <i class="fas fa-edit"></i> Edit Profile
+                                    </button>
+                                </div>
+
+                                <p id="profile">${item.profile}
+                                </p>
+                                <button onclick=${'deleteTeamById('+item.id+')'} style="float: right">delete</button>
+                            </div>
+                        </div>`
+                    )
+                    console.log('modalin');
+                    $('#profileModals').append(
+                        `<!-- Modal${item.id} -->
+                        <div class="modal fade" id="${'#profileModal'+item.id}" tabindex="-1" 
+                        aria-labelledby="${'#profileModal'+item.id+'Label'+item.id}" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container">
+                                            <div class="signIn-inputs">
+                                                <form action="" id="" method="post">
+                                                    <input type="text" class="form-control" id="${"name"+item.id}" placeholder="enter the team member name here">
+                                                    <div class="form-group mb-3">
+                                                        <textarea name="" class="form-control" id="${"profile"+item.id}" cols="30" rows="10" placeholder="write the team profile here"></textarea>
+                                                    </div>
+
+                                                    <div class="signIn-btn text-center">
+                                                        <button name="" onclick="${'submit('+item.id+')'}" type="submit" id="" class="btn btn-lg btn-modal"
+                                                        role="button">PUBLISH</button>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`
+                    )
+                    console.log('modalout');
                 })
-                // console.log(data);
+                console.log(data);
                 // $('.load-teams').html('<h1> I AM WORKING </h1>')
                 //$('.load-teams') is using jquery to get the class attribute load-teams
                 //$('.load-teams').html('') is to directly code into that *tags* as in the (class attr) html
@@ -261,7 +253,8 @@
                 //having gotten the data, you then make a loop through objects  to get the value of each key
             }
         })
-
+        }
+        init();
         $.ajax({
             type: "PUT",
             contentType: ' application/json',
@@ -269,11 +262,13 @@
             data: JSON.stringify({ header: "About", body: "This is the new about of the site." })
         })
 
-        const temp = document.querySelector('#resp');
         // FILE UPLOAD UTILITY
         // store the file in a variable called file
+        const submit = () => {
+            console.log('gbola');
+        }
         const upload = (file) => {
-          axios.post('/upload', file)
+          axios.post("{{ url_for('api.upload') }}", {file})
           .then(function(response) {
             console.log('tried uploaded file', response);
           })
@@ -294,23 +289,23 @@
             console.log(error);
           })
         }
-        //getTeam();
+        
         // ADD TEAM
-        // teamData = { name: '' , profile: '' , imageUrl: '' }
-        const addTeam = () => {
-          axios.post('/team', teamData)
+        let teamData = { name: 'test test' , profile: 'tester' , image_url: 'tester.jpg' }
+        const addTeam = (name, profile, image_url) => {
+          axios.post(tRoute, { name, profile, image_url })
           .then(function(response) {
             console.log(response);
           })
           .catch(function(error) {
-            console.log(error);
+            console.log(error.response);
           })
         }
-
+        //addTeam(teamData.name, teamData.profile, teamData.image_url);
         // TEAM WITH ID
         //const teamId = '';
         const getTeamById = (id) => {
-          axios.get(`/team/${id}`)
+          axios.get(`${tRoute+'?'+id}`)
           .then(function(response) {
             console.log(response);
           })
@@ -319,8 +314,9 @@
           })
         }
         // UPDATE TEAM BY ID
-        const updateteamById = (id) => {
-          axios.put(`/team/${id}`, teamData)
+
+        const updateTeamById = (id) => {
+          axios.put(`${tRoute+'?'+id}`, data)
           .then(function(response) {
             console.log(response);
           })
@@ -329,13 +325,14 @@
           })
         }
         // DELETE TEAM BY ID
-        const deleteteamById = (id) => {
-          axios.delete(`/team/${id}`)
+        const deleteTeamById = (id) => {
+            console.log(id);
+          axios.delete(`${tRoute+'?'+id}`)
           .then(function(response) {
             console.log(response);
           })
           .catch(function(error) {
-            console.log(error);
+            console.log(error.response);
           })
         }
 

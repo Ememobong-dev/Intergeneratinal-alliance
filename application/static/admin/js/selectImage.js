@@ -1,34 +1,32 @@
-const wrapper = document.querySelector(".wrapper");
-const fileName = document.querySelector(".file-name");
-const defaultBtn = document.querySelector("#default-btn");
-const customBtn = document.querySelector("#custom-btn");
-const cancelBtn = document.querySelector("#cancel-btn i");
-const img = document.querySelector("#wrapperImg");
 let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
+let wrapper, fileName, dafaultBtn, cancelBtn, img;
+wrapper = document.querySelector(`"#(${'wrapper'+item.id}"`);
+    fileName = document.querySelector(`"#${'file-name'+item.id}"`);
+    defaultBtn = document.querySelector(`"#${"default-btn"+item.id}"`);
+    //const customBtn = document.querySelector("#custom-btn");
+    cancelBtn = document.querySelector(`"#${'cancel-btn'+item.id}"`);
+    img = document.querySelector(`"#${'wrapperImg'+item.id})"`);
 
-
-defaultBtn.addEventListener("change", function(){
-const file = this.files[0];
-if(file){
-    const reader = new FileReader();
-    reader.onload = function(){
-    const result = reader.result;
-    img.src = result;
-    wrapper.classList.add("active");
+let selectImage = () => {
+    const file = this.files[0];
+    if(file){
+        const reader = new FileReader();
+        reader.onload = function(){
+            const result = reader.result;
+            img.src = result;
+            wrapper.classList.add("active");
+        }
+        cancelBtn.addEventListener("click", function(){
+            img.src = "";
+            wrapper.classList.remove("active");
+        })
+        reader.readAsDataURL(file);
     }
-    cancelBtn.addEventListener("click", function(){
-    img.src = "";
-    wrapper.classList.remove("active");
-    })
-    reader.readAsDataURL(file);
-}
-if(this.value){
-    let valueStore = this.value.match(regExp);
-    fileName.textContent = valueStore;
-}
-});
+    if(this.value){
+        let valueStore = this.value.match(regExp);
+        fileName.textContent = valueStore;
+    }
+    
+};
 
-
-customBtn.addEventListener('click', function(){
-    defaultBtn.click();
-});
+defaultBtn.onclick = selectImage();
