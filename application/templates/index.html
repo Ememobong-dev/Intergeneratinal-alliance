@@ -128,37 +128,11 @@
       <div class="container pt-lg-5">
         <div class="row">
           <div class="col-12">
-            <div class="row">
+            <div class="row" id="tHcont">
               <div class="col-12 mb-3" data-aos="fade-up">
                 <h1>THE TEAM</h1>
               </div>
-              <div class="col-md-6 text-pitch text-center mt-5" data-aos="fade-up">
-                <img src="{{ url_for('static' , filename='images/soyemi_pics.png' ) }}" alt="" class="img-fluid" width="300px">
-                <div class="team-name mt-5 mb-4">
-                  <h4>ENIOLA</h4>
-                  <h6>(CO-FOUNDER)</h6>
-                </div>
-                <div class="teamOneText m-auto mb-5">
-                  <p class="m-auto">
-                    Dr. Ẹniọlá Ànúolúwapọ́ Ṣóyẹmí is a political theorist whose academic research specialises in theories and practices of deliberation, the nature of freedom, and the nature of legitimate authority. Over the last 10 years, Ẹniọlá's work has focused on making the historical and contemporary socio-legal and political experiences of Nigeria, and the wider African continent, influential to mainstream discourses in political theory. Her field research has involved working in Lagos, Nigeria in partnership with LAMATA.
-                    <br><br>
-                    Prior to entering academia, she worked at Chatham House and at the UK Guardian's Lobby Office in the House of Commons. She holds a Ph.D. in Political Science from Boston University and an MSc. in International Public Policy from University College London. She has recently been a Max Weber Fellow and a Visiting Fellow at the European University Institute.
-                  </p>
-                </div>
-              </div>
-              <div class="col-md-6 text-center mt-5" data-aos="fade-up">
-                <img src="{{ url_for('static', filename='images/oyinkan_pics.png' ) }}" alt="" class="img-fluid" width="300px">
-                <div class="team-name mt-5 mb-4">
-                  <h4>OYINKAN</h4>
-                  <h6>(CO-FOUNDER)</h6>
-                </div>
-                <div class="teamOneText m-auto mb-5">
-                  <p class="m-auto">
-                    Oyinkan Akintola-Bello is a public interest technologist who works at the intersection of governance and technology. With an undergraduate education from Bristol University in Law and a Master’s degree in Conflict, Security and Development from the University of Sussex her expertise spans working with governments to innovate and improve service delivery to supporting startups with advisory on policy decisions.
-                    <br><br>
-                    For her, it is important that citizens have a voice in how their affairs are managed. This informs the work she does around data privacy and digital rights.
-                  </p>
-                </div>
+              
               </div>
   
             </div>
@@ -257,5 +231,37 @@
   <script src="{{ url_for('static' , filename='js/aos.js' ) }}"></script>
   <script src="{{ url_for('static' , filename='js/jquery.sticky.js' ) }}"></script>
   <script src="{{ url_for('static' , filename='js/main.js' ) }}"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    const init = () => {
+      const tRoute = "{{ url_for('api.team') }}";
+      $.ajax({
+        type: "GET",
+        url: tRoute,
+        // crossDomain: true,
+        contentType: 'application/json',
+        encode: true,
+        success: function (data) {
+          data.forEach(function (item) {                   
+            $('#tHcont').append(
+              `<div class="col-md-6 text-pitch text-center mt-5" data-aos="fade-up">
+                <img src="${item.image_url}" alt="" class="img-fluid" width="300px">
+                <div class="team-name mt-5 mb-4">
+                  <h4>${item.name.toUpperCase()}</h4>
+                  <h6>(CO-FOUNDER)</h6>
+                </div>
+                <div class="teamOneText m-auto mb-5">
+                  <p class="m-auto">
+                    ${item.profile}
+                  </p>
+                </div>
+              </div>`
+            )
+          })
+        }
+      })                   
+    }
+    init();
+  </script>
 </body>
 </html>
