@@ -101,7 +101,7 @@ def login():
 
 @api.route("/upload", methods=["POST"])
 def upload():
-    print(request.json)
+    print(request.form)
     file = request.files["file"]
     if request.content_length <= 50000000:
         upload = upload_file_to_s3(request.files["file"], "test/")

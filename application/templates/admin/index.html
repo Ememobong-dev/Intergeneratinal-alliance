@@ -2,124 +2,123 @@
 <html lang="en">
 
 <head>
-    <title>NGO ADMIN</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>NGO ADMIN</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <link rel="stylesheet"
-        href=" {{ url_for ( 'static', filename='admin/css/fontawesome-free-5.0.1/css/fontawesome-all.css') }}   ">
-    <link rel="stylesheet" href="{{ url_for ( 'static', filename='admin/css/styles.css') }}">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+  <link rel="stylesheet"
+    href=" {{ url_for ( 'static', filename='admin/css/fontawesome-free-5.0.1/css/fontawesome-all.css') }}   ">
+  <link rel="stylesheet" href="{{ url_for ( 'static', filename='admin/css/styles.css') }}">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md fixed-top bg-nav">
-        <div class="container-fluid">
-            <!-- <a class="navbar-brand" href="#">App Name</a> -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav me-auto mx-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ url_for('admin.index_dashboard') }}">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.mission_dashboard') }}">Mission</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.financial_dashboard') }}">Financial Report</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.partners_dashboard') }}">Partners</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.forums_dashboard') }}">Forums</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.aidr_dashboard')}}">Artists</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.donors_dashboard') }}">Donors</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-
-    <main class="flex-shrink-0">
-        <div class="container">
-            <h2 class="mt-5 dash-title">ABOUT PAGE</h2>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe vitae nobis, recusandae, quibusdam rem
-                molestiae veritatis ipsam magnam exercitationem debitis nemo numquam ut! Beatae nemo quas commodi odio
-                fugit eaque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam magnam vel dolorum ipsa
-                quansectetur adipisicing elit. Nisi id vel natus, aut corrupti sit animi quo, aspernatur excepturi
-                debitis officia! Deleniti sapiente illo quos itaque, rerum recusandae accusantium iste.
-            </p>
-            <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#headerModal"> <i
-                    class="fas fa-edit"></i> Edit Text </button>
-        </div>
-    </main>
-
-
-    <!-- Demo Code -->
-    <div class="container load-teams"></div>
-
-
-    <div class="container">
-        <h2 class="mt-5  dash-title">THE TEAM</h2>
-        <div class="row" id="tcont">
-            
-        </div>
+  <nav class="navbar navbar-expand-md fixed-top bg-nav">
+    <div class="container-fluid">
+      <!-- <a class="navbar-brand" href="#">App Name</a> -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mx-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="#">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{ url_for('admin.index_dashboard') }}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('admin.mission_dashboard') }}">Mission</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('admin.financial_dashboard') }}">Financial Report</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('admin.partners_dashboard') }}">Partners</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('admin.forums_dashboard') }}">Forums</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('admin.aidr_dashboard')}}">Artists</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('admin.donors_dashboard') }}">Donors</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
+
+
+  <main class="flex-shrink-0">
+    <div class="container">
+      <h2 class="mt-5 dash-title">ABOUT PAGE</h2>
+      <p>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe vitae nobis, recusandae, quibusdam rem
+        molestiae veritatis ipsam magnam exercitationem debitis nemo numquam ut! Beatae nemo quas commodi odio
+        fugit eaque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam magnam vel dolorum ipsa
+        quansectetur adipisicing elit. Nisi id vel natus, aut corrupti sit animi quo, aspernatur excepturi
+        debitis officia! Deleniti sapiente illo quos itaque, rerum recusandae accusantium iste.
+      </p>
+      <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#headerModal"> <i
+          class="fas fa-edit"></i> Edit Text </button>
+    </div>
+  </main>
+
+
+  <!-- Demo Code -->
+  <div class="container load-teams"></div>
+
+
+  <div class="container">
+    <h2 class="mt-5  dash-title">THE TEAM</h2>
+    <div class="row" id="tcont">
+
+    </div>
+  </div>
 
 
 
 
-    <div id = "profileModals">
+  <div id="profileModals">
     <!--Modals  -->
 
     <!-- Modal1 -->
     <div class="modal fade" id="headerModal" tabindex="-1" aria-labelledby="headerModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="signIn-inputs">
-                            <form action="" id="" method="post">
-                                <div class="form-group mb-3">
-                                    <input type="text" class="form-control" placeholder="enter header text">
-                                </div>
-                                <div class="form-group mb-3">
-                                    <textarea name="" class="form-control" id="" cols="30" rows="10"></textarea>
-                                </div>
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="signIn-inputs">
+                <form action="" id="" method="post">
+                  <div class="form-group mb-3">
+                    <input type="text" class="form-control" placeholder="enter header text">
+                  </div>
+                  <div class="form-group mb-3">
+                    <textarea name="" class="form-control" id="" cols="30" rows="10"></textarea>
+                  </div>
 
-                                <div class="signIn-btn text-center">
-                                    <button name="" type="submit" id="" class="btn btn-lg btn-modal"
-                                        role="button">PUBLISH</button>
-                                </div>
-                            </form>
+                  <div class="signIn-btn text-center">
+                    <button name="" type="submit" id="" class="btn btn-lg btn-modal" role="button">PUBLISH</button>
+                  </div>
+                </form>
 
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
 
-    
+
     <!-- Modal2 
     <div class="modal fade" id="profileModal2" tabindex="-1" aria-labelledby="profileModal2Labe2" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -148,53 +147,53 @@
         </div>
     </div>-->
 
-</div>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
-    <script src="{{ url_for('static' , filename='admin/js/popper.js' ) }}     "></script>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
-        </script>
-    <!-- image selection -->
-    <script src=" {{ url_for('static' , filename='admin/js/selectImage.js' ) }}"></script>
-    <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
-    <script>
-        let amnt, profileModalNo, tId, tFile;
-        const tRoute = "{{ url_for('api.team') }}";
-        const upload = (file) => {
-          axios.post("{{ url_for('api.upload') }}", file, {headers:{contentType: 'multipart/form-data'}})
-          .then(function(response) {
-            console.log('tried uploaded file', response);
-          })
-          .catch(function (error) {
-            console.log(error.response);
-          })
-        }
+  </div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
+  <script src="{{ url_for('static' , filename='admin/js/popper.js' ) }}     "></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
+    </script>
+  <!-- image selection -->
+  <script src=" {{ url_for('static' , filename='admin/js/selectImage.js' ) }}"></script>
+  <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
+  <script>
+    let amnt, profileModalNo, tId, tFile;
+    const tRoute = "{{ url_for('api.team') }}";
+    const upload = (file) => {
+      axios.post("{{ url_for('api.upload') }}", file, { headers: { contentType: 'multipart/form-data' } })
+        .then(function (response) {
+          console.log('tried uploaded file', response);
+        })
+        .catch(function (error) {
+          console.log(error.response);
+        })
+    }
 
-        function init() {
-        $.ajax({
-            type: "GET",
-            url: tRoute,
-            // crossDomain: true,
-            contentType: 'application/json',
-            encode: true,
-            success: function (data) {
-                amnt = data.length;
-                console.log(amnt);
-                data.forEach(function (item) {
-                    let wrapperId = `${'wrapper'+item.id}`;
-                    let wrapperImgId = `${'wrapperImg'+item.id}`;
-                    let cancelBtnId = `${'cancel-btn'+item.id}`;
-                    let fileNameId = `${'file-name'+item.id}`;
-                    let customBtnId = `${'custom-btn'+item.id}`;
-                    let defaultBtnId = `${"default-btn"+item.id}`;
-                    let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;            
-    
-                    
-                    
-                    $('#tcont').append(
-                        `<div class="d-md-flex d-block mb-5">
+    function init() {
+      $.ajax({
+        type: "GET",
+        url: tRoute,
+        // crossDomain: true,
+        contentType: 'application/json',
+        encode: true,
+        success: function (data) {
+          amnt = data.length;
+          console.log(amnt);
+          data.forEach(function (item) {
+            let wrapperId = `${'wrapper' + item.id}`;
+            let wrapperImgId = `${'wrapperImg' + item.id}`;
+            let cancelBtnId = `${'cancel-btn' + item.id}`;
+            let fileNameId = `${'file-name' + item.id}`;
+            let customBtnId = `${'custom-btn' + item.id}`;
+            let defaultBtnId = `${"default-btn" + item.id}`;
+            let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
+
+
+
+            $('#tcont').append(
+              `<div class="d-md-flex d-block mb-5">
                             <div class="editProduct__image">
                                 <!-- images -->
                                 <div class="wrapper" id="${wrapperId}">
@@ -209,18 +208,18 @@
                                     <div id="${cancelBtnId}"><i class="fas fa-times"></i></div>
                                     <div class="file-name" id="${fileNameId}">File name here</div>
                                 </div>
-                                <button id="${'custom-btn'+item.id}" 
+                                <button id="${'custom-btn' + item.id}" 
                                   onclick="let val = document.getElementById('${defaultBtnId}'); val.click();">
                                     Edit Image
                                   </button>
-                                <input id="${defaultBtnId}" type="file" hidden>
+                                <input id="${defaultBtnId}"  name="file" type="file" hidden>
                             </div>
 
                             <div class="text-flex px-4">
                                 <div class="d-block d-md-flex justify-content-between">
                                     <h5 class="mb-2" style="text-transform: uppercase">${item.name}</h5>
                                     <button type="button" class="btn btn-dark btn-sm mb-2" data-bs-toggle="modal"
-                                    data-bs-target="${'#profileModal'+item.id}"> <i class="fas fa-edit"></i> Edit Profile
+                                    data-bs-target="${'#profileModal' + item.id}"> <i class="fas fa-edit"></i> Edit Profile
                                     </button>
                                 </div>
 
@@ -229,46 +228,45 @@
                                 <button onclick="deleteTeamById(${item.id})" style="float: right">delete</button>
                             </div>
                         </div>`
-                    )
-                    function callId() {
-                      wrapper= document.querySelector(`#${wrapperId}`), 
-                      fileName = document.querySelector(`#${fileNameId}`), 
-                      defaultBtn = document.querySelector(`#${defaultBtnId}`), 
-                      cancelBtn = document.querySelector(`#${cancelBtnId}`), 
-                      img = document.querySelector(`#${wrapperImgId}`);
-                    }   
-                    callId();              
-                    defaultBtn.onchange = () => {
-                      const file = defaultBtn.files[0];
-                      console.log('file');
-                      if(file){
-                        tFile = new FormData;
-                        tFile.append('file', file);
-                        consloe.log(FormData);
-                        const reader = new FileReader();
-                        reader.onload = function(){
-                          const result = reader.result;
-                          img.src = result;
-                          wrapper.classList.add("active");
-                        };
-                        cancelBtn.addEventListener("click", function(){
-                          img.src = "";
-                          wrapper.classList.remove("active");
-                        });
-                        reader.readAsDataURL(file)
-                      };
-                      upload(tFile);
-                      if(this.value){
-                          let valueStore = this.value.match(regExp);
-                          fileName.textContent = valueStore;
-                      };
-                    };
-                    // CALLING THE MODAL
+            )
+            function callId() {
+              wrapper = document.querySelector(`#${wrapperId}`),
+                fileName = document.querySelector(`#${fileNameId}`),
+                defaultBtn = document.querySelector(`#${defaultBtnId}`),
+                cancelBtn = document.querySelector(`#${cancelBtnId}`),
+                img = document.querySelector(`#${wrapperImgId}`);
+            }
+            callId();
+            defaultBtn.onchange = () => {
+              const file = defaultBtn.files[0];
+              console.log(defaultBtn);
+              if (file) {
+                tFile = new FormData;
+                tFile.append('file', file);
+                const reader = new FileReader();
+                reader.onload = function () {
+                  const result = reader.result;
+                  img.src = result;
+                  wrapper.classList.add("active");
+                };
+                cancelBtn.addEventListener("click", function () {
+                  img.src = "";
+                  wrapper.classList.remove("active");
+                });
+                reader.readAsDataURL(file)
+              };
+              upload(tFile);
+              if (this.value) {
+                let valueStore = this.value.match(regExp);
+                fileName.textContent = valueStore;
+              };
+            };
+            // CALLING THE MODAL
 
-                    $('#profileModals').append(
-                        `<!-- Modal${item.id} -->
-                        <div class="modal fade" id="${'#profileModal'+item.id}" tabindex="-1" 
-                        aria-labelledby="${'#profileModal'+item.id+'Label'+item.id}" aria-hidden="true">
+            $('#profileModals').append(
+              `<!-- Modal${item.id} -->
+                        <div class="modal fade" id="${'#profileModal' + item.id}" tabindex="-1" 
+                        aria-labelledby="${'#profileModal' + item.id + 'Label' + item.id}" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -278,13 +276,13 @@
                                         <div class="container">
                                             <div class="signIn-inputs">
                                                 <form action="" id="" method="post">
-                                                    <input type="text" class="form-control" id="${"name"+item.id}" placeholder="enter the team member name here">
+                                                    <input type="text" class="form-control" id="${"name" + item.id}" placeholder="enter the team member name here">
                                                     <div class="form-group mb-3">
-                                                        <textarea name="" class="form-control" id="${"profile"+item.id}" cols="30" rows="10" placeholder="write the team profile here"></textarea>
+                                                        <textarea name="" class="form-control" id="${"profile" + item.id}" cols="30" rows="10" placeholder="write the team profile here"></textarea>
                                                     </div>
 
                                                     <div class="signIn-btn text-center">
-                                                        <button name="" onclick="${'submit('+item.id+')'}" type="submit" id="" class="btn btn-lg btn-modal"
+                                                        <button name="" onclick="${'submit(' + item.id + ')'}" type="submit" id="" class="btn btn-lg btn-modal"
                                                         role="button">PUBLISH</button>
                                                     </div>
                                                 </form>
@@ -295,376 +293,376 @@
                                 </div>
                             </div>
                         </div>`
-                    )
-                    console.log('modalout');
-                })
-                console.log(data);
-                // $('.load-teams').html('<h1> I AM WORKING </h1>')
-                //$('.load-teams') is using jquery to get the class attribute load-teams
-                //$('.load-teams').html('') is to directly code into that *tags* as in the (class attr) html
-                // You can decide to use javascript functions instead of jquery
-                // using javascript you'd use the innerHTML function, you can also go as far as using the append child function blah blah, you are kuku boss oga me.
-                //So technically on the admin page, you're to dynamically render the api into the broswer
-                //having gotten the data, you then make a loop through objects  to get the value of each key
-            }
+            )
+            console.log('modalout');
+          })
+          console.log(data);
+          // $('.load-teams').html('<h1> I AM WORKING </h1>')
+          //$('.load-teams') is using jquery to get the class attribute load-teams
+          //$('.load-teams').html('') is to directly code into that *tags* as in the (class attr) html
+          // You can decide to use javascript functions instead of jquery
+          // using javascript you'd use the innerHTML function, you can also go as far as using the append child function blah blah, you are kuku boss oga me.
+          //So technically on the admin page, you're to dynamically render the api into the broswer
+          //having gotten the data, you then make a loop through objects  to get the value of each key
+        }
+      })
+    }
+    init();
+    $.ajax({
+      type: "PUT",
+      contentType: ' application/json',
+      url: "{{ url_for('api.info') }}" + "/1",
+      data: JSON.stringify({ header: "About", body: "This is the new about of the site." })
+    })
+
+    // FILE UPLOAD UTILITY
+    // store the file in a variable called file
+    const submit = () => {
+      console.log('gbola');
+    }
+
+
+
+    // TEAM ROUTE
+    // GET TEAM
+    const getTeam = () => {
+      axios.get('/team')
+        .then(function (response) {
+          console.log(response);
         })
-        }
-        init();
-        $.ajax({
-            type: "PUT",
-            contentType: ' application/json',
-            url: "{{ url_for('api.info') }}" + "/1",
-            data: JSON.stringify({ header: "About", body: "This is the new about of the site." })
+        .catch(function (error) {
+          console.log(error);
         })
+    }
 
-        // FILE UPLOAD UTILITY
-        // store the file in a variable called file
-        const submit = () => {
-            console.log('gbola');
-        }
-        
-        
+    // ADD TEAM
+    let teamData = { name: 'test test', profile: 'tester', image_url: 'tester.jpg' }
+    const addTeam = (name, profile, image_url) => {
+      axios.post(tRoute, { name, profile, image_url })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error.response);
+        })
+    }
+    //addTeam(teamData.name, teamData.profile, teamData.image_url);
+    // TEAM WITH ID
+    //const teamId = '';
+    const getTeamById = (id) => {
+      axios.get(`${tRoute + '?' + id}`)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    // UPDATE TEAM BY ID
 
-        // TEAM ROUTE
-        // GET TEAM
-        const getTeam = () => {
-          axios.get('/team')
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-        
-        // ADD TEAM
-        let teamData = { name: 'test test' , profile: 'tester' , image_url: 'tester.jpg' }
-        const addTeam = (name, profile, image_url) => {
-          axios.post(tRoute, { name, profile, image_url })
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error.response);
-          })
-        }
-        //addTeam(teamData.name, teamData.profile, teamData.image_url);
-        // TEAM WITH ID
-        //const teamId = '';
-        const getTeamById = (id) => {
-          axios.get(`${tRoute+'?'+id}`)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-        // UPDATE TEAM BY ID
-
-        const updateTeamById = (id, param1, param2, param3) => {
-          axios.put(`${tRoute+'?'+id}`, data)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-        let profile = "Dr. Ẹniọlá Ànúolúwapọ́ Ṣóyẹmí is a political theorist whose academic research specialises in theories and practices of deliberation, the nature of freedom, and the nature of legitimate authority. Over the last 10 years, Ẹniọlá's work has focused on making the historical and contemporary socio-legal and political experiences of Nigeria, and the wider African continent, influential to mainstream discourses in political theory. Her field research has involved working in Lagos, Nigeria in partnership with LAMATA. Prior to entering academia, she worked at Chatham House and at the UK Guardian's Lobby Office in the House of Commons. She holds a Ph.D. in Political Science from Boston University and an MSc. in International Public Policy from University College London. She has recently been a Max Weber Fellow and a Visiting Fellow at the European University Institute."
-        //updateTeamById(1, "ENIOLA", profile)
-        // DELETE TEAM BY ID
-        const deleteTeamById = (id) => {
-            console.log(id);
-          axios.delete(`${tRoute+'?'+id}`)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error.response);
-          })
-        }
+    const updateTeamById = (id, param1, param2, param3) => {
+      axios.put(`${tRoute + '?' + id}`, data)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    let profile = "Dr. Ẹniọlá Ànúolúwapọ́ Ṣóyẹmí is a political theorist whose academic research specialises in theories and practices of deliberation, the nature of freedom, and the nature of legitimate authority. Over the last 10 years, Ẹniọlá's work has focused on making the historical and contemporary socio-legal and political experiences of Nigeria, and the wider African continent, influential to mainstream discourses in political theory. Her field research has involved working in Lagos, Nigeria in partnership with LAMATA. Prior to entering academia, she worked at Chatham House and at the UK Guardian's Lobby Office in the House of Commons. She holds a Ph.D. in Political Science from Boston University and an MSc. in International Public Policy from University College London. She has recently been a Max Weber Fellow and a Visiting Fellow at the European University Institute."
+    //updateTeamById(1, "ENIOLA", profile)
+    // DELETE TEAM BY ID
+    const deleteTeamById = (id) => {
+      console.log(id);
+      axios.delete(`${tRoute + '?' + id}`)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error.response);
+        })
+    }
 
 
-        // FORUM GALLERY ROUTE
-        // GET FORUM GALLERY
-        const getForumGallery = () => {
-          axios.get('/forum-gallery')
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-        // ADD FORUM GALLERY
-        // forumGalleryData = { forum: '' ,forumGalleryCover: '' , forumGallery: '' , fullVideoCoverUrl: '', fullVideoUrl: '', snippetCoverUrl: '', snippetUrl: '' }
-        const addForumGallery = () => {
-          axios.post('/forum-gallery', forumGalleryData)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
+    // FORUM GALLERY ROUTE
+    // GET FORUM GALLERY
+    const getForumGallery = () => {
+      axios.get('/forum-gallery')
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    // ADD FORUM GALLERY
+    // forumGalleryData = { forum: '' ,forumGalleryCover: '' , forumGallery: '' , fullVideoCoverUrl: '', fullVideoUrl: '', snippetCoverUrl: '', snippetUrl: '' }
+    const addForumGallery = () => {
+      axios.post('/forum-gallery', forumGalleryData)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
 
-        // FORUM GALLERY WITH ID
-        //const forumGalleryId = '';
-        const getForumGalleryById = (id) => {
-          axios.get(`/forum-gallery/${id}`)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-        // UPDATE FORUM GALLERY BY ID
-        const updateForumGalleryById = (id) => {
-          axios.put(`/forum-gallery/${id}`, forumGalleryData)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-        // DELETE FORUM GALLERY BY ID
-        const deleteForumGalleryById = (id) => {
-          axios.delete(`/forum-gallery/${id}`)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-
-
-        // INFO GALLERY ROUTE
-        // GET INFO GALLERY
-        const getInfo = () => {
-          axios.get('/info')
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-        // ADD INFO GALLERY
-        // infoData = { header: '', body: '' }
-        const addInfo = () => {
-          axios.post('/info', infoData)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-
-        // INFO WITH ID
-        //const infoId = '';
-        const getInfoById = (id) => {
-          axios.get(`/info/${id}`)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-        // UPDATE INFO BY ID
-        const updateInfoById = (id) => {
-          axios.put(`/info/${id}`, infoData)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-        // DELETE INFO BY ID
-        const deleteInfoById = (id) => {
-          axios.delete(`/info/${id}`)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
+    // FORUM GALLERY WITH ID
+    //const forumGalleryId = '';
+    const getForumGalleryById = (id) => {
+      axios.get(`/forum-gallery/${id}`)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    // UPDATE FORUM GALLERY BY ID
+    const updateForumGalleryById = (id) => {
+      axios.put(`/forum-gallery/${id}`, forumGalleryData)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    // DELETE FORUM GALLERY BY ID
+    const deleteForumGalleryById = (id) => {
+      axios.delete(`/forum-gallery/${id}`)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
 
 
-        // 'GET IN TOUCH' ROUTE
-        // GET 'GET IN TOUCH'
-        const getGetInTouch = () => {
-          axios.get('/get-in-touch')
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-        // ADD 'GET IN TOUCH'
-        // getInTouchData = { fullName: '', email: '', message: '' }
-        const addGetInTouch = () => {
-          axios.post('/get-in-touch', getInTouchData)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
+    // INFO GALLERY ROUTE
+    // GET INFO GALLERY
+    const getInfo = () => {
+      axios.get('/info')
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    // ADD INFO GALLERY
+    // infoData = { header: '', body: '' }
+    const addInfo = () => {
+      axios.post('/info', infoData)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
 
-        // 'GET IN TOUCH' WITH ID
-        //const getInTouchId = '';
-        const getGetInTouchById = (id) => {
-          axios.get(`/get-in-touch/${id}`)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-        // UPDATE 'GET IN TOUCH' BY ID
-        const updateGetInTouchById = (id) => {
-          axios.put(`/get-in-touch/${id}`, getInTouchData)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-        // DELETE 'GET IN TOUCH' BY ID
-        const deleteGetInTouchById = (id) => {
-          axios.delete(`/get-in-touch/${id}`)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-
-
-        // 'PARTICIPATION REQUEST' ROUTE
-        // GET 'PARTICIPATION REQUEST'
-        const getParticipationRequest = () => {
-          axios.get('/participation_request')
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-        // ADD 'PARTICIPATION REQUEST'
-        //const participationRequestData = { fullName: '' ,email: '' , phoneNumber: '' , ageRange: '', job: '', lga: '' }
-        const addParticipationRequest = () => {
-          axios.post('/participation_request', participationRequestData)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-
-        // 'PARTICIPATION REQUEST' WITH ID
-        //const participationRequestId = '';
-        const getParticipationRequestById = (id) => {
-          axios.get(`/participation_request/${id}`)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-        // UPDATE 'PARTICIPATION REQUEST' BY ID
-        const updateParticipationRequestById = (id) => {
-          axios.put(`/participation_request/${id}`, participationRequestData)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-        // DELETE 'PARTICIPATION REQUEST' BY ID
-        const deleteParticipationRequestById = (id) => {
-          axios.delete(`/participation_request/${id}`)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
+    // INFO WITH ID
+    //const infoId = '';
+    const getInfoById = (id) => {
+      axios.get(`/info/${id}`)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    // UPDATE INFO BY ID
+    const updateInfoById = (id) => {
+      axios.put(`/info/${id}`, infoData)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    // DELETE INFO BY ID
+    const deleteInfoById = (id) => {
+      axios.delete(`/info/${id}`)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
 
 
-        // 'FORUM SUGGESTION' ROUTE
-        // GET 'FORUM SUGGESTION'
-        const getForumSuggestion = () => {
-          axios.get('/forum-suggestion')
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-        // ADD 'FORUM SUGGESTION'
-        //const forumSuggestionData = { fullName: '', email: '', message: '' }
-        const addForumSuggestion = () => {
-          axios.post('/forum-suggestion', forumSuggestionData)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
+    // 'GET IN TOUCH' ROUTE
+    // GET 'GET IN TOUCH'
+    const getGetInTouch = () => {
+      axios.get('/get-in-touch')
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    // ADD 'GET IN TOUCH'
+    // getInTouchData = { fullName: '', email: '', message: '' }
+    const addGetInTouch = () => {
+      axios.post('/get-in-touch', getInTouchData)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
 
-        // 'FORUM SUGGESTION' WITH ID
-        //const forumSuggestionId = '';
-        const getForumSuggestionById = (id) => {
-          axios.get(`/forum-suggestion/${id}`)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-        // UPDATE 'FORUM SUGGESTION' BY ID
-        const updateForumSuggestionById = (id) => {
-          axios.put(`/forum-suggestion/${id}`, forumSuggestionData)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-        // DELETE 'FORUM SUGGESTION' BY ID
-        const deleteForumSuggestionById = (id) => {
-          axios.delete(`/forum-suggestion/${id}`)
-          .then(function(response) {
-            console.log(response);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-    </script>
+    // 'GET IN TOUCH' WITH ID
+    //const getInTouchId = '';
+    const getGetInTouchById = (id) => {
+      axios.get(`/get-in-touch/${id}`)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    // UPDATE 'GET IN TOUCH' BY ID
+    const updateGetInTouchById = (id) => {
+      axios.put(`/get-in-touch/${id}`, getInTouchData)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    // DELETE 'GET IN TOUCH' BY ID
+    const deleteGetInTouchById = (id) => {
+      axios.delete(`/get-in-touch/${id}`)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+
+
+    // 'PARTICIPATION REQUEST' ROUTE
+    // GET 'PARTICIPATION REQUEST'
+    const getParticipationRequest = () => {
+      axios.get('/participation_request')
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    // ADD 'PARTICIPATION REQUEST'
+    //const participationRequestData = { fullName: '' ,email: '' , phoneNumber: '' , ageRange: '', job: '', lga: '' }
+    const addParticipationRequest = () => {
+      axios.post('/participation_request', participationRequestData)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+
+    // 'PARTICIPATION REQUEST' WITH ID
+    //const participationRequestId = '';
+    const getParticipationRequestById = (id) => {
+      axios.get(`/participation_request/${id}`)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    // UPDATE 'PARTICIPATION REQUEST' BY ID
+    const updateParticipationRequestById = (id) => {
+      axios.put(`/participation_request/${id}`, participationRequestData)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    // DELETE 'PARTICIPATION REQUEST' BY ID
+    const deleteParticipationRequestById = (id) => {
+      axios.delete(`/participation_request/${id}`)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+
+
+    // 'FORUM SUGGESTION' ROUTE
+    // GET 'FORUM SUGGESTION'
+    const getForumSuggestion = () => {
+      axios.get('/forum-suggestion')
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    // ADD 'FORUM SUGGESTION'
+    //const forumSuggestionData = { fullName: '', email: '', message: '' }
+    const addForumSuggestion = () => {
+      axios.post('/forum-suggestion', forumSuggestionData)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+
+    // 'FORUM SUGGESTION' WITH ID
+    //const forumSuggestionId = '';
+    const getForumSuggestionById = (id) => {
+      axios.get(`/forum-suggestion/${id}`)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    // UPDATE 'FORUM SUGGESTION' BY ID
+    const updateForumSuggestionById = (id) => {
+      axios.put(`/forum-suggestion/${id}`, forumSuggestionData)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    // DELETE 'FORUM SUGGESTION' BY ID
+    const deleteForumSuggestionById = (id) => {
+      axios.delete(`/forum-suggestion/${id}`)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+  </script>
 </body>
 
 </html>
