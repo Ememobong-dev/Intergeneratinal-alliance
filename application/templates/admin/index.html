@@ -162,8 +162,9 @@
     <script>
         let amnt, profileModalNo, tId, tFile;
         const tRoute = "{{ url_for('api.team') }}";
+        //, {headers:{contentType: 'multipart/form-data'}}
         const upload = (file) => {
-          axios.post("{{ url_for('api.upload') }}", file, {headers:{contentType: 'multipart/form-data'}})
+          axios.post("{{ url_for('api.upload') }}", file)
           .then(function(response) {
             console.log('tried uploaded file', response);
           })
@@ -204,14 +205,14 @@
                                         <div class="text"> No file chosen, yet!</div>
                                     </div>
 
-                                    <div id="${cancelBtnId}"><i class="fas fa-times"></i></div>
+                                    <!-- <div id="${cancelBtnId}"><i class="fas fa-times"></i></div> -->
                                     <div class="file-name" id="${fileNameId}">File name here</div>
                                 </div>
                                 <button id="${'custom-btn'+item.id}" 
                                   onclick="let val = document.getElementById('${defaultBtnId}'); val.click();">
                                     Edit Image
                                   </button>
-                                <input id="${defaultBtnId}" type="file" hidden accept="image">
+                                <input id="${defaultBtnId}" type="file" hidden name="file" accept="image">
                             </div>
 
                             <div class="text-flex px-4">
@@ -237,11 +238,11 @@
                     }   
                     callId();              
                     defaultBtn.onchange = () => {
-                      const file = defaultBtn.files[0];
+                      const imgFile = defaultBtn.files[0];
                       console.log('file');
-                      if(file){
+                      if(imgFile){
                         tFile = new FormData;
-                        tFile.append('file', file);
+                        tFile.append('file', imgFile);
                         consloe.log(FormData);
                         const reader = new FileReader();
                         reader.onload = function(){
@@ -253,7 +254,7 @@
                           img.src = "";
                           wrapper.classList.remove("active");
                         });
-                        reader.readAsDataURL(file)
+                        reader.readAsDataURL(imgFile)
                       };
                       upload(tFile);
                       if(this.value){
@@ -314,13 +315,14 @@
             url: "{{ url_for('api.info') }}" + "/1",
             data: JSON.stringify({ header: "About", body: "This is the new about of the site." })
         })
-
+        
         // FILE UPLOAD UTILITY
         // store the file in a variable called file
         const submit = () => {
             console.log('gbola');
+           
         }
-        
+    
         
 
         // TEAM ROUTE
@@ -336,11 +338,12 @@
         }
         
         // ADD TEAM
-        let teamData = { name: 'test test' , profile: 'tester' , image_url: 'tester.jpg' }
+        //let teamData = { name: 'emmo' , profile: 'emmo isyour average boy' , image_url: 'emmo.jpg' }
         const addTeam = (name, profile, image_url) => {
           axios.post(tRoute, { name, profile, image_url })
           .then(function(response) {
             console.log(response);
+            location.reload();
           })
           .catch(function(error) {
             console.log(error.response);
@@ -350,7 +353,7 @@
         // TEAM WITH ID
         //const teamId = '';
         const getTeamById = (id) => {
-          axios.get(`${tRoute+'?'+id}`)
+          axios.get(`${tRoute+'/'+id}`)
           .then(function(response) {
             console.log(response);
           })
@@ -361,9 +364,10 @@
         // UPDATE TEAM BY ID
 
         const updateTeamById = (id, param1, param2, param3) => {
-          axios.put(`${tRoute+'?'+id}`, data)
+          axios.put(`${tRoute+'/'+id}`, data)
           .then(function(response) {
             console.log(response);
+            location.reload();
           })
           .catch(function(error) {
             console.log(error);
@@ -374,9 +378,10 @@
         // DELETE TEAM BY ID
         const deleteTeamById = (id) => {
             console.log(id);
-          axios.delete(`${tRoute+'?'+id}`)
+          axios.delete(`${tRoute+'/'+id}`)
           .then(function(response) {
             console.log(response);
+            location.reload();
           })
           .catch(function(error) {
             console.log(error.response);
