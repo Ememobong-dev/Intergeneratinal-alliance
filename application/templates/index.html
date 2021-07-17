@@ -132,8 +132,6 @@
               <div class="col-12 mb-3" data-aos="fade-up">
                 <h1>THE TEAM</h1>
               </div>
-              
-              </div>
   
             </div>
           </div>
@@ -242,9 +240,11 @@
         contentType: 'application/json',
         encode: true,
         success: function (data) {
-          data.forEach(function (item) {                   
+          let toggleClass;
+          data.forEach(function (item, index) { 
+            console.log(index);
             $('#tHcont').append(
-              `<div class="col-md-6 text-pitch text-center mt-5" data-aos="fade-up">
+              `<div class="col-md-6 ${toggleClass} text-center mt-5" data-aos="fade-up">
                 <img src="${item.image_url}" alt="" class="img-fluid" width="300px">
                 <div class="team-name mt-5 mb-4">
                   <h4>${item.name.toUpperCase()}</h4>
@@ -257,6 +257,7 @@
                 </div>
               </div>`
             )
+            console.log(index);
           })
         }
       })                   
