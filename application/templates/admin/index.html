@@ -160,39 +160,60 @@
     <script src=" {{ url_for('static' , filename='admin/js/selectImage.js' ) }}"></script>
     <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
     <script>
-        let profile, amnt, profileModalNo, tId;
+        let amnt, profileModalNo, tId, tFile;
         const tRoute = "{{ url_for('api.team') }}";
+        const upload = (file) => {
+          axios.post("{{ url_for('api.upload') }}", file, {headers:{contentType: 'multipart/form-data'}})
+          .then(function(response) {
+            console.log('tried uploaded file', response);
+          })
+          .catch(function (error) {
+            console.log(error.response);
+          })
+        }
+
         function init() {
         $.ajax({
             type: "GET",
             url: tRoute,
             // crossDomain: true,
-            contentType: ' application/json',
+            contentType: 'application/json',
             encode: true,
             success: function (data) {
                 amnt = data.length;
                 console.log(amnt);
                 data.forEach(function (item) {
-                    //tId = item.id;
-                    console.log(item.profile)
+                    let wrapperId = `${'wrapper'+item.id}`;
+                    let wrapperImgId = `${'wrapperImg'+item.id}`;
+                    let cancelBtnId = `${'cancel-btn'+item.id}`;
+                    let fileNameId = `${'file-name'+item.id}`;
+                    let customBtnId = `${'custom-btn'+item.id}`;
+                    let defaultBtnId = `${"default-btn"+item.id}`;
+                    let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;            
+    
+                    
+                    
                     $('#tcont').append(
                         `<div class="d-md-flex d-block mb-5">
                             <div class="editProduct__image">
                                 <!-- images -->
-                                <div class="wrapper" id="${'wrapper'+item.id}">
+                                <div class="wrapper" id="${wrapperId}">
                                     <div class="image">
-                                        <img src=${item.image_url} alt="" id="${'wrapperImg'+item.id}">
+                                        <img src=${item.image_url} alt="" id="${wrapperImgId}">
                                     </div>
                                     <div class="content">
-                                        <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                                       s <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
                                         <div class="text"> No file chosen, yet!</div>
                                     </div>
 
-                                    <div id="${'cancel-btn'+item.id}"><i class="fas fa-times"></i></div>
-                                    <div class="file-name" id="${'file-name'+item.id}">File name here</div>
+                                    <div id="${cancelBtnId}"><i class="fas fa-times"></i></div>
+                                    <div class="file-name" id="${fileNameId}">File name here</div>
                                 </div>
-                                <button id="${'custom-btn'+item.id}" onclick="${"default-btn"+item.id}.click()">Edit Image</button>
-                                <input id="${"default-btn"+item.id}" type="file" hidden>
+                                <button id="${'custom-btn'+item.id}" 
+                                  onclick="let val = document.getElementById('${defaultBtnId}'); val.click();">
+                                    Edit Image
+                                  </button>
+                                <input id="${defaultBtnId}" type="file" hidden>
                             </div>
 
                             <div class="text-flex px-4">
@@ -205,11 +226,45 @@
 
                                 <p id="profile">${item.profile}
                                 </p>
-                                <button onclick=${'deleteTeamById('+item.id+')'} style="float: right">delete</button>
+                                <button onclick="deleteTeamById(${item.id})" style="float: right">delete</button>
                             </div>
                         </div>`
                     )
-                    console.log('modalin');
+                    function callId() {
+                      wrapper= document.querySelector(`#${wrapperId}`), 
+                      fileName = document.querySelector(`#${fileNameId}`), 
+                      defaultBtn = document.querySelector(`#${defaultBtnId}`), 
+                      cancelBtn = document.querySelector(`#${cancelBtnId}`), 
+                      img = document.querySelector(`#${wrapperImgId}`);
+                    }   
+                    callId();              
+                    defaultBtn.onchange = () => {
+                      const file = defaultBtn.files[0];
+                      console.log('file');
+                      if(file){
+                        tFile = new FormData;
+                        tFile.append('file', file);
+                        consloe.log(FormData);
+                        const reader = new FileReader();
+                        reader.onload = function(){
+                          const result = reader.result;
+                          img.src = result;
+                          wrapper.classList.add("active");
+                        };
+                        cancelBtn.addEventListener("click", function(){
+                          img.src = "";
+                          wrapper.classList.remove("active");
+                        });
+                        reader.readAsDataURL(file)
+                      };
+                      upload(tFile);
+                      if(this.value){
+                          let valueStore = this.value.match(regExp);
+                          fileName.textContent = valueStore;
+                      };
+                    };
+                    // CALLING THE MODAL
+
                     $('#profileModals').append(
                         `<!-- Modal${item.id} -->
                         <div class="modal fade" id="${'#profileModal'+item.id}" tabindex="-1" 
@@ -267,16 +322,8 @@
         const submit = () => {
             console.log('gbola');
         }
-        const upload = (file) => {
-          axios.post("{{ url_for('api.upload') }}", {file})
-          .then(function(response) {
-            console.log('tried uploaded file', response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          })
-        }
-
+        
+        
 
         // TEAM ROUTE
         // GET TEAM
@@ -315,7 +362,7 @@
         }
         // UPDATE TEAM BY ID
 
-        const updateTeamById = (id) => {
+        const updateTeamById = (id, param1, param2, param3) => {
           axios.put(`${tRoute+'?'+id}`, data)
           .then(function(response) {
             console.log(response);
@@ -324,6 +371,8 @@
             console.log(error);
           })
         }
+        let profile = "Dr. Ẹniọlá Ànúolúwapọ́ Ṣóyẹmí is a political theorist whose academic research specialises in theories and practices of deliberation, the nature of freedom, and the nature of legitimate authority. Over the last 10 years, Ẹniọlá's work has focused on making the historical and contemporary socio-legal and political experiences of Nigeria, and the wider African continent, influential to mainstream discourses in political theory. Her field research has involved working in Lagos, Nigeria in partnership with LAMATA. Prior to entering academia, she worked at Chatham House and at the UK Guardian's Lobby Office in the House of Commons. She holds a Ph.D. in Political Science from Boston University and an MSc. in International Public Policy from University College London. She has recently been a Max Weber Fellow and a Visiting Fellow at the European University Institute."
+        //updateTeamById(1, "ENIOLA", profile)
         // DELETE TEAM BY ID
         const deleteTeamById = (id) => {
             console.log(id);
