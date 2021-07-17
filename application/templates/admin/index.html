@@ -189,9 +189,7 @@
                     let fileNameId = `${'file-name'+item.id}`;
                     let customBtnId = `${'custom-btn'+item.id}`;
                     let defaultBtnId = `${"default-btn"+item.id}`;
-                    let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;            
-    
-                    
+                    let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;                    
                     
                     $('#tcont').append(
                         `<div class="d-md-flex d-block mb-5">
@@ -213,7 +211,7 @@
                                   onclick="let val = document.getElementById('${defaultBtnId}'); val.click();">
                                     Edit Image
                                   </button>
-                                <input id="${defaultBtnId}" type="file" hidden>
+                                <input id="${defaultBtnId}" type="file" hidden accept="image">
                             </div>
 
                             <div class="text-flex px-4">
