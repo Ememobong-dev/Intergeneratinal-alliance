@@ -160,11 +160,13 @@
     <script src=" {{ url_for('static' , filename='admin/js/selectImage.js' ) }}"></script>
     <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
     <script>
-        let amnt, profileModalNo, tId, tFile;
+        let amnt, profileModalNo, tId, fileForm, defaultBtnId;
         const tRoute = "{{ url_for('api.team') }}";
+
+        // UPLOAD API accepts fileForm
         //, {headers:{contentType: 'multipart/form-data'}}
-        const upload = (file) => {
-          axios.post("{{ url_for('api.upload') }}", file)
+        const upload = (fileForm) => {
+          axios.post("{{ url_for('api.upload') }}", new FormData(fileForm))
           .then(function(response) {
             console.log('tried uploaded file', response);
           })
@@ -173,6 +175,7 @@
           })
         }
 
+        // INITIALIZES A GET REQUEST TO THE API AND FILLS IN THE INFORMATION
         function init() {
         $.ajax({
             type: "GET",
@@ -181,87 +184,97 @@
             contentType: 'application/json',
             encode: true,
             success: function (data) {
-                amnt = data.length;
-                console.log(amnt);
-                data.forEach(function (item) {
-                    let wrapperId = `${'wrapper'+item.id}`;
-                    let wrapperImgId = `${'wrapperImg'+item.id}`;
-                    let cancelBtnId = `${'cancel-btn'+item.id}`;
-                    let fileNameId = `${'file-name'+item.id}`;
-                    let customBtnId = `${'custom-btn'+item.id}`;
-                    let defaultBtnId = `${"default-btn"+item.id}`;
-                    let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;                    
+              amnt = data.length;
+              data.forEach(function (item) {
+                tId = item.id;
+                let wrapperId = `${'wrapper'+item.id}`;
+                let wrapperImgId = `${'wrapperImg'+item.id}`;
+                let cancelBtnId = `${'cancel-btn'+item.id}`;
+                let fileNameId = `${'file-name'+item.id}`;
+                let customBtnId = `${'custom-btn'+item.id}`;
+                let defaultBtnId = `${"default-btn"+item.id}`;
+                let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;                    
+                fileForm = $(`#${'fileForm'+tId}`);
+
+                $('#tcont').append(
+                  `<div class="d-md-flex d-block mb-5">
+                    <div class="editProduct__image">
+                      <!-- images -->
+                      <div class="wrapper" id="${wrapperId}">
+                        <div class="image">
+                          <img src=${item.image_url} alt="" id="${wrapperImgId}">
+                        </div>
+                        <div class="content">
+                          <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                          <div class="text"> No file chosen, yet!</div>
+                        </div>
+                        <!--<div id="${cancelBtnId}"><i class="fas fa-times"></i></div>-->
+                        <div class="file-name" id="${fileNameId}">File name here</div>
+                      </div>
+                      <button id="${customBtnId}" 
+                      onclick="$('#${defaultBtnId}').click();">
+                      Edit Image
+                    </button>
+                    <form id="${'fileForm'+item.id}">
+                      <input type="file" id="${"default-btn"+item.id}" name="file" accept="image/*" style="display: none">
+                    </form>
+                    <div class="text-flex px-4">
+                      <div class="d-block d-md-flex justify-content-between">
+                        <h5 class="mb-2" style="text-transform: uppercase">${item.name}</h5>
+                        <button type="button" class="btn btn-dark btn-sm mb-2" data-bs-toggle="modal"
+                        data-bs-target="${'#profileModal'+item.id}"> <i class="fas fa-edit"></i> Edit Profile
+                      </button>
+                    </div>
                     
-                    $('#tcont').append(
-                        `<div class="d-md-flex d-block mb-5">
-                            <div class="editProduct__image">
-                                <!-- images -->
-                                <div class="wrapper" id="${wrapperId}">
-                                    <div class="image">
-                                        <img src=${item.image_url} alt="" id="${wrapperImgId}">
-                                    </div>
-                                    <div class="content">
-                                       s <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                                        <div class="text"> No file chosen, yet!</div>
-                                    </div>
-
-                                    <div id="${cancelBtnId}"><i class="fas fa-times"></i></div>
-                                    <div class="file-name" id="${fileNameId}">File name here</div>
-                                </div>
-                                <button id="${'custom-btn'+item.id}" 
-                                  onclick="let val = document.getElementById('${defaultBtnId}'); val.click();">
-                                    Edit Image
-                                  </button>
-                                <input id="${defaultBtnId}" type="file" hidden name="file" accept="image">
-                            </div>
-
-                            <div class="text-flex px-4">
-                                <div class="d-block d-md-flex justify-content-between">
-                                    <h5 class="mb-2" style="text-transform: uppercase">${item.name}</h5>
-                                    <button type="button" class="btn btn-dark btn-sm mb-2" data-bs-toggle="modal"
-                                    data-bs-target="${'#profileModal'+item.id}"> <i class="fas fa-edit"></i> Edit Profile
-                                    </button>
-                                </div>
-
-                                <p id="profile">${item.profile}
-                                </p>
-                                <button onclick="deleteTeamById(${item.id})" style="float: right">delete</button>
-                            </div>
-                        </div>`
-                    )
-                    function callId() {
-                      wrapper= document.querySelector(`#${wrapperId}`), 
-                      fileName = document.querySelector(`#${fileNameId}`), 
-                      defaultBtn = document.querySelector(`#${defaultBtnId}`), 
-                      cancelBtn = document.querySelector(`#${cancelBtnId}`), 
-                      img = document.querySelector(`#${wrapperImgId}`);
-                    }   
-                    callId();              
-                    defaultBtn.onchange = () => {
-                      const tImgFile = defaultBtn.files[0];
-                      console.log(tImgFile);
-                      if(tImgFile){
-                        tFile = new FormData;
-                        tFile.append('file', tImgFile);
-                        consloe.log(FormData);
-                        const reader = new FileReader();
-                        reader.onload = function(){
-                          const result = reader.result;
-                          img.src = result;
-                          wrapper.classList.add("active");
-                        };
-                        cancelBtn.addEventListener("click", function(){
-                          img.src = "";
-                          wrapper.classList.remove("active");
-                        });
-                        reader.readAsDataURL(tImgFile)
-                      };
-                      upload(tFile);
-                      if(this.value){
-                          let valueStore = this.value.match(regExp);
-                          fileName.textContent = valueStore;
-                      };
-                    };
+                    <p id="profile">${item.profile}
+                    </p>
+                    <button onclick="deleteTeamById(${item.id})" style="float: right">delete</button>
+                  </div>
+                </div>`
+              )
+              //EVENT LISTENER FOR THE DATA
+              $(`#${defaultBtnId}`).onchange = () => {
+                console.log('files start');
+                let file = this.files[0];
+                console.log(file);
+                if(file) {
+                  let imageUrl = URL.createObjectURL(file);
+                  $(`${'wrapperImg'+tId}`).setAttribute('src', imageUrl);        
+                  upload(fileForm);
+                };                      
+              }
+                    
+                    // function callId() {
+                    //   wrapper= document.querySelector(`#${wrapperId}`), 
+                    //   fileName = document.querySelector(`#${fileNameId}`), 
+                    //   defaultBtn = document.querySelector(`#${defaultBtnId}`), 
+                    //   cancelBtn = document.querySelector(`#${cancelBtnId}`), 
+                    //   img = document.querySelector(`#${wrapperImgId}`);
+                    // }   
+                    //callId();              
+                    // defaultBtn.onchange = () => {
+                    //   console.log('added file');
+                    //   const file = defaultBtn.files[0];
+                    //   console.log(file);
+                    //   if(file){
+                        
+                    //     //reader.onload = function(){
+                          
+                    //       //wrapper.classList.add("active");
+                    //     //};
+                    //     // cancelBtn.addEventListener("click", function(){
+                    //     //   img.src = "";
+                    //     //   wrapper.classList.remove("active");
+                    //     // });
+                    //   };
+                    //   if(this.value){
+                    //       let valueStore = this.value.match(regExp);
+                    //       fileName.textContent = valueStore;
+                    //   };
+                    //   //upload(file);
+                    // };
+                    
+                    
                     // CALLING THE MODAL
 
                     $('#profileModals').append(
@@ -295,9 +308,8 @@
                             </div>
                         </div>`
                     )
-                    console.log('modalout');
                 })
-                console.log(data);
+                console.log(amnt, data);
                 // $('.load-teams').html('<h1> I AM WORKING </h1>')
                 //$('.load-teams') is using jquery to get the class attribute load-teams
                 //$('.load-teams').html('') is to directly code into that *tags* as in the (class attr) html
@@ -309,19 +321,13 @@
         })
         }
         init();
-        $.ajax({
-            type: "PUT",
-            contentType: ' application/json',
-            url: "{{ url_for('api.info') }}" + "/1",
-            data: JSON.stringify({ header: "About", body: "This is the new about of the site." })
-        })
-        
-        // FILE UPLOAD UTILITY
-        // store the file in a variable called file
-        const submit = () => {
-            console.log('gbola');
-           
-        }
+        // $.ajax({
+        //     type: "PUT",
+        //     contentType: ' application/json',
+        //     url: "{{ url_for('api.info') }}" + "/1",
+        //     data: JSON.stringify({ header: "About", body: "This is the new about of the site." })
+        // })
+    
     
         
 
@@ -336,6 +342,15 @@
             console.log(error);
           })
         }
+
+
+
+
+
+
+
+
+
         
         // ADD TEAM
         //let teamData = { name: 'emmo' , profile: 'emmo isyour average boy' , image_url: 'emmo.jpg' }
