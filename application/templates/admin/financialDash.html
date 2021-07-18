@@ -9,8 +9,9 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <link rel="stylesheet" href=" {{ url_for ( 'static', filename='admin/css/fontawesome-free-5.0.1/css/fontawesome-all.css') }}   ">
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href=" {{ url_for ( 'static', filename='admin/css/fontawesome-free-5.0.1/css/fontawesome-all.css') }}   ">
     <link rel="stylesheet" href="{{ url_for ( 'static', filename='admin/css/styles.css') }}">
 </head>
 
@@ -59,7 +60,7 @@
             <h2 class="mt-5 dash-title">Financial Report Page</h2>
         </div>
     </main>
-     
+
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-6">
@@ -67,43 +68,54 @@
                     <h3>UPLOAD FINANCIAL REPORTS</h3>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                          <button class="btn btn-appended" type="button">YEAR</button>
+                            <button class="btn btn-appended" type="button">YEAR</button>
                         </div>
-                        <input type="text" class="form-control" placeholder="2021" aria-label="" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="2021" aria-label=""
+                            aria-describedby="basic-addon1">
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                          <button class="btn btn-appended" type="button">MONTH</button>
+                            <button class="btn btn-appended" type="button">MONTH</button>
                         </div>
-                        <input type="text" class="form-control" placeholder="JULY" aria-label="" aria-describedby="basic-addon1">
+                        <input type="text" class="form-control" placeholder="JULY" aria-label=""
+                            aria-describedby="basic-addon1">
                     </div>
                     <div class="selected-image-area">
-                        <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid selected-image">
+                        <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image"
+                            class="img-fluid selected-image">
                         <!--  -->
                     </div>
-                        <div class="text-center">
-                            <p>Drop your files here</p>
-                            <label for="files" class="btn browse-files">Browse file</label>
-                            <input id="files" style="visibility:hidden;" type="file">
-                        </div>
+                    <div class="text-center">
+                        <p>Drop your files here</p>
+                        <label for="files" class="btn browse-files">Browse file</label>
+                        <input id="files" style="visibility:hidden;" type="file">
+                    </div>
                 </div>
-             
+
 
             </div>
             <div class="col-md-6">
-                
+
                 <div class="accordion" id="accordionExample">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                       2019
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        2019
                                     </button>
                                 </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne"
+                                    data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                        <strong>This is the first item's accordion body.</strong> It is shown by
+                                        default, until the collapse plugin adds the appropriate classes that we use to
+                                        style each element. These classes control the overall appearance, as well as the
+                                        showing and hiding via CSS transitions. You can modify any of this with custom
+                                        CSS or overriding our default variables. It's also worth noting that just about
+                                        any HTML can go within the <code>.accordion-body</code>, though the transition
+                                        does limit overflow.
                                     </div>
                                 </div>
                             </div>
@@ -112,13 +124,21 @@
                         <div class="col-md-4">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                         2020
                                     </button>
                                 </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                        <strong>This is the second item's accordion body.</strong> It is hidden by
+                                        default, until the collapse plugin adds the appropriate classes that we use to
+                                        style each element. These classes control the overall appearance, as well as the
+                                        showing and hiding via CSS transitions. You can modify any of this with custom
+                                        CSS or overriding our default variables. It's also worth noting that just about
+                                        any HTML can go within the <code>.accordion-body</code>, though the transition
+                                        does limit overflow.
                                     </div>
                                 </div>
                             </div>
@@ -127,33 +147,107 @@
                         <div class="col-md-4">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingThree">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
                                         2021
                                     </button>
                                 </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                     <div class="accordion-body">
-                                        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                                        <strong>This is the third item's accordion body.</strong> It is hidden by
+                                        default, until the collapse plugin adds the appropriate classes that we use to
+                                        style each element. These classes control the overall appearance, as well as the
+                                        showing and hiding via CSS transitions. You can modify any of this with custom
+                                        CSS or overriding our default variables. It's also worth noting that just about
+                                        any HTML can go within the <code>.accordion-body</code>, though the transition
+                                        does limit overflow.
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
+                    <div id="resp"></div>
 
                 </div>
             </div>
-            
+
         </div>
     </div>
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
     <script src="{{ url_for('static' , filename='admin/js/popper.js' ) }}     "></script>
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
-    </script>
+        </script>
     <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
+    <script type="text/javascript">
+        // FINANCIAL REPORTS ROUTE
+        // GET FINANCIAL REPORTS
+        let res = document.querySelector('#resp');
+        //console.log('ran');
+        const route = "{{ url_for('api.financial_report') }}";
+        const header = { 'X-Custom-Header': 'value' };
+        const getFinancialReport = () => {
+            axios.get(route, header)
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error.response);
+                    res.innerHTML = JSON.stringify(error.response);
+                })
+            //console.log('running :)');
+        }
+        getFinancialReport();
+        // ADD FINANCIAL REPORT
+        let Year = 1000, Month = "JULY", imgFile = "file.jpg";
+        const addFinancialReport = () => {
+            axios.post('/financial_report/', { year: Year, month: Month, file: imgFile }, { header })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error.response);
+                })
+        }
+        console.log('secter');
+        addFinancialReport();
+        // FINANCIAL REPORT WITH ID
+        //const finReportId = '';
+        const getFinancialReportById = (id) => {
+            axios.get(`/financial_report/${id}`)
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+        }
+        // UPDATE FINANCIAL REPORT BY ID
+        const updateFinancialReportById = (id) => {
+            axios.put(`/financial_report/${id}`, artistData)
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+        }
+        // DELETE FINANCIAL REPORT BY ID
+        const deleteFinancialReportById = (id) => {
+            axios.delete(`/financial_report/${id}`)
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+        }
+    </script>
 </body>
 
 </html>

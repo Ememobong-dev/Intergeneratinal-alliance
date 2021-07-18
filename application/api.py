@@ -234,6 +234,7 @@ def financial_report():
             res = {"error": [f"This field {str(err)} is required"]}
             return Response(json.dumps(res), status=400, mimetype="application/json")
         except Exception as e:
+            print("ERROR IS IN API")
             print(e)
             return Response(status=400)
 

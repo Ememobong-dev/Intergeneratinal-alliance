@@ -59,7 +59,7 @@
             <h2 class="mt-5 dash-title">Artists Page</h2>
         </div>
     </main>
-     
+
     <div class="container mt-5">
         <div class="row">
            <div class="col-md-12">
@@ -110,6 +110,7 @@
         </div>
     </div>
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
     <script src="{{ url_for('static' , filename='admin/js/popper.js' ) }}     "></script>
     <!-- Bootstrap JS -->
@@ -117,6 +118,67 @@
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
     </script>
     <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
+    <script>
+    // ARTIST ROUTE
+    // GET ALL ARTISTS
+    // TAKENOTE: all get without id are for user pages
+    const getArtists = () => {
+      axios.get('/artists')
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    getArtists();
+    // ADD NEW ARTISTS
+    // data: artistName, artistImage, artistProfile, artist_works_url
+    // it can accept artist name alone or accept their data alongside
+    // const artistData = { artistName: '' , artistImage: '', artistProfile: '', artist_works_url: '' }
+    const addArtist = () => {
+      axios.post('/artists', artistData )
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+
+    // ARTIST FUNCTIONS BY ID
+    // GET ARTIST BY ID
+    //const artistId = '';
+    const getArtistById = (id) => {
+      axios.get(`/artists/${id}`)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    // UPDATE ARTIST BY ID
+    const updateArtistById = (id) => {
+      axios.put(`/artists/${id}`, artistData)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    // DELETE ARTIST BY ID
+    const deleteArtistById = (id) => {
+      axios.delete(`/artists/${id}`)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    </script>
 </body>
 
 </html>

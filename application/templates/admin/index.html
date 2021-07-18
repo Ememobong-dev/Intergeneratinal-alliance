@@ -77,69 +77,15 @@
 
     <div class="container">
         <h2 class="mt-5  dash-title">THE TEAM</h2>
-        <div class="row">
-            <div class="d-md-flex d-block mb-5">
-
-                <div class="editProduct__image">
-                    <!-- images -->
-                    <div class="wrapper">
-                        <div class="image">
-                            <img src="{{ url_for('static', filename='admin/img/oyinkan_pics.png')}}" alt=""
-                                id="wrapperImg">
-                        </div>
-                        <div class="content">
-                            <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                            <div class="text"> No file chosen, yet!</div>
-                        </div>
-
-                        <div id="cancel-btn"><i class="fas fa-times"></i></div>
-                        <div class="file-name">File name here</div>
-                    </div>
-                    <button id="custom-btn">Edit Image</button>
-                    <input id="default-btn" type="file" hidden>
-                </div>
-
-                <div class="text-flex px-4">
-                    <div class="d-block d-md-flex justify-content-between">
-                        <h5 class="mb-2">ENIOLA</h5>
-                        <button type="button" class="btn btn-dark btn-sm mb-2" data-bs-toggle="modal"
-                            data-bs-target="#profileModal1"> <i class="fas fa-edit"></i> Edit Profile
-                        </button>
-                    </div>
-
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati minima omnis est culpa fugit
-                        autem dolore totam laudantium iure, tempore illum voluptates? Nihil impedit commodi illum est
-                        vitae nam labore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, beatae? Molestias
-                        ab debitis tempore similique harum aut illo. Magni dolor inventore, sint mollitia illo velit
-                        autem magnam at possimus doloremque, dolore molestiae consectetur?</p>
-                </div>
-            </div>
-            <div class="d-md-flex d-block mb-5">
-                <div class="image-flex">
-                    <img src=" {{ url_for('static', filename='admin/img/oyinkan_pics.png')}}" alt="" class="img-fluid"
-                        width="450px">
-                </div>
-                <div class="text-flex px-4">
-                    <div class="d-block d-md-flex justify-content-between">
-                        <h5 class="mb-2">OYINKAN</h5>
-                        <button type="button" class="btn btn-dark btn-sm mb-2" data-bs-toggle="modal"
-                            data-bs-target="#profileModal2"> <i class="fas fa-edit"></i> Edit Profile
-                        </button>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur . Obcaecati minima omnis est culpa fugit autem dolore
-                        totam laudantium iure, tempore illum voluptates? Nihil impedit commodi illum est vitae nam
-                        labore. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, beatae? Molestias ab
-                        debitis tempore similique harum aut illo. Magni dolor inventore, sint mollitia illo velit autem
-                        magnam at possimus doloremque, dolore molestiae consectetur?</p>
-                </div>
-            </div>
+        <div class="row" id="tcont">
+            
         </div>
     </div>
 
 
 
 
-
+    <div id = "profileModals">
     <!--Modals  -->
 
     <!-- Modal1 -->
@@ -154,33 +100,8 @@
                         <div class="signIn-inputs">
                             <form action="" id="" method="post">
                                 <div class="form-group mb-3">
-                                    <textarea name="" class="form-control" id="" cols="30" rows="10"></textarea>
+                                    <input type="text" class="form-control" placeholder="enter header text">
                                 </div>
-
-                                <div class="signIn-btn text-center">
-                                    <button name="" type="submit" id="" class="btn btn-lg btn-modal"
-                                        role="button">PUBLISH</button>
-                                </div>
-                            </form>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal1 -->
-    <div class="modal fade" id="profileModal1" tabindex="-1" aria-labelledby="profileModal1Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="signIn-inputs">
-                            <form action="" id="" method="post">
                                 <div class="form-group mb-3">
                                     <textarea name="" class="form-control" id="" cols="30" rows="10"></textarea>
                                 </div>
@@ -198,7 +119,8 @@
         </div>
     </div>
 
-    <!-- Modal2 -->
+    
+    <!-- Modal2 
     <div class="modal fade" id="profileModal2" tabindex="-1" aria-labelledby="profileModal2Labe2" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -224,10 +146,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
-
-
+</div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
     <script src="{{ url_for('static' , filename='admin/js/popper.js' ) }}     "></script>
     <!-- Bootstrap JS -->
@@ -238,18 +160,144 @@
     <script src=" {{ url_for('static' , filename='admin/js/selectImage.js' ) }}"></script>
     <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
     <script>
+        let amnt, profileModalNo, tId, tFile;
+        const tRoute = "{{ url_for('api.team') }}";
+        //, {headers:{contentType: 'multipart/form-data'}}
+        const upload = (file) => {
+          axios.post("{{ url_for('api.upload') }}", file)
+          .then(function(response) {
+            console.log('tried uploaded file', response);
+          })
+          .catch(function (error) {
+            console.log(error.response);
+          })
+        }
+
+        function init() {
         $.ajax({
             type: "GET",
-            url: "{{ url_for('api.team') }}",
+            url: tRoute,
             // crossDomain: true,
-            contentType: ' application/json',
+            contentType: 'application/json',
             encode: true,
             success: function (data) {
+                amnt = data.length;
+                console.log(amnt);
                 data.forEach(function (item) {
-                    console.log(item.profile)
-                    $('.load-teams').html('<p class="text-danger"> ' + item.profile + '</p>')
+                    let wrapperId = `${'wrapper'+item.id}`;
+                    let wrapperImgId = `${'wrapperImg'+item.id}`;
+                    let cancelBtnId = `${'cancel-btn'+item.id}`;
+                    let fileNameId = `${'file-name'+item.id}`;
+                    let customBtnId = `${'custom-btn'+item.id}`;
+                    let defaultBtnId = `${"default-btn"+item.id}`;
+                    let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;                    
+                    
+                    $('#tcont').append(
+                        `<div class="d-md-flex d-block mb-5">
+                            <div class="editProduct__image">
+                                <!-- images -->
+                                <div class="wrapper" id="${wrapperId}">
+                                    <div class="image">
+                                        <img src=${item.image_url} alt="" id="${wrapperImgId}">
+                                    </div>
+                                    <div class="content">
+                                       s <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                                        <div class="text"> No file chosen, yet!</div>
+                                    </div>
+
+                                    <div id="${cancelBtnId}"><i class="fas fa-times"></i></div>
+                                    <div class="file-name" id="${fileNameId}">File name here</div>
+                                </div>
+                                <button id="${'custom-btn'+item.id}" 
+                                  onclick="let val = document.getElementById('${defaultBtnId}'); val.click();">
+                                    Edit Image
+                                  </button>
+                                <input id="${defaultBtnId}" type="file" hidden name="file" accept="image">
+                            </div>
+
+                            <div class="text-flex px-4">
+                                <div class="d-block d-md-flex justify-content-between">
+                                    <h5 class="mb-2" style="text-transform: uppercase">${item.name}</h5>
+                                    <button type="button" class="btn btn-dark btn-sm mb-2" data-bs-toggle="modal"
+                                    data-bs-target="${'#profileModal'+item.id}"> <i class="fas fa-edit"></i> Edit Profile
+                                    </button>
+                                </div>
+
+                                <p id="profile">${item.profile}
+                                </p>
+                                <button onclick="deleteTeamById(${item.id})" style="float: right">delete</button>
+                            </div>
+                        </div>`
+                    )
+                    function callId() {
+                      wrapper= document.querySelector(`#${wrapperId}`), 
+                      fileName = document.querySelector(`#${fileNameId}`), 
+                      defaultBtn = document.querySelector(`#${defaultBtnId}`), 
+                      cancelBtn = document.querySelector(`#${cancelBtnId}`), 
+                      img = document.querySelector(`#${wrapperImgId}`);
+                    }   
+                    callId();              
+                    defaultBtn.onchange = () => {
+                      const tImgFile = defaultBtn.files[0];
+                      console.log(tImgFile);
+                      if(tImgFile){
+                        tFile = new FormData;
+                        tFile.append('file', tImgFile);
+                        consloe.log(FormData);
+                        const reader = new FileReader();
+                        reader.onload = function(){
+                          const result = reader.result;
+                          img.src = result;
+                          wrapper.classList.add("active");
+                        };
+                        cancelBtn.addEventListener("click", function(){
+                          img.src = "";
+                          wrapper.classList.remove("active");
+                        });
+                        reader.readAsDataURL(tImgFile)
+                      };
+                      upload(tFile);
+                      if(this.value){
+                          let valueStore = this.value.match(regExp);
+                          fileName.textContent = valueStore;
+                      };
+                    };
+                    // CALLING THE MODAL
+
+                    $('#profileModals').append(
+                        `<!-- Modal${item.id} -->
+                        <div class="modal fade" id="${'#profileModal'+item.id}" tabindex="-1" 
+                        aria-labelledby="${'#profileModal'+item.id+'Label'+item.id}" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container">
+                                            <div class="signIn-inputs">
+                                                <form action="" id="" method="post">
+                                                    <input type="text" class="form-control" id="${"name"+item.id}" placeholder="enter the team member name here">
+                                                    <div class="form-group mb-3">
+                                                        <textarea name="" class="form-control" id="${"profile"+item.id}" cols="30" rows="10" placeholder="write the team profile here"></textarea>
+                                                    </div>
+
+                                                    <div class="signIn-btn text-center">
+                                                        <button name="" onclick="${'submit('+item.id+')'}" type="submit" id="" class="btn btn-lg btn-modal"
+                                                        role="button">PUBLISH</button>
+                                                    </div>
+                                                </form>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`
+                    )
+                    console.log('modalout');
                 })
-                // console.log(data);
+                console.log(data);
                 // $('.load-teams').html('<h1> I AM WORKING </h1>')
                 //$('.load-teams') is using jquery to get the class attribute load-teams
                 //$('.load-teams').html('') is to directly code into that *tags* as in the (class attr) html
@@ -259,6 +307,366 @@
                 //having gotten the data, you then make a loop through objects  to get the value of each key
             }
         })
+        }
+        init();
+        $.ajax({
+            type: "PUT",
+            contentType: ' application/json',
+            url: "{{ url_for('api.info') }}" + "/1",
+            data: JSON.stringify({ header: "About", body: "This is the new about of the site." })
+        })
+        
+        // FILE UPLOAD UTILITY
+        // store the file in a variable called file
+        const submit = () => {
+            console.log('gbola');
+           
+        }
+    
+        
+
+        // TEAM ROUTE
+        // GET TEAM
+        const getTeam = () => {
+          axios.get('/team')
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        
+        // ADD TEAM
+        //let teamData = { name: 'emmo' , profile: 'emmo isyour average boy' , image_url: 'emmo.jpg' }
+        const addTeam = (name, profile, image_url) => {
+          axios.post(tRoute, { name, profile, image_url })
+          .then(function(response) {
+            console.log(response);
+            location.reload();
+          })
+          .catch(function(error) {
+            console.log(error.response);
+          })
+        }
+        //addTeam(teamData.name, teamData.profile, teamData.image_url);
+        // TEAM WITH ID
+        //const teamId = '';
+        const getTeamById = (id) => {
+          axios.get(`${tRoute+'/'+id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // UPDATE TEAM BY ID
+
+        const updateTeamById = (id, param1, param2, param3) => {
+          axios.put(`${tRoute+'/'+id}`, data)
+          .then(function(response) {
+            console.log(response);
+            location.reload();
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        let profile = "Dr. Ẹniọlá Ànúolúwapọ́ Ṣóyẹmí is a political theorist whose academic research specialises in theories and practices of deliberation, the nature of freedom, and the nature of legitimate authority. Over the last 10 years, Ẹniọlá's work has focused on making the historical and contemporary socio-legal and political experiences of Nigeria, and the wider African continent, influential to mainstream discourses in political theory. Her field research has involved working in Lagos, Nigeria in partnership with LAMATA. Prior to entering academia, she worked at Chatham House and at the UK Guardian's Lobby Office in the House of Commons. She holds a Ph.D. in Political Science from Boston University and an MSc. in International Public Policy from University College London. She has recently been a Max Weber Fellow and a Visiting Fellow at the European University Institute."
+        //updateTeamById(1, "ENIOLA", profile)
+        // DELETE TEAM BY ID
+        const deleteTeamById = (id) => {
+            console.log(id);
+          axios.delete(`${tRoute+'/'+id}`)
+          .then(function(response) {
+            console.log(response);
+            location.reload();
+          })
+          .catch(function(error) {
+            console.log(error.response);
+          })
+        }
+
+
+        // FORUM GALLERY ROUTE
+        // GET FORUM GALLERY
+        const getForumGallery = () => {
+          axios.get('/forum-gallery')
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // ADD FORUM GALLERY
+        // forumGalleryData = { forum: '' ,forumGalleryCover: '' , forumGallery: '' , fullVideoCoverUrl: '', fullVideoUrl: '', snippetCoverUrl: '', snippetUrl: '' }
+        const addForumGallery = () => {
+          axios.post('/forum-gallery', forumGalleryData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+        // FORUM GALLERY WITH ID
+        //const forumGalleryId = '';
+        const getForumGalleryById = (id) => {
+          axios.get(`/forum-gallery/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // UPDATE FORUM GALLERY BY ID
+        const updateForumGalleryById = (id) => {
+          axios.put(`/forum-gallery/${id}`, forumGalleryData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // DELETE FORUM GALLERY BY ID
+        const deleteForumGalleryById = (id) => {
+          axios.delete(`/forum-gallery/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+
+        // INFO GALLERY ROUTE
+        // GET INFO GALLERY
+        const getInfo = () => {
+          axios.get('/info')
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // ADD INFO GALLERY
+        // infoData = { header: '', body: '' }
+        const addInfo = () => {
+          axios.post('/info', infoData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+        // INFO WITH ID
+        //const infoId = '';
+        const getInfoById = (id) => {
+          axios.get(`/info/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // UPDATE INFO BY ID
+        const updateInfoById = (id) => {
+          axios.put(`/info/${id}`, infoData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // DELETE INFO BY ID
+        const deleteInfoById = (id) => {
+          axios.delete(`/info/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+
+        // 'GET IN TOUCH' ROUTE
+        // GET 'GET IN TOUCH'
+        const getGetInTouch = () => {
+          axios.get('/get-in-touch')
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // ADD 'GET IN TOUCH'
+        // getInTouchData = { fullName: '', email: '', message: '' }
+        const addGetInTouch = () => {
+          axios.post('/get-in-touch', getInTouchData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+        // 'GET IN TOUCH' WITH ID
+        //const getInTouchId = '';
+        const getGetInTouchById = (id) => {
+          axios.get(`/get-in-touch/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // UPDATE 'GET IN TOUCH' BY ID
+        const updateGetInTouchById = (id) => {
+          axios.put(`/get-in-touch/${id}`, getInTouchData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // DELETE 'GET IN TOUCH' BY ID
+        const deleteGetInTouchById = (id) => {
+          axios.delete(`/get-in-touch/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+
+        // 'PARTICIPATION REQUEST' ROUTE
+        // GET 'PARTICIPATION REQUEST'
+        const getParticipationRequest = () => {
+          axios.get('/participation_request')
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // ADD 'PARTICIPATION REQUEST'
+        //const participationRequestData = { fullName: '' ,email: '' , phoneNumber: '' , ageRange: '', job: '', lga: '' }
+        const addParticipationRequest = () => {
+          axios.post('/participation_request', participationRequestData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+        // 'PARTICIPATION REQUEST' WITH ID
+        //const participationRequestId = '';
+        const getParticipationRequestById = (id) => {
+          axios.get(`/participation_request/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // UPDATE 'PARTICIPATION REQUEST' BY ID
+        const updateParticipationRequestById = (id) => {
+          axios.put(`/participation_request/${id}`, participationRequestData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // DELETE 'PARTICIPATION REQUEST' BY ID
+        const deleteParticipationRequestById = (id) => {
+          axios.delete(`/participation_request/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+
+        // 'FORUM SUGGESTION' ROUTE
+        // GET 'FORUM SUGGESTION'
+        const getForumSuggestion = () => {
+          axios.get('/forum-suggestion')
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // ADD 'FORUM SUGGESTION'
+        //const forumSuggestionData = { fullName: '', email: '', message: '' }
+        const addForumSuggestion = () => {
+          axios.post('/forum-suggestion', forumSuggestionData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+
+        // 'FORUM SUGGESTION' WITH ID
+        //const forumSuggestionId = '';
+        const getForumSuggestionById = (id) => {
+          axios.get(`/forum-suggestion/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // UPDATE 'FORUM SUGGESTION' BY ID
+        const updateForumSuggestionById = (id) => {
+          axios.put(`/forum-suggestion/${id}`, forumSuggestionData)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
+        // DELETE 'FORUM SUGGESTION' BY ID
+        const deleteForumSuggestionById = (id) => {
+          axios.delete(`/forum-suggestion/${id}`)
+          .then(function(response) {
+            console.log(response);
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+        }
     </script>
 </body>
 

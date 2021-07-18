@@ -63,9 +63,9 @@ def mission():
     return render_template("mission.html")
 
 
-@main.route("/partner-beauty/", methods=["GET"])
-def partner_beauty():
-    return render_template("partnerBeauty.html")
+@main.route("/forum-detail/", methods=["GET"])
+def forum_detail():
+    return render_template("forum_detail.html")
 
 
 @main.route("/partners/", methods=["GET"])

@@ -59,7 +59,7 @@
             <h2 class="mt-5 dash-title">Partners Page</h2>
         </div>
     </main>
-     
+
     <div class="container mt-5">
         <div class="row">
            <div class="col-md-12">
@@ -110,6 +110,7 @@
         </div>
     </div>
 
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
     <script src="{{ url_for('static' , filename='admin/js/popper.js' ) }}     "></script>
     <!-- Bootstrap JS -->
@@ -117,6 +118,62 @@
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
     </script>
     <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
+    <script>
+    // PARTNERS ROUTE
+    // GET PARTNER
+    const getPartners = () => {
+      axios.get('/partners')
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    // ADD PARTNER
+    // partnerData = { name: '' , profile: '' , logoUrl: '' , websiteUrl: '' }
+    const addPartner = () => {
+      axios.post('/partners', partnerData)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+
+    // PARTNER WITH ID
+    //const partnerId = '';
+    const getPartnerById = (id) => {
+      axios.get(`/partners/${id}`)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    // UPDATE PARTNER BY ID
+    const updatePartnerById = (id) => {
+      axios.put(`/partners/${id}`, partnerData)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    // DELETE PARTNER BY ID
+    const deletePartnerById = (id) => {
+      axios.delete(`/partners/${id}`)
+      .then(function(response) {
+        console.log(response);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+    </script>
 </body>
 
 </html>
