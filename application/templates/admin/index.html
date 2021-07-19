@@ -54,7 +54,6 @@
         </div>
     </nav>
 
-
     <main class="flex-shrink-0">
         <div class="container">
             <h2 class="mt-5 dash-title">ABOUT PAGE</h2>
@@ -65,31 +64,24 @@
                 quansectetur adipisicing elit. Nisi id vel natus, aut corrupti sit animi quo, aspernatur excepturi
                 debitis officia! Deleniti sapiente illo quos itaque, rerum recusandae accusantium iste.
             </p>
-            <button type="button" class="btn btn-dark btn-sm" style="width: 80px; float: right;" data-bs-toggle="modal" data-bs-target="#headerModal"> <i
+            <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#headerModal"> <i
                     class="fas fa-edit"></i> Edit Text </button>
         </div>
     </main>
 
-
-    <!-- Demo Code -->
-    <div class="container load-teams"></div>
-
-
     <div class="container">
         <h2 class="mt-5  dash-title">THE TEAM</h2>
         <div class="row" id="tcont">
-            <!-- <button type="button" class="btn btn-dark mb-2" data-bs-toggle="modal"
-              data-bs-target="profileModalAdd"> <i class="fas fa-plus"></i> Add new team member
-            </button> -->
+            <div class="d-md-flex justify-content-end flex-md-row d-block mb-10 pb-5">
+              <button type="button" class="btn btn-dark float-right" data-bs-toggle="modal"
+              data-bs-target="#profileModalAdd" style="width: 200px"> <i class="fas fa-plus"></i> Add new team member
+              </button>
+            </div>
         </div>
     </div>
 
-
-
-
     <div id = "profileModals">
     <!--Modals  -->
-
     <!-- Modal1 -->
     <div class="modal fade" id="headerModal" tabindex="-1" aria-labelledby="headerModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -120,9 +112,7 @@
             </div>
         </div>
     </div>
-
-    
-    <!-- Modal2 
+    <!--Modal2--> 
     <div class="modal fade" id="profileModalAdd" tabindex="-1" 
       aria-labelledby="profileModalLabelAdd" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
@@ -141,14 +131,14 @@
                     <textarea name="" class="form-control" id="addProfile" cols="30" rows="10" placeholder="add team member's profile here"></textarea>
                   </div>
                   <div class="form-group mb-3">
-                    <button id="addBtn" type="button"
-                      onclick="$('addFile').click();">
-                      Edit Image
-                    </button>
-                    <input type="file" name="file" id="addFile" onchange="startUploadPost()" name="file" accept="image/*" style="display: none">
+                    <!-- <button  type="button" onclick="document.getElementById('addFile').click()">
+                      add Image
+                    </button> -->
+                    <button id="addFileBtn">button</button>
+                    <input type="file" name="file" id="addFiles" onchange="startUpload(this.files[0], 0)" accept="image/*" style="display: none;" >
                   </div>
                   <div class=" text-center">
-                    <button onclick="SubmitPost()" type="button" id="addSubmitBtn" class="btn btn-lg btn-modal"
+                    <button onclick="SubmitPost()" type="button" id="submit-btn0" class="btn btn-lg btn-modal"
                       disabled>PUBLISH</button>
                   </div>
                 </form>
@@ -157,9 +147,8 @@
           </div>
         </div>
       </div>
-    </div>-->
-
-</div>
+    </div>
+    </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
     <script src="{{ url_for('static' , filename='admin/js/popper.js' ) }}     "></script>
@@ -175,8 +164,7 @@
         var fileUrl;
         const tRoute = "{{ url_for('api.team') }}";
 
-        // UPLOAD API accepts fileForm
-        //, {headers:{contentType: 'multipart/form-data'}}
+        // UPLOAD API accepts Image file
         function upload(data, id) {
           axios.post("{{ url_for('api.upload') }}", data)
           .then(function(response) {
@@ -196,18 +184,19 @@
           axios.put(`${tRoute+'/'+id}`,{ name, profile, image_url})
           .then(function(response) {
             console.log(response);
-            //location.reload();
+            location.reload();
           })
           .catch(function(error) {
             console.log(error.response);
           })
         }
 
+        // TEAM PUT REQUEST
         //EVENT LISTENER FOR THE DATA
         // START UPLOAD
         function startUpload(file, id) {
           console.log('files start');
-          console.log(file);
+          //console.log(file);
           //console.log(i);
           //console.log(file);
           if(file) {
@@ -238,9 +227,63 @@
           const name = $(`#${"name"+id}`).value;
           const profile = $(`#${"profile"+id}`).value;
           const image_url = fileUrl;
-          updateTeamById(id, name, profile, image_url)
+          updateTeamById(name, profile, image_url);
         }
 
+
+        // TEAM POST REQUEST
+        // ADD TEAM
+        let oin = document.querySelector('#addFiles');
+        document.querySelector('#addFileBtn').onclick = function() {
+          console.log('clicked');
+          oin.click();
+        }
+
+        function addTeam(name, profile, image_url) {
+          axios.post(tRoute, { name, profile, image_url })
+          .then(function(response) {
+            console.log(response);
+            location.reload();
+          })
+          .catch(function(error) {
+            console.log(error.response);
+          })
+        }
+        // POST EVENTS TAKE PLACE HERE
+        // $('#addFile').onchange = () => {
+        //   let file = this.files[0];
+        //   console.log('files start');
+        //   //console.log(file);
+        //   //console.log(i);
+        //   //console.log(file);
+        //   if(file) {
+        //     // let result;
+        //     // var reader = new FileReader();
+        //     // reader.onload = function (e) {
+        //       //   result = e.target.result;
+        //       // $(`#${'wrapperImg'+id}`)
+        //       // .attr('src')
+        //       //   ;
+        //     // };
+        //     // reader.readAsDataURL(file);
+        //     // let im = $(`${'wrapperImg'+i}`);
+        //     // im.src = imageUrl;
+        //     // let formElem = document.getElementById(`'${form}'`);
+        //     let d = new FormData();
+        //     d.append('file', file);
+        //     console.log(d);   
+        //     const id = 0;     
+        //     upload(d, id);
+        //   };          
+        // }
+        //SUBMIT FORM
+        function SubmitPost() {
+          console.log(fileUrl);
+          const name = document.querySelector("#addName").value;
+          const profile = document.querySelector("#addProfile").value;
+          const image_url = fileUrl;
+          addTeam(name, profile, image_url)
+        }
         // INITIALIZES A GET REQUEST TO THE API AND FILLS IN THE INFORMATION
         function init() {
           $.ajax({
@@ -269,7 +312,7 @@
                           <img 
                             src=${item.image_url} 
                             alt="${item.name} image" 
-                            style="border: 1px solid red;width: 100%; height: 100%;"
+                            style="width: 100%; height: 100%;"
                             id="${'wrapperImg'+item.id}"
                           />
                         </div>
@@ -322,7 +365,7 @@
                                     onclick="$('#${defaultBtnId}').click();">
                                     Edit Image
                                   </button>
-                                  <input type="file" name="file" id="${"default-btn"+item.id}" onchange="startUpload(this.files[0], ${item.id})" name="file" accept="image/*" style="display: none">
+                                  <input type="file" id="${"default-btn"+item.id}" onchange="startUpload(this.files[0], ${item.id})" name="file" accept="image/*" style="display: none">
                                 </div>
                                 <div class=" text-center">
                                   <button onclick="Submit(${item.id})" type="button" id="${'submit-btn'+item.id}" class="btn btn-lg btn-modal"
@@ -384,19 +427,8 @@
           
 
         
-        // ADD TEAM
-        //let teamData = { name: 'emmo' , profile: 'emmo isyour average boy' , image_url: 'emmo.jpg' }
-        const addTeam = (name, profile, image_url) => {
-          axios.post(tRoute, { name, profile, image_url })
-          .then(function(response) {
-            console.log(response);
-            location.reload();
-          })
-          .catch(function(error) {
-            console.log(error.response);
-          })
-        }
-        //addTeam(teamData.name, teamData.profile, teamData.image_url);
+        
+        
         // TEAM WITH ID
 
         //const teamId = '';
