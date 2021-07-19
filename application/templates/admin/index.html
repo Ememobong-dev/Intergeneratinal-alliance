@@ -500,62 +500,7 @@
         })
     }
 
-
-    // FORUM GALLERY ROUTE
-    // GET FORUM GALLERY
-    const getForumGallery = () => {
-      axios.get('/forum-gallery')
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // ADD FORUM GALLERY
-    // forumGalleryData = { forum: '' ,forumGalleryCover: '' , forumGallery: '' , fullVideoCoverUrl: '', fullVideoUrl: '', snippetCoverUrl: '', snippetUrl: '' }
-    const addForumGallery = () => {
-      axios.post('/forum-gallery', forumGalleryData)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-
-    // FORUM GALLERY WITH ID
-    //const forumGalleryId = '';
-    const getForumGalleryById = (id) => {
-      axios.get(`/forum-gallery/${id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // UPDATE FORUM GALLERY BY ID
-    const updateForumGalleryById = (id) => {
-      axios.put(`/forum-gallery/${id}`, forumGalleryData)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // DELETE FORUM GALLERY BY ID
-    const deleteForumGalleryById = (id) => {
-      axios.delete(`/forum-gallery/${id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-
+    
 
     // INFO GALLERY ROUTE
     // GET INFO GALLERY
@@ -612,9 +557,10 @@
         })
     }
 
-
+    // Endpoints where anonymous users have post permission
     // 'GET IN TOUCH' ROUTE
     // GET 'GET IN TOUCH'
+
     const getGetInTouch = () => {
       axios.get('/get-in-touch')
         .then(function (response) {
@@ -779,7 +725,6 @@
           console.log(error);
         })
     }
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
