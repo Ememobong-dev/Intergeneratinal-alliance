@@ -1,402 +1,147 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-  <title>NGO ADMIN</title>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-  <link rel="stylesheet"
-    href=" {{ url_for ( 'static', filename='admin/css/fontawesome-free-5.0.1/css/fontawesome-all.css') }}   ">
-  <link rel="stylesheet" href="{{ url_for ( 'static', filename='admin/css/styles.css') }}">
-</head>
-
-<body>
-<<<<<<< HEAD
-  <nav class="navbar navbar-expand-md fixed-top bg-nav">
-    <div class="container-fluid">
-      <!-- <a class="navbar-brand" href="#">App Name</a> -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mx-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Dashboard</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="{{ url_for('admin.index_dashboard') }}">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('admin.mission_dashboard') }}">Mission</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('admin.financial_dashboard') }}">Financial Report</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('admin.partners_dashboard') }}">Partners</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('admin.forums_dashboard') }}">Forums</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('admin.aidr_dashboard')}}">Artists</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('admin.donors_dashboard') }}">Donors</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-
-  <main class="flex-shrink-0">
-    <div class="container">
-      <h2 class="mt-5 dash-title">ABOUT PAGE</h2>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe vitae nobis, recusandae, quibusdam rem
-        molestiae veritatis ipsam magnam exercitationem debitis nemo numquam ut! Beatae nemo quas commodi odio
-        fugit eaque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam magnam vel dolorum ipsa
-        quansectetur adipisicing elit. Nisi id vel natus, aut corrupti sit animi quo, aspernatur excepturi
-        debitis officia! Deleniti sapiente illo quos itaque, rerum recusandae accusantium iste.
-      </p>
-      <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#headerModal"> <i
-          class="fas fa-edit"></i> Edit Text </button>
-    </div>
-  </main>
-
-
-  <!-- Demo Code -->
-  <div class="container load-teams"></div>
-
-
-  <div class="container">
-    <h2 class="mt-5  dash-title">THE TEAM</h2>
-    <div class="row" id="tcont">
-
-=======
+  <head>
+    <title>NGO ADMIN</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet"
+      href=" {{ url_for ( 'static', filename='admin/css/fontawesome-free-5.0.1/css/fontawesome-all.css') }}   ">
+    <link rel="stylesheet" href="{{ url_for ( 'static', filename='admin/css/styles.css') }}">
+  </head>
+  <body>
     <nav class="navbar navbar-expand-md fixed-top bg-nav">
-        <div class="container-fluid">
-            <!-- <a class="navbar-brand" href="#">App Name</a> -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav me-auto mx-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ url_for('admin.index_dashboard') }}">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.mission_dashboard') }}">Mission</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.financial_dashboard') }}">Financial Report</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.partners_dashboard') }}">Partners</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.forums_dashboard') }}">Forums</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.aidr_dashboard')}}">Artists</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.donors_dashboard') }}">Donors</a>
-                    </li>
-                </ul>
-            </div>
+      <div class="container-fluid">
+        <!-- <a class="navbar-brand" href="#">App Name</a> -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mx-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{{ url_for('admin.index_dashboard') }}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('admin.mission_dashboard') }}">Mission</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('admin.financial_dashboard') }}">Financial Report</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('admin.partners_dashboard') }}">Partners</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('admin.forums_dashboard') }}">Forums</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('admin.aidr_dashboard')}}">Artists</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('admin.donors_dashboard') }}">Donors</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
-
     <main class="flex-shrink-0">
-        <div class="container">
-            <h2 class="mt-5 dash-title">ABOUT PAGE</h2>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe vitae nobis, recusandae, quibusdam rem
-                molestiae veritatis ipsam magnam exercitationem debitis nemo numquam ut! Beatae nemo quas commodi odio
-                fugit eaque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam magnam vel dolorum ipsa
-                quansectetur adipisicing elit. Nisi id vel natus, aut corrupti sit animi quo, aspernatur excepturi
-                debitis officia! Deleniti sapiente illo quos itaque, rerum recusandae accusantium iste.
-            </p>
-            <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#headerModal"> <i
-                    class="fas fa-edit"></i> Edit Text </button>
-        </div>
+      <div class="container">
+        <h2 class="mt-5 dash-title">ABOUT PAGE</h2>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe vitae nobis, recusandae, quibusdam rem
+          molestiae veritatis ipsam magnam exercitationem debitis nemo numquam ut! Beatae nemo quas commodi odio
+          fugit eaque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam magnam vel dolorum ipsa
+          quansectetur adipisicing elit. Nisi id vel natus, aut corrupti sit animi quo, aspernatur excepturi
+          debitis officia! Deleniti sapiente illo quos itaque, rerum recusandae accusantium iste.
+        </p>
+        <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#headerModal"> <i
+          class="fas fa-edit"></i> Edit Text 
+        </button>
+      </div>
     </main>
-
     <div class="container">
-        <h2 class="mt-5  dash-title">THE TEAM</h2>
-        <div class="row" id="tcont">
-            <div class="d-md-flex justify-content-end flex-md-row d-block mb-10 pb-5">
-              <button type="button" class="btn btn-dark float-right" data-bs-toggle="modal"
-              data-bs-target="#profileModalAdd" style="width: 200px"> <i class="fas fa-plus"></i> Add new team member
-              </button>
-            </div>
+      <h2 class="mt-5  dash-title">THE TEAM</h2>
+      <div class="row" id="tcont">
+        <div class="d-md-flex justify-content-end flex-md-row d-block mb-10 pb-5">
+          <button type="button" class="btn btn-dark float-right" data-bs-toggle="modal"
+            data-bs-target="#profileModalAdd" style="width: 200px"> <i class="fas fa-plus"></i> Add new team member
+          </button>
         </div>
->>>>>>> 8c484599de9dbbc6b0f81eb7012901896d87ad57
+      </div>
     </div>
-  </div>
 
-<<<<<<< HEAD
-
-
-
-  <div id="profileModals">
-=======
     <div id = "profileModals">
->>>>>>> 8c484599de9dbbc6b0f81eb7012901896d87ad57
-    <!--Modals  -->
-    <!-- Modal1 -->
-    <div class="modal fade" id="headerModal" tabindex="-1" aria-labelledby="headerModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="container">
-              <div class="signIn-inputs">
-                <form action="" id="" method="post">
-                  <div class="form-group mb-3">
-                    <input type="text" class="form-control" placeholder="enter header text">
-                  </div>
-                  <div class="form-group mb-3">
-                    <textarea name="" class="form-control" id="" cols="30" rows="10"></textarea>
-                  </div>
-
-                  <div class="signIn-btn text-center">
-                    <button name="" type="submit" id="" class="btn btn-lg btn-modal" role="button">PUBLISH</button>
-                  </div>
-                </form>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-<<<<<<< HEAD
-
-
-    <!-- Modal2 
-    <div class="modal fade" id="profileModal2" tabindex="-1" aria-labelledby="profileModal2Labe2" aria-hidden="true">
+      <!--Modals  -->
+      <!-- Modal1 -->
+      <div class="modal fade" id="headerModal" tabindex="-1" aria-labelledby="headerModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <div class="signIn-inputs">
-                            <form action="" id="" method="post">
-                                <div class="form-group mb-3">
-                                    <textarea name="" class="form-control" id="" cols="30" rows="10"></textarea>
-                                </div>
-
-                                <div class="signIn-btn text-center">
-                                    <button name="" type="submit" id="" class="btn btn-lg btn-modal"
-                                        role="button">PUBLISH</button>
-                                </div>
-                            </form>
-
-                        </div>
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <div class="signIn-inputs">
+                  <form action="" id="" method="post">
+                    <div class="form-group mb-3">
+                      <input type="text" class="form-control" placeholder="enter header text">
                     </div>
+                    <div class="form-group mb-3">
+                      <textarea name="" class="form-control" id="" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="signIn-btn text-center">
+                      <button name="" type="submit" id="" class="btn btn-lg btn-modal" role="button">PUBLISH</button>
+                    </div>
+                  </form>
                 </div>
-=======
-    <!--Modal2--> 
-    <div class="modal fade" id="profileModalAdd" tabindex="-1" 
-      aria-labelledby="profileModalLabelAdd" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="container">
-              <div class="signIn-inputs">
-                <form id="addFile" enctype="multipart/form-data">
-                  <div class="form-group mb-3">
-                    <input type="text" class="form-control mb-3" id="addName" placeholder="add team member's name here">
-                  </div>
-                  <div class="form-group mb-3">
-                    <textarea name="" class="form-control" id="addProfile" cols="30" rows="10" placeholder="add team member's profile here"></textarea>
-                  </div>
-                  <div class="form-group mb-3">
-                    <!-- <button  type="button" onclick="document.getElementById('addFile').click()">
-                      add Image
-                    </button> -->
-                    <button id="addFileBtn">button</button>
-                    <input type="file" name="file" id="addFiles" onchange="startUpload(this.files[0], 0)" accept="image/*" style="display: none;" >
-                  </div>
-                  <div class=" text-center">
-                    <button onclick="SubmitPost()" type="button" id="submit-btn0" class="btn btn-lg btn-modal"
-                      disabled>PUBLISH</button>
-                  </div>
-                </form>
               </div>
->>>>>>> 8c484599de9dbbc6b0f81eb7012901896d87ad57
             </div>
           </div>
         </div>
-<<<<<<< HEAD
-    </div>-->
-
-  </div>
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
-  <script src="{{ url_for('static' , filename='admin/js/popper.js' ) }}     "></script>
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
-    </script>
-  <!-- image selection -->
-  <script src=" {{ url_for('static' , filename='admin/js/selectImage.js' ) }}"></script>
-  <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
-  <script>
-    let amnt, profileModalNo, tId, tFile;
-    const tRoute = "{{ url_for('api.team') }}";
-    //, {headers:{contentType: 'multipart/form-data'}}
-    const upload = (file) => {
-      axios.post("{{ url_for('api.upload') }}", file)
-        .then(function (response) {
-          console.log('tried uploaded file', response);
-        })
-        .catch(function (error) {
-          console.log(error.response);
-        })
-    }
-
-    function init() {
-      $.ajax({
-        type: "GET",
-        url: tRoute,
-        // crossDomain: true,
-        contentType: 'application/json',
-        encode: true,
-        success: function (data) {
-          amnt = data.length;
-          console.log(amnt);
-          data.forEach(function (item) {
-            let wrapperId = `${'wrapper' + item.id}`;
-            let wrapperImgId = `${'wrapperImg' + item.id}`;
-            let cancelBtnId = `${'cancel-btn' + item.id}`;
-            let fileNameId = `${'file-name' + item.id}`;
-            let customBtnId = `${'custom-btn' + item.id}`;
-            let defaultBtnId = `${"default-btn" + item.id}`;
-            let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
-
-            $('#tcont').append(
-              `<div class="d-md-flex d-block mb-5">
-                            <div class="editProduct__image">
-                                <!-- images -->
-                                <div class="wrapper" id="${wrapperId}">
-                                    <div class="image">
-                                        <img src=${item.image_url} alt="" id="${wrapperImgId}">
-                                    </div>
-                                    <div class="content">
-                                       s <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                                        <div class="text"> No file chosen, yet!</div>
-                                    </div>
-
-                                    <!-- <div id="${cancelBtnId}"><i class="fas fa-times"></i></div> -->
-                                    <div class="file-name" id="${fileNameId}">File name here</div>
-                                </div>
-                                <button id="${'custom-btn' + item.id}" 
-                                  onclick="let val = document.getElementById('${defaultBtnId}'); val.click();">
-                                    Edit Image
-                                  </button>
-                                <input id="${defaultBtnId}" type="file" hidden name="file" accept="image">
-                            </div>
-
-                            <div class="text-flex px-4">
-                                <div class="d-block d-md-flex justify-content-between">
-                                    <h5 class="mb-2" style="text-transform: uppercase">${item.name}</h5>
-                                    <button type="button" class="btn btn-dark btn-sm mb-2" data-bs-toggle="modal"
-                                    data-bs-target="${'#profileModal' + item.id}"> <i class="fas fa-edit"></i> Edit Profile
-                                    </button>
-                                </div>
-
-                                <p id="profile">${item.profile}
-                                </p>
-                                <button onclick="deleteTeamById(${item.id})" style="float: right">delete</button>
-                            </div>
-                        </div>`
-            )
-            function callId() {
-              wrapper = document.querySelector(`#${wrapperId}`),
-                fileName = document.querySelector(`#${fileNameId}`),
-                defaultBtn = document.querySelector(`#${defaultBtnId}`),
-                cancelBtn = document.querySelector(`#${cancelBtnId}`),
-                img = document.querySelector(`#${wrapperImgId}`);
-            }
-            callId();
-            defaultBtn.onchange = () => {
-              const imgFile = defaultBtn.files[0];
-              console.log('file');
-              if (imgFile) {
-                tFile = new FormData;
-                tFile.append('file', imgFile);
-                consloe.log(FormData);
-                const reader = new FileReader();
-                reader.onload = function () {
-                  const result = reader.result;
-                  img.src = result;
-                  wrapper.classList.add("active");
-                };
-                cancelBtn.addEventListener("click", function () {
-                  img.src = "";
-                  wrapper.classList.remove("active");
-                });
-                reader.readAsDataURL(imgFile)
-              };
-              upload(tFile);
-              if (this.value) {
-                let valueStore = this.value.match(regExp);
-                fileName.textContent = valueStore;
-              };
-            };
-            // CALLING THE MODAL
-
-            $('#profileModals').append(
-              `<!-- Modal${item.id} -->
-                        <div class="modal fade" id="${'#profileModal' + item.id}" tabindex="-1" 
-                        aria-labelledby="${'#profileModal' + item.id + 'Label' + item.id}" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="container">
-                                            <div class="signIn-inputs">
-                                                <form action="" id="" method="post">
-                                                    <input type="text" class="form-control" id="${"name" + item.id}" placeholder="enter the team member name here">
-                                                    <div class="form-group mb-3">
-                                                        <textarea name="" class="form-control" id="${"profile" + item.id}" cols="30" rows="10" placeholder="write the team profile here"></textarea>
-                                                    </div>
-
-                                                    <div class="signIn-btn text-center">
-                                                        <button name="" onclick="${'submit(' + item.id + ')'}" type="submit" id="" class="btn btn-lg btn-modal"
-                                                        role="button">PUBLISH</button>
-                                                    </div>
-                                                </form>
-
-                                            </div>
-                                        </div>
-                                    </div>
-=======
       </div>
-    </div>
+
+      <!--Modal2--> 
+      <div class="modal fade" id="profileModalAdd" tabindex="-1" 
+        aria-labelledby="profileModalLabelAdd" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <div class="signIn-inputs">
+                  <form id="addFile" enctype="multipart/form-data">
+                    <div class="form-group mb-3">
+                      <input type="text" class="form-control mb-3" id="addName" placeholder="add team member's name here">
+                    </div>
+                    <div class="form-group mb-3">
+                      <textarea name="" class="form-control" id="addProfile" cols="30" rows="10" placeholder="add team member's profile here"></textarea>
+                    </div>
+                    <div class="form-group mb-3">
+                      <!-- <button  type="button" onclick="document.getElementById('addFile').click()">
+                        add Image
+                      </button> -->
+                      <button id="addFileBtn">button</button>
+                      <input type="file" name="file" id="addFiles" onchange="startUpload(this.files[0], 0)" accept="image/*" style="display: none;" >
+                    </div>
+                    <div class=" text-center">
+                      <button onclick="SubmitPost()" type="button" id="submit-btn0" class="btn btn-lg btn-modal"
+                        disabled>PUBLISH</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
@@ -404,390 +149,263 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
-        </script>
+    </script>
     <!-- image selection -->
     <script src=" {{ url_for('static' , filename='admin/js/selectImage.js' ) }}"></script>
     <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
     <script>
-        let amnt, profileModalNo, tId;
-        var fileUrl;
-        const tRoute = "{{ url_for('api.team') }}";
+      let amnt, profileModalNo, tId;
+      var fileUrl;
+      const tRoute = "{{ url_for('api.team') }}";
 
-        // UPLOAD API accepts Image file
-        function upload(data, id) {
-          axios.post("{{ url_for('api.upload') }}", data)
-          .then(function(response) {
-            //console.log('tried uploaded file', response);
-            $(`#${'submit-btn'+id}`). removeAttr('disabled');
-            
-            fileUrl =  response.data.file_url;
-            console.log(fileUrl);
-          })
-          .catch(function (error) {
-            console.log(error.response);
-          })
-        }
-
-        // CREATE PUT REQUEST TO TEAMS (UPDATE)
-        function updateTeamById(id, name, profile, image_url) {
-          axios.put(`${tRoute+'/'+id}`,{ name, profile, image_url})
-          .then(function(response) {
-            console.log(response);
-            location.reload();
-          })
-          .catch(function(error) {
-            console.log(error.response);
-          })
-        }
-
-        // TEAM PUT REQUEST
-        //EVENT LISTENER FOR THE DATA
-        // START UPLOAD
-        function startUpload(file, id) {
-          console.log('files start');
-          //console.log(file);
-          //console.log(i);
-          //console.log(file);
-          if(file) {
-            // let result;
-            // var reader = new FileReader();
-            // reader.onload = function (e) {
-              //   result = e.target.result;
-              // $(`#${'wrapperImg'+id}`)
-              // .attr('src')
-              //   ;
-            // };
-            // reader.readAsDataURL(file);
-            // let im = $(`${'wrapperImg'+i}`);
-            // im.src = imageUrl;
-            // let formElem = document.getElementById(`'${form}'`);
-            let d = new FormData();
-            d.append('file', file);
-            console.log(d);        
-            upload(d, id);
-          };                      
-        }
-        $("form").submit(function(e) {
-          e.preventDefault();
-        });
-        function Submit(id) {
-          console.log(id);
+      // UPLOAD API accepts Image file
+      function upload(data, id) {
+        axios.post("{{ url_for('api.upload') }}", data)
+        .then(function(response) {
+          //console.log('tried uploaded file', response);
+          $(`#${'submit-btn'+id}`). removeAttr('disabled');    
+          fileUrl =  response.data.file_url;
           console.log(fileUrl);
-          const name = $(`#${"name"+id}`).value;
-          const profile = $(`#${"profile"+id}`).value;
-          const image_url = fileUrl;
-          updateTeamById(name, profile, image_url);
-        }
+        })
+        .catch(function (error) {
+          console.log(error.response);
+        })
+      }
 
+      // CREATE PUT REQUEST TO TEAMS (UPDATE)
+      function updateTeamById(id, name, profile, image_url) {
+        axios.put(`${tRoute+'/'+id}`,{ name, profile, image_url})
+        .then(function(response) {
+          console.log(response);
+          location.reload();
+        })
+        .catch(function(error) {
+          console.log(error.response);
+        })
+      }
 
-        // TEAM POST REQUEST
-        // ADD TEAM
-        let oin = document.querySelector('#addFiles');
-        document.querySelector('#addFileBtn').onclick = function() {
-          console.log('clicked');
-          oin.click();
-        }
+      // TEAM PUT REQUEST
+      //EVENT LISTENER FOR THE DATA
+      // START UPLOAD
+      function startUpload(file, id) {
+        console.log('files start');
+        //console.log(file);
+        //console.log(i);
+        //console.log(file);
+        if(file) {
+          // let result;
+          // var reader = new FileReader();
+          // reader.onload = function (e) {
+            //   result = e.target.result;
+            // $(`#${'wrapperImg'+id}`)
+            // .attr('src')
+            //   ;
+          // };
+          // reader.readAsDataURL(file);
+          // let im = $(`${'wrapperImg'+i}`);
+          // im.src = imageUrl;
+          // let formElem = document.getElementById(`'${form}'`);
+          let d = new FormData();
+          d.append('file', file);
+          console.log(d);        
+          upload(d, id);
+        };                      
+      }
+      $("form").submit(function(e) {
+        e.preventDefault();
+      });
+      function Submit(id) {
+        console.log(id);
+        console.log(fileUrl);
+        const name = $(`#${"name"+id}`).value;
+        const profile = $(`#${"profile"+id}`).value;
+        const image_url = fileUrl;
+        updateTeamById(name, profile, image_url);
+      }
 
-        function addTeam(name, profile, image_url) {
-          axios.post(tRoute, { name, profile, image_url })
-          .then(function(response) {
-            console.log(response);
-            location.reload();
-          })
-          .catch(function(error) {
-            console.log(error.response);
-          })
-        }
-        // POST EVENTS TAKE PLACE HERE
-        // $('#addFile').onchange = () => {
-        //   let file = this.files[0];
-        //   console.log('files start');
-        //   //console.log(file);
-        //   //console.log(i);
-        //   //console.log(file);
-        //   if(file) {
-        //     // let result;
-        //     // var reader = new FileReader();
-        //     // reader.onload = function (e) {
-        //       //   result = e.target.result;
-        //       // $(`#${'wrapperImg'+id}`)
-        //       // .attr('src')
-        //       //   ;
-        //     // };
-        //     // reader.readAsDataURL(file);
-        //     // let im = $(`${'wrapperImg'+i}`);
-        //     // im.src = imageUrl;
-        //     // let formElem = document.getElementById(`'${form}'`);
-        //     let d = new FormData();
-        //     d.append('file', file);
-        //     console.log(d);   
-        //     const id = 0;     
-        //     upload(d, id);
-        //   };          
-        // }
-        //SUBMIT FORM
-        function SubmitPost() {
-          console.log(fileUrl);
-          const name = document.querySelector("#addName").value;
-          const profile = document.querySelector("#addProfile").value;
-          const image_url = fileUrl;
-          addTeam(name, profile, image_url)
-        }
-        // INITIALIZES A GET REQUEST TO THE API AND FILLS IN THE INFORMATION
-        function init() {
-          $.ajax({
-            type: "GET",
-            url: tRoute,
-            // crossDomain: true,
-            contentType: 'application/json',
-            encode: true,
-            success: function (data) {
-              amnt = data.length;
-              data.forEach(function (item) {
-                let wrapperId = `${'wrapper'+item.id}`;
-                let cancelBtnId = `${'cancel-btn'+item.id}`;
-                let fileNameId = `${'file-name'+item.id}`;
-                let customBtnId = `${'custom-btn'+item.id}`;
-                let defaultBtnId = `${"default-btn"+item.id}`;
-                let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;                    
+      // TEAM POST REQUEST
+      // ADD TEAM
+      let oin = document.querySelector('#addFiles');
+      document.querySelector('#addFileBtn').onclick = function() {
+        console.log('clicked');
+        oin.click();
+      }
+
+      function addTeam(name, profile, image_url) {
+        axios.post(tRoute, { name, profile, image_url })
+        .then(function(response) {
+          console.log(response);
+          location.reload();
+        })
+        .catch(function(error) {
+          console.log(error.response);
+        })
+      }
+      // POST EVENTS TAKE PLACE HERE
+      // $('#addFile').onchange = () => {
+      //   let file = this.files[0];
+      //   console.log('files start');
+      //   //console.log(file);
+      //   //console.log(i);
+      //   //console.log(file);
+      //   if(file) {
+      //     // let result;
+      //     // var reader = new FileReader();
+      //     // reader.onload = function (e) {
+      //       //   result = e.target.result;
+      //       // $(`#${'wrapperImg'+id}`)
+      //       // .attr('src')
+      //       //   ;
+      //     // };
+      //     // reader.readAsDataURL(file);
+      //     // let im = $(`${'wrapperImg'+i}`);
+      //     // im.src = imageUrl;
+      //     // let formElem = document.getElementById(`'${form}'`);
+      //     let d = new FormData();
+      //     d.append('file', file);
+      //     console.log(d);   
+      //     const id = 0;     
+      //     upload(d, id);
+      //   };          
+      // }
+      //SUBMIT FORM
+      function SubmitPost() {
+        console.log(fileUrl);
+        const name = document.querySelector("#addName").value;
+        const profile = document.querySelector("#addProfile").value;
+        const image_url = fileUrl;
+        addTeam(name, profile, image_url)
+      }
+      // INITIALIZES A GET REQUEST TO THE API AND FILLS IN THE INFORMATION
+      function init() {
+        $.ajax({
+          type: "GET",
+          url: tRoute,
+          // crossDomain: true,
+          contentType: 'application/json',
+          encode: true,
+          success: function (data) {
+            amnt = data.length;
+            data.forEach(function (item) {
+              let wrapperId = `${'wrapper'+item.id}`;
+              let cancelBtnId = `${'cancel-btn'+item.id}`;
+              let fileNameId = `${'file-name'+item.id}`;
+              let customBtnId = `${'custom-btn'+item.id}`;
+              let defaultBtnId = `${"default-btn"+item.id}`;
+              let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;                    
+              
+
+              $('#tcont').append(
+                `<div class="d-md-flex flex-md-row d-block mb-5">
+                  <div class="editProduct__image">
+                    <!-- images -->
+                    <div class="wrapper" id="${wrapperId}">
+                      <div class="image">
+                        <img 
+                          src=${item.image_url} 
+                          alt="${item.name} image" 
+                          style="width: 100%; height: 100%;"
+                          id="${'wrapperImg'+item.id}"
+                        />
+                      </div>
+                      <div class="content">
+                        <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                        <div class="text"> No file chosen, yet!</div>
+                      </div>
+                      <!--<div id="${cancelBtnId}"><i class="fas fa-times"></i></div>-->
+                      <div class="file-name" id="${fileNameId}">File name here</div>
+                    </div>
+                  </div>
+                  <div class="text-flex px-4">
+                    <div class="d-block d-md-flex justify-content-between">
+                      <h5 class="mb-2" style="text-transform: uppercase">${item.name}</h5>
+                      <button type="button" class="btn btn-dark btn-sm mb-2" data-bs-toggle="modal"
+                        data-bs-target="${'#profileModal'+item.id}"> <i class="fas fa-edit"></i> Edit ${item.name}
+                      </button>
+                    </div>
+                    <p id="profile">${item.profile}
+                    </p>
+                    <button onclick="deleteTeamById(${item.id})" style="float: right">delete</button>
+                  </div>
+                </div>`
+              )
+              // let teamDataForm = `"#${'fileForm'+tId}"`;
+              // let wrapperImgId = `#${'wrapperImg'+item.id}`;
+              // CALLING THE MODAL
                 
-
-                $('#tcont').append(
-                  `<div class="d-md-flex flex-md-row d-block mb-5">
-                    <div class="editProduct__image">
-                      <!-- images -->
-                      <div class="wrapper" id="${wrapperId}">
-                        <div class="image">
-                          <img 
-                            src=${item.image_url} 
-                            alt="${item.name} image" 
-                            style="width: 100%; height: 100%;"
-                            id="${'wrapperImg'+item.id}"
-                          />
-                        </div>
-                        <div class="content">
-                          <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                          <div class="text"> No file chosen, yet!</div>
-                        </div>
-                        <!--<div id="${cancelBtnId}"><i class="fas fa-times"></i></div>-->
-                        <div class="file-name" id="${fileNameId}">File name here</div>
+              $('#profileModals').append(
+                `<!-- Modal${item.id} -->
+                <div class="modal fade" id="${'profileModal'+item.id}" tabindex="-1" 
+                  aria-labelledby="${'profileModal'+item.id+'Label'+item.id}" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
-                    </div>
-                    <div class="text-flex px-4">
-                      <div class="d-block d-md-flex justify-content-between">
-                        <h5 class="mb-2" style="text-transform: uppercase">${item.name}</h5>
-                        <button type="button" class="btn btn-dark btn-sm mb-2" data-bs-toggle="modal"
-                          data-bs-target="${'#profileModal'+item.id}"> <i class="fas fa-edit"></i> Edit ${item.name}
-                        </button>
-                      </div>
-                      <p id="profile">${item.profile}
-                      </p>
-                      <button onclick="deleteTeamById(${item.id})" style="float: right">delete</button>
-                    </div>
-                  </div>`
-                )
-                // let teamDataForm = `"#${'fileForm'+tId}"`;
-                // let wrapperImgId = `#${'wrapperImg'+item.id}`;
-                    // CALLING THE MODAL
-                  
-                $('#profileModals').append(
-                  `<!-- Modal${item.id} -->
-                  <div class="modal fade" id="${'profileModal'+item.id}" tabindex="-1" 
-                    aria-labelledby="${'profileModal'+item.id+'Label'+item.id}" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <div class="container">
-                            <div class="signIn-inputs">
-                              <form id="${'fileForm'+item.id}" enctype="multipart/form-data">
-                                <div class="form-group mb-3">
-                                  <input type="text" class="form-control mb-3" id="${"name"+item.id}" value="${item.name}">
-                                </div>
-                                <div class="form-group mb-3">
-                                  <textarea name="" class="form-control" id="${"profile"+item.id}" cols="30" rows="10">${item.profile}</textarea>
-                                </div>
-                                <div class="form-group mb-3">
-                                  <button id="${customBtnId}" type="button"
-                                    onclick="$('#${defaultBtnId}').click();">
-                                    Edit Image
-                                  </button>
-                                  <input type="file" id="${"default-btn"+item.id}" onchange="startUpload(this.files[0], ${item.id})" name="file" accept="image/*" style="display: none">
-                                </div>
-                                <div class=" text-center">
-                                  <button onclick="Submit(${item.id})" type="button" id="${'submit-btn'+item.id}" class="btn btn-lg btn-modal"
-                                     disabled>PUBLISH</button>
->>>>>>> 8c484599de9dbbc6b0f81eb7012901896d87ad57
-                                </div>
-                              </form>
-                            </div>
-<<<<<<< HEAD
-                        </div>`
-            )
-            console.log('modalout');
-          })
-          console.log(data);
-          // $('.load-teams').html('<h1> I AM WORKING </h1>')
-          //$('.load-teams') is using jquery to get the class attribute load-teams
-          //$('.load-teams').html('') is to directly code into that *tags* as in the (class attr) html
-          // You can decide to use javascript functions instead of jquery
-          // using javascript you'd use the innerHTML function, you can also go as far as using the append child function blah blah, you are kuku boss oga me.
-          //So technically on the admin page, you're to dynamically render the api into the broswer
-          //having gotten the data, you then make a loop through objects  to get the value of each key
-        }
-      })
-    }
-    init();
-    $.ajax({
-      type: "PUT",
-      contentType: ' application/json',
-      url: "{{ url_for('api.info') }}" + "/1",
-      data: JSON.stringify({ header: "About", body: "This is the new about of the site." })
-    })
-
-    // FILE UPLOAD UTILITY
-    // store the file in a variable called file
-    const submit = () => {
-      console.log('gbola');
-    }
-
-
-
-    // TEAM ROUTE
-    // GET TEAM
-    const getTeam = () => {
-      axios.get('/team')
-        .then(function (response) {
-          console.log(response);
-        })
-    }
-    init();
-    $.ajax({
-      type: "PUT",
-      contentType: ' application/json',
-      url: "{{ url_for('api.info') }}" + "/1",
-      data: JSON.stringify({ header: "About", body: "This is the new about of the site." })
-    })
-
-    // FILE UPLOAD UTILITY
-    // store the file in a variable called file
-    const submit = () => {
-      console.log('gbola');
-
-    }
-
-
-
-    // TEAM ROUTE
-    // GET TEAM
-    const getTeam = () => {
-      axios.get('/team')
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-
-    // ADD TEAM
-    //let teamData = { name: 'emmo' , profile: 'emmo isyour average boy' , image_url: 'emmo.jpg' }
-    const addTeam = (name, profile, image_url) => {
-      axios.post(tRoute, { name, profile, image_url })
-        .then(function (response) {
-          console.log(response);
-          location.reload();
-        })
-        .catch(function (error) {
-          console.log(error.response);
-        })
-    }
-    //addTeam(teamData.name, teamData.profile, teamData.image_url);
-    // TEAM WITH ID
-    //const teamId = '';
-    const getTeamById = (id) => {
-      axios.get(`${tRoute + '/' + id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // UPDATE TEAM BY ID
-
-    const updateTeamById = (id, param1, param2, param3) => {
-      axios.put(`${tRoute + '/' + id}`, data)
-        .then(function (response) {
-          console.log(response);
-          location.reload();
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    let profile = "Dr. Ẹniọlá Ànúolúwapọ́ Ṣóyẹmí is a political theorist whose academic research specialises in theories and practices of deliberation, the nature of freedom, and the nature of legitimate authority. Over the last 10 years, Ẹniọlá's work has focused on making the historical and contemporary socio-legal and political experiences of Nigeria, and the wider African continent, influential to mainstream discourses in political theory. Her field research has involved working in Lagos, Nigeria in partnership with LAMATA. Prior to entering academia, she worked at Chatham House and at the UK Guardian's Lobby Office in the House of Commons. She holds a Ph.D. in Political Science from Boston University and an MSc. in International Public Policy from University College London. She has recently been a Max Weber Fellow and a Visiting Fellow at the European University Institute."
-    //updateTeamById(1, "ENIOLA", profile)
-    // DELETE TEAM BY ID
-    const deleteTeamById = (id) => {
-      console.log(id);
-      axios.delete(`${tRoute + '/' + id}`)
-        .then(function (response) {
-          console.log(response);
-          location.reload();
-        })
-        .catch(function (error) {
-          console.log(error.response);
-        })
-    }
-=======
+                      <div class="modal-body">
+                        <div class="container">
+                          <div class="signIn-inputs">
+                            <form id="${'fileForm'+item.id}" enctype="multipart/form-data">
+                              <div class="form-group mb-3">
+                                <input type="text" class="form-control mb-3" id="${"name"+item.id}" value="${item.name}">
+                              </div>
+                              <div class="form-group mb-3">
+                                <textarea name="" class="form-control" id="${"profile"+item.id}" cols="30" rows="10">${item.profile}</textarea>
+                              </div>
+                              <div class="form-group mb-3">
+                                <button id="${customBtnId}" type="button"
+                                  onclick="$('#${defaultBtnId}').click();">
+                                  Edit Image
+                                </button>
+                                <input type="file" id="${"default-btn"+item.id}" onchange="startUpload(this.files[0], ${item.id})" name="file" accept="image/*" style="display: none">
+                              </div>
+                              <div class=" text-center">
+                                <button onclick="Submit(${item.id})" type="button" id="${'submit-btn'+item.id}" class="btn btn-lg btn-modal"
+                                  disabled>PUBLISH
+                                </button>
+                              </div>
+                            </form>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>`
-                )
-                
-                
-                console.log('passed it');
-              })
-              
-              console.log(amnt, data);
-              
-              // $('.load-teams').html('<h1> I AM WORKING </h1>')
-              //$('.load-teams') is using jquery to get the class attribute load-teams
-              //$('.load-teams').html('') is to directly code into that *tags* as in the (class attr) html
-              // You can decide to use javascript functions instead of jquery
-              // using javascript you'd use the innerHTML function, you can also go as far as using the append child function blah blah, you are kuku boss oga me. 
-              // na you boss, na you
-              //So technically on the admin page, you're to dynamically render the api into the broswer
-              //having gotten the data, you then make a loop through objects  to get the value of each key
-              // thanks a lot for this, it helped me to understand the code, I wan come intern under you boss
-            }
-          })
-        }
-        init();
-        // $.ajax({
-        //     type: "PUT",
-        //     contentType: ' application/json',
-        //     url: "{{ url_for('api.info') }}" + "/1",
-        //     data: JSON.stringify({ header: "About", body: "This is the new about of the site." })
-        // }
+                  </div>
+                </div>`
+              )
+            })  
+            console.log(amnt, data);
+             
+            // $('.load-teams').html('<h1> I AM WORKING </h1>')
+            //$('.load-teams') is using jquery to get the class attribute load-teams
+            //$('.load-teams').html('') is to directly code into that *tags* as in the (class attr) html
+            // You can decide to use javascript functions instead of jquery
+            // using javascript you'd use the innerHTML function, you can also go as far as using the append child function blah blah, you are kuku boss oga me. 
+            // na you boss, na you
+            //So technically on the admin page, you're to dynamically render the api into the broswer
+            //having gotten the data, you then make a loop through objects  to get the value of each key
+            // thanks a lot for this, it helped me to understand the code, I wan come intern under you boss
+          }
+        })
+      }
+      init();
+      // $.ajax({
+      //     type: "PUT",
+      //     contentType: ' application/json',
+      //     url: "{{ url_for('api.info') }}" + "/1",
+      //     data: JSON.stringify({ header: "About", body: "This is the new about of the site." })
+      // }
 
-        // TEAM ROUTE
-        // GET TEAM (AJAX IN USE ALREADY)
-        // const getTeam = () => {
-        //   axios.get('/team')
-        //   .then(function(response) {
-        //     console.log(response);
-        //   })
-        //   .catch(function(error) {
-        //     console.log(error);
-        //   })
-        // }
-
+      // TEAM ROUTE
+      // GET TEAM (AJAX IN USE ALREADY)
+      // const getTeam = () => {
+      //   axios.get('/team')
+      //   .then(function(response) {
+      //     console.log(response);
+      //   })
+      //   .catch(function(error) {
+      //     console.log(error);
+      //   })
+      // }
 
 
 
@@ -799,120 +417,32 @@
         
         
         
-        // TEAM WITH ID
-
-        //const teamId = '';
-        getTeamById = (id) => {
-          axios.get(`${tRoute+'/'+id}`)
-          .then(function(response) {
-            console.log(response.data);
-          })
-          .catch(function(error) {
-            console.log(error);
-          })
-        }
-        
-        //getTeamById(5);
-
-        ;
-        // UPDATE TEAM BY ID
-
-        
-        //getTeamById(5);
-        // DELETE TEAM BY ID
-        const deleteTeamById = (id) => {
-            console.log(id);
-          axios.delete(`${tRoute+'/'+id}`)
-          .then(function(response) {
-            console.log(response);
-            location.reload();
-          })
-          .catch(function(error) {
-            console.log(error.response);
-          })
-        }
-
->>>>>>> 8c484599de9dbbc6b0f81eb7012901896d87ad57
-
-
-    // FORUM GALLERY ROUTE
-    // GET FORUM GALLERY
-    const getForumGallery = () => {
-      axios.get('/forum-gallery')
-        .then(function (response) {
-          console.log(response);
+      // TEAM WITH ID
+      //const teamId = '';
+      getTeamById = (id) => {
+        axios.get(`${tRoute+'/'+id}`)
+        .then(function(response) {
+          console.log(response.data);
         })
-        .catch(function (error) {
+        .catch(function(error) {
           console.log(error);
         })
-    }
-    // ADD FORUM GALLERY
-    // forumGalleryData = { forum: '' ,forumGalleryCover: '' , forumGallery: '' , fullVideoCoverUrl: '', fullVideoUrl: '', snippetCoverUrl: '', snippetUrl: '' }
-    const addForumGallery = () => {
-      axios.post('/forum-gallery', forumGalleryData)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
+      };
 
-    // FORUM GALLERY WITH ID
-    //const forumGalleryId = '';
-    const getForumGalleryById = (id) => {
-      axios.get(`/forum-gallery/${id}`)
-        .then(function (response) {
+      // DELETE TEAM BY ID
+      const deleteTeamById = (id) => {
+        console.log(id);
+        axios.delete(`${tRoute+'/'+id}`)
+        .then(function(response) {
           console.log(response);
+          location.reload();
         })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // UPDATE FORUM GALLERY BY ID
-    const updateForumGalleryById = (id) => {
-      axios.put(`/forum-gallery/${id}`, forumGalleryData)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // DELETE FORUM GALLERY BY ID
-    const deleteForumGalleryById = (id) => {
-      axios.delete(`/forum-gallery/${id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-
-
-    const updateTeamById = (id, param1, param2, param3) => {
-      axios.put(`${tRoute + '?' + id}`, data)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    let profile = "Dr. Ẹniọlá Ànúolúwapọ́ Ṣóyẹmí is a political theorist whose academic research specialises in theories and practices of deliberation, the nature of freedom, and the nature of legitimate authority. Over the last 10 years, Ẹniọlá's work has focused on making the historical and contemporary socio-legal and political experiences of Nigeria, and the wider African continent, influential to mainstream discourses in political theory. Her field research has involved working in Lagos, Nigeria in partnership with LAMATA. Prior to entering academia, she worked at Chatham House and at the UK Guardian's Lobby Office in the House of Commons. She holds a Ph.D. in Political Science from Boston University and an MSc. in International Public Policy from University College London. She has recently been a Max Weber Fellow and a Visiting Fellow at the European University Institute."
-    //updateTeamById(1, "ENIOLA", profile)
-    // DELETE TEAM BY ID
-    const deleteTeamById = (id) => {
-      console.log(id);
-      axios.delete(`${tRoute + '?' + id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
+        .catch(function(error) {
           console.log(error.response);
         })
-    }
+      }
+
+
 
 
     // FORUM GALLERY ROUTE
@@ -970,6 +500,7 @@
         })
     }
 
+    
 
     // INFO GALLERY ROUTE
     // GET INFO GALLERY
@@ -1026,9 +557,10 @@
         })
     }
 
-
+    // Endpoints where anonymous users have post permission
     // 'GET IN TOUCH' ROUTE
     // GET 'GET IN TOUCH'
+
     const getGetInTouch = () => {
       axios.get('/get-in-touch')
         .then(function (response) {
@@ -1193,7 +725,6 @@
           console.log(error);
         })
     }
-  </script>
-</body>
-
+    </script>
+  </body>
 </html>
