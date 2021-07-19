@@ -750,7 +750,7 @@ def edit_forumgallery():
                     request.json["snippet_cover_url"],
                     request.json["snippet_url"],
                     request.json["meeting_report_cover_url"],
-                    request.json["meeting_report_file_url"]
+                    request.json["meeting_report_file_url"],
                     id,
                 ),
             )
