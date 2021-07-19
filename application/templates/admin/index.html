@@ -53,16 +53,16 @@
     <main class="flex-shrink-0">
       <div class="container">
         <h2 class="mt-5 dash-title">ABOUT PAGE</h2>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe vitae nobis, recusandae, quibusdam rem
-          molestiae veritatis ipsam magnam exercitationem debitis nemo numquam ut! Beatae nemo quas commodi odio
-          fugit eaque. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam magnam vel dolorum ipsa
-          quansectetur adipisicing elit. Nisi id vel natus, aut corrupti sit animi quo, aspernatur excepturi
-          debitis officia! Deleniti sapiente illo quos itaque, rerum recusandae accusantium iste.
-        </p>
-        <button type="button" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#headerModal"> <i
-          class="fas fa-edit"></i> Edit Text 
+        <p id="abInfo"></p>
+        <button type="button" id="editInfoBtn" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#headerModal"> <i
+          class="fas fa-edit"></i> 
+          Edit Text 
         </button>
+        <button type="button" id="addInfoBtn" class="btn btn-dark btn-sm" data-bs-toggle="modal" data-bs-target="#headerModal1"> <i
+          class="fas fa-plus"></i> 
+          Add Text 
+        </button>
+        <button id="delInfoBtn">Delete</button>
       </div>
     </main>
     <div class="container">
@@ -88,15 +88,36 @@
             <div class="modal-body">
               <div class="container">
                 <div class="signIn-inputs">
-                  <form action="" id="" method="post">
+                  <form id="">
                     <div class="form-group mb-3">
-                      <input type="text" class="form-control" placeholder="enter header text">
-                    </div>
-                    <div class="form-group mb-3">
-                      <textarea name="" class="form-control" id="" cols="30" rows="10"></textarea>
+                      <textarea name="" class="form-control" id="infoTxt" cols="30" rows="10"></textarea>
                     </div>
                     <div class="signIn-btn text-center">
-                      <button name="" type="submit" id="" class="btn btn-lg btn-modal" role="button">PUBLISH</button>
+                      <button name="" type="button" id="putBtn" class="btn btn-lg btn-modal" disabled>PUBLISH</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--POST BODY MODAL-->
+      <div class="modal fade" id="headerModal1" tabindex="-1" aria-labelledby="headerModalLabel1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <div class="signIn-inputs">
+                  <form id="">
+                    <div class="form-group mb-3">
+                      <textarea name="" class="form-control" id="infoPostTxt" cols="30" rows="10" placeholder="Input about body here"></textarea>
+                    </div>
+                    <div class="signIn-btn text-center">
+                      <button name="" type="button" id="postBtn" class="btn btn-lg btn-modal" disabled>PUBLISH</button>
                     </div>
                   </form>
                 </div>
@@ -157,6 +178,7 @@
       let amnt, profileModalNo, tId;
       var fileUrl;
       const tRoute = "{{ url_for('api.team') }}";
+      const iRoute = "{{ url_for('api.info') }}";
 
       // UPLOAD API accepts Image file
       function upload(data, id) {
@@ -241,33 +263,7 @@
           console.log(error.response);
         })
       }
-      // POST EVENTS TAKE PLACE HERE
-      // $('#addFile').onchange = () => {
-      //   let file = this.files[0];
-      //   console.log('files start');
-      //   //console.log(file);
-      //   //console.log(i);
-      //   //console.log(file);
-      //   if(file) {
-      //     // let result;
-      //     // var reader = new FileReader();
-      //     // reader.onload = function (e) {
-      //       //   result = e.target.result;
-      //       // $(`#${'wrapperImg'+id}`)
-      //       // .attr('src')
-      //       //   ;
-      //     // };
-      //     // reader.readAsDataURL(file);
-      //     // let im = $(`${'wrapperImg'+i}`);
-      //     // im.src = imageUrl;
-      //     // let formElem = document.getElementById(`'${form}'`);
-      //     let d = new FormData();
-      //     d.append('file', file);
-      //     console.log(d);   
-      //     const id = 0;     
-      //     upload(d, id);
-      //   };          
-      // }
+
       //SUBMIT FORM
       function SubmitPost() {
         console.log(fileUrl);
@@ -372,9 +368,7 @@
                   </div>
                 </div>`
               )
-            })  
-            console.log(amnt, data);
-             
+            })             
             // $('.load-teams').html('<h1> I AM WORKING </h1>')
             //$('.load-teams') is using jquery to get the class attribute load-teams
             //$('.load-teams').html('') is to directly code into that *tags* as in the (class attr) html
@@ -388,47 +382,6 @@
         })
       }
       init();
-      // $.ajax({
-      //     type: "PUT",
-      //     contentType: ' application/json',
-      //     url: "{{ url_for('api.info') }}" + "/1",
-      //     data: JSON.stringify({ header: "About", body: "This is the new about of the site." })
-      // }
-
-      // TEAM ROUTE
-      // GET TEAM (AJAX IN USE ALREADY)
-      // const getTeam = () => {
-      //   axios.get('/team')
-      //   .then(function(response) {
-      //     console.log(response);
-      //   })
-      //   .catch(function(error) {
-      //     console.log(error);
-      //   })
-      // }
-
-
-
-
-
-
-          
-
-        
-        
-        
-      // TEAM WITH ID
-      //const teamId = '';
-      getTeamById = (id) => {
-        axios.get(`${tRoute+'/'+id}`)
-        .then(function(response) {
-          console.log(response.data);
-        })
-        .catch(function(error) {
-          console.log(error);
-        })
-      };
-
       // DELETE TEAM BY ID
       const deleteTeamById = (id) => {
         console.log(id);
@@ -444,287 +397,104 @@
 
 
 
-
-    // FORUM GALLERY ROUTE
-    // GET FORUM GALLERY
-    const getForumGallery = () => {
-      axios.get('/forum-gallery')
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // ADD FORUM GALLERY
-    // forumGalleryData = { forum: '' ,forumGalleryCover: '' , forumGallery: '' , fullVideoCoverUrl: '', fullVideoUrl: '', snippetCoverUrl: '', snippetUrl: '' }
-    const addForumGallery = () => {
-      axios.post('/forum-gallery', forumGalleryData)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-
-    // FORUM GALLERY WITH ID
-    //const forumGalleryId = '';
-    const getForumGalleryById = (id) => {
-      axios.get(`/forum-gallery/${id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // UPDATE FORUM GALLERY BY ID
-    const updateForumGalleryById = (id) => {
-      axios.put(`/forum-gallery/${id}`, forumGalleryData)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // DELETE FORUM GALLERY BY ID
-    const deleteForumGalleryById = (id) => {
-      axios.delete(`/forum-gallery/${id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-
-    
-
     // INFO GALLERY ROUTE
-    // GET INFO GALLERY
-    const getInfo = () => {
-      axios.get('/info')
-        .then(function (response) {
-          console.log(response);
+
+
+    var infoId, ibody;
+    function initInfo() {
+    $.ajax({
+      type: "GET",
+      url: iRoute,
+      // crossDomain: true,
+      contentType: 'application/json',
+      encode: true,
+      success: function (data) {
+        data.forEach(function (item) {
+          console.log(item);
+          if(item.header == 'About') {
+            console.log(item);
+            getInfoById(item.id);
+          } else {
+            $('#editInfoBtn').css({'display':'none'});
+            $('#delInfoBtn').css({'display': 'none'});
+            $('#addInfoBtn').css({'display':'block'});
+          }
         })
-        .catch(function (error) {
-          console.log(error);
-        })
+      }
+    })
     }
-    // ADD INFO GALLERY
-    // infoData = { header: '', body: '' }
-    const addInfo = () => {
-      axios.post('/info', infoData)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
+    initInfo();
 
     // INFO WITH ID
-    //const infoId = '';
+    // GET INFO BY ID
     const getInfoById = (id) => {
-      axios.get(`/info/${id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
+      axios.get(`${iRoute}/${id}`)
+      .then(function (response) {
+        console.log(response);
+        $('#abInfo').append(response.data.body);
+        $('#infoTxt').append(response.data.body);
+        $('#editInfoBtn').css({'display':'block'});
+        $('#delInfoBtn').css({'display': 'block'});
+        $('#addInfoBtn').css({'display':'none'});
+        document.querySelector('#postBtn').onclick = function() {addInfo()};
+        document.querySelector('#delInfoBtn').onclick = function() { deleteInfoById(infoId) };
+        document.querySelector('#putBtn').onclick = function() { updateInfoById(infoId) };
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
     }
+    function addInfo() {
+      const body = $('#infoPostTxt').val();
+      axios.post(iRoute, { header: 'About', body })
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error.response);
+      })
+    }
+    
+    
     // UPDATE INFO BY ID
-    const updateInfoById = (id) => {
-      axios.put(`/info/${id}`, infoData)
+    function updateInfoById(id) {
+      const body = $('#infoTxt').val();
+      if(body !== ibody) {
+        axios.put(`${iRoute}/${id}`, {header: 'About', body})
         .then(function (response) {
           console.log(response);
         })
         .catch(function (error) {
-          console.log(error);
+          console.log(error.response);
         })
+      }
     }
-    // DELETE INFO BY ID
-    const deleteInfoById = (id) => {
-      axios.delete(`/info/${id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-
-    // Endpoints where anonymous users have post permission
-    // 'GET IN TOUCH' ROUTE
-    // GET 'GET IN TOUCH'
-
-    const getGetInTouch = () => {
-      axios.get('/get-in-touch')
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // ADD 'GET IN TOUCH'
-    // getInTouchData = { fullName: '', email: '', message: '' }
-    const addGetInTouch = () => {
-      axios.post('/get-in-touch', getInTouchData)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
+    function deleteInfoById (id) {
+      axios.delete(`${iRoute}/${id}`)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error.response);
+      })
     }
 
-    // 'GET IN TOUCH' WITH ID
-    //const getInTouchId = '';
-    const getGetInTouchById = (id) => {
-      axios.get(`/get-in-touch/${id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // UPDATE 'GET IN TOUCH' BY ID
-    const updateGetInTouchById = (id) => {
-      axios.put(`/get-in-touch/${id}`, getInTouchData)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // DELETE 'GET IN TOUCH' BY ID
-    const deleteGetInTouchById = (id) => {
-      axios.delete(`/get-in-touch/${id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-
-
-    // 'PARTICIPATION REQUEST' ROUTE
-    // GET 'PARTICIPATION REQUEST'
-    const getParticipationRequest = () => {
-      axios.get('/participation_request')
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // ADD 'PARTICIPATION REQUEST'
-    //const participationRequestData = { fullName: '' ,email: '' , phoneNumber: '' , ageRange: '', job: '', lga: '' }
-    const addParticipationRequest = () => {
-      axios.post('/participation_request', participationRequestData)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-
-    // 'PARTICIPATION REQUEST' WITH ID
-    //const participationRequestId = '';
-    const getParticipationRequestById = (id) => {
-      axios.get(`/participation_request/${id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // UPDATE 'PARTICIPATION REQUEST' BY ID
-    const updateParticipationRequestById = (id) => {
-      axios.put(`/participation_request/${id}`, participationRequestData)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // DELETE 'PARTICIPATION REQUEST' BY ID
-    const deleteParticipationRequestById = (id) => {
-      axios.delete(`/participation_request/${id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-
-
-    // 'FORUM SUGGESTION' ROUTE
-    // GET 'FORUM SUGGESTION'
-    const getForumSuggestion = () => {
-      axios.get('/forum-suggestion')
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // ADD 'FORUM SUGGESTION'
-    //const forumSuggestionData = { fullName: '', email: '', message: '' }
-    const addForumSuggestion = () => {
-      axios.post('/forum-suggestion', forumSuggestionData)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-
-    // 'FORUM SUGGESTION' WITH ID
-    //const forumSuggestionId = '';
-    const getForumSuggestionById = (id) => {
-      axios.get(`/forum-suggestion/${id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // UPDATE 'FORUM SUGGESTION' BY ID
-    const updateForumSuggestionById = (id) => {
-      axios.put(`/forum-suggestion/${id}`, forumSuggestionData)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // DELETE 'FORUM SUGGESTION' BY ID
-    const deleteForumSuggestionById = (id) => {
-      axios.delete(`/forum-suggestion/${id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
+    $('#infoTxt').on('input', function() {
+      text = $('textarea').val();
+      if (text.trim() !== '' || text.trim() !== ' ') {
+        $('#putBtn').removeAttr('disabled');
+      } else {
+        $('#putBtn').attr('disabled', 'disabled');
+      } 
+    });
+    $('#infoPostTxt').on('input', function() {
+      text = $('textarea').val();
+      if (text.trim() !== '' || text.trim() !== ' ') {
+        $('#postBtn').removeAttr('disabled');
+      } else {
+        $('#postBtn').attr('disabled', 'disabled');
+      } 
+    });
     </script>
   </body>
 </html>
