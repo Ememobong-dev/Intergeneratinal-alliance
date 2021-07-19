@@ -123,7 +123,7 @@
     // GET ALL ARTISTS
     // TAKENOTE: all get without id are for user pages
     const getArtists = () => {
-      axios.get('/artists')
+      axios.get("{{ url_for('api.artists') }}")
       .then(function(response) {
         console.log(response);
       })
