@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <title>NGO ADMIN</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -12,73 +11,107 @@
     integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link rel="stylesheet" href=" {{ url_for ( 'static', filename='admin/css/fontawesome-free-5.0.1/css/fontawesome-all.css') }}   ">
     <link rel="stylesheet" href="{{ url_for ( 'static', filename='admin/css/styles.css') }}">
-</head>
-
-<body>
+    <style>
+      * {box-sizing: border-box}
+    </style>
+  </head>
+  <body>
     <nav class="navbar navbar-expand-md fixed-top bg-nav">
-        <div class="container-fluid">
-            <!-- <a class="navbar-brand" href="#">App Name</a> -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav me-auto mx-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ url_for('admin.index_dashboard') }}">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.mission_dashboard') }}">Mission</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.financial_dashboard') }}">Financial Report</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.partners_dashboard') }}">Partners</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.forums_dashboard') }}">Forums</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.aidr_dashboard')}}">Artists</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.donors_dashboard') }}">Donors</a>
-                    </li>
-                </ul>
-            </div>
+      <div class="container-fluid">
+      <!-- <a class="navbar-brand" href="#">App Name</a> -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav me-auto mx-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{{ url_for('admin.index_dashboard') }}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('admin.mission_dashboard') }}">Mission</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('admin.financial_dashboard') }}">Financial Report</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('admin.partners_dashboard') }}">Partners</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('admin.forums_dashboard') }}">Forums</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('admin.aidr_dashboard')}}">Artists</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('admin.donors_dashboard') }}">Donors</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
-
-
     <main class="flex-shrink-0">
-        <div class="container">
-            <h2 class="mt-5 dash-title">Artist in digital residence Page</h2>
-        </div>
+      <div class="container">
+        <h2 class="mt-5 dash-title">Artist in digital residence Page</h2>
+      </div>
     </main>
     <div class="container mt-5">
-        <div class="row">
-            <div class="d-md-flex d-block mb-5">
-                <div class="image-flex">
-		        	<img id=featured src="{{ url_for('static', filename='admin/img/person_8.jpg')}}" class="img-fluid" width="1000px">
-                </div>
-                <div class="text-flex px-4">
-                    <div class="d-block d-md-flex justify-content-between">
-                        <h5 class="mb-2">Summayah</h5>
-                        <button type="button" class="btn btn-dark btn-sm mb-2"> <i class="fas fa-edit"></i> Edit Profile </button>
-                    </div>
-                    <h5>Inaugural Artist in Residence</h5>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione, assumenda voluptatem. Delectus aut eos quaerat corrupti animi dolore enim doloremque, in dolores, tempore, esse molestiae eum quod reprehenderit? Quam obcaecati culpa ab adipisci quia soluta omnis dolore numquam voluptatum, quo perferendis harum possimus, porro delectus deserunt cumque saepe explicabo hic. Ab nesciunt adipisci harum. Repudiandae sunt fugit vitae similique labore maiores veritatis. Beatae ea non neque quibusdam eligendi iure, magni ut molestias perferendis qui, repellendus rerum cumque ab tenetur dolor maiores repudiandae exercitationem iusto labore dolores culpa delectus itaque officiis voluptatum. Animi iste quo itaque dignissimos sequi voluptates, natus doloribus.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga unde voluptas aperiam velit, sit qui ipsa vero deleniti cum tempora veritatis, itaque cumque harum ut laudantium non ab ullam! Architecto?</p>
-                </div>
-            </div>
+      <div class="row" id="acont">
+        <div class="d-md-flex justify-content-end flex-md-row d-block mb-10 pb-5">
+          <button type="button" class="btn btn-dark float-right" data-bs-toggle="modal"
+            data-bs-target="#profileModalAdd" style="width: 200px"> <i class="fas fa-plus"></i> Add new team member
+          </button>
         </div>
+        
+      </div>
     </div>
-
-
+    <div id = "profileModals">
+      <!--MODALS--> 
+      <div class="modal fade" id="profileModalAdd" tabindex="-1" 
+        aria-labelledby="profileModalLabelAdd" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <div class="signIn-inputs">
+                  <form id="addFile" enctype="multipart/form-data">
+                    <div class="form-group mb-3">
+                      <input type="text" class="form-control mb-3" id="addName" placeholder="add artist's name here">
+                    </div>
+                    <div class="form-group mb-3">
+                      <input type="text" class="form-control mb-3" id="addTitle" placeholder="add artist's title here">
+                    </div>
+                    <div class="form-group mb-3">
+                      <textarea name="" class="form-control" id="addProfile" cols="30" rows="10" placeholder="add artist's profile here"></textarea>
+                    </div>
+                    <div class="form-group mb-3">
+                      <input type="url" class="form-control mb-3" id="addLink" placeholder="add artist's url here">
+                    </div>
+                    <div class="form-group mb-3">
+                      <!-- <button  type="button" onclick="document.getElementById('addFile').click()">
+                        add Image
+                      </button> -->
+                      <button id="addFileBtn">button</button>
+                      <input type="file" name="file" id="addFiles" onchange="startUpload(this.files[0], 0)" accept="image/*" style="display: none;" >
+                    </div>
+                    <div class=" text-center">
+                      <button onclick="SubmitPost()" type="button" id="submit-btn0" class="btn btn-lg btn-modal"
+                        disabled>PUBLISH</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
     <script src="{{ url_for('static' , filename='admin/js/popper.js' ) }}     "></script>
@@ -88,61 +121,247 @@
     </script>
     <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
     <script>
-    // AIDR ROUTE
-    // GET AIDR
-    const getAidr = () => {
-      axios.get("{{ url_for('api.aidr'}}")
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error.response);
-      })
-    }
-    //getAidr();
-    // ADD AIDR
-    // aidrData = { artistName: '' ,artistImage: '', artistTitle: '', artistProfile: '', artistWorksUrl: '' }
-    const addAidr = () => {
-      axios.post('/api/aidr', aidrData)
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      })
-    }
+      // AIDR ROUTE
+      // GET AIDR
+      const aRoute = "{{ url_for('api.aidr') }}";
+      const getAidr = () => {
+        axios.get(aRoute)
+        .then(function(response) {
+          console.log(response);
+        })
+        .catch(function(error) {
+          console.log(error.response);
+        })
+      }
+      //getAidr();
+      // ADD AIDR
+      const addAidr = (artist_name, artist_image, artist_title, artist_profile, artist_works_url) => {
+        axios.post(aRoute, { artist_name, artist_image, artist_title, artist_profile, artist_works_url })
+        .then(function(response) {
+          console.log(response);
+          location.reload();
+        })
+        .catch(function(error) {
+          console.log(error);
+        })
+      }
 
-    // AIDR WITH ID
-    //const aidrId = '';
-    const getAidrById = (id) => {
-      axios.get(`/aidr/${id}`)
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      })
-    }
-    // UPDATE AIDR BY ID
-    const updateAidrById = (id) => {
-      axios.put(`/aidr/${id}`, aidrData)
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      })
-    }
-    // DELETE AIDR BY ID
-    const deleteAidrById = (id) => {
-      axios.delete(`/aidr/${id}`)
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      })
-    }
+      // AIDR WITH ID
+      //const aidrId = '';
+      const getAidrById = (id) => {
+        axios.get(`${aRoute}/${id}`)
+        .then(function(response) {
+          console.log(response);
+        })
+        .catch(function(error) {
+          console.log(error);
+        })
+      }
+      // UPDATE AIDR BY ID
+      const updateAidrById = (id, artist_name, artist_image, artist_title, artist_profile, artist_works_url) => {
+        axios.put(`${aRoute}/${id}`, { artist_name, artist_image, artist_title, artist_profile, artist_works_url })
+        .then(function(response) {
+          console.log(response);
+          location.reload();
+        })
+        .catch(function(error) {
+          console.log(error);
+        })
+      }
+      // DELETE AIDR BY ID
+      const deleteAidrById = (id) => {
+        axios.delete(`${aRoute}/${id}`)
+        .then(function(response) {
+          console.log(response);
+          location.reload();
+        })
+        .catch(function(error) {
+          console.log(error);
+        })
+      }
+      let amnt, profileModalNo, tId;
+      var fileUrl;
+      // UPLOAD API accepts Image file
+      function upload(data, id) {
+        axios.post("{{ url_for('api.upload') }}", data)
+        .then(function(response) {
+          //console.log('tried uploaded file', response);
+          $(`#${'submit-btn'+id}`). removeAttr('disabled');    
+          fileUrl =  response.data.file_url;
+          console.log(fileUrl);
+        })
+        .catch(function (error) {
+          console.log(error.response);
+        })
+      }
+
+      // TEAM PUT REQUEST
+      //EVENT LISTENER FOR THE DATA
+      // START UPLOAD
+      function startUpload(file, id) {
+        console.log('files start');
+        //console.log(file);
+        //console.log(i);
+        //console.log(file);
+        if(file) {
+          // let result;
+          // var reader = new FileReader();
+          // reader.onload = function (e) {
+            //   result = e.target.result;
+            // $(`#${'wrapperImg'+id}`)
+            // .attr('src')
+            //   ;
+          // };
+          // reader.readAsDataURL(file);
+          // let im = $(`${'wrapperImg'+i}`);
+          // im.src = imageUrl;
+          // let formElem = document.getElementById(`'${form}'`);
+          let d = new FormData();
+          d.append('file', file);
+          console.log(d);        
+          upload(d, id);
+        };                      
+      }
+      $("form").submit(function(e) {
+        e.preventDefault();
+      });
+      function Submit(id) {
+        console.log(id);
+        console.log(fileUrl);
+        const artist_name = $(`#${"name"+id}`).value;
+        const artist_image = fileUrl;
+        const artist_title = $(`#${"title"+id}`).value;
+        const artist_profile = $(`#${"profile"+id}`).value;
+        const artist_works_url = $(`#${"link"+id}`).value;
+        updateAidrById(id, artist_name, artist_image, artist_title, artist_profile, artist_works_url);
+      }
+
+      // AIDR POST REQUEST
+      // ADD AIDR
+      let oin = document.querySelector('#addFiles');
+      document.querySelector('#addFileBtn').onclick = function() {
+        console.log('clicked');
+        oin.click();
+      }
+
+      //SUBMIT FORM
+      function SubmitPost() {
+        console.log(fileUrl);
+        const artist_name = document.querySelector("#addName").value;
+        const artist_image = fileUrl;
+        const artist_title = document.querySelector("#addTitle").value;
+        const artist_profile = document.querySelector("#addProfile").value;
+        const artist_works_url = document.querySelector("#addLink").value;
+        addAidr(artist_name, artist_image, artist_title, artist_profile, artist_works_url)
+      }
+      // INITIALIZES A GET REQUEST TO THE API AND FILLS IN THE INFORMATION
+      function init() {
+        $.ajax({
+          type: "GET",
+          url: aRoute,
+          // crossDomain: true,
+          contentType: 'application/json',
+          encode: true,
+          success: function (data) {
+            amnt = data.length;
+            data.forEach(function (item) {
+              let wrapperId = `${'wrapper'+item.id}`;
+              let cancelBtnId = `${'cancel-btn'+item.id}`;
+              let fileNameId = `${'file-name'+item.id}`;
+              let customBtnId = `${'custom-btn'+item.id}`;
+              let defaultBtnId = `${"default-btn"+item.id}`;
+              let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;                    
+              
+
+              $('#acont').append(
+                `<div class="d-md-flex flex-md-row d-block mb-5">
+                  <div class="wrapper" id="${wrapperId}">
+                    <div class="editProduct__image" style="width: 100px; height: auto;">
+                      <!-- images -->
+                      <div class="image" style="width: 110%; height: auto; align-self: center;">
+                        <img 
+                          src=${item.artist_image}
+                          alt="${item.artist_name} image" 
+                          style="width: 100%; height: 100%; box-sizing: border-box;"
+                          id="${'wrapperImg'+item.id}"
+                        />
+                      </div>
+                      <div class="content">
+                        <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                        <div class="text"> No file chosen, yet!</div>
+                      </div>
+                      <!--<div id="${cancelBtnId}"><i class="fas fa-times"></i></div>-->
+                      <div class="file-name" id="${fileNameId}">File name here</div>
+                    </div>
+                  </div>
+                  <div class="text-flex px-4">
+                    <div class="d-block d-md-flex justify-content-between">
+                      <h5 class="mb-2" style="text-transform: uppercase">${item.artist_name}</h5>
+                      <button type="button" class="btn btn-dark btn-sm mb-2" data-bs-toggle="modal"
+                        data-bs-target="${'#profileModal'+item.id}"> <i class="fas fa-edit"></i> Edit ${item.artist_name}
+                      </button>
+                    </div>
+                    <h5>${item.artist_title}</h5>
+                    <p>${item.artist_profile}</p>
+                    <div>
+                      <h4 class="mt-2" >Link to works: ${item.artist_works_url}</h4>
+                    </div>
+                    <button onclick="deleteAidrById(${item.id})" style="float: right">delete</button>
+                  </div>
+                </div>`
+              )
+              // CALLING THE MODAL
+                
+              $('#profileModals').append(
+                `<!-- Modal${item.id} -->
+                <div class="modal fade" id="${'profileModal'+item.id}" tabindex="-1" 
+                  aria-labelledby="${'profileModal'+item.id+'Label'+item.id}" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="container">
+                          <div class="signIn-inputs">
+                            <form id="${'fileForm'+item.id}" enctype="multipart/form-data">
+                              <div class="form-group mb-3">
+                                <input type="text" class="form-control mb-3" id="${"name"+item.id}" value="${item.artist_name}">
+                              </div>
+                              <div class="form-group mb-3">
+                                <input type="text" class="form-control mb-3" id="${"title"+item.id}" value="${item.artist_title}">
+                              </div>
+                              <div class="form-group mb-3">
+                                <textarea name="" class="form-control" id="${"profile"+item.id}" cols="30" rows="10">${item.artist_profile}</textarea>
+                              </div>
+                              <div class="form-group mb-3">
+                                <input type="url" class="form-control mb-3" id="${"link"+item.id}" value="${item.artist_works_url}">
+                              </div>
+                              <div class="form-group mb-3">
+                                <button id="${customBtnId}" type="button"
+                                  onclick="$('#${defaultBtnId}').click();">
+                                  Edit Image
+                                </button>
+                                <input type="file" id="${"default-btn"+item.id}" onchange="startUpload(this.files[0], ${item.id})" name="file" accept="image/*" style="display: none">
+                              </div>
+                              <div class=" text-center">
+                                <button onclick="Submit(${item.id})" type="button" id="${'submit-btn'+item.id}" class="btn btn-lg btn-modal"
+                                  disabled>PUBLISH
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>`
+              )
+            })
+          }
+        })
+      }
+      init();
     </script>
 </body>
 
