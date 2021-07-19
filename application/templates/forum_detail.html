@@ -61,74 +61,84 @@
         <div class="col-lg-4 align-items-center">
           <nav class="site-navigation text-right ml-auto " role="navigation">
             <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-              <li class="active"><a href="{{ url_for('main.index') }}" class="nav-link">About</a></li>
-              <li><a href="{{ url_for('main.partners') }}" class="nav-link">Partners</a></li>
-              <li><a href="{{ url_for('main.forum') }}" class="nav-link">Forums</a></li>
+              <li><a href="{{ url_for('main.index') }}" class="nav-link">About</a></li>
+              <li class="active"><a href="{{ url_for('main.forum') }}" class="nav-link">Forums</a></li>
+              <li><a href="{{ url_for('main.join') }}" class="nav-link">Join</a></li>
               <li><a href="#" id="search-btn" class="nav-link"><i class="fa fa-search    "></i></a></li> 
 
             </ul>
           </nav>
         </div>
+      
         <div class="col-lg-4  align-items-center text-center">
           <div class="site-logo">
             <a href="{{ url_for('main.index') }}"><img src="{{ url_for('static', filename='images/logo/Logo-02.png')}}" class="img-fluid logo" alt=""></a>
           </div>
-
-
           <div class="ml-auto toggle-button d-inline-block d-lg-none"><a href="#" class="site-menu-toggle py-5 js-menu-toggle text-black"><span class="icon-menu h3 text-black"></span></a></div>
         </div>
         <div class="col-lg-4 align-items-center">
           <nav class="site-navigation text-left mr-auto " role="navigation">
             <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
               <li><a href="{{ url_for('main.aidrtwo') }}" class="nav-link">Artists</a></li>
-              <li><a href="{{ url_for('main.join') }}" class="nav-link">Join</a></li>
+              <li><a href="{{ url_for('main.partners') }}" class="nav-link">Partners</a></li>
               <li><a href="{{ url_for('main.donors') }}" class="nav-link">Donors</a></li> 
             </ul>
           </nav>
         </div>
+        <!-- row -->
       </div>
+      <!-- cont -->
     </div>
-
-  </header>
+    </header>
 
 
   <div class="banner-areaforumInner">
     <h2>THE OLDER GENERATION</h2>
   </div>
     <section class="content-area2 py-5 pb-100">
-        <div class="container text-center py-5">
-            <div class="row py-5 pr-md--5">
-                <div class="col-md-4 d-md-flex">
-                    <div class="partners_img mb-5 mb-lg-0">
-                      <a href=" {{ url_for('static' , filename='videos/1 Min Snippet final.mp4' ) }}" class=" popup-video  justify-content-center align-items-center"><img src="{{ url_for('static' , filename='images/img-2.png' ) }}" alt="snippet img" class="img-fluid" width="350px"></a> 
-                      <div class="forum_header mt-3">
-                        <h5>Snippet</h5>
-                      </div>
-                    </div>
-                  <!--  -->
-                  <div class="partners_img mb-5 mb-lg-0 ml-md-5">
-                    <a href=" {{ url_for('static' , filename='videos/NADECO_1.mp4' ) }}" class=" popup-video  justify-content-center align-items-center"><img src="{{ url_for('static' , filename='images/img-3.png' ) }}" alt="img" class="img-fluid" width="350px"></a> 
-                    <div class="forum_header mt-3 text-pitch">
-                      <h5>Full Video</h5>
-                    </div>
-                  </div>
+        <div class="container pt-80">
+          <div class="row row-cols-5 py-5">
+            <div class="col">
+              <div class="partners_img mb-5 mb-lg-0">
+                <a href=" {{ url_for('static' , filename='videos/forum_snippet.mp4' ) }}" class=" popup-video  justify-content-center align-items-center"><img src="{{ url_for('static' , filename='images/img-2.png' ) }}" alt="snippet img" class="img-fluid" width="350px"></a> 
+                <div class="forum_header mt-3">
+                  <h5>Snippet</h5>
                 </div>
-                <div class="col-md-4 d-md-flex offset-md-4">
-                  <div class="partners_img mb-5 mb-lg-0 ">
-                    <a href="" download="meeting report"><img src="{{ url_for('static' , filename='images/img-4.png' ) }}" alt="" class="img-fluid" width="350px"></a> 
-                    <div class="forum_header mt-3">
-                      <h5>Meeting Report</h5>
-                    </div>
-                  </div>
-                 <!--  -->
-                 <div class="partners_img mb-5 mb-lg-0 ml-md-5">
-                    <a href=""><img src="{{ url_for('static' , filename='images/img-5.png' ) }}" alt="" class="img-fluid" width="350px"></a> 
-                    <div class="forum_header mt-3 text-pitch">
-                      <h5>Gallery</h5>
-                    </div>
-                  </div>
-               </div>
+              </div>
             </div>
+            <div class="col">
+              <div class="partners_img mb-5 mb-lg-0">
+                <a href=" {{ url_for('static' , filename='videos/forum_fullvid.mp4' ) }}" class=" popup-video  justify-content-center align-items-center"><img src="{{ url_for('static' , filename='images/img-3.png' ) }}" alt="img" class="img-fluid" width="350px"></a> 
+                <div class="forum_header mt-3 text-pitch">
+                  <h5>Full Video</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="partners_img mb-5 mb-lg-0 ">
+                <a href="" download="meeting report"><img src="{{ url_for('static' , filename='images/img-4.png' ) }}" alt="" class="img-fluid" width="350px"></a> 
+                <div class="forum_header mt-3">
+                  <h5>Meeting Report</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="partners_img mb-5 mb-lg-0">
+                <a href=""><img src="{{ url_for('static' , filename='images/img-5.png' ) }}" alt="" class="img-fluid" width="350px"></a> 
+                <div class="forum_header mt-3 text-pitch">
+                  <h5>Gallery</h5>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="partners_img mb-5 mb-lg-0">
+                <a href=" {{ url_for('static' , filename='videos/NADECO_1.mp4' ) }}" class=" popup-video  justify-content-center align-items-center"><img src="{{ url_for('static' , filename='images/img-3.png' ) }}" alt="img" class="img-fluid" width="350px"></a> 
+                <div class="forum_header mt-3">
+                  <h5>Special Video</h5>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
 
