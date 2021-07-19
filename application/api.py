@@ -698,7 +698,7 @@ def forumgallery():
             )
             if cursor.fetchone() == None:
                 cursor.execute(
-                    "INSERT INTO forum_gallery (forum ,forum_gallery_cover , forum_gallery , full_video_cover_url, full_video_url, snippet_cover_url, snippet_url ) VALUES (%s , %s , %s, %s,%s , %s , %s) ",
+                    "INSERT INTO forum_gallery (forum ,forum_gallery_cover , forum_gallery , full_video_cover_url, full_video_url, snippet_cover_url, snippet_url,meeting_report_cover_url,meeting_report_file_url ) VALUES (%s , %s , %s, %s,%s , %s , %s,%s,%s) ",
                     (
                         request.json["forum"],
                         request.json["forum_gallery_cover"],
@@ -707,6 +707,8 @@ def forumgallery():
                         request.json["full_video_url"],
                         request.json["snippet_cover_url"],
                         request.json["snippet_url"],
+                        request.json["meeting_report_cover_url"],
+                        request.json["meeting_report_file_url"]
                     ),
                 )
                 db_connection.commit()
@@ -738,7 +740,7 @@ def edit_forumgallery():
     if request.method == "PUT":
         try:
             cursor.execute(
-                "UPDATE forum_gallery SET forum = %s ,forum_gallery_cover = %s  , forum_gallery = %s , full_video_cover_url = %s , full_video_url = %s , snippet_cover_url = %s , snippet_url = %s  WHERE (id = %s)",
+                "UPDATE forum_gallery SET forum = %s ,forum_gallery_cover = %s  , forum_gallery = %s , full_video_cover_url = %s , full_video_url = %s , snippet_cover_url = %s , snippet_url = %s , meeting_report_cover_url = %s , meeting_report_file_url = %s WHERE (id = %s)",
                 (
                     request.json["forum"],
                     request.json["forum_gallery_cover"],
@@ -747,6 +749,8 @@ def edit_forumgallery():
                     request.json["full_video_url"],
                     request.json["snippet_cover_url"],
                     request.json["snippet_url"],
+                    request.json["meeting_report_cover_url"],
+                    request.json["meeting_report_file_url"]
                     id,
                 ),
             )

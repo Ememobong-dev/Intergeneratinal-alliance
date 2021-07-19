@@ -161,8 +161,9 @@
   <script>
     let amnt, profileModalNo, tId, tFile;
     const tRoute = "{{ url_for('api.team') }}";
+    //, {headers:{contentType: 'multipart/form-data'}}
     const upload = (file) => {
-      axios.post("{{ url_for('api.upload') }}", file, { headers: { contentType: 'multipart/form-data' } })
+      axios.post("{{ url_for('api.upload') }}", file)
         .then(function (response) {
           console.log('tried uploaded file', response);
         })
@@ -190,8 +191,6 @@
             let defaultBtnId = `${"default-btn" + item.id}`;
             let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
 
-
-
             $('#tcont').append(
               `<div class="d-md-flex d-block mb-5">
                             <div class="editProduct__image">
@@ -205,14 +204,14 @@
                                         <div class="text"> No file chosen, yet!</div>
                                     </div>
 
-                                    <div id="${cancelBtnId}"><i class="fas fa-times"></i></div>
+                                    <!-- <div id="${cancelBtnId}"><i class="fas fa-times"></i></div> -->
                                     <div class="file-name" id="${fileNameId}">File name here</div>
                                 </div>
                                 <button id="${'custom-btn' + item.id}" 
                                   onclick="let val = document.getElementById('${defaultBtnId}'); val.click();">
                                     Edit Image
                                   </button>
-                                <input id="${defaultBtnId}"  name="file" type="file" hidden>
+                                <input id="${defaultBtnId}" type="file" hidden name="file" accept="image">
                             </div>
 
                             <div class="text-flex px-4">
@@ -238,11 +237,12 @@
             }
             callId();
             defaultBtn.onchange = () => {
-              const file = defaultBtn.files[0];
-              console.log(defaultBtn);
-              if (file) {
+              const imgFile = defaultBtn.files[0];
+              console.log('file');
+              if (imgFile) {
                 tFile = new FormData;
-                tFile.append('file', file);
+                tFile.append('file', imgFile);
+                consloe.log(FormData);
                 const reader = new FileReader();
                 reader.onload = function () {
                   const result = reader.result;
@@ -253,7 +253,7 @@
                   img.src = "";
                   wrapper.classList.remove("active");
                 });
-                reader.readAsDataURL(file)
+                reader.readAsDataURL(imgFile)
               };
               upload(tFile);
               if (this.value) {
@@ -330,17 +330,43 @@
         .then(function (response) {
           console.log(response);
         })
+    }
+    init();
+    $.ajax({
+      type: "PUT",
+      contentType: ' application/json',
+      url: "{{ url_for('api.info') }}" + "/1",
+      data: JSON.stringify({ header: "About", body: "This is the new about of the site." })
+    })
+
+    // FILE UPLOAD UTILITY
+    // store the file in a variable called file
+    const submit = () => {
+      console.log('gbola');
+
+    }
+
+
+
+    // TEAM ROUTE
+    // GET TEAM
+    const getTeam = () => {
+      axios.get('/team')
+        .then(function (response) {
+          console.log(response);
+        })
         .catch(function (error) {
           console.log(error);
         })
     }
 
     // ADD TEAM
-    let teamData = { name: 'test test', profile: 'tester', image_url: 'tester.jpg' }
+    //let teamData = { name: 'emmo' , profile: 'emmo isyour average boy' , image_url: 'emmo.jpg' }
     const addTeam = (name, profile, image_url) => {
       axios.post(tRoute, { name, profile, image_url })
         .then(function (response) {
           console.log(response);
+          location.reload();
         })
         .catch(function (error) {
           console.log(error.response);
@@ -350,7 +376,7 @@
     // TEAM WITH ID
     //const teamId = '';
     const getTeamById = (id) => {
-      axios.get(`${tRoute + '?' + id}`)
+      axios.get(`${tRoute + '/' + id}`)
         .then(function (response) {
           console.log(response);
         })
@@ -359,6 +385,88 @@
         })
     }
     // UPDATE TEAM BY ID
+
+    const updateTeamById = (id, param1, param2, param3) => {
+      axios.put(`${tRoute + '/' + id}`, data)
+        .then(function (response) {
+          console.log(response);
+          location.reload();
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    let profile = "Dr. Ẹniọlá Ànúolúwapọ́ Ṣóyẹmí is a political theorist whose academic research specialises in theories and practices of deliberation, the nature of freedom, and the nature of legitimate authority. Over the last 10 years, Ẹniọlá's work has focused on making the historical and contemporary socio-legal and political experiences of Nigeria, and the wider African continent, influential to mainstream discourses in political theory. Her field research has involved working in Lagos, Nigeria in partnership with LAMATA. Prior to entering academia, she worked at Chatham House and at the UK Guardian's Lobby Office in the House of Commons. She holds a Ph.D. in Political Science from Boston University and an MSc. in International Public Policy from University College London. She has recently been a Max Weber Fellow and a Visiting Fellow at the European University Institute."
+    //updateTeamById(1, "ENIOLA", profile)
+    // DELETE TEAM BY ID
+    const deleteTeamById = (id) => {
+      console.log(id);
+      axios.delete(`${tRoute + '/' + id}`)
+        .then(function (response) {
+          console.log(response);
+          location.reload();
+        })
+        .catch(function (error) {
+          console.log(error.response);
+        })
+    }
+
+
+    // FORUM GALLERY ROUTE
+    // GET FORUM GALLERY
+    const getForumGallery = () => {
+      axios.get('/forum-gallery')
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    // ADD FORUM GALLERY
+    // forumGalleryData = { forum: '' ,forumGalleryCover: '' , forumGallery: '' , fullVideoCoverUrl: '', fullVideoUrl: '', snippetCoverUrl: '', snippetUrl: '' }
+    const addForumGallery = () => {
+      axios.post('/forum-gallery', forumGalleryData)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+
+    // FORUM GALLERY WITH ID
+    //const forumGalleryId = '';
+    const getForumGalleryById = (id) => {
+      axios.get(`/forum-gallery/${id}`)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    // UPDATE FORUM GALLERY BY ID
+    const updateForumGalleryById = (id) => {
+      axios.put(`/forum-gallery/${id}`, forumGalleryData)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+    // DELETE FORUM GALLERY BY ID
+    const deleteForumGalleryById = (id) => {
+      axios.delete(`/forum-gallery/${id}`)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+    }
+
 
     const updateTeamById = (id, param1, param2, param3) => {
       axios.put(`${tRoute + '?' + id}`, data)
