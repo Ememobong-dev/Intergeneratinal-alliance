@@ -17,7 +17,7 @@ def login_required(f):
             if "user" not in session:
                 return redirect(url_for("main.index"))
             return f(*args, **kwargs)
-        return f(*args,**kwargs)
+        return f(*args, **kwargs)
 
     return decorated
 
@@ -44,6 +44,7 @@ def admin_required(f):
 
     return decorated
 
+
 def anon_can_post(f):
     @wraps(f)
     def decorated(*args, **kwargs):
@@ -64,7 +65,8 @@ def anon_can_post(f):
         # If the http verb is safe, return response
         return f(*args, **kwargs)
 
-@api.route("/login", methods=["GET","POST"])
+
+@api.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         try:
@@ -80,17 +82,16 @@ def login():
             cursor.execute("SELECT * FROM users WHERE email=%s", (email))
 
             user = cursor.fetchone()
-            if (
-                hashlib.sha512(password.encode()).hexdigest()
-                == user["password"]
-            ):
+            if hashlib.sha512(password.encode()).hexdigest() == user["password"]:
                 session["user"] = {
                     "id": user["id"],
                     "email": user["email"],
                     "is_admin": user["is_admin"],
                 }
                 res = {"success": [f"Login Successful"]}
-                return Response(json.dumps(res), status=200, mimetype="application/json")
+                return Response(
+                    json.dumps(res), status=200, mimetype="application/json"
+                )
             else:
                 raise Exception()
         except Exception as e:
@@ -302,7 +303,7 @@ def forum():
                         request.json["forum_cover_url"],
                         request.json["forum_report_cover_url"],
                         request.json["forum_report_file_url"],
-                        request.json["forum_cover_shape"]
+                        request.json["forum_cover_shape"],
                     ),
                 )
                 db_connection.commit()
@@ -708,7 +709,7 @@ def forumgallery():
                         request.json["snippet_cover_url"],
                         request.json["snippet_url"],
                         request.json["meeting_report_cover_url"],
-                        request.json["meeting_report_file_url"]
+                        request.json["meeting_report_file_url"],
                     ),
                 )
                 db_connection.commit()
@@ -750,7 +751,7 @@ def edit_forumgallery():
                     request.json["snippet_cover_url"],
                     request.json["snippet_url"],
                     request.json["meeting_report_cover_url"],
-                    request.json["meeting_report_file_url"]
+                    request.json["meeting_report_file_url"],
                     id,
                 ),
             )
