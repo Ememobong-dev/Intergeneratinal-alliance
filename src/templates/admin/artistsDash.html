@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <title>NGO ADMIN</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -12,9 +11,8 @@
     integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
     <link rel="stylesheet" href=" {{ url_for ( 'static', filename='admin/css/fontawesome-free-5.0.1/css/fontawesome-all.css') }}   ">
     <link rel="stylesheet" href="{{ url_for ( 'static', filename='admin/css/styles.css') }}">
-</head>
-
-<body>
+  </head>
+  <body>
     <nav class="navbar navbar-expand-md fixed-top bg-nav">
         <div class="container-fluid">
             <!-- <a class="navbar-brand" href="#">App Name</a> -->
@@ -93,11 +91,11 @@
         </div>
     </div>
 
-    <div class="container mt-5">
+    <!-- <div class="container mt-5">
         <div class="row">
             <div class="d-md-flex d-block mb-5">
                 <div class="image-flex">
-		        	<img id=featured src="{{ url_for('static', filename='admin/img/oyinkan_pics.png')}}" class="img-fluid" width="1000px">
+		        	<img src="{{ url_for('static', filename='admin/img/oyinkan_pics.png')}}"  class="img-fluid" width="1000px">
                 </div>
                 <div class="text-flex px-4">
                     <div class="d-block d-md-flex justify-content-between">
@@ -108,8 +106,61 @@
                 </div>
             </div>
         </div>
+    </div> -->
+    <div class="container mt-5">
+      <div class="row" id="arcont">
+        <div class="d-md-flex justify-content-end flex-md-row d-block mb-10 pb-5">
+          <button type="button" class="btn btn-dark float-right" data-bs-toggle="modal"
+            data-bs-target="#profileModalAdd" style="width: 200px"> <i class="fas fa-plus"></i> Add new team member
+          </button>
+        </div>
+        
+      </div>
     </div>
-
+    <div id = "profileModals">
+      <!--MODALS--> 
+      <div class="modal fade" id="profileModalAdd" tabindex="-1" 
+        aria-labelledby="profileModalLabelAdd" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="container">
+                <div class="signIn-inputs">
+                  <form id="addFile" enctype="multipart/form-data">
+                    <div class="form-group mb-3">
+                      <input type="text" class="form-control mb-3" id="addName" placeholder="add artist's name here">
+                    </div>
+                    <div class="form-group mb-3">
+                      <input type="text" class="form-control mb-3" id="addTitle" placeholder="add artist's title here">
+                    </div>
+                    <div class="form-group mb-3">
+                      <textarea name="" class="form-control" id="addProfile" cols="30" rows="10" placeholder="add artist's profile here"></textarea>
+                    </div>
+                    <div class="form-group mb-3">
+                      <input type="url" class="form-control mb-3" id="addLink" placeholder="add artist's url here">
+                    </div>
+                    <div class="form-group mb-3">
+                      <!-- <button  type="button" onclick="document.getElementById('addFile').click()">
+                        add Image
+                      </button> -->
+                      <button id="addFileBtn">button</button>
+                      <input type="file" name="file" id="addFiles" onchange="startUpload(this.files[0], 0)" accept="image/*" style="display: none;" >
+                    </div>
+                    <div class=" text-center">
+                      <button onclick="SubmitPost()" type="button" id="submit-btn0" class="btn btn-lg btn-modal"
+                        disabled>PUBLISH</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
     <script src="{{ url_for('static' , filename='admin/js/popper.js' ) }}     "></script>
@@ -119,65 +170,244 @@
     </script>
     <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
     <script>
-    // ARTIST ROUTE
-    // GET ALL ARTISTS
-    // TAKENOTE: all get without id are for user pages
-    const getArtists = () => {
-      axios.get("{{ url_for('api.artists') }}")
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      })
-    }
-    getArtists();
-    // ADD NEW ARTISTS
-    // data: artistName, artistImage, artistProfile, artist_works_url
-    // it can accept artist name alone or accept their data alongside
-    // const artistData = { artistName: '' , artistImage: '', artistProfile: '', artist_works_url: '' }
-    const addArtist = () => {
-      axios.post('/artists', artistData )
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      })
-    }
+      // ARTIST ROUTE
+      // GET ALL ARTISTS
+      // TAKENOTE: all get without id are for user pages
+      const arRoute = "{{ url_for('api.artists') }}";
+      // AIDR ROUTE
+      // GET AIDR
+      const getAidr = () => {
+        axios.get(arRoute)
+        .then(function(response) {
+          console.log(response);
+        })
+        .catch(function(error) {
+          console.log(error.response);
+        })
+      }
+      //getAidr();
+      // ADD AIDR
+      const addAidr = (artist_name ,artist_image ,  artist_profile , artist_works_url) => {
+        axios.post(arRoute, { artist_name ,artist_image ,  artist_profile , artist_works_url })
+        .then(function(response) {
+          console.log(response);
+          location.reload();
+        })
+        .catch(function(error) {
+          console.log(error);
+        })
+      }
 
-    // ARTIST FUNCTIONS BY ID
-    // GET ARTIST BY ID
-    //const artistId = '';
-    const getArtistById = (id) => {
-      axios.get(`/artists/${id}`)
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      })
-    }
-    // UPDATE ARTIST BY ID
-    const updateArtistById = (id) => {
-      axios.put(`/artists/${id}`, artistData)
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      })
-    }
-    // DELETE ARTIST BY ID
-    const deleteArtistById = (id) => {
-      axios.delete(`/artists/${id}`)
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      })
-    }
+      // AIDR WITH ID
+      //const aidrId = '';
+      const getAidrById = (id) => {
+        axios.get(`${arRoute}/${id}`)
+        .then(function(response) {
+          console.log(response);
+        })
+        .catch(function(error) {
+          console.log(error);
+        })
+      }
+      // UPDATE AIDR BY ID
+      const updateAidrById = (id, artist_name ,artist_image ,  artist_profile , artist_works_url) => {
+        axios.put(`${arRoute}/${id}`, { artist_name ,artist_image ,  artist_profile , artist_works_url })
+        .then(function(response) {
+          console.log(response);
+          location.reload();
+        })
+        .catch(function(error) {
+          console.log(error);
+        })
+      }
+      // DELETE AIDR BY ID
+      const deleteAidrById = (id) => {
+        axios.delete(`${arRoute}/${id}`)
+        .then(function(response) {
+          console.log(response);
+          location.reload();
+        })
+        .catch(function(error) {
+          console.log(error);
+        })
+      }
+      let amnt, profileModalNo, tId;
+      var fileUrl;
+      // UPLOAD API accepts Image file
+      function upload(data, id) {
+        axios.post("{{ url_for('api.upload') }}", data)
+        .then(function(response) {
+          //console.log('tried uploaded file', response);
+          $(`#${'submit-btn'+id}`). removeAttr('disabled');    
+          fileUrl =  response.data.file_url;
+          console.log(fileUrl);
+        })
+        .catch(function (error) {
+          console.log(error.response);
+        })
+      }
+
+      // TEAM PUT REQUEST
+      //EVENT LISTENER FOR THE DATA
+      // START UPLOAD
+      function startUpload(file, id) {
+        console.log('files start');
+        //console.log(file);
+        //console.log(i);
+        //console.log(file);
+        if(file) {
+          // let result;
+          // var reader = new FileReader();
+          // reader.onload = function (e) {
+            //   result = e.target.result;
+            // $(`#${'wrapperImg'+id}`)
+            // .attr('src')
+            //   ;
+          // };
+          // reader.readAsDataURL(file);
+          // let im = $(`${'wrapperImg'+i}`);
+          // im.src = imageUrl;
+          // let formElem = document.getElementById(`'${form}'`);
+          let d = new FormData();
+          d.append('file', file);
+          console.log(d);        
+          upload(d, id);
+        };                      
+      }
+      $("form").submit(function(e) {
+        e.preventDefault();
+      });
+      function Submit(id) {
+        console.log(id);
+        console.log(fileUrl);
+        const artist_name = $(`#${"name"+id}`).value;
+        const artist_image = fileUrl;
+        const artist_title = $(`#${"title"+id}`).value;
+        const artist_profile = $(`#${"profile"+id}`).value;
+        const artist_works_url = $(`#${"link"+id}`).value;
+        updateAidrById(id, artist_name ,artist_image ,  artist_profile , artist_works_url);
+      }
+
+      // AIDR POST REQUEST
+      // ADD AIDR
+      let oin = document.querySelector('#addFiles');
+      document.querySelector('#addFileBtn').onclick = function() {
+        console.log('clicked');
+        oin.click();
+      }
+
+      //SUBMIT FORM
+      function SubmitPost() {
+        console.log(fileUrl);
+        const artist_name = document.querySelector("#addName").value;
+        const artist_image = fileUrl;
+        const artist_title = document.querySelector("#addTitle").value;
+        const artist_profile = document.querySelector("#addProfile").value;
+        const artist_works_url = document.querySelector("#addLink").value;
+        addAidr(artist_name ,artist_image ,  artist_profile , artist_works_url)
+      }
+      // INITIALIZES A GET REQUEST TO THE API AND FILLS IN THE INFORMATION
+      function init() {
+        $.ajax({
+          type: "GET",
+          url: arRoute,
+          // crossDomain: true,
+          contentType: 'application/json',
+          encode: true,
+          success: function (data) {
+            amnt = data.length;
+            data.forEach(function (item) {
+              let wrapperId = `${'wrapper'+item.id}`;
+              let cancelBtnId = `${'cancel-btn'+item.id}`;
+              let fileNameId = `${'file-name'+item.id}`;
+              let customBtnId = `${'custom-btn'+item.id}`;
+              let defaultBtnId = `${"default-btn"+item.id}`;
+              let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;                    
+              
+
+              $('#acont').append(
+                `<div class="d-md-flex flex-md-row d-block mb-5">
+                  <div class="wrapper" id="${wrapperId}" style="display: block;">
+                    <div class="editProduct__image" style="width: 100px; height: auto;">
+                      <!-- images -->
+                      <div class="image" style="width: 100%; height: auto;">
+                        <img 
+                          src=${item.artist_image}
+                          alt="${item.artist_name} image" 
+                          style="width: 100%; height: 100%; box-sizing: border-box;"
+                          id="${'wrapperImg'+item.id}"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="text-flex px-4">
+                    <div class="d-block d-md-flex justify-content-between">
+                      <h5 class="mb-2" style="text-transform: uppercase">${item.artist_name}</h5>
+                      <button type="button" class="btn btn-dark btn-sm mb-2" data-bs-toggle="modal"
+                        data-bs-target="${'#profileModal'+item.id}"> <i class="fas fa-edit"></i> Edit ${item.artist_name}
+                      </button>
+                    </div>
+                    <h5>${item.artist_title}</h5>
+                    <p>${item.artist_profile}</p>
+                    <div>
+                      <h4 class="mt-2" >Link to works: ${item.artist_works_url}</h4>
+                    </div>
+                    <button onclick="deleteAidrById(${item.id})" style="float: right">delete</button>
+                  </div>
+                </div>`
+              )
+              // CALLING THE MODAL
+                
+              $('#profileModals').append(
+                `<!-- Modal${item.id} -->
+                <div class="modal fade" id="${'profileModal'+item.id}" tabindex="-1" 
+                  aria-labelledby="${'profileModal'+item.id+'Label'+item.id}" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="container">
+                          <div class="signIn-inputs">
+                            <form id="${'fileForm'+item.id}" enctype="multipart/form-data">
+                              <div class="form-group mb-3">
+                                <input type="text" class="form-control mb-3" id="${"name"+item.id}" value="${item.artist_name}">
+                              </div>
+                              <div class="form-group mb-3">
+                                <input type="text" class="form-control mb-3" id="${"title"+item.id}" value="${item.artist_title}">
+                              </div>
+                              <div class="form-group mb-3">
+                                <textarea name="" class="form-control" id="${"profile"+item.id}" cols="30" rows="10">${item.artist_profile}</textarea>
+                              </div>
+                              <div class="form-group mb-3">
+                                <input type="url" class="form-control mb-3" id="${"link"+item.id}" value="${item.artist_works_url}">
+                              </div>
+                              <div class="form-group mb-3">
+                                <button id="${customBtnId}" type="button"
+                                  onclick="$('#${defaultBtnId}').click();">
+                                  Edit Image
+                                </button>
+                                <input type="file" id="${"default-btn"+item.id}" onchange="startUpload(this.files[0], ${item.id})" name="file" accept="image/*" style="display: none">
+                              </div>
+                              <div class=" text-center">
+                                <button onclick="Submit(${item.id})" type="button" id="${'submit-btn'+item.id}" class="btn btn-lg btn-modal"
+                                  disabled>PUBLISH
+                                </button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>`
+              )
+            })
+          }
+        })
+      }
+      init();
     </script>
 </body>
 
