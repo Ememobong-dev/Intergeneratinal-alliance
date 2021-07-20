@@ -40,7 +40,7 @@
               <a class="nav-link" href="{{ url_for('admin.forums_dashboard') }}">Forums</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('admin.Donor_dashboard')}}">Artists</a>
+              <a class="nav-link" href="{{ url_for('admin.artists_dashboard')}}">Artists</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('admin.donors_dashboard') }}">Donors</a>
@@ -289,10 +289,10 @@
 
               $('#dcont').append(
                 `<div class="d-md-flex flex-md-row d-block mb-5">
-                  <div class="wrapper" id="${wrapperId}">
+                  <div class="wrapper" style="width: 200px !important; display: block;" id="${wrapperId}">
                     <div class="editProduct__image" style="width: 100px; height: auto;">
                       <!-- images -->
-                      <div class="image" style="width: 110%; height: auto; align-self: center;">
+                      <div class="image" style="width: 100%; height: auto; align-self: center;">
                         <img 
                           src=${item.logo_url}
                           alt="${item.name} image" 
@@ -300,22 +300,15 @@
                           id="${'wrapperImg'+item.id}"
                         />
                       </div>
-                      <div class="content">
-                        <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
-                        <div class="text"> No file chosen, yet!</div>
-                      </div>
-                      <!--<div id="${cancelBtnId}"><i class="fas fa-times"></i></div>-->
-                      <div class="file-name" id="${fileNameId}">File name here</div>
                     </div>
                   </div>
-                  <div class="text-flex px-4">
+                  <div class="text-flex px-4" style="width: 480px">
                     <div class="d-block d-md-flex justify-content-between">
                       <h5 class="mb-2" style="text-transform: uppercase">${item.name}</h5>
                       <button type="button" class="btn btn-dark btn-sm mb-2" data-bs-toggle="modal"
                         data-bs-target="${'#profileModal'+item.id}"> <i class="fas fa-edit"></i> Edit ${item.name}
                       </button>
                     </div>
-                    <h5>${ite}</h5>
                     <p>${item.profile}</p>
                     <div>
                       <h4 class="mt-2" >Link to works: ${item.website_url}</h4>
@@ -372,7 +365,7 @@
           }
         })
       }
-      //init();
+      init();
     </script>
 </body>
 
