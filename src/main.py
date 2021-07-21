@@ -71,3 +71,8 @@ def forum_detail():
 @main.route("/partners/", methods=["GET"])
 def partners():
     return render_template("partners.html")
+
+
+@main.route("/event-flier/", methods=["GET"])
+def event_flier():
+    return render_template("event_flier.html")
