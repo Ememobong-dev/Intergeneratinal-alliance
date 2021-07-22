@@ -1,7 +1,9 @@
-from . import mysql
+from . import mysql, limiter
 import json, hashlib
 from re import U
 from flask import Flask, session, redirect, request, url_for, Response, Blueprint
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 from functools import wraps
 from .utils import *
 from werkzeug.wrappers import response
@@ -34,11 +36,12 @@ def admin_required(f):
             # fetch user from database
             cursor.execute("SELECT * FROM users WHERE id=%s", (session["user"]["id"]))
             user = cursor.fetchone()
+            cursor.close()
             # If user is admin , return response
             if user["is_admin"] == 1:
                 return f(*args, **kwargs)
             # If user is not admin, redirect to home
-            return redirect(url_for("admin:index"))
+            return redirect(url_for("main.index"))
         # If the http verb is safe, return response
         return f(*args, **kwargs)
 
@@ -52,21 +55,29 @@ def anon_can_post(f):
         is_safe = ["POST"]
         # if the http request verbs is not save
         if request.method not in is_safe:
-            db_connection = mysql.connect()
-            cursor = db_connection.cursor()
-            # fetch user from database
-            cursor.execute("SELECT * FROM users WHERE id=%s", (session["user"]["id"]))
-            user = cursor.fetchone()
-            # If user is admin , return response
-            if user["is_admin"] == 1:
-                return f(*args, **kwargs)
-            # If user is not admin, redirect to home
-            return redirect(url_for("admin:index"))
+            try:
+                db_connection = mysql.connect()
+                cursor = db_connection.cursor()
+                # fetch user from database
+                cursor.execute(
+                    "SELECT * FROM users WHERE id=%s", (session["user"]["id"])
+                )
+                user = cursor.fetchone()
+                cursor.close()
+                # If user is admin , return response
+                if user["is_admin"] == 1:
+                    return f(*args, **kwargs)
+            except KeyError:
+                # If user is not admin, redirect to home
+                return redirect(url_for("main.index"))
         # If the http verb is safe, return response
         return f(*args, **kwargs)
 
+    return decorated
+
 
 @api.route("/login", methods=["GET", "POST"])
+@limiter.limit("20/minute")
 def login():
     if request.method == "POST":
         try:
@@ -101,6 +112,9 @@ def login():
 
 
 @api.route("/upload", methods=["POST"])
+@limiter.limit("10/minute")
+@login_required
+@admin_required
 def upload():
     print(request.form)
     file = request.files["file"]
@@ -114,6 +128,9 @@ def upload():
 
 
 @api.route("/artists", methods=["GET", "POST"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def artists():
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -157,6 +174,9 @@ def artists():
 
 
 @api.route("/artists/<int:id>", methods=["GET", "PUT", "DELETE"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def edit_artist(id):
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -195,6 +215,9 @@ def edit_artist(id):
 
 
 @api.route("/financial_report", methods=["GET", "POST"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def financial_report():
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -241,6 +264,9 @@ def financial_report():
 
 
 @api.route("/financial_report/<int:id>", methods=["GET", "PUT", "DELETE"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def edit_finicial_report(id):
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -278,6 +304,9 @@ def edit_finicial_report(id):
 
 
 @api.route("/forum", methods=["GET", "POST"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def forum():
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -321,6 +350,9 @@ def forum():
 
 
 @api.route("/forum/<int:id>", methods=["GET", "PUT", "DELETE"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def edit_forum(id):
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -360,6 +392,9 @@ def edit_forum(id):
 
 
 @api.route("/donors", methods=["GET", "POST"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def donors():
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -402,6 +437,9 @@ def donors():
 
 
 @api.route("/donors/<int:id>", methods=["GET", "PUT", "DELETE"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def edit_donors(id):
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -440,6 +478,9 @@ def edit_donors(id):
 
 
 @api.route("/aidr", methods=["GET", "POST"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def aidr():
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -483,6 +524,9 @@ def aidr():
 
 
 @api.route("/aidr/<int:id>", methods=["GET", "PUT", "DELETE"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def edit_aidr(id):
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -522,6 +566,9 @@ def edit_aidr(id):
 
 
 @api.route("/team", methods=["GET", "POST"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def team():
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -563,6 +610,9 @@ def team():
 
 
 @api.route("/team/<int:id>", methods=["GET", "PUT", "DELETE"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def edit_team(id):
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -600,6 +650,9 @@ def edit_team(id):
 
 
 @api.route("/partners", methods=["GET", "POST"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def partners():
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -642,6 +695,9 @@ def partners():
 
 
 @api.route("/partners/<int:id>", methods=["GET", "PUT", "DELETE"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def edit_partners(id):
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -680,6 +736,9 @@ def edit_partners(id):
 
 
 @api.route("/forum-gallery", methods=["GET", "POST"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def forumgallery():
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -727,6 +786,9 @@ def forumgallery():
 
 
 @api.route("/forum-gallery/<int:id>", methods=["GET", "PUT", "DELETE"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def edit_forumgallery():
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -770,6 +832,9 @@ def edit_forumgallery():
 
 
 @api.route("/info", methods=["GET", "POST"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def info():
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -810,6 +875,9 @@ def info():
 
 
 @api.route("/info/<int:id>", methods=["GET", "PUT", "DELETE"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def edit_info(id):
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -849,6 +917,8 @@ def edit_info(id):
 
 
 @api.route("/get-in-touch", methods=["GET", "POST"])
+@limiter.limit("20/minute")
+@anon_can_post
 def get_in_touch():
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -868,7 +938,7 @@ def get_in_touch():
             )
             if cursor.fetchone() == None:
                 cursor.execute(
-                    "INSERT INTO info (full_name, email, message ) VALUES (%s , %s, %s) ",
+                    "INSERT INTO get_in_touch (full_name, email, message ) VALUES (%s , %s, %s) ",
                     (
                         request.json["full_name"],
                         request.json["email"],
@@ -890,6 +960,9 @@ def get_in_touch():
 
 
 @api.route("/get-in-touch/<int:id>", methods=["GET", "PUT", "DELETE"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def edit_get_in_touch():
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -927,6 +1000,8 @@ def edit_get_in_touch():
 
 
 @api.route("/participation_request", methods=["GET", "POST"])
+@limiter.limit("20/minute")
+@anon_can_post
 def participation_request():
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -971,6 +1046,9 @@ def participation_request():
 
 
 @api.route("/participation_request/<int:id>", methods=["GET", "PUT", "DELETE"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def edit_participation_request():
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -1011,6 +1089,8 @@ def edit_participation_request():
 
 
 @api.route("/forum-suggestion", methods=["GET", "POST"])
+@limiter.limit("20/minute")
+@anon_can_post
 def forum_suggestion():
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -1030,7 +1110,7 @@ def forum_suggestion():
             )
             if cursor.fetchone() == None:
                 cursor.execute(
-                    "INSERT INTO info (full_name, email, message ) VALUES (%s , %s, %s) ",
+                    "INSERT INTO forum_suggestion (full_name, email, message ) VALUES (%s , %s, %s) ",
                     (
                         request.json["full_name"],
                         request.json["email"],
@@ -1052,6 +1132,9 @@ def forum_suggestion():
 
 
 @api.route("/forum-suggestion/<int:id>", methods=["GET", "PUT", "DELETE"])
+@limiter.limit("20/minute")
+@login_required
+@admin_required
 def edit_forum_suggestion():
     db_connection = mysql.connect()
     cursor = db_connection.cursor()

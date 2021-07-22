@@ -1,11 +1,14 @@
 from flask import Flask
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
-
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
+from flask_mail import Mail
 from .utils import *
 
 mysql = MySQL(cursorclass=DictCursor)
-
+limiter = Limiter(key_func=get_remote_address, default_limits=["120/minute"])
+mail = Mail()
 # mysql://b259eb55614b49:1e391f50@us-cdbr-east-04.cleardb.com/heroku_58802c299913439?reconnect=true
 def create_app():
     app = Flask(__name__)
@@ -21,6 +24,8 @@ def create_app():
     app.config["AWS_SECRET_ACCESS_KEY"] = config["AWS"]["AWS_SECRET_ACCESS_KEY"]
 
     mysql.init_app(app)
+    limiter.init_app(app)
+    mail.init_app(app)
     # blueprint for auth routes in our app
     from .api import api
     from .main import main
