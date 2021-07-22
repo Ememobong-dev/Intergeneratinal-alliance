@@ -1,436 +1,444 @@
 <!doctype html>
 <html lang="en">
 
-<head>
-    <title>NGO ADMIN</title> 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-    <link rel="stylesheet"
-        href=" {{ url_for ( 'static', filename='admin/css/fontawesome-free-5.0.1/css/fontawesome-all.css') }}   ">
+    <head>
+        <title>NGO ADMIN</title> 
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+        <link rel="stylesheet"
+            href=" {{ url_for ( 'static', filename='admin/css/fontawesome-free-5.0.1/css/fontawesome-all.css') }}   ">
         <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="{{ url_for ( 'static', filename='admin/css/styles.css') }}">
-</head>
-
-<body>
-    <nav class="navbar navbar-expand-md fixed-top bg-nav">
-        <div class="container-fluid">
-            <!-- <a class="navbar-brand" href="#">App Name</a> -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav me-auto mx-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Dashboard</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ url_for('admin.index_dashboard') }}">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.mission_dashboard') }}">Mission</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.financial_dashboard') }}">Financial Report</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.partners_dashboard') }}">Partners</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.forums_dashboard') }}">Forums</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.aidr_dashboard')}}">Artists</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('admin.donors_dashboard') }}">Donors</a>
-                    </li>
-                </ul>
+        <link rel="stylesheet" href="{{ url_for ( 'static', filename='admin/css/styles.css') }}">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md fixed-top bg-nav">
+            <div class="container-fluid">
+                <!-- <a class="navbar-brand" href="#">App Name</a> -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav me-auto mx-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('admin.index_dashboard') }}">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('admin.mission_dashboard') }}">Mission</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('admin.financial_dashboard') }}">Financial Report</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('admin.partners_dashboard') }}">Partners</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ url_for('admin.forums_dashboard') }}">Forums</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('admin.aidr_dashboard')}}">Artists</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('admin.donors_dashboard') }}">Donors</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-
-    <section class="forum-top">
-        <div class="container">
-            <h3 class="">FORUMS PAGE</h3>
-            <div class="swiper-pagination"></div>
-        </div>
-
-
+        </nav>
+        <section class="forum-top">
+            <div class="container">
+                <h3 class="">FORUMS PAGE</h3>
+                <div class="swiper-pagination"></div>
+            </div>
+            <div class="container py-5">
+                <!-- Swiper -->
+                <div class="swiper-container mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="row">
+                                <div class="col-md-5 text-center">
+                                    <div class="py-5">
+                                        <h3>UPLOAD FORUM</h3>
+                                        <div class="">
+                                            <div class="form-group">
+                                                <input type="text" name="" id="" class="form-control forumDash-side" placeholder="ENTER FORUM NAME" aria-describedby="helpId">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="text" name="" id="" class="form-control forumDash-side" placeholder="ENTER FORUM LOCATION" aria-describedby="helpId">
+                                            </div>
+                                            <div class="browse-btn">
+                                                <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                                <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Forum Cover"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7 text-center">
+                                    <h3>FORUM</h3>
+                                    <div class="selected-image-area">
+                                        <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                                        <!--  -->
+                                    </div>
+                                    <div class="text-center">
+                                        <p>Drop your files here</p>
+                                        <label for="files" class="btn browse-files">Browse file</label>
+                                        <input id="files" style="visibility:hidden;" type="file">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slider-footer">
+                                <div class="container">
+                                    <div class="d-flex justify-content-between">
+                                        <p>PREV</p>
+                                        <p>NEXT</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="row">
+                                <div class="col-md-4 text-center">
+                                    <div class="py-5">
+                                        <h3>UPLOAD SNIPPET</h3>
+                                        <div class="">
+                                            <div class="browse-btn">
+                                                <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                                <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Snippet Cover"/>
+                                            </div>
+                                            <div class="browse-btn">
+                                                <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                                <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Snippet"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <h3>SNIPPET COVER</h3>
+                                    <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <h3>SNIPPET</h3>
+                                    <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                                </div>
+                            </div>
+                            <div class="slider-footer">
+                                <div class="container">
+                                    <div class="d-flex justify-content-between">
+                                        <p>PREV</p>
+                                        <p>NEXT</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="row">
+                                <div class="col-md-4 text-center">
+                                    <div class="py-5">
+                                        <h3>UPLOAD VIDEO</h3>
+                                        <div class="">
+                                            <div class="browse-btn">
+                                                <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                                <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Video Cover"/>
+                                            </div>
+                                            <div class="browse-btn">
+                                                <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                                <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Video"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <h3>VIDEO COVER</h3>
+                                    <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <h3>VIDEO</h3>
+                                    <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                                </div>
+                            </div>
+                            <div class="slider-footer">
+                                <div class="container">
+                                    <div class="d-flex justify-content-between">
+                                        <p>PREV</p>
+                                        <p>NEXT</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="row">
+                                <div class="col-md-4 text-center">
+                                    <div class="py-5">
+                                        <h3>UPLOAD MEETING REPORT</h3>
+                                        <div class="">
+                                            <div class="browse-btn">
+                                                <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                                <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Meeting Report Cover"/>
+                                            </div>
+                                            <div class="browse-btn">
+                                                <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                                <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Meeting Report"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <h3>MEETING REPORT COVER</h3>
+                                    <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <h3>MEETING REPORT</h3>
+                                    <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                                </div>
+                            </div>
+                            <div class="slider-footer">
+                                <div class="container">
+                                    <div class="d-flex justify-content-between">
+                                        <p>PREV</p>
+                                        <p>NEXT</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="row">
+                                <div class="col-md-4 text-center">
+                                    <div class="py-5">
+                                        <h3>UPLOAD GALLERY</h3>
+                                        <div class="">
+                                            <div class="browse-btn">
+                                                <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                                <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Gallery Cover"/>
+                                            </div>
+                                            <div class="browse-btn">
+                                                <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                                <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Gallery"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <h3>GALLERY COVER</h3>
+                                    <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <h3>GALLERY</h3>
+                                    <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                                </div>
+                            </div>
+                            <div class="slider-footer">
+                                <div class="container">
+                                    <div class="d-flex justify-content-between">
+                                        <p>PREV</p>
+                                        <p>NEXT</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <div class="container py-5">
-            <!-- Swiper -->
-            <div class="swiper-container mySwiper">
-                <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="row">
-                        <div class="col-md-5 text-center">
-                            <div class="py-5">
-                                <h3>UPLOAD FORUM</h3>
-
-                                <div class="">
-                                    <div class="form-group">
-                                        <input type="text" name="" id="" class="form-control forumDash-side" placeholder="ENTER FORUM NAME" aria-describedby="helpId">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" name="" id="" class="form-control forumDash-side" placeholder="ENTER FORUM LOCATION" aria-describedby="helpId">
-                                    </div>
-                                    <div class="browse-btn">
-                                        <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
-                                        <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Forum Cover"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-7 text-center">
-                            <h3>FORUM</h3>
-                            <div class="selected-image-area">
-                                <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
-                                <!--  -->
-                            </div>
-                            <div class="text-center">
-                                <p>Drop your files here</p>
-                                <label for="files" class="btn browse-files">Browse file</label>
-                                <input id="files" style="visibility:hidden;" type="file">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slider-footer">
-                        <div class="container">
-                            <div class="d-flex justify-content-between">
-                                <p>PREV</p>
-                                <p>NEXT</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="text-flex px-4">
+                <div class="d-block d-md-flex justify-content-between">
+                    <h3 class="mb-2">ARCHIVE</h3>
+                    <button type="button" class="btn btn-dark btn-sm mb-2"> <i class="fas fa-trash">&nbsp;</i> Delete </button>
                 </div>
-                <div class="swiper-slide">
-                    <div class="row">
-                        <div class="col-md-4 text-center">
-                            <div class="py-5">
-                                <h3>UPLOAD SNIPPET</h3>
-                                <div class="">
-                                    <div class="browse-btn">
-                                        <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
-                                        <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Snippet Cover"/>
-                                    </div>
-                                    <div class="browse-btn">
-                                        <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
-                                        <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Snippet"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 text-center">
-                            <h3>SNIPPET COVER</h3>
-                            <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
-                        </div>
-                        <div class="col-md-4 text-center">
-                            <h3>SNIPPET</h3>
-                            <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                <div class="row py-5">
+                    <div class="col-md-6 mb-5">
+                        <div class="d-flex justify-content-around">
+                            <input id="img1" type="radio" name="r">
+                            <img src="{{ url_for('static', filename='admin/img/forum1a.png')}}" class="img-fora" width="350" height="150" alt="Image 1">
+                            <h5 class="my-auto">Older Generation</h5>
                         </div>
                     </div>
-                    <div class="slider-footer">
-                        <div class="container">
-                            <div class="d-flex justify-content-between">
-                                <p>PREV</p>
-                                <p>NEXT</p>
-                            </div>
+                    <div class="col-md-6 mb-5">
+                        <div class="d-flex justify-content-around">
+                            <input id="img1" type="radio" name="r">
+                            <img src="{{ url_for('static', filename='admin/img/forum1a.png')}}"  class="img-fora" width="350" height="150" alt="Image 1">
+                            <h5 class="my-auto">Older Generation</h5>
                         </div>
                     </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="row">
-                        <div class="col-md-4 text-center">
-                            <div class="py-5">
-                                <h3>UPLOAD VIDEO</h3>
-                                <div class="">
-                                    <div class="browse-btn">
-                                        <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
-                                        <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Video Cover"/>
-                                    </div>
-                                    <div class="browse-btn">
-                                        <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
-                                        <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Video"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 text-center">
-                            <h3>VIDEO COVER</h3>
-                            <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
-                        </div>
-                        <div class="col-md-4 text-center">
-                            <h3>VIDEO</h3>
-                            <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                    <div class="col-md-6 mb-5">
+                        <div class="d-flex justify-content-around">
+                            <input id="img1" type="radio" name="r">
+                            <img src="{{ url_for('static', filename='admin/img/forum1a.png')}}"  class="img-fora" width="350" height="150" alt="Image 1">
+                            <h5 class="my-auto">Older Generation</h5>
                         </div>
                     </div>
-                    <div class="slider-footer">
-                        <div class="container">
-                            <div class="d-flex justify-content-between">
-                                <p>PREV</p>
-                                <p>NEXT</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="row">
-                        <div class="col-md-4 text-center">
-                            <div class="py-5">
-                                <h3>UPLOAD MEETING REPORT</h3>
-                                <div class="">
-                                    <div class="browse-btn">
-                                        <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
-                                        <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Meeting Report Cover"/>
-                                    </div>
-                                    <div class="browse-btn">
-                                        <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
-                                        <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Meeting Report"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 text-center">
-                            <h3>MEETING REPORT COVER</h3>
-                            <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
-                        </div>
-                        <div class="col-md-4 text-center">
-                            <h3>MEETING REPORT</h3>
-                            <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
-                        </div>
-                    </div>
-                    <div class="slider-footer">
-                        <div class="container">
-                            <div class="d-flex justify-content-between">
-                                <p>PREV</p>
-                                <p>NEXT</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="row">
-                        <div class="col-md-4 text-center">
-                            <div class="py-5">
-                                <h3>UPLOAD GALLERY</h3>
-                                <div class="">
-                                    <div class="browse-btn">
-                                        <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
-                                        <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Gallery Cover"/>
-                                    </div>
-                                    <div class="browse-btn">
-                                        <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
-                                        <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Gallery"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 text-center">
-                            <h3>GALLERY COVER</h3>
-                            <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
-                        </div>
-                        <div class="col-md-4 text-center">
-                            <h3>GALLERY</h3>
-                            <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
-                        </div>
-                    </div>
-                    <div class="slider-footer">
-                        <div class="container">
-                            <div class="d-flex justify-content-between">
-                                <p>PREV</p>
-                                <p>NEXT</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
                 </div>
             </div>
         </div>
-    </section>
-
-
-    <div class="container py-5">
-        <div class="text-flex px-4">
-            <div class="d-block d-md-flex justify-content-between">
-                <h3 class="mb-2">ARCHIVE</h3>
-                <button type="button" class="btn btn-dark btn-sm mb-2"> <i class="fas fa-trash"></i> Delete </button>
-            </div>
-            <div class="row py-5">
-                <div class="col-md-6 mb-5">
-                    <div class="d-flex justify-content-around">
-                        <input id="img1" type="radio" name="r">
-                        <img src="{{ url_for('static', filename='admin/img/forum1a.png')}}" class="img-fora" width="350" height="150" alt="Image 1">
-                        <h5 class="my-auto">Older Generation</h5>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-5">
-                    <div class="d-flex justify-content-around">
-                        <input id="img1" type="radio" name="r">
-                        <img src="{{ url_for('static', filename='admin/img/forum1a.png')}}"  class="img-fora" width="350" height="150" alt="Image 1">
-                        <h5 class="my-auto">Older Generation</h5>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-5">
-                    <div class="d-flex justify-content-around">
-                        <input id="img1" type="radio" name="r">
-                        <img src="{{ url_for('static', filename='admin/img/forum1a.png')}}"  class="img-fora" width="350" height="150" alt="Image 1">
-                        <h5 class="my-auto">Older Generation</h5>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
-    <script src="{{ url_for('static' , filename='admin/js/popper.js' ) }}     "></script>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
-    </script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="{{ url_for('static' , filename='admin/js/jquery-3.6.0.min.js' ) }} "></script>
+        <script src="{{ url_for('static' , filename='admin/js/popper.js' ) }}     "></script>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
+        </script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
         <!-- Initialize Swiper -->
-    <script>
-        let labels = ['Forum info', 'Snippet', 'Full Video', 'Meeting Report', 'Gallery'];
-        var swiper = new Swiper(".mySwiper", {
-            autoHeight: true, //enable auto height
-            pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-            renderBullet: function (index, className) {
+        <script>
+            let labels = ['Forum info', 'Snippet', 'Full Video', 'Meeting Report', 'Gallery'];
+            var swiper = new Swiper(".mySwiper", {
+                autoHeight: true, //enable auto height
+                pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+                renderBullet: function (index, className) {
                     return '<div class="' + className + '">' + (labels[index]) + '<i class="fas fa-angle-right"></i>' + '</div>';
                     },
-            },
-            // renderBullet: function (index, className) {
-            //     return '<span class="' + className + '">' + (index + 1) + "</span>";
-            // },
-            // },
-        });
-    </script>
-    <script>
-    // FORUM ROUTE
-    // GET FORUM
-    const getForum = () => {
-      axios.get('/forum')
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      })
-    }
-    // ADD FORUM
-    // forumData = { forumName: '' ,forumCoverUrl: '' , forumReportCoverUrl: '' , forum_reportFileUrl: '', forumCoverShape: '' }
-    const addForum = () => {
-      axios.post('/forum', forumData)
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      })
-    }
+                },
+                // renderBullet: function (index, className) {
+                //     return '<span class="' + className + '">' + (index + 1) + "</span>";
+                // },
+                // },
+            });
+        </script>
+        <script>
+            var fileUrl;
+            // FORUM ROUTE
+            // GET FORUM
+            const fRoute = "{{ url_for('api.forum') }}";
+            const fgRoute = "{{ url_for('api.forumgallery') }}";
+            const getForum = () => {
+            axios.get(fRoute)
+            .then(function(response) {
+                console.log(response.data);
+            })
+            .catch(function(error) {
+                console.log(error);
+            })
+            }
+            getForum();
+            // ADD FORUM
+            const addForum = ( forum_name, forum_cover_url, forum_report_cover_url, forum_report_file_url, forum_cover_shape ) => {
+                axios.post(fRoute, { forum_name, forum_cover_url, forum_report_cover_url, forum_report_file_url, forum_cover_shape })
+                .then(function(response) {
+                    console.log(response);
+                })
+                .catch(function(error) {
+                    console.log(error);
+                })
+            }
+            
+            // FORUM WITH ID
+            //const forumId = '';
+            const getForumById = (id) => {
+                axios.get(`${fRoute}/${id}`)
+                .then(function(response) {
+                    console.log(response);
+                })
+                .catch(function(error) {
+                    console.log(error);
+                })
+            }
+            // UPDATE FORUM BY ID
+            const updateForumById = (id, forum_name, forum_cover_url, forum_report_cover_url, forum_report_file_url, forum_cover_shape ) => {
+                axios.put(`${fRoute}/${id}`, { forum_name, forum_cover_url, forum_report_cover_url, forum_report_file_url, forum_cover_shape })
+                .then(function(response) {
+                    console.log(response);
+                })
+                .catch(function(error) {
+                    console.log(error);
+                })
+            }
+            // DELETE FORUM BY ID
+            const deleteForumById = (id) => {
+                axios.delete(`${fRoute}/${id}`)
+                .then(function(response) {
+                    console.log(response);
+                })
+                .catch(function(error) {
+                    console.log(error);
+                })
+            }
+            
+            
+            
+            // FORUM GALLERY ROUTE
+            // GET FORUM GALLERY
+            const getForumGallery = () => {
+                axios.get(fgRoute)
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+            }
+            getForumGallery();
+            // ADD FORUM GALLERY
+            // forumGalleryData = { forum: '' ,forumGalleryCover: '' , forumGallery: '' , fullVideoCoverUrl: '', fullVideoUrl: '', snippetCoverUrl: '', snippetUrl: '' }
+            const addForumGallery = () => {
+                axios.post('/forum-gallery', { forum, forum_gallery_cover , forum_gallery , full_video_cover_url, full_video_url, snippet_cover_url, snippet_url, meeting_report_cover_url, meeting_report_file_url })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+            }
+            
+            // FORUM GALLERY WITH ID
+            //const forumGalleryId = '';
+            const getForumGalleryById = (id) => {
+                axios.get(`/forum-gallery/${id}`)
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+            }
+            // UPDATE FORUM GALLERY BY ID
+            const updateForumGalleryById = ( id, forum, forum_gallery_cover , forum_gallery , full_video_cover_url, full_video_url, snippet_cover_url, snippet_url, meeting_report_cover_url, meeting_report_file_url ) => {
+                axios.put(`/forum-gallery/${id}`, { forum, forum_gallery_cover , forum_gallery , full_video_cover_url, full_video_url, snippet_cover_url, snippet_url, meeting_report_cover_url, meeting_report_file_url })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+            }
+            // DELETE FORUM GALLERY BY ID
+            const deleteForumGalleryById = (id) => {
+                axios.delete(`/forum-gallery/${id}`)
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                })
+            }
 
-    // FORUM WITH ID
-    //const forumId = '';
-    const getForumById = (id) => {
-      axios.get(`/forum/${id}`)
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      })
-    }
-    // UPDATE FORUM BY ID
-    const updateForumById = (id) => {
-      axios.put(`/forum/${id}`, forumData)
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      })
-    }
-    // DELETE FORUM BY ID
-    const deleteForumById = (id) => {
-      axios.delete(`/forum/${id}`)
-      .then(function(response) {
-        console.log(response);
-      })
-      .catch(function(error) {
-        console.log(error);
-      })
-    }
+            function upload(data) {
+              axios.post("{{ url_for('api.upload') }}", data)
+                .then(function(response) {
+                    //console.log('tried uploaded file', response);
+                    //$(`#${'submit-btn'+id}`). removeAttr('disabled');    
+                    fileUrl =  response.data.file_url;
+                    console.log(fileUrl);
+                })
+                .catch(function (error) {
+                    console.log(error.response);
+                })
+            }
 
 
-
-    
-
-    // FORUM GALLERY ROUTE
-    // GET FORUM GALLERY
-    const getForumGallery = () => {
-      axios.get('/forum-gallery')
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // ADD FORUM GALLERY
-    // forumGalleryData = { forum: '' ,forumGalleryCover: '' , forumGallery: '' , fullVideoCoverUrl: '', fullVideoUrl: '', snippetCoverUrl: '', snippetUrl: '' }
-    const addForumGallery = () => {
-      axios.post('/forum-gallery', forumGalleryData)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-
-    // FORUM GALLERY WITH ID
-    //const forumGalleryId = '';
-    const getForumGalleryById = (id) => {
-      axios.get(`/forum-gallery/${id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // UPDATE FORUM GALLERY BY ID
-    const updateForumGalleryById = (id) => {
-      axios.put(`/forum-gallery/${id}`, forumGalleryData)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
-    // DELETE FORUM GALLERY BY ID
-    const deleteForumGalleryById = (id) => {
-      axios.delete(`/forum-gallery/${id}`)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      })
-    }
-    </script>
-</body>
-
+            function SubmitNewData() {
+                addForum(forum_name, forum_cover_url, forum_report_cover_url, forum_report_file_url, forum_cover_shape);
+                addForumGallery( forum, forum_gallery_cover , forum_gallery , full_video_cover_url, full_video_url, snippet_cover_url, snippet_url, meeting_report_cover_url, meeting_report_file_url );
+            }
+        </script>
+    </body>
 </html>
