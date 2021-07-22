@@ -874,7 +874,7 @@ def get_in_touch():
             )
             if cursor.fetchone() == None:
                 cursor.execute(
-                    "INSERT INTO info (full_name, email, message ) VALUES (%s , %s, %s) ",
+                    "INSERT INTO get_in_touch (full_name, email, message ) VALUES (%s , %s, %s) ",
                     (
                         request.json["full_name"],
                         request.json["email"],
