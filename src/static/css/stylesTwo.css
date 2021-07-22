@@ -332,7 +332,7 @@
           .banner-areaArtists {
             background-position: top center;
             text-align: center;
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../images/pexels-daian-gan-102127.jpg");
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../images/artists_page.jpg");
           }
 
           .content-area2 {
@@ -491,4 +491,29 @@
   }
   .scroll-chevron:hover{
     color: #fff;
+  }
+
+  .img-clip1,
+  .img-clip2,
+  .img-clip3 {
+    cursor: pointer;
+    -webkit-filter: drop-shadow(5px 5px 5px #222);
+    filter: drop-shadow(5px 5px 5px #222);
+    z-index: 1000000;
+  }
+
+  .img-clip1 {
+    /* clip-path: polygon(10% 10%,90% 10%,72% 93%,29% 91%); */
+    clip-path: polygon(0% 9%,100% 9%,74% 100%,32% 100%);
+    clip-path: polygon(31% 0%,0% 72%,100% 93%);
+  }
+  .img-clip3{
+    clip-path: polygon(22% 25%,100% 0%,78% 95%,1% 73%);
+  }
+  .img-clip2 {
+    clip-path: polygon(31% 0%,0% 72%,100% 93%);
+  }
+  .aidr-others-title h3{
+    text-transform: capitalize;
+    font-weight: bolder;
   }
