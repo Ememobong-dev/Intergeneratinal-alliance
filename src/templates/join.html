@@ -376,6 +376,7 @@
       }
       // ADD 'PARTICIPATION REQUEST'
       const addParticipationRequest = (full_name, email, phone_number, age_range, job, lga) => {
+        console.log(full_name, email, phone_number, age_range, job, lga);
         axios.post(pareRoute, { full_name, email, phone_number, age_range, job, lga })
         .then(function (response) {
           console.log(response);
