@@ -34,6 +34,7 @@ def admin_required(f):
             # fetch user from database
             cursor.execute("SELECT * FROM users WHERE id=%s", (session["user"]["id"]))
             user = cursor.fetchone()
+            cursor.close()
             # If user is admin , return response
             if user["is_admin"] == 1:
                 return f(*args, **kwargs)
@@ -57,6 +58,7 @@ def anon_can_post(f):
             # fetch user from database
             cursor.execute("SELECT * FROM users WHERE id=%s", (session["user"]["id"]))
             user = cursor.fetchone()
+            cursor.close()
             # If user is admin , return response
             if user["is_admin"] == 1:
                 return f(*args, **kwargs)
@@ -522,6 +524,8 @@ def edit_aidr(id):
 
 
 @api.route("/team", methods=["GET", "POST"])
+@login_required
+@admin_required
 def team():
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
@@ -563,6 +567,8 @@ def team():
 
 
 @api.route("/team/<int:id>", methods=["GET", "PUT", "DELETE"])
+@login_required
+@admin_required
 def edit_team(id):
     db_connection = mysql.connect()
     cursor = db_connection.cursor()
