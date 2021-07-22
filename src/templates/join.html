@@ -103,19 +103,19 @@
               </ul>
               <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                  <!--  -->
+                  <!-- GET IN TOUCH FORM -->
                   <form class="contact_us_form row" id="gitForm">
                     <div class="form-group col-lg-6">
-                      <label for="name">Full Name</label>
-                      <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required>
+                      <label for="gitName">Full Name</label>
+                      <input type="text" class="form-control" id="gitName" name="full_name" placeholder="Full Name" required>
                     </div>
                     <div class="form-group col-lg-6">
-                      <label for="email">Email Address</label>
-                      <input type="email" class="form-control" id="email" name="email" placeholder="Email Address"  required>
+                      <label for="gitMail">Email Address</label>
+                      <input type="email" class="form-control" id="gitMail" name="email" placeholder="Email Address"  required>
                     </div>
                     <div class="form-group col-lg-12 message-form">
-                      <label for="message">Message</label>
-                      <textarea class="form-control" name="message" id="message" col= "3" rows="1" placeholder="Enter your message"  required></textarea>
+                      <label for="gitMessage">Message</label>
+                      <textarea class="form-control" name="message" id="gitMessage" col= "3" rows="1" placeholder="Enter your message"  required></textarea>
                     </div>
                     <div class="form-group col-md-12 mt-3">
                       <button type="submit" value="submit" class="btn btn-white" onclick="Submit('git')">Submit <i class="fa fa-arrow-right"></i></button>
@@ -126,21 +126,22 @@
                   </div>
                 </div>
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"> 
-                  <form class="contact_us_form row">
+                  <!-- FORUM SUGGESTIONS FORM -->
+                  <form class="contact_us_form row" id="fsForm">
                     <div class="form-group col-lg-6">
-                      <label for="name">Full Name</label>
-                      <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required>
+                      <label for="fsName">Full Name</label>
+                      <input type="text" class="form-control" id="fsName" name="full_name" placeholder="Full Name" required>
                     </div>
                     <div class="form-group col-lg-6">
-                      <label for="email">Email Address</label>
-                      <input type="email" class="form-control" id="email" name="email" placeholder="Email Address"  required>
+                      <label for="fsMail">Email Address</label>
+                      <input type="email" class="form-control" id="fsMail" name="email" placeholder="Email Address"  required>
                     </div>
                     <div class="form-group  message-form col-lg-12">
                       <label for="forumTopic">Suggest a Forum Topic</label>
                       <textarea class="form-control" name="forumTopic" id="forumTopic" rows="1" placeholder="Enter Topic Suggestion"  required></textarea>
                     </div>
                     <div class="form-group col-12 mt-3">
-                      <button type="submit" value="submit" class="btn btn-white">Submit <i class="fa fa-arrow-right"></i></button>
+                      <button type="submit" value="submit" class="btn btn-white" onclick="Submit('fmsn')">Submit <i class="fa fa-arrow-right"></i></button>
                     </div>
                   </form>
                   <div>
@@ -148,22 +149,23 @@
                   </div>
                 </div>
                 <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                  <form class="contact_us_form row">
+                  <!-- PARTICIPATION REQUEST -->
+                  <form class="contact_us_form row" id="prForm">
                     <div class="form-group col-lg-6">
-                      <label for="name">Full Name</label>
-                      <input type="text" class="form-control" id="name" name="name" placeholder="Enter your full name" required>
+                      <label for="prName">Full Name</label>
+                      <input type="text" class="form-control" id="prName" name="full_name" placeholder="Enter your full name" required>
                     </div>
                     <div class="form-group col-lg-6">
-                      <label for="email" >Email Address</label>
-                      <input type="email" class="form-control" id="email" name="email" placeholder="Enter your full email"  required>
+                      <label for="frMail" >Email Address</label>
+                      <input type="email" class="form-control" id="frMail" name="email" placeholder="Enter your full email"  required>
                     </div>
                     <div class="form-group col-lg-6">
-                      <label for="phone">Phone Number</label>
-                      <input type="tel" class="form-control" name="phone" id="phone"  placeholder="Enter your Phone Number" required>
+                      <label for="frPhone">Phone Number</label>
+                      <input type="tel" class="form-control" name="phone_number" id="frPhone"  placeholder="Enter your Phone Number" required>
                     </div>
                     <div class="col-lg-6">
                       <label for="age-range">Age Range</label>
-                      <select class="form-select trans-select" aria-label="Default select example">
+                      <select class="form-select trans-select" id="age-range" name="age_range"  aria-label="Default select example">
                         <option selected>Select your age range</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -171,12 +173,12 @@
                       </select>
                     </div>
                     <div class="form-group col-lg-6">
-                      <label for="job">Your Job</label>
-                      <input type="text" class="form-control" id="name" name="name" placeholder="Job Description" required>
+                      <label for="prJob">Your Job</label>
+                      <input type="text" class="form-control" id="prJob" name="job" placeholder="Job Description" required>
                     </div>
                     <div class="col-lg-6">
-                      <label for="age-range">LGA</label>
-                      <select class="form-select trans-select" aria-label="Default select example">
+                      <label for="frLga">LGA</label>
+                      <select class="form-select trans-select" id="frLga" name="lga" aria-label="Default select example">
                         <option class="firstOption" selected>Select your LGA</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -184,7 +186,7 @@
                       </select>
                     </div>
                     <div class=" mt-3">
-                      <button type="submit" value="submit" class="btn btn-white">Submit <i class="fa fa-arrow-right"></i></button>
+                      <button type="submit" value="submit" class="btn btn-white" onclick="Submit('pare')">Submit <i class="fa fa-arrow-right"></i></button>
                     </div> 
                   </form>
                   <div class="mt-3">
@@ -245,14 +247,16 @@
     <script src="{{ url_for('static' , filename='js/jquery.sticky.js' ) }}"></script>
     <script src="{{ url_for('static' , filename='js/main.js' ) }}"></script>
     <script>
-      // Endpoints where anonymous users have post permission
-      // 'GET IN TOUCH' ROUTE
-      // GET 'GET IN TOUCH'
       $("form").submit(function(e) {
         e.preventDefault();
       });
-      
+      // Endpoints where anonymous users have post permission
+      // 'GET IN TOUCH' ROUTE
+      // GET 'GET IN TOUCH'    
       const gitRoute = "{{ url_for('api.get_in_touch') }}";
+      const fmsnRoute = "{{ url_for('api.forum_suggestion') }}";
+      const pareRoute = "{{ url_for('api.participation_request') }}";
+
       function getGetInTouch() {
         axios.get(gitRoute)
         .then(function (response) {
@@ -262,23 +266,22 @@
           console.log(error.data);
         })
       }
-      //getGetInTouch();
+      getGetInTouch();
       // ADD 'GET IN TOUCH'
-      // getInTouchData = { fullName: '', email: '', message: '' }
-      const addGetInTouch = () => {
-        axios.post('/get-in-touch', getInTouchData)
+      const addGetInTouch = (full_name, email, message) => {
+        console.log(full_name, email, message);
+        axios.post(gitRoute, { full_name, email, message })
         .then(function (response) {
           console.log(response);
         })
         .catch(function (error) {
-          console.log(error);
+          console.log(error.response);
         })
       }
-      
       // 'GET IN TOUCH' WITH ID
       //const getInTouchId = '';
       const getGetInTouchById = (id) => {
-        axios.get(`/get-in-touch/${id}`)
+        axios.get(`${gitRoute}/${id}`)
         .then(function (response) {
           console.log(response);
         })
@@ -287,8 +290,8 @@
         })
       }
       // UPDATE 'GET IN TOUCH' BY ID
-      const updateGetInTouchById = (id) => {
-        axios.put(`/get-in-touch/${id}`, getInTouchData)
+      const updateGetInTouchById = (id, full_name, email, message) => {
+        axios.put(`${gitRoute}/${id}`, {full_name, email, message})
         .then(function (response) {
           console.log(response);
         })
@@ -298,7 +301,7 @@
       }
       // DELETE 'GET IN TOUCH' BY ID
       const deleteGetInTouchById = (id) => {
-        axios.delete(`/get-in-touch/${id}`)
+        axios.delete(`${gitRoute}/${id}`)
         .then(function (response) {
           console.log(response);
         })
@@ -307,11 +310,63 @@
         })
       }
       
-      
+      // 'FORUM SUGGESTION' ROUTE
+      // GET 'FORUM SUGGESTION'
+      const getForumSuggestion = () => {
+        axios.get(fmsnRoute)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+      }
+      // ADD 'FORUM SUGGESTION'
+      const addForumSuggestion = (full_name, email, message) => {
+        axios.post(fmsnRoute, { full_name, email, message })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+      }
+      // 'FORUM SUGGESTION' WITH ID
+      //const forumSuggestionId = '';
+      const getForumSuggestionById = (id) => {
+        axios.get(`${fmsnRoute}/${id}`)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+      }
+      // UPDATE 'FORUM SUGGESTION' BY ID
+      const updateForumSuggestionById = (id, full_name, email, message) => {
+        axios.put(`${fmsnRoute}/${id}`, { full_name, email, message })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+      }
+      // DELETE 'FORUM SUGGESTION' BY ID
+      const deleteForumSuggestionById = (id) => {
+        axios.delete(`${fmsnRoute}/${id}`)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        })
+      }
+
       // 'PARTICIPATION REQUEST' ROUTE
       // GET 'PARTICIPATION REQUEST'
       const getParticipationRequest = () => {
-        axios.get('/participation_request')
+        axios.get(pareRoute)
         .then(function (response) {
           console.log(response);
         })
@@ -320,9 +375,8 @@
         })
       }
       // ADD 'PARTICIPATION REQUEST'
-      //const participationRequestData = { fullName: '' ,email: '' , phoneNumber: '' , ageRange: '', job: '', lga: '' }
-      const addParticipationRequest = () => {
-        axios.post('/participation_request', participationRequestData)
+      const addParticipationRequest = (full_name, email, phone_number, age_range, job, lga) => {
+        axios.post(pareRoute, { full_name, email, phone_number, age_range, job, lga })
         .then(function (response) {
           console.log(response);
         })
@@ -334,7 +388,7 @@
       // 'PARTICIPATION REQUEST' WITH ID
       //const participationRequestId = '';
       const getParticipationRequestById = (id) => {
-        axios.get(`/participation_request/${id}`)
+        axios.get(`${pareRoute}/${id}`)
         .then(function (response) {
           console.log(response);
         })
@@ -343,8 +397,8 @@
         })
       }
       // UPDATE 'PARTICIPATION REQUEST' BY ID
-      const updateParticipationRequestById = (id) => {
-        axios.put(`/participation_request/${id}`, participationRequestData)
+      const updateParticipationRequestById = (id, full_name, email, phone_number, age_range, job, lga) => {
+        axios.put(`${pareRoute}/${id}`, { full_name, email, phone_number, age_range, job, lga })
         .then(function (response) {
           console.log(response);
         })
@@ -354,7 +408,7 @@
       }
       // DELETE 'PARTICIPATION REQUEST' BY ID
       const deleteParticipationRequestById = (id) => {
-        axios.delete(`/participation_request/${id}`)
+        axios.delete(`${pareRoute}/${id}`)
         .then(function (response) {
           console.log(response);
         })
@@ -362,67 +416,34 @@
           console.log(error);
         })
       }
-      
-      
-      // 'FORUM SUGGESTION' ROUTE
-      // GET 'FORUM SUGGESTION'
-      const getForumSuggestion = () => {
-        axios.get('/forum-suggestion')
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-      }
-      // ADD 'FORUM SUGGESTION'
-      //const forumSuggestionData = { fullName: '', email: '', message: '' }
-      const addForumSuggestion = () => {
-        axios.post('/forum-suggestion', forumSuggestionData)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-      }
-      
-      // 'FORUM SUGGESTION' WITH ID
-      //const forumSuggestionId = '';
-      const getForumSuggestionById = (id) => {
-        axios.get(`/forum-suggestion/${id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-      }
-      // UPDATE 'FORUM SUGGESTION' BY ID
-      const updateForumSuggestionById = (id) => {
-        axios.put(`/forum-suggestion/${id}`, forumSuggestionData)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-      }
-      // DELETE 'FORUM SUGGESTION' BY ID
-      const deleteForumSuggestionById = (id) => {
-        axios.delete(`/forum-suggestion/${id}`)
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-      }
+
+      // SUBMIT DATA
       function Submit(data) {
         console.log('submit started');
         if(data === 'git') {
           console.log('git started');
-          const form = $('#gitForm');
+          const full_name = document.getElementById('gitName').value;
+          const email = document.getElementById('gitMail').value;
+          const message = document.getElementById('gitMessage').value;
+          addGetInTouch(full_name, email, message);
+        } else if (data === 'fmsn') {
+          console.log('fmsn started');
+          const full_name = document.getElementById('fsName').value;
+          const email = document.getElementById('fsMail').value;
+          const message = document.getElementById('forumTopic').value;
+          addForumSuggestion(full_name, email, message);
+        } else if(data === 'pare') {
+          console.log('pare started');
+          const full_name = document.getElementById('prName').value;
+          const email = document.getElementById('prMail').value;
+          const phone_number = document.getElementById('prPhone').value;
+          const age_range = document.getElementById('age-range').value;
+          const job = document.getElementById('prJob').value;
+          const lga = document.getElementById('prLga').value;
+          addParticipationRequest(full_name, email, phone_number, age_range, job, lga);
+        }
+        else {
+          console.log('no result');
         }
       }
     </script>
