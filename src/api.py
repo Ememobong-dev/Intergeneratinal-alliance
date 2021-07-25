@@ -950,7 +950,10 @@ def get_in_touch():
                 db_connection.commit()
                 message = f"Email : {request.json['email']}\nFullname : {request.json['full_name']}\nMessage : {request.json['message']}"
                 send_mail(
-                    mail, "GET IN TOUCH FORM RESPONSE", message, "info@intergen.africa"
+                    mail,
+                    "GET IN TOUCH FORM RESPONSE",
+                    message,
+                    ["info@intergen.africa"],
                 )
                 return Response(status=200)
 
