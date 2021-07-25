@@ -176,6 +176,41 @@
                             <div class="row">
                                 <div class="col-md-4 text-center">
                                     <div class="py-5">
+                                        <h3>UPLOAD SPECIAL VIDEO</h3>
+                                        <div class="">
+                                            <div class="browse-btn">
+                                                <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                                <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Special Video Cover"/>
+                                            </div>
+                                            <div class="browse-btn">
+                                                <input type="file" class="file" id="attachment" style="display: none;" onchange="fileSelected(this)"/>
+                                                <input type="button" class="file form-control forumDash-side" id="btnAttachment" onclick="openAttachment()" value="Upload Special Video"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <h3>SPECIAL VIDEO COVER</h3>
+                                    <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                                </div>
+                                <div class="col-md-4 text-center">
+                                    <h3> SPECIAL VIDEO</h3>
+                                    <img src="{{ url_for('static', filename='admin/img/upload_icon.png')}}" alt="upload image" class="img-fluid img-upload">
+                                </div>
+                            </div>
+                            <div class="slider-footer">
+                                <div class="container">
+                                    <div class="d-flex justify-content-between">
+                                        <p>PREV</p>
+                                        <p>NEXT</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="row">
+                                <div class="col-md-4 text-center">
+                                    <div class="py-5">
                                         <h3>UPLOAD MEETING REPORT</h3>
                                         <div class="">
                                             <div class="browse-btn">
@@ -288,7 +323,7 @@
         <script src="{{ url_for('static' , filename='admin/js/main.js' ) }}    "></script>
         <!-- Initialize Swiper -->
         <script>
-            let labels = ['Forum info', 'Snippet', 'Full Video', 'Meeting Report', 'Gallery'];
+            let labels = ['Forum info', 'Snippet', 'Full Video', 'Special Video', 'Meeting Report', 'Gallery'];
             var swiper = new Swiper(".mySwiper", {
                 autoHeight: true, //enable auto height
                 pagination: {
