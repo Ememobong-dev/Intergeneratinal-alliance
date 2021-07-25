@@ -1041,6 +1041,14 @@ def participation_request():
                     ),
                 )
                 db_connection.commit()
+                message = f"Email : {request.json['email']}\nFullname : {request.json['full_name']}\nPhone Number : {request.json['phone_number']}\
+                \nAge Range : {request.json['age_range']}\Job : {request.json['job']}\nLGA : {request.json['lga']}"
+                send_mail(
+                    mail,
+                    "GET IN TOUCH FORM RESPONSE",
+                    message,
+                    ["info@intergen.africa"],
+                )
                 return Response(status=200)
 
             msg = {"error": [f"field 10000000 already exists"]}
