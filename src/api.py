@@ -1,12 +1,14 @@
-from . import mysql, limiter
 import json, hashlib
 from re import U
 from flask import Flask, session, redirect, request, url_for, Response, Blueprint
+from werkzeug.wrappers import response
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
+from flask_mail import Message
 from functools import wraps
 from .utils import *
-from werkzeug.wrappers import response
+from . import mysql, limiter, mail
+
 
 api = Blueprint("api", __name__, url_prefix="/api")
 
@@ -946,6 +948,10 @@ def get_in_touch():
                     ),
                 )
                 db_connection.commit()
+                message = f"Email : {request.json['email']}\nFullname : {request.json['full_name']}\nMessage : {request.json['message']}"
+                send_mail(
+                    mail, "GET IN TOUCH FORM RESPONSE", message, "info@intergen.africa"
+                )
                 return Response(status=200)
 
             msg = {"error": [f"field {request.json['message']}  already exists"]}

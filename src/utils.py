@@ -3,6 +3,7 @@ import os
 
 import boto3
 from flask import current_app
+from flask_mail import Message
 
 
 def load_config(file=os.path.abspath("./config.json")):
@@ -45,6 +46,11 @@ def upload_file_to_s3(file, folder: str, acl="public-read"):
     except Exception as e:
         # This is a catch all exception, edit this part to fit your needs.
         return str(e)
+
+
+def send_mail(mail, subject: str, message: str, recipient: list):
+    msg = Message(message, recipient=recipient)
+    mail.send(msg)
 
 
 # file = open("config.json", "rb")

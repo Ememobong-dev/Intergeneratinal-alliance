@@ -1,3 +1,22 @@
 {
-    "DB_NAME": "intalliance"
+    "DB": {
+        "HOST": "us-cdbr-east-04.cleardb.com",
+        "DATABASE": "heroku_58802c299913439",
+        "USERNAME": "b259eb55614b49",
+        "PASSWORD": "1e391f50"
+    },
+    "AWS": {
+        "BUCKET_NAME": "intalliance",
+        "AWS_ACCESS_KEY_ID": "AKIA3UYBQLHGWWSV6B6X",
+        "AWS_SECRET_ACCESS_KEY": "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"
+    },
+    "MAIL": {
+        "SERVER": "intergen.africa",
+        "PORT": 465,
+        "USE_SSL": true,
+        "DEFAULT_SENDER": "website@intergen.africa",
+        "PASSWORD": "h1W]LKIueAOJ",
+        "USERNAME": "website"
+    },
+    "SECRET_KEY": "6c0d1733ee8a06a2bdba07906429d126"
 }
