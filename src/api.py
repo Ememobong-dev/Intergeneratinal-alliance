@@ -1045,7 +1045,7 @@ def participation_request():
                 \nAge Range : {request.json['age_range']}\Job : {request.json['job']}\nLGA : {request.json['lga']}"
                 send_mail(
                     mail,
-                    "GET IN TOUCH FORM RESPONSE",
+                    "PARTICIPATION REQUEST FORM RESPONSE",
                     message,
                     ["info@intergen.africa"],
                 )
@@ -1135,6 +1135,13 @@ def forum_suggestion():
                     ),
                 )
                 db_connection.commit()
+                message = f"Email : {request.json['email']}\nFullname : {request.json['full_name']}\nMessage : {request.json['message']}"
+                send_mail(
+                    mail,
+                    "FORUM SUGGESTION FORM RESPONSE",
+                    message,
+                    ["info@intergen.africa"],
+                )
                 return Response(status=200)
 
             msg = {"error": [f"field {request.json['message']}  already exists"]}
