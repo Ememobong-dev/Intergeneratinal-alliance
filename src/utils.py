@@ -4,6 +4,7 @@ import os
 import boto3
 from flask import current_app
 from flask_mail import Message
+import smtplib
 
 
 def load_config(file=os.path.abspath("./config.json")):
@@ -48,11 +49,17 @@ def upload_file_to_s3(file, folder: str, acl="public-read"):
         return str(e)
 
 
-def send_mail(mail, subject: str, message: str, recipient: list):
-    print(message)
-    msg = Message(message, recipients=recipient)
-    mail.send(msg)
-    print("THE MAIL HAS BEEN SENT")
+def send_mail(subject: str, message: str, recipient: list, sender="website@gmail.com"):
+    config = load_config()
+    host = config["MAIL"]["SERVER"]
+    port = config["MAIL"]["PORT"]
+    address = config["MAIL"]["ADDRESS"]
+    password = config["MAIL"]["PASSWORD"]
+    smtp = smtplib.SMTP(host=host, port=port)
+    smtp.ehlo()
+    smtp.starttls()
+    smtp.login(address, password)
+    smtp.sendmail(address, recipient, message)
 
 
 # file = open("config.json", "rb")

@@ -8,7 +8,6 @@ from .utils import *
 
 mysql = MySQL(cursorclass=DictCursor)
 limiter = Limiter(key_func=get_remote_address, default_limits=["120/minute"])
-mail = Mail()
 # mysql://b259eb55614b49:1e391f50@us-cdbr-east-04.cleardb.com/heroku_58802c299913439?reconnect=true
 def create_app():
     app = Flask(__name__)
@@ -19,19 +18,13 @@ def create_app():
     app.config["MYSQL_DATABASE_DB"] = config["DB"]["DATABASE"]
     app.config["MYSQL_DATABASE_USER"] = config["DB"]["USERNAME"]
     app.config["MYSQL_DATABASE_PASSWORD"] = config["DB"]["PASSWORD"]
-    app.config["MAIL_SERVER"] = config["MAIL"]["SERVER"]
-    app.config["MAIL_PORT"] = config["MAIL"]["PORT"]
-    app.config["MAIL_USERNAME"] = config["MAIL"]["USERNAME"]
-    app.config["MAIL_PASSWORD"] = config["MAIL"]["PASSWORD"]
-    app.config["USE_SSL"] = config["MAIL"]["PASSWORD"]
-    app.config["MAIL_DEFAULT_SENDER"] = config["MAIL"]["DEFAULT_SENDER"]
+
     app.config["BUCKET_NAME"] = config["AWS"]["BUCKET_NAME"]
     app.config["AWS_ACCESS_KEY_ID"] = config["AWS"]["AWS_ACCESS_KEY_ID"]
     app.config["AWS_SECRET_ACCESS_KEY"] = config["AWS"]["AWS_SECRET_ACCESS_KEY"]
 
     mysql.init_app(app)
     limiter.init_app(app)
-    mail.init_app(app)
     # blueprint for auth routes in our app
     from .api import api
     from .main import main

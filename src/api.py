@@ -7,7 +7,7 @@ from flask_limiter.util import get_remote_address
 from flask_mail import Message
 from functools import wraps
 from .utils import *
-from . import mysql, limiter, mail
+from . import mysql, limiter
 
 
 api = Blueprint("api", __name__, url_prefix="/api")
@@ -950,7 +950,6 @@ def get_in_touch():
                 db_connection.commit()
                 message = f"Email : {request.json['email']}\nFullname : {request.json['full_name']}\nMessage : {request.json['message']}"
                 send_mail(
-                    mail,
                     "GET IN TOUCH FORM RESPONSE",
                     message,
                     ["info@intergen.africa"],
@@ -1044,7 +1043,6 @@ def participation_request():
                 message = f"Email : {request.json['email']}\nFullname : {request.json['full_name']}\nPhone Number : {request.json['phone_number']}\
                 \nAge Range : {request.json['age_range']}\Job : {request.json['job']}\nLGA : {request.json['lga']}"
                 send_mail(
-                    mail,
                     "PARTICIPATION REQUEST FORM RESPONSE",
                     message,
                     ["info@intergen.africa"],
@@ -1137,7 +1135,6 @@ def forum_suggestion():
                 db_connection.commit()
                 message = f"Email : {request.json['email']}\nFullname : {request.json['full_name']}\nMessage : {request.json['message']}"
                 send_mail(
-                    mail,
                     "FORUM SUGGESTION FORM RESPONSE",
                     message,
                     ["info@intergen.africa"],

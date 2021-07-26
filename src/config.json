@@ -14,7 +14,7 @@
         "SERVER": "intergen.africa",
         "PORT": 465,
         "USE_SSL": true,
-        "DEFAULT_SENDER": "website@intergen.africa",
+        "ADDRESS": "website@intergen.africa",
         "PASSWORD": "h1W]LKIueAOJ",
         "USERNAME": "website"
     },
