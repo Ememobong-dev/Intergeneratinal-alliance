@@ -49,6 +49,7 @@ def upload_file_to_s3(file, folder: str, acl="public-read"):
 
 
 def send_mail(mail, subject: str, message: str, recipient: list):
+    print(message)
     msg = Message(message, recipients=recipient)
     mail.send(msg)
     print("THE MAIL HAS BEEN SENT")
