@@ -11,9 +11,8 @@
         "AWS_SECRET_ACCESS_KEY": "tFGSxkM18gmnDOVlHsPLObMmfgtJtNtGPnZ6an7L"
     },
     "MAIL": {
-        "SERVER": "intergen.africa",
-        "PORT": 587,
-        "USE_SSL": true,
+        "SERVER": "mail.intergen.africa",
+        "PORT": 465,
         "ADDRESS": "website@intergen.africa",
         "PASSWORD": "h1W]LKIueAOJ",
         "USERNAME": "website"

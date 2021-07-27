@@ -3,8 +3,9 @@ import os
 
 import boto3
 from flask import current_app
-from flask_mail import Message
 import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 
 def load_config(file=os.path.abspath("./config.json")):
@@ -56,10 +57,13 @@ def send_mail(subject: str, message: str, recipient: list, sender="website@gmail
     address = config["MAIL"]["ADDRESS"]
     password = config["MAIL"]["PASSWORD"]
     smtp = smtplib.SMTP(host=host, port=port)
-    smtp.ehlo()
     smtp.starttls()
     smtp.login(address, password)
-    smtp.sendmail(address, recipient, message)
+    msg = MIMEMultipart()
+    msg["FROM"] = address
+    msg["Subject"] = subject
+    msg.attach(MIMEText(message, "html", "utf-8"))
+    smtp.send_message(msg)
 
 
 # file = open("config.json", "rb")

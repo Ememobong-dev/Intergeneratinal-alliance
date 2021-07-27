@@ -933,6 +933,12 @@ def get_in_touch():
         )
 
     if request.method == "POST":
+        message = f"Email : {request.json['email']}\nFullname : {request.json['full_name']}\nMessage : {request.json['message']}"
+        send_mail(
+            "GET IN TOUCH FORM RESPONSE",
+            message,
+            ["info@intergen.africa"],
+        )
         try:
             cursor.execute(
                 "SELECT * FROM get_in_touch WHERE message=%s ",
@@ -949,11 +955,7 @@ def get_in_touch():
                 )
                 db_connection.commit()
                 message = f"Email : {request.json['email']}\nFullname : {request.json['full_name']}\nMessage : {request.json['message']}"
-                send_mail(
-                    "GET IN TOUCH FORM RESPONSE",
-                    message,
-                    ["info@intergen.africa"],
-                )
+
                 return Response(status=200)
 
             msg = {"error": [f"field {request.json['message']}  already exists"]}
@@ -963,7 +965,7 @@ def get_in_touch():
             res = {"error": [f"This field {str(err)} is required"]}
             return Response(json.dumps(res), status=400, mimetype="application/json")
         except Exception as e:
-            print(e)
+            print("HERE we have the errle", e)
             return Response(status=400)
 
 
