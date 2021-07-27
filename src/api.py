@@ -328,13 +328,15 @@ def forum():
             )
             if cursor.fetchone() == None:
                 cursor.execute(
-                    "INSERT INTO forum (forum_name ,forum_cover_url , forum_report_cover_url , forum_report_file_url,forum_cover_shape ) VALUES (%s , %s , %s, %s,%s) ",
+                    "INSERT INTO forum (forum_name ,forum_location,forum_cover_url , forum_report_cover_url , forum_report_file_url,forum_cover_shape, forum_filer_url ) VALUES (%s , %s , %s, %s,%s, %s, %s) ",
                     (
                         request.json["forum_name"],
+                        request.json["forum_location"],
                         request.json["forum_cover_url"],
                         request.json["forum_report_cover_url"],
                         request.json["forum_report_file_url"],
                         request.json["forum_cover_shape"],
+                        request.json["forum_filer_url"],
                     ),
                 )
                 db_connection.commit()
@@ -369,13 +371,15 @@ def edit_forum(id):
     if request.method == "PUT":
         try:
             cursor.execute(
-                "UPDATE forum SET forum_name = %s ,forum_cover_url =%s , forum_report_cover_url = %s , forum_report_file_url = %s , forum_cover_shape = %s WHERE (id = %s)",
+                "UPDATE forum SET forum_name = %s , forum_location = %s , forum_cover_url =%s , forum_report_cover_url = %s , forum_report_file_url = %s , forum_cover_shape = %s, forum_flier_url = %s WHERE (id = %s)",
                 (
                     request.json["forum_name"],
+                    request.json["forum_location"],
                     request.json["forum_cover_url"],
                     request.json["forum_report_cover_url"],
                     request.json["forum_report_file_url"],
                     request.json["forum_cover_shape"],
+                    request.json["forum_filer_url"],
                     id,
                 ),
             )

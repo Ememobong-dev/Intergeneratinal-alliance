@@ -57,14 +57,17 @@ def send_mail(subject: str, message: str, recipient: str, sender="website@gmail.
     address = config["MAIL"]["ADDRESS"]
     password = config["MAIL"]["PASSWORD"]
     smtp = smtplib.SMTP(host=host, port=port)
+    smtp.ehlo()
     smtp.starttls()
+    smtp.ehlo()
     smtp.login(address, password)
     msg = MIMEMultipart()
     msg["From"] = address
     msg["Subject"] = subject
     msg["To"] = email
-    msg.attach(MIMEText(message, "html", "utf-8"))
-    smtp.send_message(msg)
+    msg.attach(MIMEText(message, "plain"))
+    text = msg.as_string()
+    smtp.sendmail(sender, recipient, text)
 
 
 # file = open("config.json", "rb")

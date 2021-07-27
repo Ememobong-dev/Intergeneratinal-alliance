@@ -12,9 +12,9 @@
     },
     "MAIL": {
         "SERVER": "mail.intergen.africa",
-        "PORT": 465,
+        "PORT": 26,
         "ADDRESS": "website@intergen.africa",
-        "PASSWORD": "h1W]LKIueAOJ",
+        "PASSWORD": "2AWUIpcC7xYh",
         "USERNAME": "website"
     },
     "SECRET_KEY": "6c0d1733ee8a06a2bdba07906429d126"
