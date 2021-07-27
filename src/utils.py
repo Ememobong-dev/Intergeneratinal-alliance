@@ -50,7 +50,7 @@ def upload_file_to_s3(file, folder: str, acl="public-read"):
         return str(e)
 
 
-def send_mail(subject: str, message: str, recipient: list, sender="website@gmail.com"):
+def send_mail(subject: str, message: str, recipient: str, sender="website@gmail.com"):
     config = load_config()
     host = config["MAIL"]["SERVER"]
     port = config["MAIL"]["PORT"]
@@ -60,8 +60,9 @@ def send_mail(subject: str, message: str, recipient: list, sender="website@gmail
     smtp.starttls()
     smtp.login(address, password)
     msg = MIMEMultipart()
-    msg["FROM"] = address
+    msg["From"] = address
     msg["Subject"] = subject
+    msg["To"] = email
     msg.attach(MIMEText(message, "html", "utf-8"))
     smtp.send_message(msg)
 

@@ -937,7 +937,7 @@ def get_in_touch():
         send_mail(
             "GET IN TOUCH FORM RESPONSE",
             message,
-            ["info@intergen.africa"],
+            "info@intergen.africa",
         )
         try:
             cursor.execute(
@@ -1047,7 +1047,7 @@ def participation_request():
                 send_mail(
                     "PARTICIPATION REQUEST FORM RESPONSE",
                     message,
-                    ["info@intergen.africa"],
+                    "info@intergen.africa",
                 )
                 return Response(status=200)
 
@@ -1139,7 +1139,7 @@ def forum_suggestion():
                 send_mail(
                     "FORUM SUGGESTION FORM RESPONSE",
                     message,
-                    ["info@intergen.africa"],
+                    "info@intergen.africa",
                 )
                 return Response(status=200)
 
