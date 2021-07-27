@@ -12,7 +12,7 @@
     },
     "MAIL": {
         "SERVER": "mail.intergen.africa",
-        "PORT": 465,
+        "PORT": 26,
         "ADDRESS": "website@intergen.africa",
         "PASSWORD": "h1W]LKIueAOJ",
         "USERNAME": "website"
